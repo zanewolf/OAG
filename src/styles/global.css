@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+* {
+    text-decoration: none;
+    list-style: none;
+    font-family: "Montserrat";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: hidden;
+    /*margin: 1vw 2vw 1vw 2vw;*/
+
+}
+
+/*.footer{*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*}*/
+
+:root {
+    --fixed-nav-bar-height: 5vh;
+    --media-nav-bar-height: 10vh;
+}
+
+.content {
+    /*margin-top: 6vh;*/
+    /*height: 100%;*/
+    /*margin-left: 0;*/
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*background-color: aqua;*/
+    height: auto;
+    min-height: 90vh;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    /*height: var(--fixed-nav-bar-height);*/
+    height: auto;
+    /*padding-top: 1vh;*/
+    /*background-color: #4c4e4c;*/
+    padding:0.5rem 0.8rem;
+    /*background-color: transparent;*/
+    background: rgba(0,0,0,0.2);
+}
+
+
+nav .website-title {
+    display: flex;
+    font-size: 2em;
+    font-weight: 500;
+    color: white;
+    align-content: center;
+    margin-left: 2vw;
+    cursor: pointer;
+
+}
+
+nav .website-title-small {
+    display: none;
+    font-size: 4em;
+    font-weight: 700;
+    color: white;
+    align-content: center;
+    margin-left: 2vw;
+    cursor: pointer;
+
+}
+
+nav .links {
+    display: inline-block;
+    text-align: right;
+    /*margin-top: 0.5em;*/
+    margin-top: 1vh;
+    margin-right: 2vw;
+    vertical-align: middle;
+    text-transform: uppercase;
+    padding-right: 10pt;
+}
+
+/*nav .links{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    padding: 0.5rem calc((100vw-1800px)/2);*/
+/*    z-index: 100;*/
+/*    position: relative;*/
+/*}*/
+nav .links a {
+    display: inline-block;
+    margin-left: 20px;
+    font-weight: 400;
+    padding-bottom: 8px;
+    border-bottom: 3px solid transparent;
+    color: #a8a7a7;
+}
+nav .links a:hover {
+    font-weight: 500;
+    transition: .5s;
+}
+
+
+nav .burger-bars {
+    display: none;
+    color: #fff;
+    background-color: transparent;
+    border-style: none;
+    mso-border-shadow: no;
+}
+
+/*button.burger-button{*/
+/*    display: none;*/
+/*    background-color: none;*/
+/*    border-style: none;*/
+/*    font-size: 30px;*/
+/*    color: white;*/
+/*    width: 10px;*/
+/*    float: right;*/
+/*    line-height: var(--fixed-nav-bar-height);*/
+/*    margin-right: 40px;*/
+/*    curser: pointer;*/
+
+/*}*/
+footer p{
+    float: bottom;
+    text-align: center;
+    color: #bbb;
+    margin: 40px auto;
+}
+
+nav .sideMenuLinks{
+    width: 100%;
+    height: auto;
+    margin-top: 10vh;
+}
+
+
+@media screen and (max-width: 768px){
+
+    nav {
+        height: 9vh;
+        /*background-color: transparent;*/
+    }
+
+    .content {
+        margin-top: 9vh;
+    }
+
+    nav .website-title {
+        display: none;
+        z-index: 10000;
+    }
+    nav .website-title-small{
+        display: flex;
+        z-index: 10000;
+    }
+
+    button.burger-bars {
+        display: block;
+        position: absolute;
+        vertical-align: middle;
+        top: 2vh;
+        right: 3vh;
+        font-size: 3.5em;
+        cursor: pointer;
+        background-color: none;
+    }
+
+    /*nav .burger-bars {*/
+    /*    */
+    /*}*/
+
+    .navbar{
+        display: inline-block;
+    }
+
+    nav .links {
+        display: none;
+    }
+
+    nav .sideMenuLinks {
+        position: fixed;
+        display: block;
+        height: 100%;
+        background: #0a6699;
+        left: 0;
+        text-align: center;
+        /*margin-top: 10vh;*/
+
+    }
+
+     nav .sideMenuLinks a{
+         display: block;
+         font-size: 4em;
+         color: #908d8d;
+         margin-bottom: 5vh;
+     }
+
+    nav .sideMenuLinks .links a:hover {
+        font-weight: bold;
+        /*color: rgba(74, 227, 19, 0.53);*/
+        /*border-color: rgba(74, 227, 19, 0.53);*/
+    }
+}
