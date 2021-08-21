@@ -111,6 +111,11 @@ const HeroH1 = styled.h1`
   font-size:3em;
   justify-content: center;
   align-items: center;
+  margin: auto 2vw;
+  
+  @media screen and (max-width: 1076px ){
+    text-align: center;
+}
 `
 //
 // const HeroH2 = styled.h2`

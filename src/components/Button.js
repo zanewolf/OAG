@@ -6,7 +6,7 @@ export const Button = styled.div`
   align-content: center;
   justify-content: center;
   border-radius: 8px;
-  width: 20vw;
+  width: ${({big})=>(big? '20vw': 'auto')};
   background: ${({primary}) => (primary? '#1040d9' : '#000')};
   white-space: nowrap;
   padding: ${({big})=>(big? "16px 64px" : "10px 20px")};
@@ -21,7 +21,7 @@ export const Button = styled.div`
     background: ${({primary}) => (primary? '#24ac1f' : '#20339a')};
   }
   @media screen and (max-width: 768px){
-    width: 50%;
+    width: ${({big})=>(big? '50vw': 'auto')};
     
   }
 `
