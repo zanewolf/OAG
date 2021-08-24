@@ -13,14 +13,8 @@ html, body {
     min-height: 100vh;
     min-width: 100vw;
     overflow-x: hidden;
-    /*margin: 1vw 2vw 1vw 2vw;*/
 
 }
-
-/*.footer{*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*}*/
 
 :root {
     -screen-nav-bar-height: 5vh;
@@ -28,56 +22,53 @@ html, body {
 }
 
 .content {
-    /*margin-top: 6vh;*/
-    /*height: 100%;*/
-    /*margin-left: 0;*/
-    /*position: relative;*/
-    /*width: 100%;*/
-    /*background-color: aqua;*/
     height: auto;
     min-height: 90vh;
 }
 
-nav {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    /*grid-template-columns: 1fr 1fr;*/
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    /*height: var(--fixed-nav-bar-height);*/
-    height: auto;
-    /*padding-top: 1vh;*/
-    /*background-color: #4c4e4c;*/
-    padding:0.5rem 0.8rem;
-    /*background-color: transparent;*/
-    background: rgba(0,0,0,0.4);
+/*nav {*/
+
+/*}*/
+
+
+/*nav .website-title {*/
+
+
+/*}*/
+
+/*nav .website-title-small {*/
+/*    display: none;*/
+
+
+/*}*/
+
+footer p{
+    float: bottom;
+    text-align: center;
+    color: #bbb;
+    margin: 40px auto;
 }
 
+@media screen and (max-width: 900px){
 
-nav .website-title {
-    display: flex;
-    font-size: 2em;
-    font-weight: 800;
-    color: white;
-    align-content: center;
-    align-items: flex-start;
-    margin: auto 2vw;
-    cursor: pointer;
+    nav {
+        height: var(--phone-nav-bar-height);
+    }
 
-}
 
-nav .website-title-small {
-    display: none;
-    font-size: 4em;
-    font-weight: 700;
-    color: white;
-    align-content: center;
-    margin-left: 2vw;
-    cursor: pointer;
+
+    /*!*.content {*!*/
+    /*!*    !*margin-top: var(--phone-nav-bar-height);*!*!*/
+    /*!*}*!*/
+
+    /*nav .website-title {*/
+    /*    display: none;*/
+    /*    z-index: 10000;*/
+    /*}*/
+    /*nav .website-title-small{*/
+    /*    display: flex;*/
+    /*    z-index: 10000;*/
+    /*}*/
 
 }
 
@@ -102,13 +93,13 @@ nav .website-title-small {
 /*}*/
 
 
-nav .burger-bars {
-    display: none;
-    color: #fff;
-    background-color: transparent;
-    border-style: none;
-    mso-border-shadow: no;
-}
+/*nav .burger-bars {*/
+/*    display: none;*/
+/*    color: #fff;*/
+/*    background-color: transparent;*/
+/*    border-style: none;*/
+/*    mso-border-shadow: no;*/
+/*}*/
 
 /*button.burger-button{*/
 /*    display: none;*/
@@ -123,87 +114,117 @@ nav .burger-bars {
 /*    curser: pointer;*/
 
 /*}*/
-footer p{
-    float: bottom;
-    text-align: center;
-    color: #bbb;
-    margin: 40px auto;
-}
 
-nav .sideMenuLinks{
-    width: 100%;
-    height: auto;
-    margin-top: 8vh;
-}
+/*nav .sideMenuLinks{*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    margin-top: 8vh;*/
+/*}*/
+
+/*#show{*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    justify-content: flex-end;*/
+/*}*/
+
+/*.show-menu-btn, .hide-menu-btn{*/
+/*    transition: 0.4s;*/
+/*    font-size: 30px;*/
+/*    cursor: pointer;*/
+/*    display: none;*/
+/*    color: #fff;*/
+/*}*/
+
+/*.show-menu-btn i{*/
+/*    display: none;*/
+/*}*/
+
+/*.show-menu-btn:hover, .hide-menu-btn:hover{*/
+/*    color: #24ce17;*/
+/*}*/
+
+/*#check{*/
+/*    position: absolute;*/
+/*    visibility: hidden;*/
+/*    z-index: -999;*/
+/*}*/
 
 
-@media screen and (max-width: 860px){
 
-    nav {
-        height: var(--phone-nav-bar-height);
-        justify-content: space-between;
-        /*background-color: transparent;*/
-        /*background-color: rgba(0,0,0,0.3);*/
-        /*justify-content: space-between;*/
-    }
 
-    .content {
-        /*margin-top: var(--phone-nav-bar-height);*/
-    }
 
-    nav .website-title {
-        display: none;
-        z-index: 10000;
-    }
-    nav .website-title-small{
-        display: flex;
-        z-index: 10000;
-    }
+/*button.burger-bars {*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    vertical-align: middle;*/
+/*    top: 2vh;*/
+/*    right: 3vh;*/
+/*    font-size: 3.5em;*/
+/*    cursor: pointer;*/
+/*    background-color: none;*/
+/*}*/
 
-    button.burger-bars {
-        display: block;
-        position: absolute;
-        vertical-align: middle;
-        top: 2vh;
-        right: 3vh;
-        font-size: 3.5em;
-        cursor: pointer;
-        background-color: none;
-    }
+/*nav .burger-bars {*/
+/*    */
+/*}*/
 
-    /*nav .burger-bars {*/
-    /*    */
-    /*}*/
+/*.navbar{*/
+/*    display: inline-block;*/
+/*}*/
 
-    /*.navbar{*/
-    /*    display: inline-block;*/
-    /*}*/
+/*nav .links {*/
+/*    display: none;*/
+/*}*/
 
-    nav .links {
-        display: none;
-    }
+/*nav .sideMenuLinks {*/
+/*    position: fixed;*/
+/*    display: block;*/
+/*    height: 100%;*/
+/*    background: #0a6699;*/
+/*    left: 0;*/
+/*    text-align: center;*/
 
-    nav .sideMenuLinks {
-        position: fixed;
-        display: block;
-        height: 100%;
-        background: #0a6699;
-        left: 0;
-        text-align: center;
+/*}*/
 
-    }
+/* nav .sideMenuLinks a{*/
+/*     display: block;*/
+/*     font-size: 4em;*/
+/*     color: #908d8d;*/
+/*     margin-bottom: 5vh;*/
+/*     margin-top: 2vh;*/
+/* }*/
 
-     nav .sideMenuLinks a{
-         display: block;
-         font-size: 4em;
-         color: #908d8d;
-         margin-bottom: 5vh;
-         margin-top: 2vh;
-     }
+/*nav .sideMenuLinks .links a:hover {*/
+/*    font-weight: bold;*/
+/*    !*color: rgba(74, 227, 19, 0.53);*!*/
+/*    !*border-color: rgba(74, 227, 19, 0.53);*!*/
+/*}*/
 
-    nav .sideMenuLinks .links a:hover {
-        font-weight: bold;
-        /*color: rgba(74, 227, 19, 0.53);*/
-        /*border-color: rgba(74, 227, 19, 0.53);*/
-    }
-}
+/*.show-menu-btn, .hide-menu-btn{*/
+/*    display: block;*/
+/*}*/
+
+/*.menu{*/
+/*    position: fixed;*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    background: #333;*/
+/*    right: -100%;*/
+/*    top: 0;*/
+/*    text-align: center;*/
+/*    padding: 80px 0;*/
+/*    transition: 0.7s;*/
+/*}*/
+
+/*.hide-menu-btn{*/
+/*    position: absolute;*/
+/*    top: 40px;*/
+/*    right: 40px;*/
+/*}*/
+/*.show-menu-btn{*/
+/*    display: block;*/
+/*}*/
+/*#check:checked ~ .menu{*/
+/*    right: 0;*/
+/*}*/

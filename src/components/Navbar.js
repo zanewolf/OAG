@@ -1,7 +1,7 @@
 import React from "react"
 import {Link, graphql, useStaticQuery} from 'gatsby'
 import * as styles from '../styles/global.css'
-import {FaBars} from 'react-icons/fa'
+import {FaBars, FaTimes} from 'react-icons/fa'
 import {menuData} from '../data/MenuData'
 import SideMenu from "./SideMenu";
 import styled from "styled-components";
@@ -13,9 +13,12 @@ let activeStyle = {
     borderBottom: `1px solid #fff`
 }
 
+let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC"
+
 export default function Navbar() {
 
     const [sideMenu, setSideMenu] = React.useState(false)
+    console.log(sideMenu)
 
     const toggleSideMenu = () => setSideMenu((sideMenu) => sideMenu === true? false: true)
 
@@ -33,61 +36,157 @@ export default function Navbar() {
     const { title } = data.site.siteMetadata
 
 
-    if (sideMenu === false){
+    // if (sideMenu === false){
         return (
-            // <div className={}>
-            <nav>
-                <Link className={"website-title"} to={"/"}>{title}</Link>
-                <Link className={"website-title-small"} to={"/"}>OAG</Link>
-                <MenuButtons>
-                    <MenuLinks>
-                        {menuData.map((item, index)=>(
-                            <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>
-                        ))}
-                    </MenuLinks>
-                    <NavBtn>
-                        <Button primary>Join Now</Button>
-                    </NavBtn>
-                </MenuButtons>
-                <button onClick={toggleSideMenu} className={"burger-bars"}><FaBars/></button>
-            </nav>
+            // <div>
+                <NavWrapper>
+                    {/*<NavTitle className={"website-title"} to={"/"}>{title}</NavTitle>*/}
+                    <NavTitleSmall className={"website-title-small"} to={"/"}>OAG</NavTitleSmall>
+                    {/*<NavInput type={"checkbox"} name={""} id={"check"}/>*/}
+
+                    <MenuWrapper >
+                        <MenuLinks>
+                            {menuData.map((item, index)=>(
+                                <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>
+                            ))}
+                        </MenuLinks>
+                        <JoinButton>
+                            <Button primary onClick={(e)=>{
+                                e.preventDefault();
+                                window.open(airTableForm);
+                            }}>
+                                Join Now
+                            </Button>
+                        </JoinButton>
+                        <NavBurger>
+                            <Button navburger onClick={toggleSideMenu}>
+                                <NavBars/>
+                            </Button>
+                        </NavBurger>
+                    </MenuWrapper>
+
+                    <div className={sideMenu===true? "sideBar": ""}>
+                        <MenuLinks>
+                            {menuData.map((item, index)=>(
+                                <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>
+                            ))}
+                        </MenuLinks>
+                    </div>
+                    {/*<button onClick={toggleSideMenu} className={"burger-bars"} id ="burgar-btns"><FaBars/></button>*/}
+                </NavWrapper>
+
         )
         // </div>
-    } else {
-        return (
-            <SideMenu
-                toggleSideMenu={toggleSideMenu}
-                title={title}
-            />
-        )
-    }
+    // } else {
+    //     return (
+    //         <div>
+    //             <NavWrapper>
+    //                 {/*<Link className={"website-title"} to={"/"}>{title}</Link>*/}
+    //                 <NavTitleSmall className={"website-title-small"} to={"/"}>OAG</NavTitleSmall>
+    //                     <JoinButton>
+    //                         <Button primary onClick={(e)=>{
+    //                             e.preventDefault();
+    //                             window.open(airTableForm);
+    //                         }}>
+    //                             Join Now
+    //                         </Button>
+    //                     </JoinButton>
+    //                 <button onClick={toggleSideMenu} className={"burger-bars"}><FaTimes/></button>
+    //             </NavWrapper>
+    //             <SideMenu toggleSideMenu={toggleSideMenu}>
+    //                 <MenuLinks>
+    //                     {menuData.map((item, index)=>(
+    //                         <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>
+    //                     ))}
+    //                 </MenuLinks>
+    //             </SideMenu>
+    //         </div>
+    //     )
+    // }
 }
 
-const MenuButtons = styled.div`
+const NavWrapper= styled.nav`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: auto;
+  padding:0.5rem 0.8rem;
+  background: rgba(0,0,0,0.4);
+  
+  @media screen and (max-width: 900px){
+    height: var(--phone-nav-bar-height);
+    display: flex;
+    flex-flow: row wrap;
+  }
+`
+const NavTitle=styled(Link)`
+  display: flex;
+  font-size: 2em;
+  font-weight: 800;
+  color: white;
+  align-content: center;
+  align-items: flex-start;
+  margin: auto 2vw;
+  cursor: pointer;
+  
+  @media screen and (max-width: 900px){
+    display: none;
+    //content: "OAG";
+
+    
+  }
+`
+const NavTitleSmall = styled(Link)`
+  display: none;
+  
+  @media screen and (max-width: 900px){
+    display: flex;
+    font-size: 4em;
+    font-weight: 700;
+    color: white;
+    align-content: center;
+    margin-left: 2vw;
+    cursor: pointer;
+    
+  }
+`
+
+const MenuWrapper = styled.div`
   display: flex;
   width: auto;
   flex-flow: row nowrap;
   text-transform: uppercase;
   justify-content: space-evenly;
+
   
   @media screen and (max-width: 1096px){
-    display: inline-flex;
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
   }
+
+  
+  
+
+  //@media screen and (max-width: 900px){
+  //  display: in;
+  //  margin: auto;
+  //  //margin: auto;
+  //}
 `
 const MenuLinks = styled.div`
   display: flex;
-  //flex-flow: row nowrap;
   position: relative;
-  //margin-right: 1vw;
 
-  
-  @media screen and (max-width: 860px){
+  @media screen and (max-width: 900px){
     display: none;
-  }
+    }
 
 `
-
 const NavLink = styled(Link)`
   color: #ddddde;
   text-align: center;
@@ -102,7 +201,8 @@ const NavLink = styled(Link)`
   }
 
 `
-const NavBtn=styled.div`
+
+const JoinButton=styled.div`
   display: flex;
   align-items: center;
   align-content: center;
@@ -113,8 +213,86 @@ const NavBtn=styled.div`
     display: flex;
     justify-content: center;
     align-content: center;
-    width: auto;
   }
 `
+
+const NavBurger = styled.div`
+  display: none;
+  color: #fff;
+  
+  @media screen and (max-width: 900px){
+    display: flex;
+    margin: auto 2vw;
+  }
+`
+
+const NavBars = styled(FaBars)`
+  
+  font-size: 2em;
+  
+`
+
+const SideBar=styled.div`
+  &.show{
+    top: 100px;
+    position: absolute;    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    
+  }
+`
+
+// const NavBurgerShow = styled.label`
+//   width: 100%;
+//   display: flex;
+//   justify-content: flex-end;
+//   transition: 0.4s;
+//   font-size: 30px;
+//   cursor: pointer;
+//   display: none;
+//   color: #fff;
+//
+//   //&i{
+//   //  display: none;
+//
+//     @media sreen and (max-width: 900px){
+//       display: block;
+//     }
+//
+//   //
+//   //@media screen and (max-width: 900px){
+//   //  > i{
+//   //    display: flex;
+//   //  }
+//   //}
+// `
+//
+// const NavBurgerHide = styled.label`
+//   transition: 0.4s;
+//   font-size: 30px;
+//   cursor: pointer;
+//   display: none;
+//
+//   @media sreen and (max-width: 900px){
+//     position: absolute;
+//     top: 40px;
+//     right: 40px;
+//   }
+//
+//
+// `
+//
+// const NavInput =styled.input`
+//   position: absolute;
+//   visibility: hidden;
+//   z-index: -999;
+//
+//
+//   &:checked {
+//     right: 0;
+//   }
+// `
+
 
 

@@ -7,7 +7,7 @@ export const Button = styled.div`
   justify-content: center;
   border-radius: 8px;
   width: ${({big})=>(big? '20vw': 'auto')};
-  background: ${({primary}) => (primary? '#1040d9' : '#000')};
+  background: ${({primary}) => (primary? '#1040d9' : 'transparent')};
   white-space: nowrap;
   padding: ${({big})=>(big? "16px 64px" : "10px 20px")};
   color: #fff;
@@ -16,12 +16,14 @@ export const Button = styled.div`
   border: none;
   cursor: pointer;
   &:hover{
-    transition: all 0-.3s ease-out;
+    transition: all 0.3s ease-out;
     background: #fff;
-    background: ${({primary}) => (primary? '#24ac1f' : '#20339a')};
+    background: ${({primary}) => (primary? '#24ac1f' : 'transparent')};
+    color: ${({navburger}) => (navburger? '#24ac1f' : '#fff')}
   }
-  @media screen and (max-width: 768px){
-    width: ${({big})=>(big? '50vw': 'auto')};
+  @media screen and (max-width: 900px){
+    width: ${({big})=>(big? '50vw': '30vw')};
+    font-size: 2em;
     
   }
 `
