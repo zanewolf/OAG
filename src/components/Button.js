@@ -7,7 +7,7 @@ export const Button = styled.div`
   justify-content: center;
   border-radius: 8px;
   width: ${({big})=>(big? '20vw': 'auto')};
-  background: ${({primary}) => (primary? '#1040d9' : 'transparent')};
+  background: ${({primary}) => (primary? '#1040d9' : 'none')};
   white-space: nowrap;
   padding: ${({big})=>(big? "16px 64px" : "10px 20px")};
   color: #fff;
@@ -22,8 +22,8 @@ export const Button = styled.div`
     color: ${({navburger}) => (navburger? '#24ac1f' : '#fff')}
   }
   @media screen and (max-width: 900px){
-    width: ${({big})=>(big? '50vw': '30vw')};
-    font-size: 2em;
+    width: ${({big})=>(big? '50vw': 'auto')};
+    font-size: ${({navburger}) => (navburger? '3em' : '2em')};
     
   }
 `
