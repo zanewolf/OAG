@@ -22,7 +22,7 @@ export default function Card({header, subheader, image, buttonText, buttonLink, 
             <button
                 type={"button"}
                 onClick={toggleToggle}
-                className = {style.cardContact}
+                // className = {style.cardContact}
             >
                 {buttonToggle ===false ? buttonText : buttonLink}
             </button>

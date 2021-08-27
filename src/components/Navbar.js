@@ -3,7 +3,6 @@ import {Link, graphql, useStaticQuery} from 'gatsby'
 import * as styles from '../styles/global.css'
 import {FaBars, FaTimes} from 'react-icons/fa'
 import {menuData} from '../data/MenuData'
-import SideMenu from "./SideMenu";
 import styled from "styled-components";
 import {Button} from "./Button";
 
@@ -47,7 +46,7 @@ export default function Navbar() {
                     <MenuWrapper >
                         <MenuLinks  className={sideMenu === true? "sideMenu": ""}>
                             {menuData.map((item, index)=>(
-                                <NavLink className={sideMenu === true? "sideMenu": ""} to={item.link} key={index} onClick = {toggleSideMenu} activeStyle={activeStyle}>{item.title}</NavLink>
+                                <NavLink className={sideMenu === true? "sideMenu": ""} to={item.link} key={index} onClick = {sideMenu === true? toggleSideMenu: null} activeStyle={activeStyle}>{item.title}</NavLink>
                             ))}
                         </MenuLinks>
                         <JoinButton>
