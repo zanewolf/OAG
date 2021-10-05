@@ -17,13 +17,21 @@ html, body {
 }
 
 :root {
-    -screen-nav-bar-height: 5vh;
+    --screen-nav-bar-height: 6vh;
     --phone-nav-bar-height: 9vh;
 }
 
 .content {
     height: auto;
     min-height: 90vh;
+}
+
+#fp-nav{
+    color: #fff;
+  }
+
+#fp-nav ul li a span {
+    background: #acacac !important;
 }
 
 /*nav {*/

@@ -1,18 +1,12 @@
 import * as React from 'react'
-import * as style from "../styles/card.module.css"
-import Directory from "../pages/Directory";
-import nullProfilePic from '../images/nullProfile.png'
-import styled from "styled-components";
-import TagSection from "./TagSection";
+import * as style from "../styles/teammember.module.css"
 
 
 
-export default function Card({header, subheader, image, buttonText, buttonLink, tags,children}){
 
-    const [buttonToggle, setButtonToggle] = React.useState(false)
-    let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true? false : true)
 
-    let imageSrc = image === undefined ? nullProfilePic : image
+export default function TeamCard({teamMember,children}){
+
 
     // const tagItems = tags.map((tag)=>{{tag}})
 
@@ -20,9 +14,9 @@ export default function Card({header, subheader, image, buttonText, buttonLink, 
 
     return (
         <div className={style.card}>
-            <img src={imageSrc} alt = {header} />
-            <h1>{header}</h1>
-            <h3> {subheader}</h3>
+            {/*<img src={imageSrc} alt = {header} />*/}
+            {/*<h1>{header}</h1>*/}
+            {/*<h3> {subheader}</h3>*/}
             {children}
 
             {/*<button*/}
@@ -32,8 +26,6 @@ export default function Card({header, subheader, image, buttonText, buttonLink, 
             {/*>*/}
             {/*    {buttonToggle ===false ? buttonText : buttonLink}*/}
             {/*</button>*/}
-            <TagSection
-                tags={tags}/>
 
             {/*<TagDiv>*/}
             {/*    {tags.map((tag)=>{*/}
@@ -48,4 +40,3 @@ export default function Card({header, subheader, image, buttonText, buttonLink, 
 
     )
 }
-
