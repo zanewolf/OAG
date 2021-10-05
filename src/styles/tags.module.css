@@ -1,0 +1,6 @@
+.tagSection ul li{
+    display: inline;
+    background: aqua;
+    padding: 2pt 10pt;
+    border-radius: 10pt;
+}

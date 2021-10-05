@@ -54,13 +54,13 @@ const IndexPage = (fullpageProps) => (
                                 </MissionDesc>
                             </MissionSection>
                         </div>
-                        <div className="section " data-menuanchor={"Recent Events"}id={"eventsSection"}>
-                            <EventsSection>
-                                <Events
-                                    // data={data}
-                                />
-                            </EventsSection>
-                        </div>
+                        {/*<div className="section " data-menuanchor={"Recent Events"}id={"eventsSection"}>*/}
+                        {/*    <EventsSection>*/}
+                        {/*        <Events*/}
+                        {/*            // data={data}*/}
+                        {/*        />*/}
+                        {/*    </EventsSection>*/}
+                        {/*</div>*/}
                     </div>
                 );
             }}
@@ -163,5 +163,6 @@ const EventsSection = styled.div`
   color: #fff;
   height: auto;
   min-height: 100vh;
+  padding-bottom: 5vh;
   padding-top: var(--phone-nav-bar-height)
 `

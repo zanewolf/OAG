@@ -3,5 +3,8 @@ export const menuData=[
     {title: "Directory", link: "/Directory"},
     // {title: "Blog", link: "/blog"},
     // {title: "Test", link: "/Test"},
-    {title: "Archives", link: "/projects"}
+    {title: "Events", link: "/projects"},
+    {title:"Team", link: '/Team'}
 ]
+
+

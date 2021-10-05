@@ -11,9 +11,9 @@ const Layout = ({ pageTitle, children }) => {
             <div className={"content"}>
                 {children}
             </div>
-            <footer>
-                <p> Copyright 2021 Zane Wolf</p>
-            </footer>
+            {/*<footer>*/}
+            {/*    <p> Copyright 2021 Zane Wolf</p>*/}
+            {/*</footer>*/}
         </div>
     )
 }
