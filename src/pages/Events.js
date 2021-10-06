@@ -52,7 +52,7 @@ const EventPage = () => {
 // }
 
     return (
-        <Layout pageTitle="About Me">
+        <Layout pageTitle="Team Me">
             <Hero
                 title={"Our Mission, should you choose to accept it"}
                 size={"50vh"}
