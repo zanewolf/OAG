@@ -3,14 +3,13 @@ import {Link, graphql, useStaticQuery} from 'gatsby'
 import * as styles from '../styles/global.css'
 import {FaBars, FaTimes} from 'react-icons/fa'
 import {menuData} from '../data/MenuData'
-import SideMenu from "./SideMenu";
 import styled from "styled-components";
 import {Button} from "./Button";
 
 let activeStyle = {
     color: 'rgb(255,255,255)',
     fontWeight: 700,
-    borderBottom: `1px solid #fff`
+    // borderBottom: `1px solid #fff`
 }
 
 let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC"
@@ -40,14 +39,14 @@ export default function Navbar() {
         return (
             // <div>
                 <NavWrapper>
-                    {/*<NavTitle className={"website-title"} to={"/"}>{title}</NavTitle>*/}
+                    <NavTitle className={"website-title"} to={"/"}>{title}</NavTitle>
                     <NavTitleSmall className={"website-title-small"} to={"/"}>OAG</NavTitleSmall>
                     {/*<NavInput type={"checkbox"} name={""} id={"check"}/>*/}
 
                     <MenuWrapper >
-                        <MenuLinks>
+                        <MenuLinks  className={sideMenu === true? "sideMenu": ""}>
                             {menuData.map((item, index)=>(
-                                <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>
+                                <NavLink className={sideMenu === true? "sideMenu": ""} to={item.link} key={index} onClick = {sideMenu === true? toggleSideMenu: null} activeStyle={activeStyle}>{item.title}</NavLink>
                             ))}
                         </MenuLinks>
                         <JoinButton>
@@ -59,19 +58,20 @@ export default function Navbar() {
                             </Button>
                         </JoinButton>
                         <NavBurger>
-                            <Button navburger onClick={toggleSideMenu}>
-                                <NavBars/>
+                            <Button navburger fontBig onClick={toggleSideMenu}>
+                                {sideMenu === true? <FaTimes/>: <FaBars/>}
+                                {/*<NavBars/>*/}
                             </Button>
                         </NavBurger>
                     </MenuWrapper>
 
-                    <div className={sideMenu===true? "sideBar": ""}>
-                        <MenuLinks>
-                            {menuData.map((item, index)=>(
-                                <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>
-                            ))}
-                        </MenuLinks>
-                    </div>
+                    {/*<div className={sideMenu===true? "sideBar": ""}>*/}
+                    {/*    <MenuLinks>*/}
+                    {/*        {menuData.map((item, index)=>(*/}
+                    {/*            <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>*/}
+                    {/*        ))}*/}
+                    {/*    </MenuLinks>*/}
+                    {/*</div>*/}
                     {/*<button onClick={toggleSideMenu} className={"burger-bars"} id ="burgar-btns"><FaBars/></button>*/}
                 </NavWrapper>
 
@@ -120,8 +120,6 @@ const NavWrapper= styled.nav`
   
   @media screen and (max-width: 900px){
     height: var(--phone-nav-bar-height);
-    display: flex;
-    flex-flow: row wrap;
   }
 `
 const NavTitle=styled(Link)`
@@ -182,9 +180,22 @@ const MenuLinks = styled.div`
   display: flex;
   position: relative;
 
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 900px) {
     display: none;
-    }
+  }
+
+  &.sideMenu {
+    display: inline-flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2em;
+    margin-top: var(--phone-nav-bar-height);
+    width: 100vw;
+    height: 100vh;
+    background-color: #025cee;
+  }
 
 `
 const NavLink = styled(Link)`
@@ -198,6 +209,11 @@ const NavLink = styled(Link)`
   &:hover {
     transition: 0.5s;
     font-weight: 700;
+  }
+  
+  &.sideMenu{
+    margin: 4vw;
+    font-size: 3em;
   }
 
 `
@@ -220,28 +236,18 @@ const NavBurger = styled.div`
   display: none;
   color: #fff;
   
+  
   @media screen and (max-width: 900px){
     display: flex;
     margin: auto 2vw;
-  }
-`
-
-const NavBars = styled(FaBars)`
-  
-  font-size: 2em;
-  
-`
-
-const SideBar=styled.div`
-  &.show{
-    top: 100px;
-    position: absolute;    
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
     
   }
 `
+
+// const NavBars = styled(FaBars)`
+//   font-size: 2em;
+//
+// `
 
 // const NavBurgerShow = styled.label`
 //   width: 100%;
