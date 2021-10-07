@@ -6,14 +6,17 @@ yarn-debug.log*
 yarn-error.log*
 
 
+#environmental variables
+.env
+
+
 # Optional npm cache directory
 .npm
+.cache=
+
 
 node_modules/
 
-
-# dotenv environment variable files
-.env*
 
 
 # Mac files
@@ -25,8 +28,4 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
+
