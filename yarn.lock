@@ -6548,6 +6548,15 @@
   "resolved" "https://registry.npmjs.org/fs-exists-cached/-/fs-exists-cached-1.0.0.tgz"
   "version" "1.0.0"
 
+"fs-extra@^10.0.0":
+  "integrity" "sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ=="
+  "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-10.0.0.tgz"
+  "version" "10.0.0"
+  dependencies:
+    "graceful-fs" "^4.2.0"
+    "jsonfile" "^6.0.1"
+    "universalify" "^2.0.0"
+
 "fs-extra@^8.1.0":
   "integrity" "sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g=="
   "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-8.1.0.tgz"
@@ -6768,6 +6777,17 @@
     "unist-util-map" "^1.0.5"
     "unist-util-remove" "^1.0.3"
     "unist-util-visit" "^1.4.1"
+
+"gatsby-plugin-netlify@^3.14.0":
+  "integrity" "sha512-+lv5i0IhtIHFecP3uL6u/vF0DzDBGlkGzPyPIhgM1krZqlLy2LzKos1nyCMoi7aHm54/B8DENl4J+hMCkC0wjQ=="
+  "resolved" "https://registry.npmjs.org/gatsby-plugin-netlify/-/gatsby-plugin-netlify-3.14.0.tgz"
+  "version" "3.14.0"
+  dependencies:
+    "@babel/runtime" "^7.14.8"
+    "fs-extra" "^10.0.0"
+    "kebab-hash" "^0.1.2"
+    "lodash" "^4.17.21"
+    "webpack-assets-manifest" "^5.0.6"
 
 "gatsby-plugin-page-creator@^3.10.0":
   "integrity" "sha512-3DJUxqEcEyvAq3uoPP3MZIrlibruMkaG7vb0g6WOucA5kd6D/4Q7ghb6DT5WU0IKpOy6MNuH1c2Qba7KMpS4jQ=="
@@ -7043,7 +7063,7 @@
   dependencies:
     "@babel/core" "^7.14.6"
 
-"gatsby@^3.0.0-next.0", "gatsby@^3.10.2":
+"gatsby@^3.0.0", "gatsby@^3.0.0-next.0", "gatsby@^3.10.2":
   "integrity" "sha512-O4Pp1wA20Opkv4OxFkc7asjh9FB/yZxkQcI1FIeDZSUxjPV6PN9smgAy13aVM3dFNp6fMSZkN8pyWQoKc2q1sg=="
   "resolved" "https://registry.npmjs.org/gatsby/-/gatsby-3.10.2.tgz"
   "version" "3.10.2"
