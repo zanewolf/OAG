@@ -12,7 +12,7 @@ yarn-error.log*
 
 # Optional npm cache directory
 .npm
-.cache=
+.cache/
 
 
 node_modules/
