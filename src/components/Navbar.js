@@ -1,6 +1,5 @@
-import React from "react"
-import {Link, graphql, useStaticQuery} from 'gatsby'
-import * as styles from '../styles/global.css'
+import React from "react";
+import {Link, graphql, useStaticQuery} from 'gatsby';
 import {FaBars, FaTimes} from 'react-icons/fa'
 import {menuData} from '../data/MenuData'
 import styled from "styled-components";

@@ -1,8 +1,6 @@
 import * as React from 'react'
-import * as style from "../styles/card.module.css"
-import Directory from "../pages/Directory";
-import nullProfilePic from '../images/nullProfile.png'
-import styled from "styled-components";
+import * as style from "../styles/card.module.css";
+import nullProfilePic from '../images/nullProfile.png';
 import TagSection from "./TagSection";
 
 
@@ -13,10 +11,6 @@ export default function Card({header, subheader, image, buttonText, buttonLink, 
     let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true? false : true)
 
     let imageSrc = image === undefined ? nullProfilePic : image
-
-    // const tagItems = tags.map((tag)=>{{tag}})
-
-    // console.log(tagItems)
 
     return (
         <div className={style.card}>
@@ -34,15 +28,6 @@ export default function Card({header, subheader, image, buttonText, buttonLink, 
             {/*</button>*/}
             <TagSection
                 tags={tags}/>
-
-            {/*<TagDiv>*/}
-            {/*    {tags.map((tag)=>{*/}
-            {/*        <li>*/}
-            {/*            {tag.toLocaleString()}*/}
-            {/*        </li>*/}
-            {/*    })}*/}
-            {/*</TagDiv>*/}
-
 
         </div>
 

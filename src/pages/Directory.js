@@ -1,11 +1,8 @@
-import * as React from 'react'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import * as React from 'react';
 import Layout from "../components/Layout";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Card from "../components/Card";
-import * as style from "../styles/directory.module.css";
-import { FaUser, FaStar, FaMapMarker, FaExternalLinkAlt } from 'react-icons/fa'
-import Hero from "../components/Hero";
+import { FaMapMarker, FaExternalLinkAlt } from 'react-icons/fa';
 import styled from "styled-components";
 import {Button} from "../components/Button";
 

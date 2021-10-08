@@ -1,14 +1,9 @@
-import * as React from 'react'
-// import {useRef} from 'react'
-// import { Link } from 'gatsby'
+import * as React from 'react';
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
-import ocean from '../images/ocean2.jpg';
-import ocean3 from '../images/ocean3.jpg'
-import {Button} from "../components/Button";
+import ocean3 from '../images/ocean3.jpg';
 import styled from "styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
-import Events from "../components/Events";
 
 const anchors = ["Home", "Mission", "Past Events"]
 
@@ -157,12 +152,12 @@ const MissionDesc=styled.div`
   }
 
 `
-
-const EventsSection = styled.div`
-  background: black;
-  color: #fff;
-  height: auto;
-  min-height: 100vh;
-  padding-bottom: 5vh;
-  padding-top: var(--phone-nav-bar-height)
-`
+//
+// const EventsSection = styled.div`
+//   background: black;
+//   color: #fff;
+//   height: auto;
+//   min-height: 100vh;
+//   padding-bottom: 5vh;
+//   padding-top: var(--phone-nav-bar-height)
+// `

@@ -1,6 +1,4 @@
-import * as React from 'react'
-import {useStaticQuery, graphql, Link } from 'gatsby'
-import * as styles from '../styles/global.css'
+import * as React from 'react';
 import Navbar from "./Navbar";
 
 const Layout = ({ pageTitle, children }) => {

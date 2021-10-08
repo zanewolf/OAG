@@ -1,8 +1,7 @@
 import React from "react"
 import {Link, graphql, useStaticQuery} from 'gatsby'
-import Layout from "./Layout"
 import {portfolio,projectCard } from '../styles/projects.module.css'
-import {GatsbyImage, getImage} from 'gatsby-plugin-image'
+import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 
 export default function Events() {
     

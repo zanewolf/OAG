@@ -1,9 +1,8 @@
-import * as React from 'react'
+import * as React from 'react';
 import Hero from "../components/Hero";
 import {Button} from "../components/Button";
 import Layout from "../components/Layout";
 import ocean from '../images/ocean.jpg';
-// import ReactFullpage from "@fullpage/react-fullpage/components/ReactFullpage";
 
 const EventPage = () => {
 

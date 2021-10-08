@@ -1,12 +1,6 @@
 import React from 'react'
 import Layout from "../components/Layout";
-import Hero from "../components/Hero";
-import ReactFullpage from "@fullpage/react-fullpage";
-import ocean3 from "../images/ocean3.jpg";
-import Events from "../components/Events";
 import {teamData} from "../data/TeamData";
-import nullProfilePic from '../images/nullProfile.png'
-import TeamCard from "../components/TeamCard";
 
 import styled from "styled-components";
 

@@ -1,7 +1,7 @@
-import * as React from 'react'
-import Layout from '../../components/Layout'
+import * as React from 'react';
+import Layout from '../../components/Layout';
 import {graphql} from "gatsby";
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 
 const BlogPost = ({ data }) => {

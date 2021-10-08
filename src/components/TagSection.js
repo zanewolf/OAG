@@ -1,6 +1,5 @@
-import React from 'react'
+import React from 'react';
 import styled from "styled-components";
-import * as styles from "../styles/tags.module.css"
 
 export default function TagSection({tags}) {
 

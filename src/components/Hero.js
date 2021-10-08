@@ -1,9 +1,6 @@
 import React from 'react';
-// import {Button} from "../Button"
 import styled from 'styled-components';
-import {Image} from 'gatsby-plugin-image'
-import '../styles/hero.module.css'
-import ReactFullpage from "@fullpage/react-fullpage";
+import '../styles/hero.module.css';
 
 export default function Hero({title, size, image,darkened, color, children}){
     // let heroImage = image? image : "../images/ocean.png"
