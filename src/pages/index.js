@@ -3,7 +3,10 @@ import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import ocean3 from '../images/ocean3.jpg';
 import styled from "styled-components";
-import ReactFullpage from "@fullpage/react-fullpage";
+import {ReactFullpage} from "@fullpage/react-fullpage";
+
+// import ReactFullpage from "@fullpage/react-fullpage/dist/react-fullpage-commonjs";
+
 
 const anchors = ["Home", "Mission", "Past Events"]
 
