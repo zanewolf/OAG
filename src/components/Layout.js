@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Navbar from "./Navbar";
+import * as styles from '../styles/global.css'
 
 const Layout = ({ pageTitle, children }) => {
 

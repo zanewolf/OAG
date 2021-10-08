@@ -10,56 +10,56 @@ const anchors = ["Home", "Mission", "Past Events"]
 const IndexPage = (fullpageProps) => (
     // console.log(data)
     <Layout pageTitle="Home">
-        <ReactFullpage
-            navigation
-            // scrollBar={true}
-            // fitToSectionDelay={500}
-            scrollOverflow={true}
-            navigationTooltips={anchors}
-            // normalScrollElements={"#eventsSection"}
-            // autoScrolling={false}
-            bigSectionDestination={"top"}
-            {...fullpageProps}
-            render={({ state, fullpageApi }) => {
-                console.log("render prop change", state); // eslint-disable-line no-console
+        {/*<ReactFullpage*/}
+        {/*    navigation*/}
+        {/*    // scrollBar={true}*/}
+        {/*    // fitToSectionDelay={500}*/}
+        {/*    scrollOverflow={true}*/}
+        {/*    navigationTooltips={anchors}*/}
+        {/*    // normalScrollElements={"#eventsSection"}*/}
+        {/*    // autoScrolling={false}*/}
+        {/*    bigSectionDestination={"top"}*/}
+        {/*    {...fullpageProps}*/}
+        {/*    render={({ state, fullpageApi }) => {*/}
+        {/*        console.log("render prop change", state); // eslint-disable-line no-console*/}
 
-                if (state.callback === "onLeave") {
-                    if (state.direction === "down") {
-                        console.log("going down..." + state.origin.index);
-                    }
-                }
-                return (
-                    <div id="fullpage-wrapper">
-                        <div className="section section1" data-menuanchor={"Home"}>
-                            <Hero
-                                title={"Connecting Oceans, Connecting People"}
-                                size={"100vh"}
-                                image={ocean3}
-                                darkened
-                                id={"hero1"}
+        {/*        if (state.callback === "onLeave") {*/}
+        {/*            if (state.direction === "down") {*/}
+        {/*                console.log("going down..." + state.origin.index);*/}
+        {/*            }*/}
+        {/*        }*/}
+        {/*        return (*/}
+        {/*            <div id="fullpage-wrapper">*/}
+        {/*                <div className="section section1" data-menuanchor={"Home"}>*/}
+        {/*                    <Hero*/}
+        {/*                        title={"Connecting Oceans, Connecting People"}*/}
+        {/*                        size={"100vh"}*/}
+        {/*                        image={ocean3}*/}
+        {/*                        darkened*/}
+        {/*                        id={"hero1"}*/}
 
-                            />
-                        </div>
-                        <div className="section" data-menuanchor={"Mission"}>
-                            <MissionSection>
-                                <SectionHeader> We're all in this together</SectionHeader>
-                                <MissionDesc>
-                                    <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>
-                                    <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
-                                </MissionDesc>
-                            </MissionSection>
-                        </div>
-                        {/*<div className="section " data-menuanchor={"Recent Events"}id={"eventsSection"}>*/}
-                        {/*    <EventsSection>*/}
-                        {/*        <Events*/}
-                        {/*            // data={data}*/}
-                        {/*        />*/}
-                        {/*    </EventsSection>*/}
-                        {/*</div>*/}
-                    </div>
-                );
-            }}
-        />
+        {/*                    />*/}
+        {/*                </div>*/}
+        {/*                <div className="section" data-menuanchor={"Mission"}>*/}
+        {/*                    <MissionSection>*/}
+        {/*                        <SectionHeader> We're all in this together</SectionHeader>*/}
+        {/*                        <MissionDesc>*/}
+        {/*                            <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>*/}
+        {/*                            <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>*/}
+        {/*                        </MissionDesc>*/}
+        {/*                    </MissionSection>*/}
+        {/*                </div>*/}
+        {/*                /!*<div className="section " data-menuanchor={"Recent Events"}id={"eventsSection"}>*!/*/}
+        {/*                /!*    <EventsSection>*!/*/}
+        {/*                /!*        <Events*!/*/}
+        {/*                /!*            // data={data}*!/*/}
+        {/*                /!*        />*!/*/}
+        {/*                /!*    </EventsSection>*!/*/}
+        {/*                /!*</div>*!/*/}
+        {/*            </div>*/}
+        {/*        );*/}
+        {/*    }}*/}
+        {/*/>*/}
     </Layout>
 );
 

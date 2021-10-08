@@ -5,6 +5,8 @@ import {menuData} from '../data/MenuData'
 import styled from "styled-components";
 import {Button} from "./Button";
 
+import * as styles from '../styles/global.css'
+
 let activeStyle = {
     color: 'rgb(255,255,255)',
     fontWeight: 700,
