@@ -35,25 +35,25 @@ const IndexPage = (fullpageProps) => (
                             </button>
                         </div>
                         {/*<div id="fullpage-wrapper">*/}
-                        <div className="section section1" data-menuanchor={"Home"}>
-                            <Hero
-                                title={"Connecting Oceans, Connecting People"}
-                                size={"100vh"}
-                                image={ocean3}
-                                darkened
-                                id={"hero1"}
+                        {/*<div className="section section1" data-menuanchor={"Home"}>*/}
+                        {/*    <Hero*/}
+                        {/*        title={"Connecting Oceans, Connecting People"}*/}
+                        {/*        size={"100vh"}*/}
+                        {/*        image={ocean3}*/}
+                        {/*        darkened*/}
+                        {/*        id={"hero1"}*/}
 
-                            />
-                        </div>
-                        <div className="section" data-menuanchor={"Mission"}>
-                            <MissionSection>
-                                <SectionHeader> We're all in this together</SectionHeader>
-                                <MissionDesc>
-                                    <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>
-                                    <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
-                                </MissionDesc>
-                            </MissionSection>
-                        </div>
+                        {/*    />*/}
+                        {/*</div>*/}
+                        {/*<div className="section" data-menuanchor={"Mission"}>*/}
+                        {/*    <MissionSection>*/}
+                        {/*        <SectionHeader> We're all in this together</SectionHeader>*/}
+                        {/*        <MissionDesc>*/}
+                        {/*            <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>*/}
+                        {/*            <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>*/}
+                        {/*        </MissionDesc>*/}
+                        {/*    </MissionSection>*/}
+                        {/*</div>*/}
                     {/*</div>*/}
 
                     </div>
