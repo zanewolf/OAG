@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import ocean3 from '../images/ocean3.jpg';
 import styled from "styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
-
+// import ReactFullpage from "@fullpage/react-fullpage/dist/react-fullpage-commonjs";
 
 const anchors = ["Home", "Mission", "Past Events"]
 
@@ -14,57 +14,95 @@ const fullpageOptions = {
     callbacks: ['onLeave', 'afterLoad'],
 }
 
-const IndexPage = (fullpageProps) => (
-    <Layout>
-        <ReactFullpage
-            {...fullpageOptions}
-            render={({ state, fullpageApi }) => {
+class IndexPage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-                return (
-                    <div id="fullpage-wrapper">
-                        <div className="section section1">
-                            <h3>Section 1</h3>
-                            <button onClick={() => {fullpageApi.moveSectionDown()}}>
-                                Move down
-                            </button>
-                        </div>
-                        <div className="section section2">
-                            <h3>Section 1</h3>
-                            <button onClick={() => {fullpageApi.moveSectionUp()}}>
-                                Move Up
-                            </button>
-                        </div>
-                        {/*<div id="fullpage-wrapper">*/}
-                        {/*<div className="section section1" data-menuanchor={"Home"}>*/}
-                        {/*    <Hero*/}
-                        {/*        title={"Connecting Oceans, Connecting People"}*/}
-                        {/*        size={"100vh"}*/}
-                        {/*        image={ocean3}*/}
-                        {/*        darkened*/}
-                        {/*        id={"hero1"}*/}
+    onLeave() {
+        console.log('on leave', arguments);
+    }
 
-                        {/*    />*/}
-                        {/*</div>*/}
-                        {/*<div className="section" data-menuanchor={"Mission"}>*/}
-                        {/*    <MissionSection>*/}
-                        {/*        <SectionHeader> We're all in this together</SectionHeader>*/}
-                        {/*        <MissionDesc>*/}
-                        {/*            <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>*/}
-                        {/*            <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>*/}
-                        {/*        </MissionDesc>*/}
-                        {/*    </MissionSection>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
+    render() {
+        return (
+            <Layout>
+                <div>
+                    <Hero
+                        title={"Connecting Oceans, Connecting People"}
+                        size={"100vh"}
+                        image={ocean3}
+                        darkened
+                        id={"hero1"}
 
-                    </div>
-                )
-            }}
-        />
-    </Layout>
-)
+                    />
+                        <MissionSection>
+                            <SectionHeader> We're all in this together</SectionHeader>
+                            <MissionDesc>
+                                <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>
+                                <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
+                            </MissionDesc>
+                        </MissionSection>
 
+
+                </div>
+            </Layout>
+        );
+    }
+};
 
 export default IndexPage;
+
+// const IndexPage = (fullpageProps) => (
+//     <Layout>
+//         <ReactFullpage
+//             {...fullpageOptions}
+//             render={({ state, fullpageApi }) => {
+//
+//                 return (
+//                     <div id="fullpage-wrapper">
+//                         <div className="section section1">
+//                             <h3>Section 1</h3>
+//                             <button onClick={() => {fullpageApi.moveSectionDown()}}>
+//                                 Move down
+//                             </button>
+//                         </div>
+//                         <div className="section section2">
+//                             <h3>Section 1</h3>
+//                             <button onClick={() => {fullpageApi.moveSectionUp()}}>
+//                                 Move Up
+//                             </button>
+//                         </div>
+//                         {/*<div id="fullpage-wrapper">*/}
+//                         {/*<div className="section section1" data-menuanchor={"Home"}>*/}
+//                         {/*    <Hero*/}
+//                         {/*        title={"Connecting Oceans, Connecting People"}*/}
+//                         {/*        size={"100vh"}*/}
+//                         {/*        image={ocean3}*/}
+//                         {/*        darkened*/}
+//                         {/*        id={"hero1"}*/}
+//
+//                         {/*    />*/}
+//                         {/*</div>*/}
+//                         {/*<div className="section" data-menuanchor={"Mission"}>*/}
+//                         {/*    <MissionSection>*/}
+//                         {/*        <SectionHeader> We're all in this together</SectionHeader>*/}
+//                         {/*        <MissionDesc>*/}
+//                         {/*            <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>*/}
+//                         {/*            <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>*/}
+//                         {/*        </MissionDesc>*/}
+//                         {/*    </MissionSection>*/}
+//                         {/*</div>*/}
+//                     {/*</div>*/}
+//
+//                     </div>
+//                 )
+//             }}
+//         />
+//     </Layout>
+// )
+//
+//
+// export default IndexPage;
 
 // const IndexPage = ({fullpageProps}) => (
 //

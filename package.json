@@ -15,7 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@fullpage/react-fullpage": "^0.1.19",
+    "@fullpage/react-fullpage": "^0.1.2",
     "babel-plugin-styled-components": "^1.13.2",
     "dotenv": "^10.0.0",
     "flexbox-react": "^4.4.0",
