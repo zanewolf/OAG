@@ -9,7 +9,7 @@ export default function Hero({title, size, image,darkened, color, children}){
     return(
         // <div className={"hero-container"}>
         <HeroContainer size={size}>
-            <HeroImage image={image} size={size} color={color} darkened/>
+            <HeroImage image={image} size={size} color={color}/>
             <HeroContent>
                 <HeroH1>
                     {title}
@@ -64,6 +64,7 @@ const HeroContainer = styled.div`
 const HeroContent = styled.div`
   
   background: transparent;
+  //width: 100%;
   justify-content: center;
   display: flex;
   margin: 5vh auto;

@@ -2,6 +2,8 @@ import * as React from 'react';
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import ocean3 from '../images/ocean3.jpg';
+
+import ocean3_gradient from '../images/ocean3_gradient.jpg';
 import styled from "styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
 // import ReactFullpage from "@fullpage/react-fullpage/dist/react-fullpage-commonjs";
@@ -14,16 +16,16 @@ const fullpageOptions = {
     callbacks: ['onLeave', 'afterLoad'],
 }
 
-class IndexPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    onLeave() {
-        console.log('on leave', arguments);
-    }
-
-    render() {
+export default function IndexPage() {
+    // constructor(props) {
+    //     super(props);
+    // }
+    //
+    // onLeave() {
+    //     console.log('on leave', arguments);
+    // }
+    //
+    // render() {
         return (
             <Layout>
                 <div>
@@ -31,10 +33,15 @@ class IndexPage extends React.Component {
                         title={"Connecting Oceans, Connecting People"}
                         size={"100vh"}
                         image={ocean3}
-                        darkened
                         id={"hero1"}
 
                     />
+                    <Hero
+                        size={"100vh"}
+                        image={ocean3_gradient}
+                        id={"hero2"}
+
+                    >
                         <MissionSection>
                             <SectionHeader> We're all in this together</SectionHeader>
                             <MissionDesc>
@@ -42,15 +49,15 @@ class IndexPage extends React.Component {
                                 <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
                             </MissionDesc>
                         </MissionSection>
-
+                    </Hero>
 
                 </div>
             </Layout>
         );
-    }
+    // }
 };
 
-export default IndexPage;
+// export default IndexPage;
 
 // const IndexPage = (fullpageProps) => (
 //     <Layout>
@@ -195,9 +202,9 @@ const MissionSection=styled.div`
   justify-content: space-evenly;
   align-items: center;
   //align-content: center;
-  padding: 2em 2em;
+  //padding: 2em 2em;
   margin: auto;
-  background: linear-gradient(to bottom, rgb(0, 36, 73), rgba(0, 0, 0, 1));
+  //background: linear-gradient(to bottom, rgb(0, 36, 73), rgba(0, 0, 0, 1));
   color: #fff;
 
   @media screen and (max-width: 768px) {
@@ -225,11 +232,11 @@ const SectionHeader=styled.h2`
 const MissionDesc=styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   //align-content: center;
   max-width: 50vw;
   line-height: 1.6;
-  height: auto;
+  height: 40vh;
 
 
   @media screen and (max-width: 768px){

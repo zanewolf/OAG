@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from "../components/Layout";
 import {teamData} from "../data/TeamData";
+import ocean3 from '../images/ocean3.jpg';
 
 import styled from "styled-components";
 
@@ -11,7 +12,7 @@ export default function Team(){
 
     return (
         <Layout pageTitle={"Team"}>
-            <TeamPage>
+            <TeamPage image={ocean3}>
                 {teamData.map((teamMember,i)=>{
                     return(
                         <TeamMember className={'teamBlock'}>
@@ -76,31 +77,39 @@ export default function Team(){
 // export default Team
 
 const TeamPage = styled.div`
-  margin-top: var(--screen-nav-bar-height);
+  padding-top: var(--screen-nav-bar-height);
+  top: 0;
+  left: 0;
   height: auto;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 5vw;
+  padding-bottom: 5vw;
+  //padding-bottom: 10vw;
+  background: url(${({image})=>(image ? image : null)});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
 
 
   @media screen and (max-width: 900px){
-    margin-top: var(--phone-nav-bar-height);
+    margin-top: 13vh;
     padding-top: 2vh;
   }
 `
 const TeamMember = styled.div`
   margin-top: var(--screen-nav-bar-height);
-  height: 60vh;
+  height: 50vh;
   width: 70vw;
   //background-color: aquamarine;
   display: flex;
   flex-flow: row nowrap;
   align-content: center;
   justify-content: space-between;
+  padding-bottom: 5vh;
+  background: rgba(0,0,0,0.7);
 
   @media screen and (max-width: 886px){
     flex-flow: column wrap;
@@ -124,7 +133,9 @@ const TeamPicture = styled.img`
   //display: flex;
   //justify-content: center;
   width: 30vw;
-  //max-width: 30vw;
+  height: 50vh;
+  //max-width: 3
+  // 0vw;
   //max-width: 40vw;
   //margin-right: 1vw;
   //margin-left: 1vw;
@@ -142,6 +153,9 @@ const TeamMemberInfo = styled.div`
   width: 30vw;
   align-content: center;
   justify-content: center;
+  color: white;
+  margin: auto auto;
+  //text-justify: center;
 
   @media screen and (max-width: 900px){
     width: 80vw;
@@ -153,4 +167,5 @@ const TeamMemberInfo = styled.div`
 
 const TeamName = styled.h3`
   font-size: 4em;
+  margin-bottom: 1vw;
 `
