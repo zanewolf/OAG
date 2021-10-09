@@ -2,13 +2,17 @@ import * as React from 'react';
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import ocean3 from '../images/ocean3.jpg';
+import {useState,useEffect} from "react";
 
 import ocean3_gradient from '../images/ocean3_gradient.jpg';
+
+import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 import styled from "styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
 // import ReactFullpage from "@fullpage/react-fullpage/dist/react-fullpage-commonjs";
 
 const anchors = ["Home", "Mission", "Past Events"]
+let section2Image;
 
 const fullpageOptions = {
     anchors: ['firstPage', 'secondPage', 'thirdPage'],
@@ -16,16 +20,47 @@ const fullpageOptions = {
     callbacks: ['onLeave', 'afterLoad'],
 }
 
+function useWindowSize() {
+    // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined,
+    });
+    useEffect(() => {
+        // Handler to call on window resize
+        function handleResize() {
+            // Set window width/height to state
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+        // Add event listener
+        window.addEventListener("resize", handleResize);
+        // Call handler right away so state gets updated with initial window size
+        handleResize();
+        // Remove event listener on cleanup
+        return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+    return windowSize;
+}
+
 export default function IndexPage() {
-    // constructor(props) {
-    //     super(props);
-    // }
-    //
-    // onLeave() {
-    //     console.log('on leave', arguments);
-    // }
-    //
-    // render() {
+
+    const size=useWindowSize();
+
+
+    // console.log(size);
+
+    useEffect(()=>{
+        console.log(size.width)
+        section2Image = size.width > 1650 ? ocean3_gradient2 : ocean3_gradient
+        console.log(section2Image);
+        return (section2Image)
+
+    },[size])
+
         return (
             <Layout>
                 <div>
@@ -38,7 +73,7 @@ export default function IndexPage() {
                     />
                     <Hero
                         size={"100vh"}
-                        image={ocean3_gradient}
+                        image={ section2Image}
                         id={"hero2"}
 
                     >
