@@ -20,7 +20,7 @@ export default function Team(){
                             {/*</TeamPicture>*/}
                             <TeamMemberInfo>
                                 <TeamName>{teamMember.name}</TeamName>
-                                <h4>{teamMember.title}</h4>
+                                <TeamTitle>{teamMember.title}</TeamTitle>
                                 <p> {teamMember.about}</p>
                             </TeamMemberInfo>
                         </TeamMember>
@@ -165,7 +165,12 @@ const TeamMemberInfo = styled.div`
   }
 `
 
-const TeamName = styled.h3`
+const TeamName = styled.h2`
   font-size: 4em;
+  margin-bottom: 1vw;
+`
+
+const TeamTitle = styled.h3`
+  font-size: 2.5em;
   margin-bottom: 1vw;
 `
