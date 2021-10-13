@@ -101,14 +101,15 @@ const TeamPage = styled.div`
 `
 const TeamMember = styled.div`
   margin-top: var(--screen-nav-bar-height);
-  height: 50vh;
+  height: 60vh;
   width: 70vw;
   //background-color: aquamarine;
   display: flex;
+  border-radius: 5pt;
   flex-flow: row nowrap;
   align-content: center;
   justify-content: space-between;
-  padding-bottom: 5vh;
+  margin-bottom: 7vh;
   background: rgba(0,0,0,0.7);
 
   @media screen and (max-width: 886px){
@@ -132,8 +133,9 @@ const TeamPicture = styled.img`
   object-fit: cover;
   //display: flex;
   //justify-content: center;
+  border-radius: 5pt 0 0 5pt;
   width: 30vw;
-  height: 50vh;
+  height: 60vh;
   //max-width: 3
   // 0vw;
   //max-width: 40vw;
@@ -143,6 +145,8 @@ const TeamPicture = styled.img`
   @media screen and (max-width: 900px){
     height: 40vh;
     align-content: center;
+
+    border-radius: 5pt;
     
   }
 `
