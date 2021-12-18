@@ -26,6 +26,13 @@ export const Button = styled.div`
     font-size: ${({navburger}) => (navburger? '3em' : '2em')};
     
   }
+
+  @media screen and (max-width: 300px){
+    //display: none;
+     width: ${({big})=>(big? 'none': 'auto')};
+    font-size: ${({navburger}) => (navburger? '3em' : '2em')};
+
+  }
 `
 
 

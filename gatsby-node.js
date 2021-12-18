@@ -31,31 +31,75 @@ const path = require(`path`)
 exports.createPages = async ({graphql, actions}) => {
 
   const { data } = await graphql(`
-    query Articles {
-      allMarkdownRemark {
+    query PageData {
+      articles: allMarkdownRemark {
         nodes {
           frontmatter {
             slug
           }
         }
       }
+    
+      people: allAirtable(
+        filter: {table: {eq: "People"}}
+        sort: {fields: data___Name}
+        ) {
+          nodes {
+            data {
+              Image
+              Name
+              Keywords__csv_
+              Research_Focus
+              About
+              Website
+              University_Institute
+              Email
+              Title
+              slug
+            }
+          }
+        }
     }
   `)
 
+  // const { people } = await graphql(`
+  //   query People {
+  //     allAirtable(
+  //       filter: {table: {eq: "People"}}
+  //       sort: {fields: data___Name}
+  //     ) {
+  //       nodes {
+  //         data {
+  //           Image
+  //           Name
+  //           Location_Name__from_Locations_
+  //         }
+  //       }
+  //    }
+  //   }`)
 
-  data.allMarkdownRemark.nodes.forEach(node => {
+
+  data.articles.nodes.forEach(node => {
     actions.createPage({
       path: '/projects/'+ node.frontmatter.slug,
       component: path.resolve('./src/templates/project-details.js'),
       context: { slug: node.frontmatter.slug }
     })
   })
-
-  data.allMarkdownRemark.nodes.forEach(node => {
+  //
+  data.articles.nodes.forEach(node => {
     actions.createPage({
       path: '/events/'+ node.frontmatter.slug,
       component: path.resolve('./src/templates/events-details.js'),
       context: { slug: node.frontmatter.slug }
+    })
+  })
+  //
+  data.people.nodes.forEach(node => {
+    actions.createPage({
+      path: '/directory/'+ node.data.slug,
+      component: path.resolve('./src/templates/people-details.js'),
+      context: { slug: node.data.slug }
     })
   })
 

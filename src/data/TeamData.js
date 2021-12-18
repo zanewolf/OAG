@@ -6,10 +6,10 @@ export const teamData=[
         "image": 'https://asm.org/ASM/media/Biographies/COMs/2020-2021/Peter-Girguis.jpg?ext=.jpg',
     },
     {
-        "name": "Aaron Something",
+        "name": "Aaron Hartmann",
         "title": "Event Coordinator",
         "about": "Aaron also does something.",
-        "image": 'https://m.media-amazon.com/images/M/MV5BMTY1OTY5NjI5NV5BMl5BanBnXkFtZTcwODA4MjM0OA@@._V1_UY1200_CR84,0,630,1200_AL_.jpg',
+        "image": 'https://pbs.twimg.com/profile_images/1131613038631514115/PKBiGtKT_400x400.png',
     },
     {
         "name": "Zane Wolf",

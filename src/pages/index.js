@@ -54,9 +54,9 @@ export default function IndexPage() {
     // console.log(size);
 
     useEffect(()=>{
-        console.log(size.width)
+        // console.log(size.width)
         section2Image = size.width > 1650 ? ocean3_gradient2 : ocean3_gradient
-        console.log(section2Image);
+        // console.log(section2Image);
         return (section2Image)
 
     },[size])

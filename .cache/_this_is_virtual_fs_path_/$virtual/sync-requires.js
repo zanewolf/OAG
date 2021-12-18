@@ -8,13 +8,18 @@ exports.components = {
   "component---src-pages-404-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\404.js")),
   "component---src-pages-blog-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\blog\\index.js")),
   "component---src-pages-blog-mdx-slug-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\blog\\{mdx.slug}.js")),
-  "component---src-pages-directory-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\Directory.js")),
+  "component---src-pages-cruises-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\cruises.js")),
+  "component---src-pages-directory-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\directory.js")),
   "component---src-pages-events-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\Events.js")),
   "component---src-pages-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\index.js")),
+  "component---src-pages-opps-directory-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\oppsDirectory.js")),
+  "component---src-pages-people-directory-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\peopleDirectory.js")),
+  "component---src-pages-program-directory-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\programDirectory.js")),
   "component---src-pages-projects-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\projects\\index.js")),
-  "component---src-pages-team-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\Team.js")),
+  "component---src-pages-team-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\team.js")),
   "component---src-pages-test-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\Test.js")),
   "component---src-templates-events-details-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\templates\\events-details.js")),
+  "component---src-templates-people-details-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\templates\\people-details.js")),
   "component---src-templates-project-details-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\templates\\project-details.js"))
 }
 

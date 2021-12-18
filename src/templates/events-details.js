@@ -5,6 +5,7 @@ import "../styles/project-details.modules.css"
 import { graphql } from "gatsby"
 
 export default function EventsDetails({ data }){
+    console.log(data)
     const featuredImage = getImage(data.markdownRemark.frontmatter.featuredImg)
     const { html } = data.markdownRemark
     const { title,date } = data.markdownRemark.frontmatter

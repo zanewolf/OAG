@@ -9,7 +9,7 @@ export default function Hero({title, size, image,darkened, color, children}){
 
 
     //
-    console.log(image)
+    // console.log(image)
     return(
         // <div className={"hero-container"}>
         <HeroContainer size={size}>
