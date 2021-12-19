@@ -18,7 +18,7 @@ let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC"
 export default function Navbar() {
 
     const [sideMenu, setSideMenu] = React.useState(false)
-    console.log(sideMenu)
+    // console.log(sideMenu)
 
     const toggleSideMenu = () => setSideMenu((sideMenu) => sideMenu === true? false: true)
 

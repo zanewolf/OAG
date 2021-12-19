@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState,useEffect} from "react";
 import Layout from "../components/Layout";
 import { Link,graphql } from "gatsby";
 import Card from "../components/Card";
@@ -8,11 +9,67 @@ import {Button} from "../components/Button";
 import PeopleDirectory from "./peopleDirectory";
 import ProgramDirectory from "./programDirectory";
 import OppsDirectory from "./oppsDirectory";
+import SearchBar from "../SearchBar";
 
 
 export default function Directory({data}){
 
-    const [dirFilter, setDirFilter] = React.useState('people')
+    const [dirFilter, setDirFilter] = useState('people')
+    const [dirData, setDirData] = useState(data['people'])
+    //     set search query to empty string
+    const [q, setQ] = useState("");
+    //     set search parameters
+    //     we only what to search countries by capital and name
+    //     this list can be longer if you want
+    //     you can search countries even by their population
+    // just add it to this array
+    const [searchParam, setSearchParam] = React.useState(["capital", "name"]);
+
+    // console.log(dirData)
+
+
+    useEffect(()=>{
+        setDirData(data[dirFilter])
+    },[dirFilter])
+
+
+
+    let filteredData={}
+
+
+    useEffect(()=>{
+        filteredData['nodes']= data[dirFilter].nodes.filter((node)=>{
+            return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase())
+        })
+
+        setDirData(filteredData)
+    },[q])
+
+    const searchReset = () =>{
+        document.getElementById('search-form').value=''
+        setDirData(data[dirFilter])
+        setQ('')
+    }
+
+
+
+    console.log(dirData)
+
+
+/*    useEffect(()=>{
+
+    },q)*/
+    // return items.filter((item) => {
+    //     return searchParam.some((newItem) => {
+    //         return (
+    //             item[newItem]
+    //                 .toString()
+    //                 .toLowerCase()
+    //                 .indexOf(q.toLowerCase()) > -1
+    //         );
+    //     });
+    // });
+    // filter data here, separate out into another function, return data
 
     return (
         <Layout pageTitle="Directory">
@@ -63,15 +120,40 @@ export default function Directory({data}){
 
                     {/*</Button>*/}
                 </SwitchGrid>
-
+                <FilterMenu>
+                    <div className="search-wrapper" id={'searchBar'}>
+                        <label htmlFor="search-form">
+                            <input
+                                type="search"
+                                name="search-form"
+                                id="search-form"
+                                className="search-input"
+                                placeholder="Search by name"
+                                value={q}
+                                /*
+                                // set the value of our useState q
+                                //  anytime the user types in the search box
+                                */
+                                onChange={(e) => setQ(e.target.value)}
+                            />
+                            <button
+                                onClick={()=>searchReset()}
+                                >
+                                Reset
+                            </button>
+                            {/*<span className="sr-only">Search countries here</span>*/}
+                        </label>
+                    </div>
+                    {/*<SearchBar data={data[dirFilter]}/>*/}
+                </FilterMenu>
 
             </DirectoryMenu>
             <DirectorySection>
                 {dirFilter === 'people' ?
-                    <PeopleDirectory data={data['people']}/>
+                    <PeopleDirectory data={dirData}/>
                     : dirFilter === 'programs' ?
-                        <ProgramDirectory data={data['programs']}/>
-                        :<OppsDirectory data={data['opps']}/>}
+                        <ProgramDirectory data={dirData}/>
+                        :<OppsDirectory data={dirData}/>}
             </DirectorySection>
         </Layout>
     )
@@ -139,6 +221,9 @@ export const query = graphql`
 }
 `
 
+const FilterMenu = styled.div`
+ margin: 2vh;
+`
 const DirLink = styled.a`
   text-align: center;
   margin: auto 0.5vw;
@@ -176,7 +261,7 @@ const DirLink = styled.a`
 `
 const DirectoryMenu = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   padding-top: 2vh;
   //align-content: center;
   //justify-content: center;

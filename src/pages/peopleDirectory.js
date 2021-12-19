@@ -15,11 +15,9 @@ export default function PeopleDirectory({data}){
     // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
     //
 
-    // console.log(data)
     return (
         <DirectoryGrid>
             {data.nodes.map((node) =>{
-                console.log(node)
                     return (
                         <li className={"card"} key={node.id}>
                             <PeopleCard
