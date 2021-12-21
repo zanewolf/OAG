@@ -5,8 +5,9 @@ import nullProfilePic from '../images/Null2.png';
 import styled from "styled-components";
 import {Link} from "gatsby";
 import {Button} from "./Button";
-import {FaBuilding} from 'react-icons/fa'
+import {FaBuilding,FaExternalLinkAlt} from 'react-icons/fa'
 import {IoEllipsisHorizontalCircleSharp} from 'react-icons/io5'
+import {HiOutlineMail} from 'react-icons/hi'
 
 const roleColors={
     'Principle Investigator': '#d9ed92',
@@ -29,8 +30,12 @@ export default function PeopleCard({name, title,employer, image, readMore,id,ema
 
     let roleColor = roleColors[title]
 
-    console.log(roleColor)
 
+    const copy =  (email) => {
+        console.log(email)
+        navigator.clipboard.writeText(email);
+        alert('Text copied');
+    }
     return (
         <>
         <UserCard className={style.card} bandColor={roleColor} >
@@ -49,14 +54,14 @@ export default function PeopleCard({name, title,employer, image, readMore,id,ema
                 <a href={website} >
                     {/*<Button primary>*/}
                     {/*    <button>*/}
-                    {<IoEllipsisHorizontalCircleSharp/>}
+                    {<FaExternalLinkAlt/>}
                     {/*</button>*/}
                     {/*</Button>*/}
                 </a>
-                <button >
+                <button onClick={()=>copy(email)} >
                     {/*<Button primary>*/}
                     {/*    <button>*/}
-                    {<IoEllipsisHorizontalCircleSharp/>}
+                    {<HiOutlineMail/>}
                     {/*</button>*/}
                     {/*</Button>*/}
                 </button>
@@ -81,6 +86,7 @@ const CardFooter = styled.div`
   bottom: 0;  
   width: 100%;
   height: 15%;
+  font-size: 3em;
   background-color: ${props => props.bandColor || "#575757"};
   //padding: 0.75rem 1.25rem;
   //background-color: rgba(0, 0, 0, 0.5);

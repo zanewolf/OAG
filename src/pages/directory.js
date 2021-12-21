@@ -66,9 +66,13 @@ export default function Directory({data}){
                         </DirLink>
                         <SwitchDropDown className="dropdown" >
                             <form>
-                                <MySelect className="target" onChange={(e)=>setDirFilter(e.target.value)}>
+                                <MySelect
+                                    className="target"
+                                    onChange={(e)=>setDirFilter(e.target.value)}
+                                    defaultValue={{label: 'People', value: 'people'}}
+                                >
                                     {/*<option value="selected" selected="selected">Please choose...</option>*/}
-                                    <option value="people" selected="selected" value="people">People</option>
+                                    <option value="people" value="people">People</option>
                                     <option value="programs" value="programs">Programs</option>
                                     <option value="opps" value="opps">Opportunities</option>
                                 </MySelect>

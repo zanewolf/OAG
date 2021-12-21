@@ -23,6 +23,7 @@ export default function PeopleDirectory({data}){
                                 image={node.data.Image}
                                 readMore={node.data.slug}
                                 id={node.id}
+                                email={node.data.Email}
                             >
                             </PeopleCard>
                         </li>
