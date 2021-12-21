@@ -14,7 +14,36 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
+const innerBounds = [
+    [49.505, -2.09],
+    [53.505, 2.09],
+]
+const outerBounds = [
+    [50.505, -29.09],
+    [52.505, 29.09],
+]
+
+
 function prepData(data){
+
+    // const innerHandlers = useMemo(
+    //     () => ({
+    //         click() {
+    //             setBounds(innerBounds)
+    //             map.fitBounds(innerBounds)
+    //         },
+    //     }),
+    //     [map],
+    // )
+    // const outerHandlers = useMemo(
+    //     () => ({
+    //         click() {
+    //             setBounds(outerBounds)
+    //             map.fitBounds(outerBounds)
+    //         },
+    //     }),
+    //     [map],
+    // )
     data.cruises.nodes.forEach(node=>{
 
         console.log(node)
@@ -30,16 +59,28 @@ function prepData(data){
 export default function CruiseMap ({data}) {
 
 
+
+
+    const [bounds, setBounds] = React.useState(outerBounds)
+
     let displayData = prepData(data)
 
     console.log(displayData.cruises.nodes[1].data)
 
 
-
+    // map.setMaxBounds(map.getBounds());
 
 
     return (
-        <MapContainer center={[21.505, -16]} zoom={2.3} scrollWheelZoom={true} style={{ height: '92vh', width:'60vw', margin: 'auto'}}>
+        <MapContainer
+            center={[0, 0]}
+            noWrap = {true}
+            bounds={bounds}
+            // LatLngBounds={myBounds}
+            zoom={2}
+            minZoom={2}
+            scrollWheelZoom={true}
+            style={{ height: `var(--screen-full-page)`, width:'70vw', left: '0', marginLeft: '2vw'}}>
             <TileLayer
                 attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
                 url='https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
@@ -56,6 +97,7 @@ export default function CruiseMap ({data}) {
                         >
                             <Popup>
                                 <h1>{node.data.Year}</h1>
+                                {/*<h3> {node.data.position}</h3>*/}
                                 <h2>{node.data.Purpose}</h2>
                                 <h3>Data collected: {node.data.Collected}</h3>
                                 <h3>Data available: {node.data.Data_Available ? <FaCheckSquare/> : <FaTimes/>} </h3>
