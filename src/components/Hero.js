@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import '../styles/hero.module.css';
 
-import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
+// import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 
 export default function Hero({title, size, image,darkened, color, children}){
     // let heroImage = image? image : "../images/ocean.png"

@@ -1,7 +1,4 @@
 import * as React from 'react'
-import * as style from "../styles/card.module.css";
-import nullProfilePic from '../images/Null2.png';
-import TagSection from "./TagSection";
 import {FaExternalLinkAlt} from "react-icons/all";
 
 import styled from "styled-components";
@@ -10,8 +7,8 @@ import styled from "styled-components";
 
 export default function OppsCard({name, propLevel, type, Website}) {
 
-    const [buttonToggle, setButtonToggle] = React.useState(false)
-    let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true ? false : true)
+    // const [buttonToggle, setButtonToggle] = React.useState(false)
+    // let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true ? false : true)
 
     // let imageSrc = image === null ? nullProfilePic : image
 
@@ -52,9 +49,9 @@ const OppCard = styled.div`
   box-shadow: 2px 2px 2px 2px grey;
   
 `
-const UserImage = styled.img`
-  border-radius: 50%;
-`
+// const UserImage = styled.img`
+//   border-radius: 50%;
+// `
 
 // const RoleBand = styled.div`
 //     width: 100%;

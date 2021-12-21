@@ -1,16 +1,8 @@
 import * as React from 'react';
 import Layout from "../components/Layout";
-import { Link,graphql } from "gatsby";
-import Card from "../components/Card";
-import { FaMapMarker, FaExternalLinkAlt } from 'react-icons/fa';
+import { graphql } from "gatsby";
 import styled from "styled-components";
-import {Button} from "../components/Button";
-import PeopleCard from "../components/PeopleCard";
-import OppsCard from "../components/OppsCard";
-import ocean3 from "../images/ocean3.jpg";
-import {teamData} from "../data/TeamData";
 import CruiseMap from "../components/CruiseMap";
-import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 
 
 export default function Cruises({data}){

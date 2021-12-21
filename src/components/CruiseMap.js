@@ -1,8 +1,8 @@
 import React from 'react'
-import Leaflet from 'leaflet';
+// import Leaflet from 'leaflet';
 import {MapContainer, TileLayer, Marker, Popup, LayerGroup} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
-import {FaMapPin, FaCheckSquare, FaTimes} from "react-icons/all";
+import {FaCheckSquare, FaTimes} from "react-icons/all";
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon-violet.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';

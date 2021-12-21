@@ -9,7 +9,7 @@ export const Button = styled.div`
   width: ${({big})=>(big? '20vw': 'auto')};
   background: ${({primary}) => (primary? '#1040d9' : 'none')};
   white-space: nowrap;
-  padding: ${({big})=>(big? "16px 64px" : "10px 20px")};
+  padding: ${({big})=>(big? "16px 64px" : "0")};
   color: #fff;
   font-size: ${({fontBig})=>(fontBig ? "26px" : "16px")};
   outline: none;
@@ -21,16 +21,16 @@ export const Button = styled.div`
     background: ${({primary}) => (primary? '#24ac1f' : 'transparent')};
     color: ${({navburger}) => (navburger? '#24ac1f' : '#fff')}
   }
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 1024px){
     width: ${({big})=>(big? '50vw': 'auto')};
     font-size: ${({navburger}) => (navburger? '3em' : '2em')};
     
   }
 
-  @media screen and (max-width: 300px){
+  @media screen and (max-width: 400px){
     //display: none;
      width: ${({big})=>(big? 'none': 'auto')};
-    font-size: ${({navburger}) => (navburger? '3em' : '2em')};
+    font-size: ${({navburger}) => (navburger? '2em' : '2em')};
 
   }
 `

@@ -1,16 +1,16 @@
 import * as React from 'react'
 import * as style from "../styles/card.module.css";
 import nullProfilePic from '../images/Null2.png';
-import TagSection from "./TagSection";
+// import TagSection from "./TagSection";
 
-import styled from "styled-components";
+// import styled from "styled-components";
 
 
 
 export default function ProgramCard({header, subheader, image, buttonText, buttonLink, tags,children}){
 
-    const [buttonToggle, setButtonToggle] = React.useState(false)
-    let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true? false : true)
+    // const [buttonToggle, setButtonToggle] = React.useState(false)
+    // let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true? false : true)
 
     let imageSrc = image === null ? nullProfilePic : image
 
@@ -37,6 +37,6 @@ export default function ProgramCard({header, subheader, image, buttonText, butto
     )
 }
 
-const UserImage = styled.img`
-  border-radius: 50%;
-`
+// const UserImage = styled.img`
+// //   border-radius: 50%;
+// // `

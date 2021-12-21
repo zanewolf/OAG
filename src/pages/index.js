@@ -8,17 +8,14 @@ import ocean3_gradient from '../images/ocean3_gradient.jpg';
 
 import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 import styled from "styled-components";
-import ReactFullpage from "@fullpage/react-fullpage";
-// import ReactFullpage from "@fullpage/react-fullpage/dist/react-fullpage-commonjs";
-
-const anchors = ["Home", "Mission", "Past Events"]
+// const anchors = ["Home", "Mission", "Past Events"]
 let section2Image;
-
-const fullpageOptions = {
-    anchors: ['firstPage', 'secondPage', 'thirdPage'],
-    sectionsColor: ['#282c34', '#ff5f45'],
-    callbacks: ['onLeave', 'afterLoad'],
-}
+//
+// const fullpageOptions = {
+//     anchors: ['firstPage', 'secondPage', 'thirdPage'],
+//     sectionsColor: ['#282c34', '#ff5f45'],
+//     callbacks: ['onLeave', 'afterLoad'],
+// }
 
 function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
@@ -281,11 +278,11 @@ const MissionDesc=styled.div`
 
 `
 
-const EventsSection = styled.div`
-  background: black;
-  color: #fff;
-  height: auto;
-  min-height: 100vh;
-  padding-bottom: 5vh;
-  padding-top: var(--phone-nav-bar-height)
-`
+// const EventsSection = styled.div`
+//   background: black;
+//   color: #fff;
+//   height: auto;
+//   min-height: 100vh;
+//   padding-bottom: 5vh;
+//   padding-top: var(--phone-nav-bar-height)
+// `

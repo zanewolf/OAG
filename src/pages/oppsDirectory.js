@@ -1,11 +1,5 @@
 import * as React from 'react';
-import Layout from "../components/Layout";
-import { Link,graphql } from "gatsby";
-import Card from "../components/Card";
-import { FaMapMarker, FaExternalLinkAlt } from 'react-icons/fa';
 import styled from "styled-components";
-import {Button} from "../components/Button";
-import PeopleCard from "../components/PeopleCard";
 import OppsCard from "../components/OppsCard";
 
 export default function OppsDirectory({data}){
@@ -67,22 +61,22 @@ export default function OppsDirectory({data}){
 //   }
 // `
 
-const DirectorySection = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  padding-top: 2vh;
-  //align-content: center;
-  //justify-content: center;
-  height: auto;
-  min-height: 100vh;
-  margin-top: var(--screen-nav-bar-height);
-
-  @media screen and (max-width: 900px){
-    margin-top: var(--phone-nav-bar-height);
-    padding-top: 2vh;
-  }
-  
-    `
+// const DirectorySection = styled.div`
+//   display: flex;
+//   flex-flow: column wrap;
+//   padding-top: 2vh;
+//   //align-content: center;
+//   //justify-content: center;
+//   height: auto;
+//   min-height: 100vh;
+//   margin-top: var(--screen-nav-bar-height);
+//
+//   @media screen and (max-width: 900px){
+//     margin-top: var(--phone-nav-bar-height);
+//     padding-top: 2vh;
+//   }
+//
+//     `
 
 const DirectoryGrid = styled.div`
   display: flex;

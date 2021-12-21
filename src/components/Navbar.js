@@ -5,7 +5,7 @@ import {menuData} from '../data/MenuData'
 import styled from "styled-components";
 import {Button} from "./Button";
 
-import * as styles from '../styles/global.css'
+// import * as styles from '../styles/global.css'
 
 let activeStyle = {
     color: 'rgb(255,255,255)',
@@ -13,7 +13,7 @@ let activeStyle = {
     // borderBottom: `1px solid #fff`
 }
 
-let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC"
+
 
 export default function Navbar() {
 
@@ -50,14 +50,6 @@ export default function Navbar() {
                                 <NavLink className={sideMenu === true? "sideMenu": ""} to={item.link} key={index} onClick = {sideMenu === true? toggleSideMenu: null} activeStyle={activeStyle}>{item.title}</NavLink>
                             ))}
                         </MenuLinks>
-                        <JoinButton>
-                            <Button primary onClick={(e)=>{
-                                e.preventDefault();
-                                window.open(airTableForm);
-                            }}>
-                                Join Now
-                            </Button>
-                        </JoinButton>
                         <NavBurger>
                             <Button navburger fontBig onClick={toggleSideMenu}>
                                 {sideMenu === true? <FaTimes/>: <FaBars/>}
@@ -119,7 +111,7 @@ const NavWrapper= styled.nav`
   padding:0.5rem 0.8rem;
   background: rgba(0,0,0,0.4);
   
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 940px){
     height: var(--phone-nav-bar-height);
   }
 `
@@ -133,7 +125,7 @@ const NavTitle=styled(Link)`
   margin: auto 2vw;
   cursor: pointer;
   
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 940px){
     display: none;
     //content: "OAG";
 
@@ -142,17 +134,29 @@ const NavTitle=styled(Link)`
 `
 const NavTitleSmall = styled(Link)`
   display: none;
+  font-size: 4em;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  align-content: center;
+  text-align: center;
   
-  @media screen and (max-width: 900px){
-    display: flex;
-    font-size: 4em;
-    font-weight: 700;
-    color: white;
-    align-content: center;
-    margin-left: 2vw;
-    cursor: pointer;
-    
+  @media screen and (max-width: 940px){
+    display: block;
+
   }
+
+  @media screen and (max-width: 540px){
+    display: block;
+    font-size: 3em;
+
+
+  }
+
+  //@media screen and (max-width: 360px){
+  //  display: block;
+  //  font-size: 3em;
+  //}
 `
 
 const MenuWrapper = styled.div`
@@ -161,6 +165,7 @@ const MenuWrapper = styled.div`
   flex-flow: row nowrap;
   text-transform: uppercase;
   justify-content: space-evenly;
+  padding-right: 2vw;
 
   
   @media screen and (max-width: 1096px){
@@ -168,20 +173,12 @@ const MenuWrapper = styled.div`
     justify-content: space-between;
   }
 
-  
-  
-
-  //@media screen and (max-width: 900px){
-  //  display: in;
-  //  margin: auto;
-  //  //margin: auto;
-  //}
 `
 const MenuLinks = styled.div`
   display: flex;
   position: relative;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 
@@ -196,6 +193,7 @@ const MenuLinks = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: #025cee;
+    
   }
 
 `
@@ -206,6 +204,7 @@ const NavLink = styled(Link)`
   z-index: 1000;
   cursor: pointer;
   font-weight: 500;
+  font-size: 1.25em;
 
   &:hover {
     transition: 0.5s;
@@ -214,31 +213,27 @@ const NavLink = styled(Link)`
   
   &.sideMenu{
     margin: 4vw;
-    font-size: 3em;
+    font-size: 2em;
+
+    @media screen and (max-width: 940px) {
+      font-size: 2em
+    }
+
+    @media screen and (max-width: 420px) {
+      font-size: 1.5em
+    }
   }
 
 `
 
-const JoinButton=styled.div`
-  display: flex;
-  align-items: center;
-  align-content: center;
-  width: auto;
-  margin: auto;
-  
-  @media screen and (max-width: 1096px){
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-`
+
 
 const NavBurger = styled.div`
   display: none;
   color: #fff;
   
   
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 1024px){
     display: flex;
     margin: auto 2vw;
     

@@ -1,10 +1,5 @@
 import * as React from 'react';
-import Layout from "../components/Layout";
-import { Link,graphql } from "gatsby";
-import Card from "../components/Card";
-import { FaMapMarker, FaExternalLinkAlt } from 'react-icons/fa';
 import styled from "styled-components";
-import {Button} from "../components/Button";
 import PeopleCard from "../components/PeopleCard";
 
 export default function PeopleDirectory({data}){
@@ -15,6 +10,7 @@ export default function PeopleDirectory({data}){
     // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
     //
 
+
     return (
         <DirectoryGrid>
             {data.nodes.map((node) =>{
@@ -22,7 +18,8 @@ export default function PeopleDirectory({data}){
                         <li className={"card"} key={node.id}>
                             <PeopleCard
                                 name={node.data.Name}
-                                role = {node.data.Title + " at " + node.data.University_Institute}
+                                title={node.data.Title}
+                                employer={node.data.University_Institute}
                                 image={node.data.Image}
                                 readMore={node.data.slug}
                                 id={node.id}
@@ -65,36 +62,35 @@ export default function PeopleDirectory({data}){
 //   }
 // `
 
-const DirectorySection = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  padding-top: 2vh;
-  //align-content: center;
-  //justify-content: center;
-  height: auto;
-  min-height: 100vh;
-  margin-top: var(--screen-nav-bar-height);
-
-  @media screen and (max-width: 900px){
-    margin-top: var(--phone-nav-bar-height);
-    padding-top: 2vh;
-  }
-  
-    `
+// const DirectorySection = styled.div`
+//   display: flex;
+//   flex-flow: column wrap;
+//   padding-top: 2vh;
+//   //align-content: center;
+//   //justify-content: center;
+//   height: auto;
+//   min-height: 100vh;
+//   margin-top: var(--screen-nav-bar-height);
+//
+//   @media screen and (max-width: 900px){
+//     margin-top: var(--phone-nav-bar-height);
+//     padding-top: 2vh;
+//   }
+//
+//     `
 
 const DirectoryGrid = styled.div`
   display: flex;
-  //flex-grow: 4;
   flex-flow: row wrap;
   justify-content: center;
   //align-items: auto;
   //align-content: center;
-  //.item{
-  //  flex-basis: 10vw | auto;
-  //} 
+  .item{
+    flex-basis: 10vw | auto;
+  } 
   
   @media screen and (max-width: 900px){
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-content: center;
   }

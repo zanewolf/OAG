@@ -48,8 +48,9 @@ exports.createPages = async ({graphql, actions}) => {
             data {
               Image
               Name
-              Keywords__csv_
-              Research_Focus
+              Research_Keywords
+              Personal_Keywords
+              Main_Research_Focus
               About
               Website
               University_Institute

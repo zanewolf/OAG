@@ -94,9 +94,9 @@ const TeamPage = styled.div`
 
 
 
-  @media screen and (max-width: 900px){
-    margin-top: 13vh;
-    padding-top: 2vh;
+  @media screen and (max-width: 940px){
+    padding-top: var(--phone-nav-bar-height);
+    //padding-top: 2vh;
   }
 `
 const TeamMember = styled.div`

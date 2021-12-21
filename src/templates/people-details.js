@@ -1,12 +1,9 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "../styles/project-details.modules.css"
 import { graphql } from "gatsby"
 import styled from "styled-components";
 import ocean3 from "../images/ocean3.jpg";
-import nullImage from '../images/nullProfile.png'
-import nullProfilePic from "../images/Null2.png";
 
 export default function PeopleDetails({ data }){
     console.log(data)
@@ -51,13 +48,14 @@ export const query = graphql`
     airtable(data: { slug: { eq: $slug } }) {
         data {
           Name
-          Keywords__csv_
+          Research_Keywords
+          Personal_Keywords
           Image
           Email
           University_Institute
           Title
           Website
-          Research_Focus
+          Main_Research_Focus
           About
         }
     }

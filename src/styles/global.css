@@ -24,6 +24,7 @@ html, body {
 :root {
     --screen-nav-bar-height: 6vh;
     --phone-nav-bar-height: 9vh;
+    --cornflower-blue: #6078EA;
 }
 
 .content {
