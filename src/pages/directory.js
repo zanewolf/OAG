@@ -79,7 +79,7 @@ export default function Directory({data}){
                             </form>
                         </SwitchDropDown>
                     </SwitchGrid>
-                    <AddButton to={'/team'}>
+                    <AddButton to={'/join'}>
 
                         {<BsPlusCircleFill/>}
                     </AddButton>
@@ -495,16 +495,15 @@ const SearchButton = styled.input`
   margin-left:-45px;
   border:none;
 `
-const FilterMenu = styled.div`
- //padding: 2vh;
- // height: 7vh;
- // width: 80vw;
- // margin: auto;
- // justify-content: center;
-  
-`
+// const FilterMenu = styled.div`
+//  //padding: 2vh;
+//  // height: 7vh;
+//  // width: 80vw;
+//  // margin: auto;
+//  // justify-content: center;
+//`
 const DirectorySection = styled.div`
-  padding-top: 10vh;
+  //padding-top: 10vh;
   //align-content: center;
   //justify-content: center;
   height: auto;
@@ -539,23 +538,23 @@ const DirectorySection = styled.div`
 //     //flex-basis: auto;
 //   }
 // `
-const JoinButton=styled.div`
-  display: flex;
-  align-items: center;
-  align-content: center;
-  width: auto;
-  margin: auto;
-  
-  @media screen and (max-width: 1096px){
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-`
+// const JoinButton=styled.div`
+//   display: flex;
+//   align-items: center;
+//   align-content: center;
+//   width: auto;
+//   margin: auto;
+//
+//   @media screen and (max-width: 1096px){
+//     display: flex;
+//     justify-content: center;
+//     align-content: center;
+//   }
+// `
 // const SearchBar = styled.div`
-//   //width: 80vw;
-//   //height: 5vh;
-//   //padding: 1vw;
+//   width: 80vw;
+//   height: 5vh;
+//   padding: 1vw;
 //   justify-content: center;
 //   margin: auto;
 // `

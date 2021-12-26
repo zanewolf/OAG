@@ -10,6 +10,7 @@ exports.components = {
   "component---src-pages-directory-js": () => import("./../../../src/pages/directory.js" /* webpackChunkName: "component---src-pages-directory-js" */),
   "component---src-pages-events-js": () => import("./../../../src/pages/Events.js" /* webpackChunkName: "component---src-pages-events-js" */),
   "component---src-pages-index-js": () => import("./../../../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
+  "component---src-pages-join-js": () => import("./../../../src/pages/join.js" /* webpackChunkName: "component---src-pages-join-js" */),
   "component---src-pages-opps-directory-js": () => import("./../../../src/pages/oppsDirectory.js" /* webpackChunkName: "component---src-pages-opps-directory-js" */),
   "component---src-pages-people-directory-js": () => import("./../../../src/pages/peopleDirectory.js" /* webpackChunkName: "component---src-pages-people-directory-js" */),
   "component---src-pages-program-directory-js": () => import("./../../../src/pages/programDirectory.js" /* webpackChunkName: "component---src-pages-program-directory-js" */),

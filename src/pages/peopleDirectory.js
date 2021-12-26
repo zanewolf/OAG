@@ -24,6 +24,8 @@ export default function PeopleDirectory({data}){
                                 readMore={node.data.slug}
                                 id={node.id}
                                 email={node.data.Email}
+                                about={node.data.About}
+                                main={node.data.Main_Research_Focus}
                             >
                             </PeopleCard>
                         </li>
