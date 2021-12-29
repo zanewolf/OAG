@@ -13,10 +13,13 @@ if (typeof window !== 'undefined'){
         iconUrl: icon,
         // shadowUrl: iconShadow
     });
+    L.Marker.prototype.options.icon = DefaultIcon;
 }
+// else {
+//     L.Marker.prototype.options.icon = DefaultIcon;
+// }
 
 
-L.Marker.prototype.options.icon = DefaultIcon;
 
 const innerBounds = [
     [49.505, -2.09],
