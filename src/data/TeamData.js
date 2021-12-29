@@ -8,7 +8,7 @@ export const teamData=[
     {
         "name": "Aaron Hartmann",
         "title": "Event Coordinator",
-        "about": "Aaron also does something.",
+        "about": "Aaron is a Research Associate and Lecturer in Organismic and Evolutionary Biology. A marine biologist by training, Aaron focuses on corals and coral reef ecosystems to advance our basic understanding and improve the health of these ecosystems and the people who depend on them. As the Program Director of OAG, Aaron is working with the team to develop the core mission and create OAG initiatives to connect and improve marine scholarship at Harvard and beyond. ",
         "image": 'https://pbs.twimg.com/profile_images/1131613038631514115/PKBiGtKT_400x400.png',
     },
     {
