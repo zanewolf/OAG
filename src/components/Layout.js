@@ -10,6 +10,8 @@ const Layout = ({ pageTitle, children }) => {
             <div className={"content"}>
                 {children}
             </div>
+            <div className={"portal"}>
+            </div>
             {/*<footer>*/}
             {/*    <p> Copyright 2021 Zane Wolf</p>*/}
             {/*</footer>*/}

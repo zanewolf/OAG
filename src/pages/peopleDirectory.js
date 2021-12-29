@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from "styled-components";
 import PeopleCard from "../components/PeopleCard";
+import Modal from 'react-modal'
+
 
 export default function PeopleDirectory({data}){
     //
@@ -9,7 +11,6 @@ export default function PeopleDirectory({data}){
     // const setFilter = () => setDirFilter ((dirFilter) => dirFilter === 'people' ? 'programs' : 'people')
     // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
     //
-
 
     return (
         <DirectoryGrid>
@@ -26,6 +27,8 @@ export default function PeopleDirectory({data}){
                                 email={node.data.Email}
                                 about={node.data.About}
                                 main={node.data.Main_Research_Focus}
+                                researchKeywords = {node.data.Research_Keywords}
+                                personalKeywords = {node.data.Personal_Keywords}
                             >
                             </PeopleCard>
                         </li>

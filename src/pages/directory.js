@@ -265,7 +265,7 @@ const SwitchGrid = styled.div`
 const DirLink = styled.a`
   text-align: center;
   margin: auto 0.5vw;
-  z-index: 1000;
+  //z-index: 1000;
   cursor: pointer;
   font-size: 2em;
   //padding: 0 2vw;
@@ -418,7 +418,7 @@ const MySelect = styled.select`
   }
 `
 const AddButton = styled(Link)`
-  color: #121265;
+  color: #383838;
   cursor: pointer;
   font-size: 3em;
   align-content: center;
@@ -431,9 +431,10 @@ const AddButton = styled(Link)`
   padding-bottom: 0.5vw;
 
   &:hover {
-    transition: 0.5s;
-    color: green;
-    
+    transition: 0.25s;
+    //font-size: 3.25em;
+    color: #53A7B0;
+
   }
 
   @media screen and (max-width: 1024px) {

@@ -1,40 +1,70 @@
 import * as React from 'react'
 import * as style from "../styles/card.module.css";
 import nullProfilePic from '../images/Null2.png';
+import {PortalWithState} from 'react-portal'
 
 import styled from "styled-components";
 import {Link} from "gatsby";
 import {Button} from "./Button";
-import {FaBuilding,FaExternalLinkAlt,FaEllipsisH} from 'react-icons/fa'
+import {FaBuilding,FaExternalLinkAlt,FaEllipsisH, FaTimes} from 'react-icons/fa'
 import {IoEllipsisHorizontalCircleSharp} from 'react-icons/io5'
 import {HiOutlineMail} from 'react-icons/hi'
 import Avatar from "boring-avatars";
+import Modal from 'react-modal'
+import TagSection from "./TagSection";
 
-const roleColors={
-    'Principle Investigator': '#d9ed92',
+const roleColors2={
+    'Principal Investigator': '#d9ed92',
     'Graduate Student': '#99d98c',
     'Engineer': '#52b69a',
     'Professor': '#168aad',
     'Research Scientist':'#1e6091',
     'Administrator':'#184e77'
 }
+
+const roleColors={
+    'Principal Investigator': '#351431',
+    'Professor': '#002d50',
+    'Graduate Student': '#01778c',
+    'Engineer': '#52b69a',
+    'Research Scientist':'#823c3a',
+    'Administrator':'#f5a578' //'#53a7b0'
+}
+
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        // marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#01778c',
+        marginTop: `var( --screen-nav-bar-height)`,
+        height: 'auto',
+        // overflow: 'scroll'
+    },
+};
 //
 // "d9ed92","b5e48c","99d98c","76c893","52b69a","34a0a4","168aad","1a759f","1e6091","184e77"
 
 
-export default function PeopleCard({name, title,employer, main,image, readMore, about,id,email, website, children}) {
+export default function PeopleCard({name, title,employer, main,image, readMore, about,id,email, website, children, personalKeywords, researchKeywords}) {
 
     // const [buttonToggle, setButtonToggle] = React.useState(false)
     // let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true ? false : true)
 
-    let imageSrc = image === null ? <Avatar size={40}
-                                            variant="marble"
-                                            colors={["#351431","#002d50","#01778c","#53a7b0","#fdfcfb","#f5a578","#bbd2d5","#823c3a"]
-                                            }/>
-                                    : image
+    const [modalState, setModalState] = React.useState(false)
 
-    let roleColor = roleColors[title]
+    //
+    // let imageSrc = image === null ? <Avatar size={40}
+    //                                         variant="marble"
+    //                                         colors={["#351431","#002d50","#01778c","#53a7b0","#fdfcfb","#f5a578","#bbd2d5","#823c3a"]
+    //                                         }/>
+    //                                 : image
 
+    let roleColor = title in roleColors ? roleColors[title] : '#f5a578'
 
     const copy =  (email) => {
         console.log(email)
@@ -42,63 +72,150 @@ export default function PeopleCard({name, title,employer, main,image, readMore, 
         alert('Email address copied');
     }
     return (
-        <UserCard className={style.card} bandColor={roleColor} >
-            {/*<UserImage src={imageSrc} alt={'Profile picture of ' + name} bandColor={roleColor} />*/}
-            {image === null?  <Avatar
-                    size={100}
-                    name={name}
-                    variant="beam"
-                    colors={["#d9ed92","#b5e48c","#99d98c","#76c893","#52b69a","#34a0a4","#168aad","#1a759f","#1e6091","#184e77"]}
-            /> :
-                <UserImage src={image} alt={'Profile picture of ' + name} bandColor={roleColor} />
-                }
-            <UserName>{name}</UserName>
-            <UserRole bandColor={roleColor}> {title}
-            </UserRole>
-            <UserRole>
-                {employer}
-            </UserRole>
-            <UserRole>
-                {main}
-            </UserRole>
-            <UserAbout>
-                {about}
-            </UserAbout>
+        <>
+            <UserCard
+                className={style.card}
+                bandColor={roleColor}
+            >
+                {/*<UserHeader>*/}
+                    {image === null?
+                        <UserAvatar bandColor={roleColor}>
+                            <Avatar
+                                size={'12vh'}
+                                name={name}
+                                variant="beam"
+                                colors={["#351431","#002d50","#01778c","#53a7b0","#fdfcfb","#f5a578","#bbd2d5","#823c3a"]}
+                            />
+                        </UserAvatar> :
+                        <UserImage src={image} alt={'Profile picture of ' + name} bandColor={roleColor} maxWidth={'15vh'} maxHeight={'15vh'}/>
+                    }
+                    <UserName>{name}</UserName>
+                {/*</UserHeader>*/}
+                {/*<UserImage src={imageSrc} alt={'Profile picture of ' + name} bandColor={roleColor} />*/}
 
-            <CardFooter className = {"card-footer"} bandColor={roleColor}>
+                <UserRole bandColor={roleColor}> {title}
+                </UserRole>
+                <UserRole>
+                    {employer}
+                </UserRole>
+                <UserRole>
+                    {main}
+                </UserRole>
+                <UserAbout>
+                    {about}
+                </UserAbout>
 
-                <UserWebsite title = "Personal Website" href={website} >
-                    {/*<Button primary>*/}
-                    {/*    <button>*/}
-                    {<FaExternalLinkAlt/>}
-                    {/*</button>*/}
-                    {/*</Button>*/}
-                </UserWebsite>
-                <MyHr />
-                <EmailButton title = "Click to copy email" onClick={()=>copy(email)} >
-                    {/*<Button primary>*/}
-                    {/*    <button>*/}
-                    {<HiOutlineMail/>}
-                    {/*</button>*/}
-                    {/*</Button>*/}
-                </EmailButton>
-                <MyHr />
-                <ReadMoreLink title = "See full profile" to={"/directory/" + readMore} >
-                    {/*<Button primary>*/}
-                    {/*    <button>*/}
-                    {<FaEllipsisH/>}
-                    {/*</button>*/}
-                    {/*</Button>*/}
-                </ReadMoreLink>
-            </CardFooter>
+                <CardFooter className = {"card-footer"} bandColor={roleColor}>
 
-            {children}
+                    <UserWebsite title = "Personal Website" href={website} >
+                        {<FaExternalLinkAlt/>}
+                    </UserWebsite>
+                    <MyHr />
+                    <EmailButton title = "Click to copy email" onClick={()=>copy(email)} >
+                        {<HiOutlineMail/>}
+                    </EmailButton>
+                    <MyHr />
+                    <EmailButton
+                        onClick = {()=>setModalState(true)}
+                        >
+
+                            {<FaEllipsisH/>}
+                    </EmailButton>
+                    {/*<ReadMoreLink title = "See full profile" to={"/directory/" + readMore} >*/}
+                    {/*    /!*<Button primary>*!/*/}
+                    {/*    /!*    <button>*!/*/}
+                    {/*    {<FaEllipsisH/>}*/}
+                    {/*    /!*</button>*!/*/}
+                    {/*    /!*</Button>*!/*/}
+                    {/*</ReadMoreLink>*/}
+                </CardFooter>
+
+                {children}
 
 
-        </UserCard>
+            </UserCard>
+            <Modal
+                isOpen={modalState}
+                onRequestClose={()=>setModalState(false)}
+                style={customStyles}
+                contentLabel="Example Modal"
+                ariaHideApp={false}
+                preventScroll={false}
+            >
+                <button
+                    onClick={()=>setModalState(false)}
+                >
+                    <FaTimes/>
+                </button>
+                <PersonBlock>
+                    <LeftBlock>
+                        {image === null?
+                            // <UserAvatar bandColor={roleColor}>
+                                <Avatar
+                                    size={'50%'}
+                                    name={name}
+                                    variant="beam"
+                                    colors={["#d9ed92","#b5e48c","#99d98c","#76c893","#52b69a","#34a0a4","#168aad","#1a759f","#1e6091","#184e77"]}
+                                />:
+                            <TeamPicture className = {'modalImage'} src={image} alt={'Profile picture of ' + name} bandColor={roleColor} />
+                        }
+                        <TeamName>{name}</TeamName>
+                        <TeamTitle>{title}</TeamTitle>
+                        <h3>{employer}</h3>
+                    </LeftBlock>
+                    <RightBlock>
+                        {/*<TeamMemberInfo>*/}
+
+                        <ModalAbout>
+                            <h2>About</h2>
+                            <AboutP> {about}</AboutP>
+                        </ModalAbout>
+
+                        <KeywordsSection>
+                            <h4> Research Keywords</h4>
+                            <TagSection tags={researchKeywords}></TagSection>
+                                <h4> Personal Keywords</h4>
+                                <TagSection tags={personalKeywords}></TagSection>
+                        </KeywordsSection>
+
+                        {/*</TeamMemberInfo>*/}
+                    </RightBlock>
+
+
+                    {/*<TeamPicture src={personData.Image === null ? nullProfilePic : personData.Image} alt={personData.Name}/>*/}
+                    {/*</TeamPicture>*/}
+
+
+                </PersonBlock>
+
+
+
+            </Modal>
+
+
+        </>
     )
 }
 
+const UserHeader = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  
+`
+const UserAvatar = styled.div`
+  border: 4px solid ${props => props.bandColor || "#a70bea"};
+  max-width: 15vh;
+  width: auto;
+  height: auto;
+  //height: 15vh;
+  //height: 12vh;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-radius: 50%;
+  padding: 7px;
+`
 const UserAbout = styled.p` 
   padding-top: 1vh;
   overflow: hidden;
@@ -161,6 +278,7 @@ const ReadMoreLink = styled(Link)`
   font-size: 2em;
   border: none;
   color: black;
+  color: white;
 
   &:before {
     //content: attr(title);
@@ -196,6 +314,7 @@ const EmailButton = styled.button`
   font-size: 2em;
   border: none;
   margin: auto;
+  color: white;
   //border-right: 2px solid #828282
 
   &:before {
@@ -242,6 +361,7 @@ const CardFooter = styled.div`
   display: flex;
   justify-content: space-evenly;
   border-radius: 0 0 15pt 15pt;
+  color: white;
   
 `
 const UserName = styled.h1`
@@ -251,8 +371,10 @@ const UserName = styled.h1`
   font-size: 1.5rem;
   text-transform: uppercase;
   padding: 5px;
+  //word-break: break-all;
+  overflow-wrap: break-word;
+  hyphens: manual;
 `
-
 const UserRole = styled.h2`
   display: flex;
   justify-content: center;
@@ -264,7 +386,8 @@ const UserImage = styled.img`
   //border-radius: 50%;
   //border: 5px solid #272133;
   //margin-top: ;
-  border: 4px solid ${props => props.bandColor || "#a70bea"}; 
+  border: 4px solid ${props => props.bandColor || "#a70bea"};
+
   // box-shadow: 0 10px 20px ${props => props.bandColor || "#a70bea"};
   //filter: drop-shadow(10px 5px 2px #4444dd);
   //background-color: #8f8f90;
@@ -286,11 +409,12 @@ const UserImage = styled.img`
   //border: 2px solid #03BFCB;
   border-radius: 50%;
   padding: 7px;
+  
 `
 const UserCard = styled.div`
-  width: 20vw;
+  //width: 20vw;
   box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-  margin: 10px 0;
+  //margin: 10px 0;
   width: 300px;
   padding: 20px;
   background-color: white;
@@ -306,16 +430,141 @@ const UserCard = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
-    //width: 40vw;
-    width: 300px;
   }
 
   @media screen and (max-width: 400px){
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
-    //width: 90vw;
-    width: 300px;
   }
   
+`
+const PersonBlock = styled.div`
+  //margin-top: var(--screen-nav-bar-height);
+  //height: auto;
+  //width: 70vw;
+  //background-color: aquamarine;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  //align-content: center;
+  max-width: 90vw;
+  min-width: 60vw;
+  height: auto;
+  margin: auto;
+  border-radius: 5pt;
+
+  //margin-bottom: 7vh;
+  padding: 2vh;
+
+  //row-gap: 1vw;
+  //background: rgba(31, 31, 31, 0.7);
+
+  @media screen and (max-width: 886px) {
+    flex-flow: column wrap;
+    width: 90vw;
+    align-content: center;
+    align-items: center;
+  }
+
+  //.teamBlock:nth-child(2n){
+  //  flex-direction:row-reverse;
+  //  background-color: #acacac;
+  // 
+`
+
+const LeftBlock = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 40%;
+`
+
+const RightBlock = styled.div`
+  //min-height: 50vh;
+  width: 60%;
+  height: auto;
+  //min-height: 20vw;
+  display: flex;
+  flex-flow: column nowrap;
+  color: white;
+  justify-content: space-between;
+  align-content: flex-start;
+
+`
+const TeamPicture = styled.img`
+  object-fit: contain;
+  //display: flex;
+  //align-content: flex-start;
+  //position: relative;
+  //border-radius: 5pt 0 0 5pt;
+  max-width: 30vw;
+  max-height: 30vh;
+  //margin-left: 0;
+  //max-width: 3
+  // 0vw;
+  //max-width: 40vw;
+  //margin-right: 1vw;
+  //margin-left: 1vw;
+
+  @media screen and (max-width: 900px){
+    height: 40vh;
+    //align-content: center;
+
+    //border-radius: 5pt;
+    
+  }
+`
+
+const TeamMemberInfo = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  //width: 30vw;
+  align-content: center;
+  justify-content: center;
+  color: white;
+  margin: auto auto;
+  //text-justify: center;
+
+  @media screen and (max-width: 900px){
+    width: 80vw;
+    flex-flow: column wrap;
+
+    text-align: center;
+  }
+`
+
+const TeamName = styled.h2`
+  font-size: 3em;
+  margin-bottom: 1vw;
+`
+
+const TeamTitle = styled.h3`
+  font-size: 2em;
+  margin-bottom: 1vw;
+`
+
+const ModalAbout = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+`
+
+const AboutP = styled.p`
+  overflow: hidden;
+  //display: -webkit-box;
+  //-webkit-line-clamp: 20;
+  //-webkit-box-orient: vertical;
+  //white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // max-width: 100ch;
+  //font-size: 0.75em;
+  //font-weight: lighter;
+`
+
+const KeywordsSection = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: flex-end;
 `
