@@ -6,11 +6,15 @@ import {FaCheckSquare, FaTimes} from "react-icons/all";
 import L from 'leaflet';
 import icon from '../images/marker-icon-violet.png';
 // import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+let DefaultIcon = null;
 
-let DefaultIcon = new L.Icon({
-    iconUrl: icon,
-    // shadowUrl: iconShadow
-});
+if (typeof window !== 'undefined'){
+    DefaultIcon = L.icon({
+        iconUrl: icon,
+        // shadowUrl: iconShadow
+    });
+}
+
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
