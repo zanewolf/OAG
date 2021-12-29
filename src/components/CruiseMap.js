@@ -19,12 +19,6 @@ if (typeof window !== 'undefined'){
 //     L.Marker.prototype.options.icon = DefaultIcon;
 // }
 
-
-
-const innerBounds = [
-    [49.505, -2.09],
-    [53.505, 2.09],
-]
 const outerBounds = [
     [50.505, -29.09],
     [52.505, 29.09],
@@ -63,20 +57,12 @@ function prepData(data){
     return data;
 
 }
-export default function CruiseMap ({data}) {
 
-
-
+export function CruiseMap ({data}) {
 
     const [bounds, setBounds] = React.useState(outerBounds)
 
     let displayData = prepData(data)
-
-    console.log(displayData.cruises.nodes[1].data)
-
-
-    // map.setMaxBounds(map.getBounds());
-
 
     return (
         <MapContainer
@@ -113,22 +99,6 @@ export default function CruiseMap ({data}) {
                 )
 
             })}
-
-            {/*<Marker*/}
-            {/*    position={[51.505, -0.09]}*/}
-            {/*>*/}
-            {/*    <Popup>*/}
-            {/*        A pretty CSS3 popup. <br /> Easily customizable.*/}
-            {/*    </Popup>*/}
-            {/*</Marker>*/}
-            {/*<Marker*/}
-            {/*    position={displayData.cruises.nodes[1].data.position}*/}
-            {/*>*/}
-            {/*    <Popup>*/}
-            {/*        A pretty CSS3 popup. <br /> Easily customizable.*/}
-            {/*    </Popup>*/}
-            {/*</Marker>*/}
-
         </MapContainer>
     )
 }

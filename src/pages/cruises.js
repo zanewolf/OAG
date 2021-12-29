@@ -2,17 +2,13 @@ import * as React from 'react';
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import CruiseMap from "../components/CruiseMap";
+import {CruiseMap} from "../components/CruiseMap";
 
 
 export default function Cruises({data}){
     return (
         <Layout pageTitle={"Cruises"}>
             <MapContent>
-                {/*<div>*/}
-                {/*    <h1>Map of Cruises</h1>*/}
-                {/*    <p> this is a map of stuff. </p>*/}
-                {/*</div>*/}
                 <CruiseMap data={data}/>
             </MapContent>
 
@@ -20,9 +16,7 @@ export default function Cruises({data}){
     )
 }
 export const query = graphql`
-   query CruiseData {   
-    
-    
+   query CruiseData {    
     cruises: allAirtable(filter: {table: {eq: "Cruises"}}) {
     nodes {
       data {
