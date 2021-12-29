@@ -7,6 +7,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
             test: /@fullpage/,
             use: loaders.null(),
           },
+          {
+            test: /leaflet/,
+            use: loaders.null(),
+          },
         ],
       },
     });
