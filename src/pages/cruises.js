@@ -70,7 +70,7 @@ export default function Cruises({data}){
     return (
         <Layout pageTitle={"Cruises"}>
             <MapContent>
-                <MapContainer
+                {typeof window !== 'undefined' && <MapContainer
                     center={[0, 0]}
                     noWrap = {true}
                     bounds={bounds}
@@ -105,6 +105,7 @@ export default function Cruises({data}){
 
                     })}
                 </MapContainer>
+                }
             </MapContent>
 
         </Layout>
