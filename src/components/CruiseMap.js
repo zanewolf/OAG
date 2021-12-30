@@ -58,32 +58,33 @@ function prepData(data){
 
 }
 
-export function CruiseMap ({data}) {
+export default function CruiseMap ({data}) {
 
     const [bounds, setBounds] = React.useState(outerBounds)
 
     let displayData = prepData(data)
 
     return (
-        <MapContainer
-            center={[0, 0]}
-            noWrap = {true}
-            bounds={bounds}
-            // LatLngBounds={myBounds}
-            zoom={2}
-            minZoom={2}
-            scrollWheelZoom={true}
-            style={{ height: `var(--screen-full-page)`, width:'70vw', left: '0', marginLeft: '2vw'}}>
-            <TileLayer
-                attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-                url='https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
-            />
-            {/*<LayerGroup>*/}
-            {/*    {displayData}*/}
-            {/*</LayerGroup>*/}
+        <>
+                <MapContainer
+                center={[0, 0]}
+                noWrap={true}
+                bounds={bounds}
+                // LatLngBounds={myBounds}
+                zoom={2}
+                minZoom={2}
+                scrollWheelZoom={true}
+                style={{height: `var(--screen-full-page)`, width: '70vw', left: '0', marginLeft: '2vw'}}>
+                <TileLayer
+                    attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                    url='https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
+                />
+                {/*<LayerGroup>*/}
+                {/*    {displayData}*/}
+                {/*</LayerGroup>*/}
 
-            {displayData.cruises.nodes.map((node,i)=>{
-                return (
+                {displayData.cruises.nodes.map((node, i) => {
+                    return (
                         <Marker
                             position={node.data.position}
                             key={node.id}
@@ -96,10 +97,11 @@ export function CruiseMap ({data}) {
                                 <h3>Data available: {node.data.Data_Available ? <FaCheckSquare/> : <FaTimes/>} </h3>
                             </Popup>
                         </Marker>
-                )
+                    )
 
-            })}
-        </MapContainer>
+                })}
+            </MapContainer>
+        </>
     )
 }
 
