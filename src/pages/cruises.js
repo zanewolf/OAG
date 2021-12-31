@@ -2,14 +2,16 @@ import * as React from 'react';
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import CruiseMap from "../components/CruiseMap";
+// import CruiseMap from "../components/CruiseMap";
+import loadable from '@loadable/component'
+const CruiseMap = loadable(()=>import('../components/CruiseMap'))
 
 
 export default function Cruises({data}){
     return (
         <Layout pageTitle={"Cruises"}>
             <MapContent>
-                {CruiseMap && <CruiseMap data={data}/>}
+                <CruiseMap data={data}/>
             </MapContent>
 
         </Layout>
