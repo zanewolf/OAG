@@ -11,7 +11,7 @@ export default function PeopleDirectory({data}){
     // const setFilter = () => setDirFilter ((dirFilter) => dirFilter === 'people' ? 'programs' : 'people')
     // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
     //
-
+    console.log(data)
     return (
         <DirectoryGrid>
             {data.nodes.map((node) =>{

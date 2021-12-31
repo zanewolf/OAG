@@ -10,7 +10,7 @@ export default function OppsDirectory({data}){
     // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
     //
 
-    // console.log(data)
+    console.log(data)
     return (
         <DirectoryGrid>
             {data.nodes.map((node) =>{

@@ -1,14 +1,12 @@
 import * as React from 'react';
-import {useState,useEffect} from "react";
+import {useState,useEffect, useReducer} from "react";
 import Layout from "../components/Layout";
 import { Link,graphql } from "gatsby";
 import styled from "styled-components";
 import PeopleDirectory from "./peopleDirectory";
 import ProgramDirectory from "./programDirectory";
 import OppsDirectory from "./oppsDirectory";
-import {FaSearch} from 'react-icons/fa'
 import '../styles/directory.module.css'
-import {Button} from "../components/Button";
 import {BsPlusCircleFill} from 'react-icons/bs'
 
 
@@ -16,30 +14,63 @@ let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC"
 
 export default function Directory({data}){
 
-    const [dirFilter, setDirFilter] = useState('people')
-    const [dirData, setDirData] = useState(data['people'])
+    const [dirState, setDirState] = useState({
+        dirFilter: 'people',
+        dirData: data['people']
+    })
+    // const [dirFilter, setDirFilter] = useState('people')
+    // const [dirData, setDirData] = useState(data['people'])
     const [q, setQ] = useState("");
 
+    // let dirData = data['people']'
+    const updateDir = (newFilter) => {
+        // setDirData(data[newFilter])
+        setDirState({
+            dirFilter: newFilter,
+            dirData: data[newFilter]
+        })
+    }
 
-    useEffect(()=>{
-        setDirData(data[dirFilter])
-    },[dirFilter,data])
+    // useEffect(()=>{
+    //     // dirData= data['dirFilter']
+    //         setDirData(data[dirFilter])
+    // },[dirFilter])
 
     let filteredData={}
 
     useEffect(()=>{
-        filteredData['nodes']= data[dirFilter].nodes.filter((node)=>{
+        filteredData['nodes']= data[dirState.dirFilter].nodes.filter((node)=>{
             return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase())
         })
 
-        setDirData(filteredData)
-    },[q,dirFilter,data])
+        setDirState({
+            dirFilter: dirFilter,
+            dirData: filteredData
+        })
+        // setDirData(filteredData)
+    },[q])
+
+    // const renderDirectory = () =>{
+    //     console.log(dirFilter)
+    //     if (dirFilter === 'people'){
+    //         return <PeopleDirectory data={dirData} />
+    //     }
+    //     else if (dirFilter === 'programs'){
+    //         <ProgramDirectory data={dirData} />
+    //     }
+    //     else if (dirFilter === 'opps'){
+    //         <OppsDirectory data={dirData} />
+    //     }
+    // }
 
     // const searchReset = () =>{
     //     document.getElementById('search-form').value=''
     //     setDirData(data[dirFilter])
     //     setQ('')
     // }
+    // console.log(dirFilter)
+
+    const {dirFilter, dirData } = dirState
 
     return (
         <Layout pageTitle="Directory">
@@ -48,19 +79,22 @@ export default function Directory({data}){
                     <SwitchGrid>
                         <DirLink
                             className={dirFilter ==='people'? 'dir-toggle-check': 'dir-toggle-uncheck'}
-                            onClick = {()=>setDirFilter('people')}
+                            // onClick = {()=>setDirFilter('people')}
+                            onClick = {()=>updateDir('people')}
                         >
                             People
                         </DirLink>
                         <DirLink
                             className={dirFilter ==='programs'? 'dir-toggle-check': 'dir-toggle-uncheck'}
-                            onClick = {()=>setDirFilter('programs')}
+                            // onClick = {()=>setDirFilter('programs')}
+                            onClick = {()=>updateDir('programs')}
                         >
                             Programs
                         </DirLink>
                         <DirLink
                             className={dirFilter ==='opps'? 'dir-toggle-check': 'dir-toggle-uncheck'}
-                            onClick = {()=>setDirFilter('opps')}
+                            // onClick = {()=>setDirFilter('opps')}
+                            onClick = {()=>updateDir('opps')}
                         >
                             Opportunities
                         </DirLink>
@@ -68,7 +102,7 @@ export default function Directory({data}){
                             <form>
                                 <MySelect
                                     className="target"
-                                    onChange={(e)=>setDirFilter(e.target.value)}
+                                    onChange={(e)=>updateDir(e.target.value)}
                                     defaultValue={{label: 'People', value: 'people'}}
                                 >
                                     {/*<option value="selected" selected="selected">Please choose...</option>*/}
@@ -128,11 +162,20 @@ export default function Directory({data}){
                     {/*</FilterMenu>*/}
                 </DirectoryMenu>
                 <DirectorySection>
+                    {/*{renderDirectory()}*/}
+                    {/*{(dirFilter === 'people'){*/}
+                    {/*    return <PeopleDirectory data={dirData} />*/}
+                    {/*}   else if (dirFilter === 'programs'){*/}
+                    {/*    <ProgramDirectory data={dirData} />*/}
+                    {/*} else if (dirFilter === 'opps'){*/}
+                    {/*    <OppsDirectory data={dirData} />*/}
+                    {/*}}*/}
+
                     {dirFilter === 'people' ?
                         <PeopleDirectory data={dirData} />
                         : dirFilter === 'programs' ?
                             <ProgramDirectory data={dirData} />
-                            :<OppsDirectory data={dirData} />}
+                            : <OppsDirectory data={dirData} />}
                 </DirectorySection>
             </DirectoryPage>
         </Layout>

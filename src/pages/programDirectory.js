@@ -14,7 +14,7 @@ export default function ProgramDirectory({data}){
     return (
         <DirectoryGrid>
             {data.nodes.map((node) =>{
-                    console.log(node)
+                    // console.log(node)
                     return (
                         <li className={"card"} key={node.id}>
                             <ProgramCard
