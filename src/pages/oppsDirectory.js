@@ -10,18 +10,18 @@ export default function OppsDirectory({data}){
     // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
     //
 
-    console.log(data)
+    // console.log(data)
     return (
         <DirectoryGrid>
             {data.nodes.map((node) =>{
-                    // console.log(node)
+                    console.log(node)
                     return (
                         <li className={"card"} key={node.id}>
                             <OppsCard
                                 name={node.data.Program_Title}
-                                propLevel={node.data.Proposal_Level}
+                                // propLevel={node.data.Proposal_Level}
                                 type={node.data.Grant_type}
-                                Website={node.data.Website}
+                                // Website={node.data.Website}
                             >
                             </OppsCard>
                         </li>
