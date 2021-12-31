@@ -5,7 +5,7 @@ export const menuData=[
     // {title: "Test", link: "/Test"},
     {title: "Events", link: "/projects"},
     {title:"Team", link: '/team'},
-    {title: "Cruises", link:'/cruises'},
+    // {title: "Cruises", link:'/cruises'},
     {title: "Join", link:'/join'}
 ]
 
