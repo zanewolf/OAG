@@ -1,29 +1,36 @@
 import * as React from 'react';
 import styled from "styled-components";
-import OppsCard from "../components/OppsCard";
+import PeopleCard from "./PeopleCard";
+import Modal from 'react-modal'
 
-export default function OppsDirectory({data}){
+
+export default function PeopleDirectory({data}){
     //
     // const [dirFilter, setDirFilter] = React.useState('people')
     // const [emailFilter, setEmailFilter] = React.useState(false)
     // const setFilter = () => setDirFilter ((dirFilter) => dirFilter === 'people' ? 'programs' : 'people')
     // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
     //
-
-    // console.log(data)
+    console.log(data)
     return (
         <DirectoryGrid>
-            {data.nodes.map((node) =>{
-                    console.log(node)
+            {data && data.nodes.map((node) =>{
                     return (
                         <li className={"card"} key={node.id}>
-                            <OppsCard
-                                name={node.data.Program_Title}
-                                // propLevel={node.data.Proposal_Level}
-                                type={node.data.Grant_type}
-                                // Website={node.data.Website}
+                            <PeopleCard
+                                name={node.data.Name}
+                                title={node.data.Title}
+                                employer={node.data.University_Institute}
+                                image={node.data.Image}
+                                readMore={node.data.slug}
+                                id={node.id}
+                                email={node.data.Email}
+                                about={node.data.About}
+                                main={node.data.Main_Research_Focus}
+                                researchKeywords = {node.data.Research_Keywords}
+                                personalKeywords = {node.data.Personal_Keywords}
                             >
-                            </OppsCard>
+                            </PeopleCard>
                         </li>
                     )
                 }
@@ -80,17 +87,16 @@ export default function OppsDirectory({data}){
 
 const DirectoryGrid = styled.div`
   display: flex;
-  //flex-grow: 4;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   //align-items: auto;
   //align-content: center;
-  //.item{
-  //  flex-basis: 10vw | auto;
-  //} 
+  .item{
+    flex-basis: 10vw | auto;
+  } 
   
   @media screen and (max-width: 900px){
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-content: center;
   }

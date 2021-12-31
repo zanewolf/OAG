@@ -3,9 +3,9 @@ import {useState,useEffect, useReducer} from "react";
 import Layout from "../components/Layout";
 import { Link,graphql } from "gatsby";
 import styled from "styled-components";
-import PeopleDirectory from "./peopleDirectory";
-import ProgramDirectory from "./programDirectory";
-import OppsDirectory from "./oppsDirectory";
+import PeopleDirectory from "../components/peopleDirectory";
+import ProgramDirectory from "../components/programDirectory";
+import OppsDirectory from "../components/oppsDirectory";
 import '../styles/directory.module.css'
 import {BsPlusCircleFill} from 'react-icons/bs'
 
@@ -162,14 +162,6 @@ export default function Directory({data}){
                     {/*</FilterMenu>*/}
                 </DirectoryMenu>
                 <DirectorySection>
-                    {/*{renderDirectory()}*/}
-                    {/*{(dirFilter === 'people'){*/}
-                    {/*    return <PeopleDirectory data={dirData} />*/}
-                    {/*}   else if (dirFilter === 'programs'){*/}
-                    {/*    <ProgramDirectory data={dirData} />*/}
-                    {/*} else if (dirFilter === 'opps'){*/}
-                    {/*    <OppsDirectory data={dirData} />*/}
-                    {/*}}*/}
 
                     {dirFilter === 'people' ?
                         <PeopleDirectory data={dirData} />

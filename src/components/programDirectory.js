@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Link } from "gatsby";
 import styled from "styled-components";
-import {Button} from "../components/Button";
-import ProgramCard from "../components/ProgramCard";
+import {Button} from "./Button";
+import ProgramCard from "./ProgramCard";
 
 export default function ProgramDirectory({data}){
 
@@ -13,7 +13,7 @@ export default function ProgramDirectory({data}){
     console.log(data)
     return (
         <DirectoryGrid>
-            {data.nodes.map((node) =>{
+            {data && data.nodes.map((node) =>{
                     // console.log(node)
                     return (
                         <li className={"card"} key={node.id}>
