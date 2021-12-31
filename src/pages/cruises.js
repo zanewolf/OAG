@@ -9,7 +9,7 @@ export default function Cruises({data}){
     return (
         <Layout pageTitle={"Cruises"}>
             <MapContent>
-                <CruiseMap data={data}/>
+                {CruiseMap && <CruiseMap data={data}/>}
             </MapContent>
 
         </Layout>

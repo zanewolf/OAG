@@ -65,7 +65,7 @@ export default function CruiseMap ({data}) {
     let displayData = prepData(data)
 
     return (
-        <>
+        <div>
                 <MapContainer
                 center={[0, 0]}
                 noWrap={true}
@@ -101,7 +101,7 @@ export default function CruiseMap ({data}) {
 
                 })}
             </MapContainer>
-        </>
+        </div>
     )
 }
 

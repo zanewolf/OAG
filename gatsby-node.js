@@ -11,6 +11,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
             test: /leaflet/,
             use: loaders.null(),
           },
+          {
+            test: /bad-module/,
+            use: loaders.null(),
+          },
         ],
       },
     });
