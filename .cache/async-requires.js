@@ -14,9 +14,6 @@ exports.components = {
   "component---src-pages-projects-index-js": () => import("./../../../src/pages/projects/index.js" /* webpackChunkName: "component---src-pages-projects-index-js" */),
   "component---src-pages-search-bar-js": () => import("./../../../src/pages/SearchBar.js" /* webpackChunkName: "component---src-pages-search-bar-js" */),
   "component---src-pages-team-js": () => import("./../../../src/pages/team.js" /* webpackChunkName: "component---src-pages-team-js" */),
-  "component---src-pages-test-js": () => import("./../../../src/pages/Test.js" /* webpackChunkName: "component---src-pages-test-js" */),
-  "component---src-templates-events-details-js": () => import("./../../../src/templates/events-details.js" /* webpackChunkName: "component---src-templates-events-details-js" */),
-  "component---src-templates-people-details-js": () => import("./../../../src/templates/people-details.js" /* webpackChunkName: "component---src-templates-people-details-js" */),
-  "component---src-templates-project-details-js": () => import("./../../../src/templates/project-details.js" /* webpackChunkName: "component---src-templates-project-details-js" */)
+  "component---src-pages-test-js": () => import("./../../../src/pages/Test.js" /* webpackChunkName: "component---src-pages-test-js" */)
 }
 

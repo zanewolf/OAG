@@ -197,7 +197,7 @@ export const query = graphql`
               Personal_Keywords
               Image
               Email
-              University_Institute
+              Affiliations
               Title
               Website
               Main_Research_Focus
