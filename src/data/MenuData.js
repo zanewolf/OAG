@@ -3,10 +3,10 @@ export const menuData=[
     {title: "Directory", link: "/directory"},
     // {title: "Blog", link: "/blog"},
     // {title: "Test", link: "/Test"},
-    {title: "Events", link: "/projects"},
-    {title:"Team", link: '/team'},
+    {title: "News", link: "/projects"},
+    {title:"Grants", link: '/grants'},
     {title: "Cruises", link:'/cruises'},
-    {title: "Join", link:'/join'}
+    // {title: "Join", link:'/join'}
 ]
 
 

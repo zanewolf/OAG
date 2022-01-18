@@ -11,28 +11,34 @@ export default function Team(){
     console.log(teamData)
 
     return (
-        <Layout pageTitle={"Team"}>
-            <TeamPage image={ocean3}>
-                {teamData.map((teamMember,i)=>{
-                    return(
-                        <TeamMember className={'teamBlock'}>
-                            <TeamPicture src={teamMember.image} alt={teamMember.name}/>
-                            {/*</TeamPicture>*/}
-                            <TeamMemberInfo>
-                                <TeamName>{teamMember.name}</TeamName>
-                                <TeamTitle>{teamMember.title}</TeamTitle>
-                                <p> {teamMember.about}</p>
-                            </TeamMemberInfo>
-                        </TeamMember>
-                    )
-                })}
+        // <Layout pageTitle={"Team"}>
+
+            <TeamPage>
+                <TeamPageHeader>
+                    Meet the Team
+                </TeamPageHeader>
+                <TeamMembers>
+                    {teamData.map((teamMember,i)=>{
+                        return(
+                            <TeamMember className={'teamBlock'}>
+                                <TeamPicture src={teamMember.image} alt={teamMember.name}/>
+                                {/*</TeamPicture>*/}
+                                <TeamMemberInfo>
+                                    <TeamName>{teamMember.name}</TeamName>
+                                    <TeamTitle>{teamMember.title}</TeamTitle>
+                                    <p> {teamMember.about}</p>
+                                </TeamMemberInfo>
+                            </TeamMember>
+                        )
+                    })}
+                </TeamMembers>
             </TeamPage>
 
 
 
 
 
-        </Layout>
+        // </Layout>
 
     )
 }
@@ -77,46 +83,71 @@ export default function Team(){
 // export default Team
 
 const TeamPage = styled.div`
-  padding-top: var(--screen-nav-bar-height);
-  top: 0;
-  left: 0;
-  height: auto;
+  //margin-top: var(--screen-nav-bar-height);
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 5vw;
-  //padding-bottom: 10vw;
-  background: url(${({image})=>(image ? image : null)});
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-
-
-  @media screen and (max-width: 940px){
-    padding-top: var(--phone-nav-bar-height);
-    //padding-top: 2vh;
-  }
-`
-const TeamMember = styled.div`
-  margin-top: var(--screen-nav-bar-height);
-  height: 60vh;
-  width: 70vw;
-  //background-color: aquamarine;
-  display: flex;
-  border-radius: 5pt;
-  flex-flow: row nowrap;
+  margin: auto;
+  justify-content: start;
+  //background-color: black;
+  justify-content: center;
   align-content: center;
-  justify-content: space-between;
-  margin-bottom: 7vh;
-  background: rgba(0,0,0,0.7);
+  
+  @media screen and (max-width: 1100px) {
+    margin-top: 35vh;
+  }
+  //justify-content: space-between;
+  //align-content: center;
+  
 
-  @media screen and (max-width: 886px){
+`
+
+const TeamPageHeader = styled.h1`
+  font-size: 3em;
+  color: white;
+  margin: auto;
+  padding: 3vw;
+
+  @media screen and (max-width: 420px) {
+    font-size: 2.5em;
+  }
+  
+`
+
+const TeamMembers = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: center;
+  width: 100vw;
+  padding-top: 10pt;
+  margin: auto;
+  //border: 1px solid white;
+
+  @media screen and (max-width: 1100px){
     flex-flow: column wrap;
     width: 90vw;
     align-content: center;
     align-items: center;
+    justify-content: space-between;
+  }
+  
+`
+const TeamMember = styled.div`
+  height: 60vh;
+  width: 30vw;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 7vh;
+  //background: rgba(250,250,250,0.1);
+  text-align: center;
+
+  @media screen and (max-width: 1100px){
+    flex-flow: column wrap;
+    height: auto;
+    width: 70vw;
+    align-content: center;
+    align-items: center;
+    //margin-bottom: 3vh;
   }
 
   //.teamBlock:nth-child(2n){
@@ -130,39 +161,29 @@ const TeamMember = styled.div`
 `
 
 const TeamPicture = styled.img`
-  object-fit: cover;
-  //display: flex;
-  //justify-content: center;
-  border-radius: 5pt 0 0 5pt;
-  width: 30vw;
-  height: 60vh;
-  //max-width: 3
-  // 0vw;
-  //max-width: 40vw;
-  //margin-right: 1vw;
-  //margin-left: 1vw;
-
-  @media screen and (max-width: 900px){
-    height: 40vh;
-    align-content: center;
-
-    border-radius: 5pt;
-    
-  }
+  border: 4px solid white;
+  max-width: 20vh;
+  width: auto;
+  height: 20vh;
+  min-height: 20vh;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  //padding: 7px;
 `
 
 const TeamMemberInfo = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  width: 30vw;
-  align-content: center;
-  justify-content: center;
   color: white;
-  margin: auto auto;
-  //text-justify: center;
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  //margin: auto;
 
-  @media screen and (max-width: 900px){
-    width: 80vw;
+  @media screen and (max-width: 1100px){
+    width: 70vw;
     flex-flow: column wrap;
 
     text-align: center;
@@ -170,11 +191,14 @@ const TeamMemberInfo = styled.div`
 `
 
 const TeamName = styled.h2`
-  font-size: 4em;
-  margin-bottom: 1vw;
+  font-size: 2em;
+  padding: 1vw;
+  margin: auto;
+  text-align: center;
+  top: 0;
 `
 
 const TeamTitle = styled.h3`
-  font-size: 2.5em;
+  font-size: 1em;
   margin-bottom: 1vw;
 `

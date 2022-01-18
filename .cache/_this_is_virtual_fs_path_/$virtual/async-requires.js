@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-cruises-js": () => import("./../../../src/pages/cruises.js" /* webpackChunkName: "component---src-pages-cruises-js" */),
   "component---src-pages-directory-js": () => import("./../../../src/pages/directory.js" /* webpackChunkName: "component---src-pages-directory-js" */),
   "component---src-pages-events-js": () => import("./../../../src/pages/Events.js" /* webpackChunkName: "component---src-pages-events-js" */),
+  "component---src-pages-grants-js": () => import("./../../../src/pages/grants.js" /* webpackChunkName: "component---src-pages-grants-js" */),
   "component---src-pages-index-js": () => import("./../../../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
   "component---src-pages-join-js": () => import("./../../../src/pages/join.js" /* webpackChunkName: "component---src-pages-join-js" */),
   "component---src-pages-projects-index-js": () => import("./../../../src/pages/projects/index.js" /* webpackChunkName: "component---src-pages-projects-index-js" */),

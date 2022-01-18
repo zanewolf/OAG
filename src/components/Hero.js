@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../styles/hero.module.css';
+import {Scrollama, Step} from "react-scrollama";
 
 // import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 
-export default function Hero({title, size, image,darkened, color, children}){
+export default function Hero({title, position, size, image,darkened, color, children}){
     // let heroImage = image? image : "../images/ocean.png"
 
 
@@ -13,7 +14,7 @@ export default function Hero({title, size, image,darkened, color, children}){
     return(
         // <div className={"hero-container"}>
         <HeroContainer size={size}>
-            <HeroImage image={image} size={size} color={color}/>
+            <HeroImage image={image} size={size} color={color} position={position}/>
             <HeroContent>
                 <HeroH1>
                     {title}
@@ -78,14 +79,16 @@ const HeroContent = styled.div`
   //z-index: 500;
   
   @media screen and (max-width: 980px){
-    margin-top: var(--phone-nav-bar-height)
+    margin-top: var(--phone-nav-bar-height);
+    align-content: center;
+    justify-content: center;
   }
 `
 
 const HeroImage = styled.div`
   //background: url(${({image})=>(image ? image : null)}) center center/cover no-repeat;
   background: ${({image,color})=>(image ? `url(${image}) center center/cover no-repeat` : `${color}`)};
-  position: absolute;
+  position: ${({position}) => (position)};
   top: 0;
   left: 0;
   width: 100%;
@@ -101,8 +104,10 @@ const HeroImage = styled.div`
     ) => props.position || '50% 50%'} !important;'
       }
 
-  @media screen and (max-width: 768px) {
-    height: 100vh;
+  @media screen and (max-width: 950px) {
+    min-height: 100vh;
+    height: auto;
+    //position: sticky;
   }
 `
 

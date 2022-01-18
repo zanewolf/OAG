@@ -5,17 +5,16 @@ import ocean3 from '../images/ocean3.jpg';
 import {useState,useEffect} from "react";
 
 import ocean3_gradient from '../images/ocean3_gradient.jpg';
-
 import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
+import oceanfloor from '../images/deep_sea_mining_ISA.jpg';
+import ocean4 from '../images/ocean4.jpg'
+import Team from "./team";
+import {Scrollama, Step} from 'react-scrollama'
+// import scrollama from 'scrollama'
 import styled from "styled-components";
-// const anchors = ["Home", "Mission", "Past Events"]
+
 let section2Image;
-//
-// const fullpageOptions = {
-//     anchors: ['firstPage', 'secondPage', 'thirdPage'],
-//     sectionsColor: ['#282c34', '#ff5f45'],
-//     callbacks: ['onLeave', 'afterLoad'],
-// }
+
 
 function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
@@ -47,7 +46,6 @@ export default function IndexPage() {
 
     const size=useWindowSize();
 
-
     // console.log(size);
 
     useEffect(()=>{
@@ -66,12 +64,14 @@ export default function IndexPage() {
                         size={"100vh"}
                         image={ocean3}
                         id={"hero1"}
+                        position={'absolute'}
 
                     />
                     <Hero
                         size={"100vh"}
                         image={ section2Image}
                         id={"hero2"}
+                        position={'absolute'}
 
                     >
                         <MissionSection>
@@ -81,6 +81,41 @@ export default function IndexPage() {
                                 <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
                             </MissionDesc>
                         </MissionSection>
+                    </Hero>
+
+                    <Hero
+                        titlepos={"top"}
+                        size={"100vh"}
+                        // image={ocean4}
+                        color={"rgb(0,5,10)"}
+                        id={"hero3"}
+                        position={'absolute'}
+                    >
+                        <Team/>
+
+                        {/*<div className="step" styles={{color: "white"}} data-step="a"> Hi</div>*/}
+                        {/*<div className="step" data-step="b"> Hey</div>*/}
+                        {/*<div className="step" data-step="c"> Holas</div>*/}
+                        {/*{<Team/>}*/}
+
+
+                    </Hero>
+                    <Hero
+                        titlepos={"top"}
+                        size={"100vh"}
+                        image={ocean4}
+                        // color={"black"}
+                        id={"hero4"}
+                        position={'absolute'}
+                    >
+                        {/*<Team/>*/}
+
+                        {/*<div className="step" styles={{color: "white"}} data-step="a"> Hi</div>*/}
+                        {/*<div className="step" data-step="b"> Hey</div>*/}
+                        {/*<div className="step" data-step="c"> Holas</div>*/}
+                        {/*{<Team/>}*/}
+
+
                     </Hero>
 
                 </div>
