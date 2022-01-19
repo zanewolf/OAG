@@ -61,7 +61,7 @@ exports.createPages = async ({graphql, actions}) => {
               Main_Research_Focus
               About
               Website
-              University_Institute
+              Affiliations
               Email
               Title
               slug
@@ -88,13 +88,13 @@ exports.createPages = async ({graphql, actions}) => {
   //   }`)
 
 
-  data.articles.nodes.forEach(node => {
-    actions.createPage({
-      path: '/projects/'+ node.frontmatter.slug,
-      component: path.resolve('./src/templates/project-details.js'),
-      context: { slug: node.frontmatter.slug }
-    })
-  })
+  // data.articles.nodes.forEach(node => {
+  //   actions.createPage({
+  //     path: '/projects/'+ node.frontmatter.slug,
+  //     component: path.resolve('./src/templates/project-details.js'),
+  //     context: { slug: node.frontmatter.slug }
+  //   })
+  // })
   //
   data.articles.nodes.forEach(node => {
     actions.createPage({
