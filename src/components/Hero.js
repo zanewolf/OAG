@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../styles/hero.module.css';
-import {Scrollama, Step} from "react-scrollama";
 
 // import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 
@@ -14,12 +13,12 @@ export default function Hero({title, position, size, image,darkened, color, chil
     return(
         // <div className={"hero-container"}>
         <HeroContainer size={size}>
-            <HeroImage image={image} size={size} color={color} position={position}/>
-            <HeroContent>
+            <HeroImage image={image} size={size} color={color}/>
+            <HeroContent  position={position}>
                 <HeroH1>
                     {title}
                 </HeroH1>
-                <HeroBody>
+                <HeroBody position={position}>
                     {children}
                 </HeroBody>
             </HeroContent>
@@ -61,8 +60,8 @@ const HeroContainer = styled.div`
   //padding: 0 1rem;
   //width: auto;
 
-  @media screen and (max-width: 768px) {
-    height: 100vh;
+  @media screen and (max-width: 1100px) {
+    min-height: 100vh;
   }
 `
 //
@@ -70,11 +69,14 @@ const HeroContent = styled.div`
   
   background: transparent;
   //width: 100%;
-  justify-content: center;
-  display: flex;
-  margin: 5vh auto;
-  flex-direction: column;
+  justify-content: ${({position}) => (position)};
   align-content: center;
+  margin-right: ${({position})=>(position==='right' ? '5vw' : 'auto')};
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;  
+  flex-direction: column;
   color: white;
   //z-index: 500;
   
@@ -82,13 +84,14 @@ const HeroContent = styled.div`
     margin-top: var(--phone-nav-bar-height);
     align-content: center;
     justify-content: center;
+    margin: auto;
   }
 `
 
 const HeroImage = styled.div`
   //background: url(${({image})=>(image ? image : null)}) center center/cover no-repeat;
   background: ${({image,color})=>(image ? `url(${image}) center center/cover no-repeat` : `${color}`)};
-  position: ${({position}) => (position)};
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -96,18 +99,12 @@ const HeroImage = styled.div`
   height: ${({size}) => (size)};
   //background: ;
       // Adjust image positioning (if image covers area with defined height) and add font-family for polyfill
-      & > img {
-        object-fit: ${(props) => props.fit || 'cover'} !important;
-        object-position: ${(props) => props.position || '50% 50%'} !important;
-        font-family: 'object-fit: ${(props) => props.fit || 'cover'} !important; object-position: ${(
-        props,
-    ) => props.position || '50% 50%'} !important;'
-      }
 
-  @media screen and (max-width: 950px) {
+
+  @media screen and (max-width: 1100px) {
     min-height: 100vh;
-    height: auto;
-    //position: sticky;
+    //height: auto;
+    //background-size: fill;
   }
 `
 
@@ -119,7 +116,7 @@ const HeroH1 = styled.h1`
   margin: auto 2vw;
   text-align: center;
   
-  @media screen and (max-width: 1076px ){
+  @media screen and (max-width: 1100px ){
     //height: auto;
     //margin: auto;
     flex-direction: column;
@@ -128,7 +125,8 @@ const HeroH1 = styled.h1`
 `
 const HeroBody=styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: ${({position}) => (position)};
   align-content: center;
+  margin-right: ${({position})=>(position==='right' ? '10vw' : 'auto')}
   
 `

@@ -6,6 +6,7 @@ exports.components = {
   "component---src-pages-404-js": () => import("./../../../src/pages/404.js" /* webpackChunkName: "component---src-pages-404-js" */),
   "component---src-pages-blog-index-js": () => import("./../../../src/pages/blog/index.js" /* webpackChunkName: "component---src-pages-blog-index-js" */),
   "component---src-pages-blog-mdx-slug-js": () => import("./../../../src/pages/blog/{mdx.slug}.js" /* webpackChunkName: "component---src-pages-blog-mdx-slug-js" */),
+  "component---src-pages-contactus-js": () => import("./../../../src/pages/contactus.js" /* webpackChunkName: "component---src-pages-contactus-js" */),
   "component---src-pages-cruises-js": () => import("./../../../src/pages/cruises.js" /* webpackChunkName: "component---src-pages-cruises-js" */),
   "component---src-pages-directory-js": () => import("./../../../src/pages/directory.js" /* webpackChunkName: "component---src-pages-directory-js" */),
   "component---src-pages-events-js": () => import("./../../../src/pages/Events.js" /* webpackChunkName: "component---src-pages-events-js" */),

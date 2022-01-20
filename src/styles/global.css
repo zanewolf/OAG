@@ -59,11 +59,46 @@ html, body {
 
 /*}*/
 
-footer p{
+footer{
     float: bottom;
     text-align: center;
-    color: #bbb;
-    margin: 40px auto;
+    margin: auto;
+    /*height: 5vh;*/
+    font-size: 2em;
+    font-weight: 500;
+    /*padding: 2vw;*/
+    background-color: #01778c;
+    color: #fff;
+    padding: 1vw;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-wrapper{
+
+    color: #fff;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+
+}
+
+.footer-links-left{
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.footer-links-right{
+    font-size:1.5em;
+    margin-right: 2vw;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 7vw;
+    justify-content: space-between;
+    align-content: center;
 }
 
 @media screen and (max-width: 900px){

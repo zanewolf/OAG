@@ -47,7 +47,12 @@ export default function Navbar() {
                     <MenuWrapper >
                         <MenuLinks  className={sideMenu === true? "sideMenu": ""}>
                             {menuData.map((item, index)=>(
-                                <NavLink className={sideMenu === true? "sideMenu": ""} to={item.link} key={index} onClick = {sideMenu === true? toggleSideMenu: null} activeStyle={activeStyle}>{item.title}</NavLink>
+                                <NavLink
+                                    className={sideMenu === true? "sideMenu": ""}
+                                    to={item.link} key={index}
+                                    onClick = {sideMenu === true? toggleSideMenu: null}
+                                    activeStyle={activeStyle}>{item.title}
+                                </NavLink>
                             ))}
                         </MenuLinks>
                         <NavBurger>

@@ -71,6 +71,15 @@ export default function PeopleCard({name, title,employer, main,image, readMore, 
         navigator.clipboard.writeText(email);
         alert('Email address copied');
     }
+
+    const openWebsite = (href) => {
+        href != null ?
+            window.open(website, "_blank")
+            :
+            alert('No website provided. Sorry!')
+    }
+
+
     return (
         <>
             <UserCard
@@ -107,7 +116,7 @@ export default function PeopleCard({name, title,employer, main,image, readMore, 
 
                 <CardFooter className = {"card-footer"} bandColor={roleColor}>
 
-                    <UserWebsite title = "Personal Website" href={website} >
+                    <UserWebsite title = "Personal Website" onClick={()=> openWebsite(website)} >
                         {<FaExternalLinkAlt/>}
                     </UserWebsite>
                     <MyHr />

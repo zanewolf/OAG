@@ -6,11 +6,9 @@ import {useState,useEffect} from "react";
 
 import ocean3_gradient from '../images/ocean3_gradient.jpg';
 import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
-import oceanfloor from '../images/deep_sea_mining_ISA.jpg';
+import oceanfloor from '../images/ocean_floor.jpg';
 import ocean4 from '../images/ocean4.jpg'
 import Team from "./team";
-import {Scrollama, Step} from 'react-scrollama'
-// import scrollama from 'scrollama'
 import styled from "styled-components";
 
 let section2Image;
@@ -64,14 +62,14 @@ export default function IndexPage() {
                         size={"100vh"}
                         image={ocean3}
                         id={"hero1"}
-                        position={'absolute'}
+                        position={'center'}
 
                     />
                     <Hero
                         size={"100vh"}
                         image={ section2Image}
                         id={"hero2"}
-                        position={'absolute'}
+                        position={'center'}
 
                     >
                         <MissionSection>
@@ -89,7 +87,7 @@ export default function IndexPage() {
                         // image={ocean4}
                         color={"rgb(0,5,10)"}
                         id={"hero3"}
-                        position={'absolute'}
+                        position={'center'}
                     >
                         <Team/>
 
@@ -103,11 +101,13 @@ export default function IndexPage() {
                     <Hero
                         titlepos={"top"}
                         size={"100vh"}
-                        image={ocean4}
+                        image={oceanfloor}
                         // color={"black"}
                         id={"hero4"}
-                        position={'absolute'}
+                        position={'center'}
                     >
+                        {/*<Contactus/>*/}
+
                         {/*<Team/>*/}
 
                         {/*<div className="step" styles={{color: "white"}} data-step="a"> Hi</div>*/}

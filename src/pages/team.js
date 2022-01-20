@@ -93,7 +93,7 @@ const TeamPage = styled.div`
   align-content: center;
   
   @media screen and (max-width: 1100px) {
-    margin-top: 35vh;
+    //margin-top: 35vh;
   }
   //justify-content: space-between;
   //align-content: center;
@@ -116,7 +116,7 @@ const TeamPageHeader = styled.h1`
 const TeamMembers = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: center;
   width: 100vw;
   padding-top: 10pt;
@@ -129,6 +129,7 @@ const TeamMembers = styled.div`
     align-content: center;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 10vh;
   }
   
 `

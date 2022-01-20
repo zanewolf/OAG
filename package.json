@@ -17,6 +17,7 @@
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.2",
     "@loadable/component": "^5.15.2",
+    "@material-ui/core": "^4.12.3",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@mdx-js/util": "1.6.22",
@@ -54,12 +55,10 @@
     "react-portal": "^4.2.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scrollama": "^2.2.16",
     "react-select": "^5.2.1",
     "react-snap-scroll": "^0.0.5",
     "react-use-scroll-snap": "^0.0.3",
     "scroll-snap": "^3.2.4",
-    "scrollama": "^3.0.2",
     "styled-components": "^5.3.0"
   }
 }

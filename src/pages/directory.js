@@ -76,43 +76,43 @@ export default function Directory({data}){
         <Layout pageTitle="Directory">
             <DirectoryPage>
                 <DirectoryMenu>
-                    <SwitchGrid>
-                        <DirLink
-                            className={dirFilter ==='people'? 'dir-toggle-check': 'dir-toggle-uncheck'}
-                            // onClick = {()=>setDirFilter('people')}
-                            onClick = {()=>updateDir('people')}
-                        >
-                            People
-                        </DirLink>
-                        <DirLink
-                            className={dirFilter ==='programs'? 'dir-toggle-check': 'dir-toggle-uncheck'}
-                            // onClick = {()=>setDirFilter('programs')}
-                            onClick = {()=>updateDir('programs')}
-                        >
-                            Programs
-                        </DirLink>
-                        <DirLink
-                            className={dirFilter ==='opps'? 'dir-toggle-check': 'dir-toggle-uncheck'}
-                            // onClick = {()=>setDirFilter('opps')}
-                            onClick = {()=>updateDir('opps')}
-                        >
-                            Opportunities
-                        </DirLink>
-                        <SwitchDropDown className="dropdown" >
-                            <form>
-                                <MySelect
-                                    className="target"
-                                    onChange={(e)=>updateDir(e.target.value)}
-                                    defaultValue={{label: 'People', value: 'people'}}
-                                >
-                                    {/*<option value="selected" selected="selected">Please choose...</option>*/}
-                                    <option value="people" value="people">People</option>
-                                    <option value="programs" value="programs">Programs</option>
-                                    <option value="opps" value="opps">Opportunities</option>
-                                </MySelect>
-                            </form>
-                        </SwitchDropDown>
-                    </SwitchGrid>
+                    {/*<SwitchGrid>*/}
+                    {/*    <DirLink*/}
+                    {/*        className={dirFilter ==='people'? 'dir-toggle-check': 'dir-toggle-uncheck'}*/}
+                    {/*        // onClick = {()=>setDirFilter('people')}*/}
+                    {/*        onClick = {()=>updateDir('people')}*/}
+                    {/*    >*/}
+                    {/*        People*/}
+                    {/*    </DirLink>*/}
+                    {/*    <DirLink*/}
+                    {/*        className={dirFilter ==='programs'? 'dir-toggle-check': 'dir-toggle-uncheck'}*/}
+                    {/*        // onClick = {()=>setDirFilter('programs')}*/}
+                    {/*        onClick = {()=>updateDir('programs')}*/}
+                    {/*    >*/}
+                    {/*        Programs*/}
+                    {/*    </DirLink>*/}
+                    {/*    <DirLink*/}
+                    {/*        className={dirFilter ==='opps'? 'dir-toggle-check': 'dir-toggle-uncheck'}*/}
+                    {/*        // onClick = {()=>setDirFilter('opps')}*/}
+                    {/*        onClick = {()=>updateDir('opps')}*/}
+                    {/*    >*/}
+                    {/*        Opportunities*/}
+                    {/*    </DirLink>*/}
+                    {/*    <SwitchDropDown className="dropdown" >*/}
+                    {/*        <form>*/}
+                    {/*            <MySelect*/}
+                    {/*                className="target"*/}
+                    {/*                onChange={(e)=>updateDir(e.target.value)}*/}
+                    {/*                defaultValue={{label: 'People', value: 'people'}}*/}
+                    {/*            >*/}
+                    {/*                /!*<option value="selected" selected="selected">Please choose...</option>*!/*/}
+                    {/*                <option value="people" value="people">People</option>*/}
+                    {/*                <option value="programs" value="programs">Programs</option>*/}
+                    {/*                <option value="opps" value="opps">Opportunities</option>*/}
+                    {/*            </MySelect>*/}
+                    {/*        </form>*/}
+                    {/*    </SwitchDropDown>*/}
+                    {/*</SwitchGrid>*/}
                     <AddButton to={'/join'}>
 
                         {<BsPlusCircleFill/>}
@@ -163,11 +163,11 @@ export default function Directory({data}){
                 </DirectoryMenu>
                 <DirectorySection>
 
-                    {dirFilter === 'people' ?
+                    {/*{dirFilter === 'people' ?*/}
                         <PeopleDirectory data={dirData} />
-                        : dirFilter === 'programs' ?
-                            <ProgramDirectory data={dirData} />
-                            : <OppsDirectory data={dirData} />}
+                        {/*// : dirFilter === 'programs' ?*/}
+                        {/*//     <ProgramDirectory data={dirData} />*/}
+                        {/*//     : <OppsDirectory data={dirData} />}*/}
                 </DirectorySection>
             </DirectoryPage>
         </Layout>

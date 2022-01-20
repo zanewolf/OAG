@@ -20,9 +20,10 @@ export default function PeopleDirectory({data}){
                             <PeopleCard
                                 name={node.data.Name}
                                 title={node.data.Title}
-                                employer={node.data.University_Institute}
+                                employer={node.data.Affiliations}
                                 image={node.data.Image}
                                 readMore={node.data.slug}
+                                website={node.data.Website}
                                 id={node.id}
                                 email={node.data.Email}
                                 about={node.data.About}

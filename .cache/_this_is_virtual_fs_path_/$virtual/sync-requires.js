@@ -8,6 +8,7 @@ exports.components = {
   "component---src-pages-404-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\404.js")),
   "component---src-pages-blog-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\blog\\index.js")),
   "component---src-pages-blog-mdx-slug-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\blog\\{mdx.slug}.js")),
+  "component---src-pages-contactus-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\contactus.js")),
   "component---src-pages-cruises-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\cruises.js")),
   "component---src-pages-directory-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\directory.js")),
   "component---src-pages-events-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\Events.js")),
