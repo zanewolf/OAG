@@ -3,18 +3,24 @@ import styled from "styled-components";
 import PeopleCard from "./PeopleCard";
 import Modal from 'react-modal'
 
+const fieldColors={
+    'Policy/Economics': '#351431',
+    'Communications':'#823c3a',
+    'Humanities':'#f5a578',
+    'Environmental Sciences': '#002d50',
+    'Biological Sciences': '#01778c',
+    'Engineering': '#52b69a',
+    'Other': '#818588'
+
+}
+let fieldColor;
 
 export default function PeopleDirectory({data}){
-    //
-    // const [dirFilter, setDirFilter] = React.useState('people')
-    // const [emailFilter, setEmailFilter] = React.useState(false)
-    // const setFilter = () => setDirFilter ((dirFilter) => dirFilter === 'people' ? 'programs' : 'people')
-    // const toggleEmailFilter = () => setEmailFilter((emailFitler) => emailFilter === true? false: true)
-    //
-    console.log(data)
+
     return (
         <DirectoryGrid>
             {data && data.nodes.map((node) =>{
+                fieldColor = node.data.Primary_Field in fieldColors ? fieldColors[node.data.Primary_Field] : '#818588'
                     return (
                         <li className={"card"} key={node.id}>
                             <PeopleCard
@@ -27,9 +33,10 @@ export default function PeopleDirectory({data}){
                                 id={node.id}
                                 email={node.data.Email}
                                 about={node.data.About}
-                                main={node.data.Main_Research_Focus}
+                                primaryField={node.data.Primary_Field}
                                 researchKeywords = {node.data.Research_Keywords}
                                 personalKeywords = {node.data.Personal_Keywords}
+                                fieldColor = {fieldColor}
                             >
                             </PeopleCard>
                         </li>
@@ -39,52 +46,6 @@ export default function PeopleDirectory({data}){
         </DirectoryGrid>
     )
 }
-
-// function isNotNull(value){
-//     if (value != null){
-//         return true
-//     } else {
-//         return false
-//     }
-// }
-
-
-// export const query = graphql`
-//    query PeopleDirectoryData{
-//     allAirtable(filter: {table: {eq: "People"}}, sort: {fields: data___Name}) {
-//         nodes {
-//           data {
-//               Name
-//               Keywords__csv_
-//               Image
-//               Email
-//               University_Institute
-//               Title
-//               Website
-//               Primary_Field
-//               slug
-//           }
-//         }
-//     }
-//   }
-// `
-
-// const DirectorySection = styled.div`
-//   display: flex;
-//   flex-flow: column wrap;
-//   padding-top: 2vh;
-//   //align-content: center;
-//   //justify-content: center;
-//   height: auto;
-//   min-height: 100vh;
-//   margin-top: var(--screen-nav-bar-height);
-//
-//   @media screen and (max-width: 900px){
-//     margin-top: var(--phone-nav-bar-height);
-//     padding-top: 2vh;
-//   }
-//
-//     `
 
 const DirectoryGrid = styled.div`
   display: flex;

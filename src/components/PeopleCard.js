@@ -13,23 +13,28 @@ import Avatar from "boring-avatars";
 import Modal from 'react-modal'
 import TagSection from "./TagSection";
 
-const roleColors2={
-    'Principal Investigator': '#d9ed92',
-    'Graduate Student': '#99d98c',
-    'Engineer': '#52b69a',
-    'Professor': '#168aad',
-    'Research Scientist':'#1e6091',
-    'Administrator':'#184e77'
+let paletteColors=['#351431','#823c3a','#f5a578',
+    '#002d50', '#01778c', '#52b69a']
+const fieldColors={
+    'Policy/Economics': paletteColors[0],
+    'Communications':paletteColors[1],
+    'Humanities':paletteColors[2],
+    'Environmental Sciences': paletteColors[3],
+    'Biological Sciences': paletteColors[4],
+    'Engineering': paletteColors[5]
+
 }
 
-const roleColors={
-    'Principal Investigator': '#351431',
-    'Professor': '#002d50',
-    'Graduate Student': '#01778c',
-    'Engineer': '#52b69a',
-    'Research Scientist':'#823c3a',
-    'Administrator':'#f5a578' //'#53a7b0'
-}
+
+
+// const roleColors={
+//     'Principal Investigator': '#351431',
+//     'Professor': '#002d50',
+//     'Graduate Student': '#01778c',
+//     'Engineer': '#52b69a',
+//     'Research Scientist':'#823c3a',
+//     'Administrator':'#f5a578' //'#53a7b0'
+// }
 
 
 const customStyles = {
@@ -46,25 +51,12 @@ const customStyles = {
         // overflow: 'scroll'
     },
 };
-//
-// "d9ed92","b5e48c","99d98c","76c893","52b69a","34a0a4","168aad","1a759f","1e6091","184e77"
 
 
-export default function PeopleCard({name, title,employer, main,image, readMore, about,id,email, website, children, personalKeywords, researchKeywords}) {
-
-    // const [buttonToggle, setButtonToggle] = React.useState(false)
-    // let toggleToggle = () => setButtonToggle((buttonToggle) => buttonToggle === true ? false : true)
+export default function PeopleCard({name, title,employer, primaryField,image, about,email, website, children, personalKeywords, researchKeywords, fieldColor}) {
 
     const [modalState, setModalState] = React.useState(false)
-
-    //
-    // let imageSrc = image === null ? <Avatar size={40}
-    //                                         variant="marble"
-    //                                         colors={["#351431","#002d50","#01778c","#53a7b0","#fdfcfb","#f5a578","#bbd2d5","#823c3a"]
-    //                                         }/>
-    //                                 : image
-
-    let roleColor = title in roleColors ? roleColors[title] : '#f5a578'
+    console.log(primaryField)
 
     const copy =  (email) => {
         console.log(email)
@@ -79,42 +71,45 @@ export default function PeopleCard({name, title,employer, main,image, readMore, 
             alert('No website provided. Sorry!')
     }
 
+    let avatarColors=[paletteColors[Math.floor(Math.random() * paletteColors.length)],paletteColors[Math.floor(Math.random() * paletteColors.length)]]
+
 
     return (
         <>
             <UserCard
                 className={style.card}
-                bandColor={roleColor}
+                bandColor={fieldColor}
             >
-                {/*<UserHeader>*/}
+                <UserHeader>
                     {image === null?
-                        <UserAvatar bandColor={roleColor}>
+                        <UserAvatar bandColor={fieldColor}>
                             <Avatar
                                 size={'12vh'}
                                 name={name}
                                 variant="beam"
-                                colors={["#351431","#002d50","#01778c","#53a7b0","#fdfcfb","#f5a578","#bbd2d5","#823c3a"]}
+                                colors={avatarColors}
                             />
                         </UserAvatar> :
-                        <UserImage src={image} alt={'Profile picture of ' + name} bandColor={roleColor} maxWidth={'15vh'} maxHeight={'15vh'}/>
+                        <UserImage src={image} alt={'Profile picture of ' + name} bandColor={fieldColor} maxWidth={'15vh'} maxHeight={'15vh'}/>
                     }
                     <UserName>{name}</UserName>
-                {/*</UserHeader>*/}
+                </UserHeader>
                 {/*<UserImage src={imageSrc} alt={'Profile picture of ' + name} bandColor={roleColor} />*/}
 
-                <UserRole bandColor={roleColor}> {title}
+                <UserRole bandColor={fieldColor}>
+                    {title}
                 </UserRole>
                 <UserRole>
                     {employer}
                 </UserRole>
                 <UserRole>
-                    {main}
+                    {primaryField}
                 </UserRole>
-                <UserAbout>
-                    {about}
-                </UserAbout>
+                {/*<UserAbout>*/}
+                {/*    {about}*/}
+                {/*</UserAbout>*/}
 
-                <CardFooter className = {"card-footer"} bandColor={roleColor}>
+                <CardFooter className = {"card-footer"} bandColor={fieldColor}>
 
                     <UserWebsite title = "Personal Website" onClick={()=> openWebsite(website)} >
                         {<FaExternalLinkAlt/>}
@@ -124,19 +119,12 @@ export default function PeopleCard({name, title,employer, main,image, readMore, 
                         {<HiOutlineMail/>}
                     </EmailButton>
                     <MyHr />
-                    <EmailButton
+                    <EmailButton title = "Open Profile"
                         onClick = {()=>setModalState(true)}
                         >
 
                             {<FaEllipsisH/>}
                     </EmailButton>
-                    {/*<ReadMoreLink title = "See full profile" to={"/directory/" + readMore} >*/}
-                    {/*    /!*<Button primary>*!/*/}
-                    {/*    /!*    <button>*!/*/}
-                    {/*    {<FaEllipsisH/>}*/}
-                    {/*    /!*</button>*!/*/}
-                    {/*    /!*</Button>*!/*/}
-                    {/*</ReadMoreLink>*/}
                 </CardFooter>
 
                 {children}
@@ -166,7 +154,7 @@ export default function PeopleCard({name, title,employer, main,image, readMore, 
                                     variant="beam"
                                     colors={["#d9ed92","#b5e48c","#99d98c","#76c893","#52b69a","#34a0a4","#168aad","#1a759f","#1e6091","#184e77"]}
                                 />:
-                            <TeamPicture className = {'modalImage'} src={image} alt={'Profile picture of ' + name} bandColor={roleColor} />
+                            <TeamPicture className = {'modalImage'} src={image} alt={'Profile picture of ' + name} bandColor={fieldColor} />
                         }
                         <TeamName>{name}</TeamName>
                         <TeamTitle>{title}</TeamTitle>
@@ -208,11 +196,14 @@ export default function PeopleCard({name, title,employer, main,image, readMore, 
 
 const UserHeader = styled.div`
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+  margin-top: 1vh;
+  //background-color: black;
+  //border-radius: 15pt 15pt 0pt 0pt;
   
 `
 const UserAvatar = styled.div`
-  border: 4px solid ${props => props.bandColor || "#a70bea"};
+  //border: 4px solid ${props => props.bandColor || "#a70bea"};
   max-width: 15vh;
   width: auto;
   height: auto;
@@ -252,6 +243,13 @@ const UserWebsite = styled.a`
   font-size: 1.5em;
   border: none;
   font-weight: normal;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   
   &:before {
     //content: attr(title);
@@ -278,7 +276,9 @@ const UserWebsite = styled.a`
   &:hover{
     font-weight: bolder;
     transition: 0.5s;
-    color: purple;
+    //color: purple;
+    -webkit-transform: scale(1.3) translateZ(0);
+    transform: scale(1.3) translateZ(0);
   }
 `
 const ReadMoreLink = styled(Link)`
@@ -286,8 +286,14 @@ const ReadMoreLink = styled(Link)`
   margin: auto;
   font-size: 2em;
   border: none;
-  color: black;
   color: white;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 
   &:before {
     //content: attr(title);
@@ -314,7 +320,9 @@ const ReadMoreLink = styled(Link)`
   &:hover{
     font-weight: bolder;
     transition: 0.5s;
-    color: purple;
+    //color: purple;
+    -webkit-transform: scale(1.3) translateZ(0);
+    transform: scale(1.3) translateZ(0);
   }
 `
 const EmailButton = styled.button`
@@ -325,6 +333,13 @@ const EmailButton = styled.button`
   margin: auto;
   color: white;
   //border-right: 2px solid #828282
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 
   &:before {
     //content: attr(title);
@@ -342,6 +357,7 @@ const EmailButton = styled.button`
     z-index: 1;
     left: 0;
     top: 110%;
+    
   }
   &:hover:before {
     opacity: 1;
@@ -351,7 +367,9 @@ const EmailButton = styled.button`
   &:hover{
     font-weight: bolder;
     transition: 0.5s;
-    color: purple;
+    //color: purple;
+    -webkit-transform: scale(1.3) translateZ(0);
+    transform: scale(1.3) translateZ(0);
   }
 `
 const CardFooter = styled.div`
@@ -362,7 +380,8 @@ const CardFooter = styled.div`
   height: 15%;
   //font-size: 2em;
   align-content: center;
-  background-color: ${props => props.bandColor || "#575757"};
+  //background-color: ${props => props.bandColor || "#575757"};
+  //background-color: #575757;
   //padding: 0.75rem 1.25rem;
   //background-color: rgba(0, 0, 0, 0.5);
   //border-top: 2px solid rgba(0, 0, 0, 0.125);
@@ -371,6 +390,7 @@ const CardFooter = styled.div`
   justify-content: space-evenly;
   border-radius: 0 0 15pt 15pt;
   color: white;
+  border-top: solid 5px #fff;
   
 `
 const UserName = styled.h1`
@@ -395,7 +415,7 @@ const UserImage = styled.img`
   //border-radius: 50%;
   //border: 5px solid #272133;
   //margin-top: ;
-  border: 4px solid ${props => props.bandColor || "#a70bea"};
+  // border: 4px solid ${props => props.bandColor || "#a70bea"};
 
   // box-shadow: 0 10px 20px ${props => props.bandColor || "#a70bea"};
   //filter: drop-shadow(10px 5px 2px #4444dd);
@@ -425,9 +445,9 @@ const UserCard = styled.div`
   box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
   //margin: 10px 0;
   width: 300px;
-  padding: 20px;
+  //padding: 20px;
   background-color: white;
-  height: 50vh;
+  height: 450px;
   //background-color: #222831;
   //color: white;
   //border

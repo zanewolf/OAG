@@ -33,7 +33,6 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
 };
 */
 
-
 const path = require(`path`)
 
 exports.createPages = async ({graphql, actions}) => {
@@ -54,16 +53,6 @@ exports.createPages = async ({graphql, actions}) => {
         ) {
           nodes {
             data {
-              Image
-              Name
-              Research_Keywords
-              Personal_Keywords
-              Main_Research_Focus
-              About
-              Website
-              Affiliations
-              Email
-              Title
               slug
             }
           }
@@ -71,31 +60,6 @@ exports.createPages = async ({graphql, actions}) => {
     }
   `)
 
-  // const { people } = await graphql(`
-  //   query People {
-  //     allAirtable(
-  //       filter: {table: {eq: "People"}}
-  //       sort: {fields: data___Name}
-  //     ) {
-  //       nodes {
-  //         data {
-  //           Image
-  //           Name
-  //           Location_Name__from_Locations_
-  //         }
-  //       }
-  //    }
-  //   }`)
-
-
-  // data.articles.nodes.forEach(node => {
-  //   actions.createPage({
-  //     path: '/projects/'+ node.frontmatter.slug,
-  //     component: path.resolve('./src/templates/project-details.js'),
-  //     context: { slug: node.frontmatter.slug }
-  //   })
-  // })
-  //
   data.articles.nodes.forEach(node => {
     actions.createPage({
       path: '/events/'+ node.frontmatter.slug,
@@ -104,15 +68,17 @@ exports.createPages = async ({graphql, actions}) => {
     })
   })
   //
-  data.people.nodes.forEach(node => {
-    actions.createPage({
-      path: '/directory/'+ node.data.slug,
-      component: path.resolve('./src/templates/people-details.js'),
-      context: { slug: node.data.slug }
-    })
-  })
+  // data.people.nodes.forEach(node => {
+  //   actions.createPage({
+  //     path: '/directory/'+ node.data.slug,
+  //     component: path.resolve('./src/templates/people-details.js'),
+  //     context: { slug: node.data.slug }
+  //   })
+  // })
 
 }
+
+
 //
 // exports.createPages = async ({graphql, actions}) => {
 //

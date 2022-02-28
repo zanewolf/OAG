@@ -55,7 +55,7 @@ export const query = graphql`
           Affiliations
           Title
           Website
-          Main_Research_Focus
+          Primary_Field
           About
         }
     }

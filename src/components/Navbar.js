@@ -114,7 +114,9 @@ const NavWrapper= styled.nav`
   width: 100%;
   height: auto;
   padding:0.5rem 0.8rem;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
   
   @media screen and (max-width: 940px){
     height: var(--phone-nav-bar-height);

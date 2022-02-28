@@ -4,73 +4,27 @@ import Layout from "../components/Layout";
 import { Link,graphql } from "gatsby";
 import styled from "styled-components";
 import PeopleDirectory from "../components/peopleDirectory";
-import ProgramDirectory from "../components/programDirectory";
-import OppsDirectory from "../components/oppsDirectory";
 import '../styles/directory.module.css'
 import {BsPlusCircleFill} from 'react-icons/bs'
 
 
 let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC"
 
+
 export default function Directory({data}){
 
-    const [dirState, setDirState] = useState({
-        dirFilter: 'people',
-        dirData: data['people']
-    })
-    // const [dirFilter, setDirFilter] = useState('people')
-    // const [dirData, setDirData] = useState(data['people'])
+    const [dirData, setDirData] = useState( data['people'])
     const [q, setQ] = useState("");
-
-    // let dirData = data['people']'
-    const updateDir = (newFilter) => {
-        // setDirData(data[newFilter])
-        setDirState({
-            dirFilter: newFilter,
-            dirData: data[newFilter]
-        })
-    }
-
-    // useEffect(()=>{
-    //     // dirData= data['dirFilter']
-    //         setDirData(data[dirFilter])
-    // },[dirFilter])
 
     let filteredData={}
 
     useEffect(()=>{
-        filteredData['nodes']= data[dirState.dirFilter].nodes.filter((node)=>{
+        filteredData['nodes']= data['people'].nodes.filter((node)=>{
             return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase())
         })
 
-        setDirState({
-            dirFilter: dirFilter,
-            dirData: filteredData
-        })
-        // setDirData(filteredData)
+        setDirData(filteredData)
     },[q])
-
-    // const renderDirectory = () =>{
-    //     console.log(dirFilter)
-    //     if (dirFilter === 'people'){
-    //         return <PeopleDirectory data={dirData} />
-    //     }
-    //     else if (dirFilter === 'programs'){
-    //         <ProgramDirectory data={dirData} />
-    //     }
-    //     else if (dirFilter === 'opps'){
-    //         <OppsDirectory data={dirData} />
-    //     }
-    // }
-
-    // const searchReset = () =>{
-    //     document.getElementById('search-form').value=''
-    //     setDirData(data[dirFilter])
-    //     setQ('')
-    // }
-    // console.log(dirFilter)
-
-    const {dirFilter, dirData } = dirState
 
     return (
         <Layout pageTitle="Directory">
@@ -129,12 +83,12 @@ export default function Directory({data}){
                                     value={q}
                                     onChange={(e) => setQ(e.target.value)}
                                 />
-                                <SearchButton
-                                    className="search submit-button"
-                                    type="button"
-                                    type="submit"
-                                    value=""
-                                />
+                                {/*<SearchButton*/}
+                                {/*    className="search submit-button"*/}
+                                {/*    type="button"*/}
+                                {/*    type="submit"*/}
+                                {/*    value=""*/}
+                                {/*/>*/}
                             </label>
                         {/*</FullSize>*/}
                         {/*<AnimatedBar>*/}
@@ -162,12 +116,7 @@ export default function Directory({data}){
                     {/*</FilterMenu>*/}
                 </DirectoryMenu>
                 <DirectorySection>
-
-                    {/*{dirFilter === 'people' ?*/}
                         <PeopleDirectory data={dirData} />
-                        {/*// : dirFilter === 'programs' ?*/}
-                        {/*//     <ProgramDirectory data={dirData} />*/}
-                        {/*//     : <OppsDirectory data={dirData} />}*/}
                 </DirectorySection>
             </DirectoryPage>
         </Layout>
@@ -176,19 +125,6 @@ export default function Directory({data}){
 
 export const query = graphql`
    query DirectoryData {
-    programs: allAirtable(filter: {data: {}, table: {eq: "Programs"}}) {
-      nodes {
-        data {
-          Image
-          Name       
-          Location_Name__from_Locations_
-          Specializations
-          Website
-          Acronym
-        }
-        id
-      }
-    }
     people: allAirtable(filter: {table: {eq: "People"}}, sort: {fields: data___Name}) {
         nodes {
           data {
@@ -200,27 +136,10 @@ export const query = graphql`
               Affiliations
               Title
               Website
-              Main_Research_Focus
+              Primary_Field
+              Secondary_Fields
               About
               slug     
-          }
-          id
-        }
-    }
-    
-    opps: allAirtable(filter: {table: {eq: "Opportunities"}}) {
-        nodes {
-          data {
-            Due_Date
-            DIvision
-            Affiliated_University_s_
-            Grant_type
-            Funder
-            Program_Number
-            Program_Title
-            Proposal_Level
-            System
-            Website
           }
           id
         }
@@ -239,7 +158,7 @@ const DirectoryPage = styled.div`
   margin-left: auto;
   padding-bottom: 5vw;
   //padding-bottom: 10vw;
-  background-color: #e8e8e8;
+  background-color: #e5e7eb;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
@@ -254,14 +173,13 @@ const DirectoryPage = styled.div`
 const DirectoryMenu = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-content: center;
   width: 90vw;
   border-bottom: 3px solid grey;
   padding-top: 2vh;
   padding-left: 2vw;
   padding-right: 2vw;
-  //padding-top: 2vh;
   //align-content: center;
   //justify-content: center;
   height: 10vh;
@@ -479,21 +397,21 @@ const AddButton = styled(Link)`
 `
 const SearchContainer = styled.div`
   position: relative;
-  padding-top: 1vh;
-  //margin: auto;
+  //padding-top: 1vh;
+  margin: auto;
   justify-content: center;
+  align-content: center;
   border: 0;
-  width: 30vw;
+  width: 80vw;
   height: auto;
   //padding-bottom: 1vh;
 
 
 `
 const SearchInput = styled.input`
-
   padding: 0.5vw;
-  padding-left: 5vw;
-  width: 30vw;
+  padding-left: 1vw;
+  width: 100%;
   border: 1px solid #f5f5f5;
   border-radius: 15pt;
   font-size: 1.5em;
@@ -528,7 +446,7 @@ const SearchButton = styled.input`
   background-repeat: no-repeat;
   background-size: 20px;
   background-color: transparent;
-  margin-left:-45px;
+  margin-left:-2vh;
   border:none;
 `
 // const FilterMenu = styled.div`

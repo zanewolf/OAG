@@ -1,13 +1,10 @@
 import React from 'react'
 import Layout from "../components/Layout";
 
-export default function (Grants) {
+export default function News() {
     return (
         <Layout>
-            <div>
-                Sup
-            </div>
+            <h1> Oceanic News</h1>
         </Layout>
-
     )
 }
