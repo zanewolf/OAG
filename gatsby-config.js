@@ -61,6 +61,10 @@ module.exports = {
           {
             baseId: process.env.GATSBY_AIRTABLE_TABLE_ID,
             tableName: `Data`
+          },
+          {
+            baseId: process.env.GATSBY_AIRTABLE_TABLE_ID,
+            tableName: `News`
           }
         ]
       }
