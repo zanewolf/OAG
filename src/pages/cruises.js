@@ -127,6 +127,7 @@ export const query = graphql`
 const MapContent = styled.div`
   margin-top: var(--screen-nav-bar-height);
   height: auto;
+  min-height: 89vh;
   //display: flex;
   //flex-flow: column nowrap;
   

@@ -39,34 +39,32 @@ export default function (Grants) {
     )
 }
 const GrantPage = styled.div`
-    position: absolute;
+    //position: absolute;
     width: 100%;
-    height: 96vh;
+    min-height: 96vh;
     ////min-height: 98vh;
-    //height: auto;
+    height: auto;
     display: flex;
     justify-content: center;
-    align-content: center;
-
-
-
-  //justify-content: right;
-  //width:40vw;
-  //margin-left: auto;
-  //margin-right: 10vw;
-  
+    align-content: center;  
 `
 
 const UnderConstructionBox = styled.div`
-  background: rgba( 0, 0, 0, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  background: rgba(208, 208, 208, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  //background: rgba(241, 241, 241, 0.25);
+  //box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  //backdrop-filter: blur(4px);
+  //-webkit-backdrop-filter: blur(4px);
+  //border-radius: 10px;
+  //border: 1px solid rgba(255, 255, 255, 0.18);
   width: 50vw;
   height: 20vh;
-  display:flex;
+  display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-content: center;
@@ -91,8 +89,9 @@ const UnderConstruction = styled.h1`
 
 const Background = styled.div`
   position: fixed;
+  z-index: -100;
   width: 100vw;
-  height: 100vh;
+  height: 96vh;
   top: 0;
   left: 0;
   background: #001b47;
