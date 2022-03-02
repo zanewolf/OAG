@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import ocean from "../images/ocean3.jpg";
 import styled from "styled-components";
 import {FaWrench} from "react-icons/all";
+import {Link} from "gatsby";
 
 export default function Annoucements() {
     return (
@@ -32,7 +33,7 @@ export default function Annoucements() {
                 </Background>
                 <UnderConstructionBox>
                     <UnderConstruction>Stay tuned for updates!</UnderConstruction>
-                    <p> Have an updated you want to share with the community? Email us! </p>
+                    <p> Have an updated you want to share with the community? <Link to={'/contactus'}>Email us! </Link></p>
                 </UnderConstructionBox>
 
             </GrantPage>
@@ -51,7 +52,7 @@ const GrantPage = styled.div`
 `
 
 const UnderConstructionBox = styled.div`
-  background: rgba(208, 208, 208, 0.45);
+  background: rgba(208, 208, 208, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -63,7 +64,7 @@ const UnderConstructionBox = styled.div`
   //-webkit-backdrop-filter: blur(4px);
   //border-radius: 10px;
   //border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 50vw;
+  width: 60vw;
   height: 20vh;
   display: flex;
   flex-flow: column nowrap;

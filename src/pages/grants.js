@@ -50,7 +50,7 @@ const GrantPage = styled.div`
 `
 
 const UnderConstructionBox = styled.div`
-  background: rgba(208, 208, 208, 0.45);
+  background: rgba(208, 208, 208, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
