@@ -23,42 +23,6 @@ export default function JoinPage() {
                         <BsPlusCircleFill/>
                     </JoinButton>
                 </JoinBox>
-                <JoinBox>
-                    <BoxTitle>
-                        <h3>
-                            Program
-                        </h3>
-                    </BoxTitle>
-                    <JoinButton as={'a'} onClick={(e)=>{
-                        e.preventDefault()
-                        window.open(airTableForm);}}>
-                        <BsPlusCircleFill/>
-                    </JoinButton>
-                </JoinBox>
-                <JoinBox>
-                    <BoxTitle>
-                        <h3>
-                            Opportunity
-                        </h3>
-                    </BoxTitle>
-                    <JoinButton as={'a'} onClick={(e)=>{
-                        e.preventDefault()
-                        window.open(airTableForm);}}>
-                        <BsPlusCircleFill/>
-                    </JoinButton>
-                </JoinBox>
-                <JoinBox>
-                    <BoxTitle>
-                        <h3>
-                            Cruise
-                        </h3>
-                    </BoxTitle>
-                    <JoinButton as={'a'} onClick={(e)=>{
-                        e.preventDefault()
-                        window.open(airTableForm);}}>
-                        <BsPlusCircleFill/>
-                    </JoinButton>
-                </JoinBox>
             </JoinDiv>
 
 

@@ -4,7 +4,7 @@ import ocean from "../images/ocean3.jpg";
 import styled from "styled-components";
 import {FaWrench} from "react-icons/all";
 
-export default function Grants() {
+export default function Annoucements() {
     return (
         <Layout>
             <GrantPage>
@@ -31,7 +31,8 @@ export default function Grants() {
                     <span></span>
                 </Background>
                 <UnderConstructionBox>
-                    <UnderConstruction>Under Construction <FaWrench/></UnderConstruction>
+                    <UnderConstruction>Stay tuned for updates!</UnderConstruction>
+                    <p> Have an updated you want to share with the community? Email us! </p>
                 </UnderConstructionBox>
 
             </GrantPage>
@@ -69,6 +70,12 @@ const UnderConstructionBox = styled.div`
   justify-content: center;
   align-content: center;
   margin: auto;
+  
+  p{
+    color: white;
+    font-size: 1.5em;
+    margin: auto;
+  }
 
   @media only screen and (max-width: 1100px) {
     width: 95%;
@@ -300,4 +307,5 @@ const Background = styled.div`
   }
 
 `
+
 

@@ -203,7 +203,7 @@ const UserHeader = styled.div`
   
 `
 const UserAvatar = styled.div`
-  //border: 4px solid ${props => props.bandColor || "#a70bea"};
+   border: 4px solid ${props => props.bandColor || "#a70bea"};
   max-width: 15vh;
   width: auto;
   height: auto;
@@ -380,7 +380,7 @@ const CardFooter = styled.div`
   height: 15%;
   //font-size: 2em;
   align-content: center;
-  //background-color: ${props => props.bandColor || "#575757"};
+  background-color: ${props => props.bandColor || "#575757"};
   //background-color: #575757;
   //padding: 0.75rem 1.25rem;
   //background-color: rgba(0, 0, 0, 0.5);
@@ -390,7 +390,7 @@ const CardFooter = styled.div`
   justify-content: space-evenly;
   border-radius: 0 0 15pt 15pt;
   color: white;
-  border-top: solid 5px #fff;
+  border-top: solid 0px #fff;
   
 `
 const UserName = styled.h1`
@@ -415,7 +415,7 @@ const UserImage = styled.img`
   //border-radius: 50%;
   //border: 5px solid #272133;
   //margin-top: ;
-  // border: 4px solid ${props => props.bandColor || "#a70bea"};
+   border: 4px solid ${props => props.bandColor || "#a70bea"};
 
   // box-shadow: 0 10px 20px ${props => props.bandColor || "#a70bea"};
   //filter: drop-shadow(10px 5px 2px #4444dd);
@@ -446,19 +446,24 @@ const UserCard = styled.div`
   //margin: 10px 0;
   width: 300px;
   //padding: 20px;
-  background-color: white;
+  //background-color: blue;
   height: 450px;
+  font-weight: 700;
+  border-radius: 15pt;
+  position: relative;
   //background-color: #222831;
   //color: white;
   //border
   //background-image: linear-gradient(180deg, ${props => props.bandColor || "#a70bea"} 10%, white 10%)
   // border-top-width: 5px;
-  // border-top-color: ${props => props.bandColor || "#a70bea"}
+   border-top-color: ${props => props.bandColor || "#a70bea"};
 
   @media screen and (max-width: 900px){
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
+    width: 80vw;
+    height: 90vh;
   }
 
   @media screen and (max-width: 400px){
@@ -502,7 +507,6 @@ const PersonBlock = styled.div`
   //  background-color: #acacac;
   // 
 `
-
 const LeftBlock = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -563,22 +567,18 @@ const TeamMemberInfo = styled.div`
     text-align: center;
   }
 `
-
 const TeamName = styled.h2`
   font-size: 3em;
   margin-bottom: 1vw;
 `
-
 const TeamTitle = styled.h3`
   font-size: 2em;
   margin-bottom: 1vw;
 `
-
 const ModalAbout = styled.div`
   display: flex;
   flex-flow: column nowrap;
 `
-
 const AboutP = styled.p`
   overflow: hidden;
   //display: -webkit-box;
@@ -591,7 +591,6 @@ const AboutP = styled.p`
   //font-size: 0.75em;
   //font-weight: lighter;
 `
-
 const KeywordsSection = styled.div`
   display: flex;
   flex-flow: column nowrap;

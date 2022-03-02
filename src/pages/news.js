@@ -59,6 +59,7 @@ const NewsPage = styled.div`
     ////min-height: 98vh;
     height: auto;
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-content: center;
   
@@ -68,6 +69,7 @@ const NewsContent = styled.div`
   //margin-top: var(--screen-nav-bar-height);
   //height: auto;
   //min-height: 80vh;
+  height: auto;
 `
 
 const NewsHeader = styled.section`
@@ -110,10 +112,11 @@ const NewsSection = styled.section`
   margin-top: 3vh;
   margin-left: 10vw;
   margin-right:10vw;
+  margin-bottom: 20vw;
   
   .child {
     flex: 1 0 21%;
-    z-index: 10000;
+    z-index: 10;
   }
   
 `
