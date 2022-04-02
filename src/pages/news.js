@@ -2,38 +2,38 @@ import React from 'react'
 import Layout from "../components/Layout";
 import styled from 'styled-components'
 import {graphql} from "gatsby";
-import ocean from "../images/ocean3.jpg";
-import ocean2 from '../images/ocean5.png'
-import waves from '../images/waves.png'
+
+import ocean3 from '../images/ocean3.jpg';
 
 export default function News({data}) {
 
-    console.log({data})
     return (
         <Layout>
-            <NewsPage >
+            <NewsPage image={ocean3} >
                 <NewsContent>
                     <NewsHeader className="masthead" role="img" aria-label="Image Description">
                             <h1>
-                                Oceanic News Sources
+                                Get Your Ocean News Here!
                             </h1>
                         <p>
-                            This is a collection of ocean-related news organizations, so you can stay up-to-date on what's happening around the globe.
+                            For now, we're sharing links of some sites about the ocean at large, places where you can stay up-to-date on ocean-related happenings. The list is always growing - please send us content suggestions.
                         </p>
                     </NewsHeader>
                     <NewsSection>
                         {data && data.allAirtable.nodes.map((node,i)=>{
                             return (
-                                <NewsBlock className={"child"}>
+                                <NewsBlock className={"child"} key={i}>
                                     <li key={i}>
-                                        <a href={node.data.Link}>{node.data.Source}</a>
+                                        <a className= 'button' href={node.data.Link} target="_blank">
+                                            <span>{node.data.Source}</span>
+                                        </a>
                                     </li>
                                 </NewsBlock>
                             )
                         })}
                     </NewsSection>
                 </NewsContent>
-                <WavesImage image={waves}></WavesImage>
+                {/*<WavesImage image={waves}></WavesImage>*/}
             </NewsPage>
         </Layout>
     )
@@ -62,7 +62,11 @@ const NewsPage = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-content: center;
-  
+    // background: url(${({image})=>(image ? image : null)});
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),url(${({image})=>(image ? image : null)});
+
 `
 
 const NewsContent = styled.div`
@@ -70,6 +74,12 @@ const NewsContent = styled.div`
   //height: auto;
   //min-height: 80vh;
   height: auto;
+  padding-top: 3vh;
+
+  @media screen and (max-width: 900px){
+    margin-top: var(--phone-nav-bar-height);
+  }
+  
 `
 
 const NewsHeader = styled.section`
@@ -87,19 +97,43 @@ const NewsHeader = styled.section`
   h1 {
     font-style: normal;
     font-weight: 700;
-    color: #000;
-    font-size: 5em;
+    color: #fff;
+    font-size: 4em;
     letter-spacing: 0.03em;
     line-height: 1;
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+
+    @media screen and (max-width: 1400px){
+      font-size: 3em;
+    }
+    @media screen and (max-width: 900px){
+      font-size: 1.5em;
+    }
     //margin-bottom: 48px;
   }
   
   p{
     padding: 2vh;
+    margin-top: 2vh;
     font-style: normal;
     font-size: 1.5em;
-    font-weight: 100;
+    font-weight: 400;
+    width: 80vw;
+    color: #fff;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+    //background: rgba(255,255,255,0.4);
+    //box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    //backdrop-filter: blur(4px);
+    //-webkit-backdrop-filter: blur(4px);
+    //border-radius: 20px;
+    //border: 1px solid rgba(255, 255, 255, 0.18);
+
+    @media screen and (max-width: 1400px){
+      font-size: 1em;
+    }
+    @media screen and (max-width: 900px){
+      font-size: 1em;
+    }
   }
 
 `
@@ -108,45 +142,86 @@ const NewsSection = styled.section`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  gap: 2vw;
-  margin-top: 3vh;
-  margin-left: 10vw;
-  margin-right:10vw;
-  margin-bottom: 20vw;
-  
-  .child {
-    flex: 1 0 21%;
-    z-index: 10;
-  }
+  margin: 4vh 4vh;
+  //gap: 1vw;
+  //margin-top: 3vh;
+  //margin-left: 10vw;
+  //margin-right:10vw;
+  //margin-bottom: 10vw;
   
 `
 
 const NewsBlock = styled.div`
-  width: 175pt;
-  max-width: 175pt;
-  height: 75pt;
-  background: #005D86;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-content: center;
-  margin: auto;
-  text-align: center;
+  //border-radius: 50px;
+  //background: #ffffff;
+  //box-shadow: 36px 36px 71px #d9d9d9,
+  //  -36px -36px 71px #ffffff;
+  //width: 175pt;
+
+  //display: flex;
+  //flex-flow: column nowrap;
+  //justify-content: center;
+  //align-content: center;
+  //margin: auto;
+  //text-align: center;
 
 
-  a {
-    font-size: 1.5em;
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    //appearance: button;
+    width: 275pt;
+    height: 75pt;
+    //margin: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(3, 3, 3, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease-in-out;
     color: white;
-    font-weight: 200;
+
+    span {
+      display: block;
+      margin: auto;
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+      line-height: 1em;
+      font-size: 1.5em;
+      font-weight: 400;
+
+
+    }
+
+    text-decoration: none;
+
   }
-  
-  :hover{
-    background: #40b325;
+
+  :hover {
+    //-webkit-transform: translateZ(0);
+    //transform: translateZ(0);
+    //-webkit-transition-duration: 0.3s;
+    //transition-duration: 0.3s;
+    //-webkit-transition-property: transform;
+    //transition-property: transform;
+    //-webkit-transition-timing-function: ease-out;
+    //transition-timing-function: ease-out;
+    -webkit-transform: scale(1.05) translateZ(0);
+    transform: scale(1.05) translateZ(0);
+
+    span {
+      color: blue;
+    }
+
+    //box-shadow: 36px 36px 71px #00c2ff,
+    //  -36px -36px 71px #ffffff;
   }
 
 `
@@ -158,5 +233,6 @@ const WavesImage = styled.div`
   bottom: 0;
   position: absolute;
   z-index: -1000;
+  
 `
 

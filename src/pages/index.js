@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import ocean3 from '../images/ocean3.jpg';
 import {useState,useEffect} from "react";
+import {Link} from 'gatsby'
 
 import ocean3_gradient from '../images/ocean3_gradient.jpg';
 import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
@@ -58,13 +59,19 @@ export default function IndexPage() {
             <Layout>
                 <div>
                     <Hero
-                        title={"Connecting Oceans, Connecting People"}
+                        title={"Ocean Affinity @ Harvard University"}
                         size={"100vh"}
                         image={ocean3}
                         id={"hero1"}
-                        position={'center'}
-
-                    />
+                        position={'center'}>
+                        <JoinButton to={'/join'}>
+                            {/*<Link*/}
+                            {/*    to={'/join'}*/}
+                            {/*>*/}
+                                Join
+                            {/*</Link>*/}
+                        </JoinButton>
+                    </Hero>
                     <Hero
                         size={"100vh"}
                         image={ section2Image}
@@ -73,10 +80,10 @@ export default function IndexPage() {
 
                     >
                         <MissionSection>
-                            <SectionHeader> We're all in this together</SectionHeader>
+                            <SectionHeader> Connecting Oceans, Connecting People</SectionHeader>
                             <MissionDesc>
-                                <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>
-                                <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
+                                <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Our goal is to catalyze connections between people from different fields or schools, break boundaries, and facilitate cross-disciplinary discussions, events, and grants.</p>
+                                <p>By joining OAHU, you'll be contributing to and receiving support from a broad network of scientists, policy makers, humanitarians, historians, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
                             </MissionDesc>
                         </MissionSection>
                     </Hero>
@@ -311,6 +318,40 @@ const MissionDesc=styled.div`
     text-align: center;
   }
 
+`
+
+const JoinButton = styled(Link)`
+  font-size: 2em;
+  color: white;
+  margin: auto;
+  margin-top: 5vw;
+  text-align: center;
+  background: none;
+  min-width: 10vw;
+  width: auto;
+  padding: 1vh;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  //border-radius: 20px;
+  //border: 3px solid rgba(255,255,255,1);
+
+  :hover {
+    //-webkit-transform: translateZ(0);
+    //transform: translateZ(0);
+    //-webkit-transition-duration: 0.3s;
+    //transition-duration: 0.3s;
+    //-webkit-transition-property: transform;
+    //transition-property: transform;
+    //-webkit-transition-timing-function: ease-out;
+    //transition-timing-function: ease-out;
+    -webkit-transform: scale(1.05) translateZ(0);
+    transform: scale(1.05) translateZ(0);
+    color: blue;
+  }
 `
 
 // const EventsSection = styled.div`

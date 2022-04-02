@@ -37,6 +37,7 @@ export default function PeopleDirectory({data}){
                                 researchKeywords = {node.data.Research_Keywords}
                                 personalKeywords = {node.data.Personal_Keywords}
                                 fieldColor = {fieldColor}
+                                secondaryFields = {node.data.Secondary_Fields}
                             >
                             </PeopleCard>
                         </li>

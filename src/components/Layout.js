@@ -17,10 +17,13 @@ const Layout = ({ pageTitle, children }) => {
             {/*<hr/>*/}
             <footer>
 
-                <div className={"footer-wrapper"} style={{color: "white"}}>
+                {/*<div className={"footer-wrapper"} style={{color: "white"}}>*/}
                     <div className={"footer-links-left"}>
                         <Link to={"/contactus"} style={{color: "white"}}>
                             Contact Us
+                        </Link>
+                        <Link to={"/join"} style={{color: "white"}}>
+                            Join
                         </Link>
                     </div>
                     <div className={"footer-links-right"}>
@@ -32,7 +35,7 @@ const Layout = ({ pageTitle, children }) => {
                         </a>
 
                     </div>
-                </div>
+                {/*</div>*/}
             </footer>
         </div>
     )

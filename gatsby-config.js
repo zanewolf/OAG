@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Ocean Affinity Group",
-    contact: 'rzanewolf@gmail.com'
+    title: "Ocean Affinity",
+    contact: 'oceans@fas.harvard.edu'
   },
   plugins: [`gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -42,6 +42,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `documents`,
+        path: `${__dirname}/src/documents/`,
       },
     },
     {

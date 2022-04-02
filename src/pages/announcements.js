@@ -77,6 +77,10 @@ const UnderConstructionBox = styled.div`
     font-size: 1.5em;
     margin: auto;
   }
+  
+  Link {
+    color: white;
+  }
 
   @media only screen and (max-width: 1100px) {
     width: 95%;

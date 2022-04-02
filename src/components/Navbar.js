@@ -41,7 +41,7 @@ export default function Navbar() {
             // <div>
                 <NavWrapper>
                     <NavTitle className={"website-title"} to={"/"}>{title}</NavTitle>
-                    <NavTitleSmall className={"website-title-small"} to={"/"}>OAG</NavTitleSmall>
+                    <NavTitleSmall className={"website-title-small"} to={"/"}>OAHU</NavTitleSmall>
                     {/*<NavInput type={"checkbox"} name={""} id={"check"}/>*/}
 
                     <MenuWrapper >
@@ -200,6 +200,12 @@ const MenuLinks = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: #025cee;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
     
   }
 

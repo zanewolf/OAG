@@ -20,7 +20,7 @@ export default function Team(){
                 <TeamMembers>
                     {teamData.map((teamMember,i)=>{
                         return(
-                            <TeamMember className={'teamBlock'}>
+                            <TeamMember className={'teamBlock'} key={i}>
                                 <TeamPicture src={teamMember.image} alt={teamMember.name}/>
                                 {/*</TeamPicture>*/}
                                 <TeamMemberInfo>

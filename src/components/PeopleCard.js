@@ -2,7 +2,6 @@ import * as React from 'react'
 import * as style from "../styles/card.module.css";
 import nullProfilePic from '../images/Null2.png';
 import {PortalWithState} from 'react-portal'
-
 import styled from "styled-components";
 import {Link} from "gatsby";
 import {Button} from "./Button";
@@ -25,18 +24,6 @@ const fieldColors={
 
 }
 
-
-
-// const roleColors={
-//     'Principal Investigator': '#351431',
-//     'Professor': '#002d50',
-//     'Graduate Student': '#01778c',
-//     'Engineer': '#52b69a',
-//     'Research Scientist':'#823c3a',
-//     'Administrator':'#f5a578' //'#53a7b0'
-// }
-
-
 const customStyles = {
     content: {
         top: '50%',
@@ -53,7 +40,7 @@ const customStyles = {
 };
 
 
-export default function PeopleCard({name, title,employer, primaryField,image, about,email, website, children, personalKeywords, researchKeywords, fieldColor}) {
+export default function PeopleCard({name, title,employer, primaryField,image, about,email, website, children, personalKeywords, researchKeywords, fieldColor,secondaryFields}) {
 
     const [modalState, setModalState] = React.useState(false)
     console.log(primaryField)
@@ -77,7 +64,6 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
     return (
         <>
             <UserCard
-                className={style.card}
                 bandColor={fieldColor}
             >
                 <UserHeader>
@@ -103,11 +89,13 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                     {employer}
                 </UserRole>
                 <UserRole>
-                    {primaryField}
+                    <h4>Primary Field</h4>
+                    <h5>{primaryField}</h5>
                 </UserRole>
-                {/*<UserAbout>*/}
-                {/*    {about}*/}
-                {/*</UserAbout>*/}
+                <UserRole>
+                    <h4>Secondary Field(s)</h4>
+                    <h5>{secondaryFields}</h5>
+                </UserRole>
 
                 <CardFooter className = {"card-footer"} bandColor={fieldColor}>
 
@@ -203,18 +191,21 @@ const UserHeader = styled.div`
   
 `
 const UserAvatar = styled.div`
-   border: 4px solid ${props => props.bandColor || "#a70bea"};
-  max-width: 15vh;
+   // border: 4px solid ${props => props.bandColor || "#a70bea"};
+  border: 3px solid black;
+  margin: auto;
+  margin-top: 10pt;
+  max-width: 12vh;
+  max-height: 12vh;
   width: auto;
   height: auto;
   //height: 15vh;
   //height: 12vh;
-  object-fit: contain;
-  display: flex;
-  justify-content: center;
-  margin: auto;
+  object-fit: fit;
+  //display: flex;
+  //justify-content: center;
   border-radius: 50%;
-  padding: 7px;
+  //padding: 7px;
 `
 const UserAbout = styled.p` 
   padding-top: 1vh;
@@ -406,24 +397,27 @@ const UserName = styled.h1`
 `
 const UserRole = styled.h2`
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   font-size: 0.75rem;
   font-weight: lighter;
+  margin: auto;
 `
 const UserImage = styled.img`
   //border-radius: 50%;
   //border-radius: 50%;
   //border: 5px solid #272133;
-  //margin-top: ;
-   border: 4px solid ${props => props.bandColor || "#a70bea"};
+  margin-top: 10pt;
+  border:3px solid black;
+  //  border: 4px solid ${props => props.bandColor || "#a70bea"};
 
   // box-shadow: 0 10px 20px ${props => props.bandColor || "#a70bea"};
   //filter: drop-shadow(10px 5px 2px #4444dd);
   //background-color: #8f8f90;
   //width: auto;
-  max-width: 15vh;
+  max-width: 12vh;
   width: auto;
-  height: 15vh;
+  height: 12vh;
   object-fit: contain;
   //margin: 0 auto;
   //display: block;
@@ -437,7 +431,7 @@ const UserImage = styled.img`
   margin-right: auto;
   //border: 2px solid #03BFCB;
   border-radius: 50%;
-  padding: 7px;
+  //padding: 7px;
   
 `
 const UserCard = styled.div`
@@ -454,7 +448,7 @@ const UserCard = styled.div`
   //background-color: #222831;
   //color: white;
   //border
-  //background-image: linear-gradient(180deg, ${props => props.bandColor || "#a70bea"} 10%, white 10%)
+  background-image: linear-gradient(180deg, ${props => props.bandColor || "#a70bea"} 20%, white 20%);
   // border-top-width: 5px;
    border-top-color: ${props => props.bandColor || "#a70bea"};
 

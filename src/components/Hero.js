@@ -115,6 +115,7 @@ const HeroH1 = styled.h1`
   font-size:3em;
   margin: auto 2vw;
   text-align: center;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
   
   @media screen and (max-width: 1100px ){
     //height: auto;
@@ -128,5 +129,6 @@ const HeroBody=styled.div`
   justify-content: ${({position}) => (position)};
   align-content: center;
   margin-right: ${({position})=>(position==='right' ? '10vw' : 'auto')}
+  margin-left: auto;
   
 `

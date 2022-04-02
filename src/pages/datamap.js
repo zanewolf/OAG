@@ -50,7 +50,7 @@ let options=  [{
     "label": "Other"
 }]
 
-export default function Cruises({data}){
+export default function Datamap({data}){
 
     const [dirData, setDirData] = useState( data['people'])
     const [q, setQ] = useState("");
@@ -68,7 +68,7 @@ export default function Cruises({data}){
 
 
     return (
-        <Layout pageTitle={"Cruises"}>
+        <Layout pageTitle={"Datamap"}>
             <MapContent>
                 <CruiseMenu>
                     <SelectMenu>
