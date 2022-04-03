@@ -22,13 +22,11 @@ export default function Contactus() {
                     <ContactForm>
                         <form
                             name="contact"
-                            role="form"
                             method="POST"
-                            action={"/thanks/"}
                             data-netlify-honeypot="bot-field"
                             data-netlify="true"
                         >
-                            <input type="hidden" name="form-name" value="contactForm" />
+                            <input type="hidden" name="form-name" value="Contact Form" />
                             <InputBox>
                                 <input type="text" className="form-control" id="name" placeholder="NAME" name="name"
                                        defaultValue="" required/>
@@ -46,13 +44,14 @@ export default function Contactus() {
                                 >
                                 </textarea>
                             </InputBox>
-
-                        </form>
-                        <div style={{display: "flex",justifyContent:"center"}}>
+                        {/*<div >*/}
                             <SubmitButton  id={"contact-form-button"} type="submit" value="SEND" type='submit' >
                                 Submit
                             </SubmitButton>
-                        </div>
+                        {/*</div>*/}
+
+
+                        </form>
 
 
 
@@ -127,13 +126,14 @@ const ContactForm = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-content: flex-start;
+  align-content: center;
   margin: auto;
 
   @media only screen and (max-width: 650px) {
     width: 80%;
   }
   
+
 `
 
 const InputBox = styled.div`
@@ -234,10 +234,8 @@ const InputBox = styled.div`
 const SubmitButton = styled.button`
   font-size: 1.5em;
   color: white;
-  margin: auto;
-  //margin-top: 5vw;
+  margin-left: 30%;
   text-align: center;
-  background: none;
   min-width: 10vw;
   width: auto;
   padding: 1vh;
@@ -247,33 +245,11 @@ const SubmitButton = styled.button`
   -webkit-backdrop-filter: blur(4px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  //border-radius: 20px;
-  //border: 3px solid rgba(255,255,255,1);
 
   :hover {
-    //-webkit-transform: translateZ(0);
-    //transform: translateZ(0);
-    //-webkit-transition-duration: 0.3s;
-    //transition-duration: 0.3s;
-    //-webkit-transition-property: transform;
-    //transition-property: transform;
-    //-webkit-transition-timing-function: ease-out;
-    //transition-timing-function: ease-out;
     -webkit-transform: scale(1.05) translateZ(0);
     transform: scale(1.05) translateZ(0);
     color: blue;
   }
-  //border-radius: 10px;
-  //border: none;
-  //width: 15vw;
-  //height: 5vh;
-  //font-size: 1.5em;
-  //background-color: rgba(34, 82, 255, 0.67);
-  //color: white;
-  //
-  //@media only screen and (max-width: 955px) {
-  //  width: auto;
-  //  min-width: 40vw;
-  //}
 
 `
