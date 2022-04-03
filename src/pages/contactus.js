@@ -20,7 +20,14 @@ export default function Contactus() {
                             what's on your mind?
                     </ContactHeader>
                     <ContactForm>
-                        <form name="contactForm" id="contactForm" className="form-vertical" role="form" method="POST" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+                        <form
+                            name="contact"
+                            role="form"
+                            method="POST"
+                            action={"/thanks/"}
+                            data-netlify-honeypot="bot-field"
+                            data-netlify="true"
+                        >
                             <input type="hidden" name="form-name" value="contactForm" />
                             <InputBox>
                                 <input type="text" className="form-control" id="name" placeholder="NAME" name="name"
