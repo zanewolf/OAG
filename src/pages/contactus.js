@@ -27,15 +27,15 @@ export default function Contactus() {
                             data-netlify="true"
                         >
                             <input type="hidden" name="form-name" value="Contact Form" />
-                            <InputBox>
+                            {/*<InputBox>*/}
                                 <input type="text" className="form-control" id="name" placeholder="NAME" name="name"
                                        defaultValue="" required/>
-                            </InputBox>
-                            <InputBox>
+                            {/*</InputBox>*/}
+                            {/*<InputBox>*/}
                                 <input type="email" className="form-control" id="name" placeholder="EMAIL" name="name"
                                        defaultValue="" required/>
-                            </InputBox>
-                            <InputBox>
+                            {/*</InputBox>*/}
+                            {/*<InputBox>*/}
                                 <textarea
                                     className="form-control" rows="10"
                                     placeholder="MESSAGE"
@@ -43,7 +43,7 @@ export default function Contactus() {
                                     required
                                 >
                                 </textarea>
-                            </InputBox>
+                            {/*</InputBox>*/}
                         {/*<div >*/}
                             <SubmitButton  id={"contact-form-button"} type="submit" value="SEND" type='submit' >
                                 Submit
