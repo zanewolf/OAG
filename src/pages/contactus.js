@@ -20,8 +20,8 @@ export default function Contactus() {
                             what's on your mind?
                     </ContactHeader>
                     <ContactForm>
-                        <form name="contact" id="contact-form" className="form-vertical" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
-                            {/*<input type="hidden" name="form-name" value="contact" />*/}
+                        <form name="contactForm" id="contactForm" className="form-vertical" role="form" method="POST" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+                            <input type="hidden" name="form-name" value="contactForm" />
                             <InputBox>
                                 <input type="text" className="form-control" id="name" placeholder="NAME" name="name"
                                        defaultValue="" required/>
@@ -31,14 +31,17 @@ export default function Contactus() {
                                        defaultValue="" required/>
                             </InputBox>
                             <InputBox>
-                                <textarea className="form-control" rows="10"
-                                          placeholder="MESSAGE"
-                                          name="message"
-                                          required></textarea>
+                                <textarea
+                                    className="form-control" rows="10"
+                                    placeholder="MESSAGE"
+                                    name="message"
+                                    required
+                                >
+                                </textarea>
                             </InputBox>
 
                         </form>
-                        <div id="contact-form" type="submit" value="SEND" style={{display: "flex",justifyContent:"center"}}>
+                        <div id="contact-form-button" type="submit" value="SEND" style={{display: "flex",justifyContent:"center"}}>
                             <SubmitButton  id={'form-submission-button'} type='submit' size='lg' variant="secondary" onClick={()=>{setForm(true)}}>
                                 {form ? 'Submitted' : 'Submit'}
                             </SubmitButton>
