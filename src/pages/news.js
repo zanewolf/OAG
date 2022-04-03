@@ -187,6 +187,11 @@ const NewsBlock = styled.div`
     transition: all 0.3s ease-in-out;
     color: white;
 
+    @media only screen and (max-width: 955px) {
+      width: 70vw;
+    }
+
+
     span {
       display: block;
       margin: auto;
@@ -219,6 +224,7 @@ const NewsBlock = styled.div`
     span {
       color: blue;
     }
+
 
     //box-shadow: 36px 36px 71px #00c2ff,
     //  -36px -36px 71px #ffffff;

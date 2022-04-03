@@ -6,6 +6,12 @@ import {Button} from "react-bootstrap";
 import '../styles/contactform.module.css'
 
 export default function Contactus() {
+    const [form, setForm] = React.useState(false);
+
+    const handleSubmit = () => {
+
+    }
+
     return (
         <Layout>
             <ContactUsForm className={'get-in-touch'} image={ocean}>
@@ -14,6 +20,8 @@ export default function Contactus() {
                             what's on your mind?
                     </ContactHeader>
                     <ContactForm>
+                        <form id="contact-form" className="form-vertical" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+                            <input type="hidden" name="form-name" value="contact" />
                             <InputBox>
                                 <input type="text" required/>
                                 <label>Name</label>
@@ -27,33 +35,15 @@ export default function Contactus() {
                                 <label>Message</label>
                             </InputBox>
 
-                            <div className="HEYA" id="submit" type="submit" value="SEND" style={{display: "flex",justifyContent:"center"}}>
-                                <SubmitButton  type='submit' size='lg' variant="secondary">Submit</SubmitButton>
-                            </div>
+                        </form>
+                        <div id="contact-form" type="submit" value="SEND" style={{display: "flex",justifyContent:"center"}}>
+                            <SubmitButton  id={'form-submission-button'} type='submit' size='lg' variant="secondary" onClick={()=>{setForm(true)}}>
+                                {form ? 'Submitted' : 'Submit'}
+                            </SubmitButton>
+                        </div>
 
-                        {/*<form id="contact-form" className="form-vertical" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">*/}
-                        {/*    <input className='form-control-input form-control' type="hidden" name="form-name" value="contact"/>*/}
 
-                        {/*    <InputBox className="form-group">*/}
-                        {/*            <ContactInput type="text" className="form-control" id="name" placeholder="NAME" name="name"*/}
-                        {/*                   defaultValue="" required/>*/}
-                        {/*    </InputBox>*/}
 
-                        {/*    <InputBox className="form-group">*/}
-                        {/*            <ContactInput type="email" className="form-control-input form-control-cf" id="email" placeholder="EMAIL"*/}
-                        {/*                   name="email" defaultValue="" required/>*/}
-                        {/*    </InputBox>*/}
-
-                        {/*    <ContactText className="form-control-textarea form-control" rows="10"*/}
-                        {/*              placeholder="MESSAGE"*/}
-                        {/*              name="message"*/}
-                        {/*              required></ContactText>*/}
-
-                        {/*    <div className="HEYA" id="submit" type="submit" value="SEND" style={{display: "flex",justifyContent:"center"}}>*/}
-                        {/*        <Button style={{borderRadius: "10px",border: "none",width: '15vw', height: '5vh',fontSize:"1.5em", backgroundColor:"darkgray", color:"white"}} type='submit' size='lg' variant="secondary">Send Message</Button>*/}
-                        {/*    </div>*/}
-
-                        {/*</form>*/}
                     </ContactForm>
                 </ContactSection>
             </ContactUsForm>
@@ -63,9 +53,9 @@ export default function Contactus() {
 
 const ContactUsForm = styled.div`
   background: ${({image})=>(`url(${image}) center center/cover no-repeat`)};
-  position: absolute;
+  //position: absolute;
   width: 100%;
-  height: 96vh;
+  height: 95vh;
   ////min-height: 98vh;
   //height: auto;
   display: flex;
@@ -74,6 +64,9 @@ const ContactUsForm = styled.div`
 
 
 
+  @media only screen and (max-width: 955px) {
+    height: 95vh;
+  }
   //justify-content: right;
   //width:40vw;
   //margin-left: auto;
@@ -99,6 +92,7 @@ const ContactSection = styled.div`
   @media only screen and (max-width: 955px) {
     height: 80%;
     width: 95%;
+
   }
 
   //@media only screen and (max-width: 620px) {
@@ -226,17 +220,48 @@ const InputBox = styled.div`
 `
 
 const SubmitButton = styled.button`
-  border-radius: 10px;
-  border: none;
-  width: 15vw;
-  height: 5vh;
   font-size: 1.5em;
-  background-color: rgba(34, 82, 255, 0.67);
   color: white;
+  margin: auto;
+  //margin-top: 5vw;
+  text-align: center;
+  background: none;
+  min-width: 10vw;
+  width: auto;
+  padding: 1vh;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  //border-radius: 20px;
+  //border: 3px solid rgba(255,255,255,1);
 
-  @media only screen and (max-width: 955px) {
-    width: auto;
-    min-width: 40vw;
+  :hover {
+    //-webkit-transform: translateZ(0);
+    //transform: translateZ(0);
+    //-webkit-transition-duration: 0.3s;
+    //transition-duration: 0.3s;
+    //-webkit-transition-property: transform;
+    //transition-property: transform;
+    //-webkit-transition-timing-function: ease-out;
+    //transition-timing-function: ease-out;
+    -webkit-transform: scale(1.05) translateZ(0);
+    transform: scale(1.05) translateZ(0);
+    color: blue;
   }
+  //border-radius: 10px;
+  //border: none;
+  //width: 15vw;
+  //height: 5vh;
+  //font-size: 1.5em;
+  //background-color: rgba(34, 82, 255, 0.67);
+  //color: white;
+  //
+  //@media only screen and (max-width: 955px) {
+  //  width: auto;
+  //  min-width: 40vw;
+  //}
 
 `
