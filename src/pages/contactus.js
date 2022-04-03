@@ -20,8 +20,8 @@ export default function Contactus() {
                             what's on your mind?
                     </ContactHeader>
                     <ContactForm>
-                        <form id="contact-form" className="form-vertical" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
-                            <input type="hidden" name="form-name" value="contact" />
+                        <form name="contact" id="contact-form" className="form-vertical" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+                            {/*<input type="hidden" name="form-name" value="contact" />*/}
                             <InputBox>
                                 <input type="text" className="form-control" id="name" placeholder="NAME" name="name"
                                        defaultValue="" required/>
