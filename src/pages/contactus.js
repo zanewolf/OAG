@@ -48,9 +48,9 @@ export default function Contactus() {
                             </InputBox>
 
                         </form>
-                        <div id="contact-form-button" type="submit" value="SEND" style={{display: "flex",justifyContent:"center"}}>
-                            <SubmitButton  id={'form-submission-button'} type='submit' size='lg' variant="secondary" onClick={()=>{setForm(true)}}>
-                                {form ? 'Submitted' : 'Submit'}
+                        <div style={{display: "flex",justifyContent:"center"}}>
+                            <SubmitButton  id={"contact-form-button"} type="submit" value="SEND" type='submit' >
+                                Submit
                             </SubmitButton>
                         </div>
 
