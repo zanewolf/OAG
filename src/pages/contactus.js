@@ -23,16 +23,18 @@ export default function Contactus() {
                         <form id="contact-form" className="form-vertical" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
                             <input type="hidden" name="form-name" value="contact" />
                             <InputBox>
-                                <input type="text" required/>
-                                <label>Name</label>
+                                <input type="text" className="form-control" id="name" placeholder="NAME" name="name"
+                                       defaultValue="" required/>
                             </InputBox>
                             <InputBox>
-                                <input type="text" required/>
-                                <label>Email</label>
+                                <input type="email" className="form-control" id="name" placeholder="EMAIL" name="name"
+                                       defaultValue="" required/>
                             </InputBox>
                             <InputBox>
-                                <textarea required></textarea>
-                                <label>Message</label>
+                                <textarea className="form-control" rows="10"
+                                          placeholder="MESSAGE"
+                                          name="message"
+                                          required></textarea>
                             </InputBox>
 
                         </form>
