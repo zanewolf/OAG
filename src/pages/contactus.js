@@ -2,7 +2,6 @@ import React from 'react'
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import ocean from '../images/ocean3.jpg'
-import {Button} from "react-bootstrap";
 import '../styles/contactform.module.css'
 
 export default function Contactus() {

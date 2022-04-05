@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from "../components/Layout";
 import styled from 'styled-components'
 import {graphql} from "gatsby";
-
 import ocean3 from '../images/ocean3.jpg';
 
 export default function News({data}) {
@@ -24,7 +23,7 @@ export default function News({data}) {
                             return (
                                 <NewsBlock className={"child"} key={i}>
                                     <li key={i}>
-                                        <a className= 'button' href={node.data.Link} target="_blank">
+                                        <a className= 'button' href={node.data.Link} target="_blank" rel={"noreferrer"}>
                                             <span>{node.data.Source}</span>
                                         </a>
                                     </li>
@@ -33,7 +32,6 @@ export default function News({data}) {
                         })}
                     </NewsSection>
                 </NewsContent>
-                {/*<WavesImage image={waves}></WavesImage>*/}
             </NewsPage>
         </Layout>
     )
@@ -74,16 +72,16 @@ const NewsContent = styled.div`
   //height: auto;
   //min-height: 80vh;
   height: auto;
-  padding-top: 3vh;
+  margin-top: var(--screen-nav-bar-height);
 
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 1045px){
     margin-top: var(--phone-nav-bar-height);
   }
   
 `
 
 const NewsHeader = styled.section`
-  //margin-top: 5vh;
+    margin-top: -0.4vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +90,17 @@ const NewsHeader = styled.section`
     width: 100vw;
     height: 30vh; /* if you don't want it to take up the full screen, reduce this number */
     overflow: hidden;
-    margin: 2vw;
+    //margin: 2vw;
+    background: rgba(0,0,0,0.3);
+    //box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    //border-radius: 20px;
+    //border: 1px solid rgba(255, 255, 255, 0.18);
+
+  @media screen and (max-width: 1400px){
+    margin-top: 0vh;
+  }
   
   h1 {
     font-style: normal;
@@ -106,7 +114,11 @@ const NewsHeader = styled.section`
     @media screen and (max-width: 1400px){
       font-size: 3em;
     }
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 1045px){
+      font-size: 2em;
+    }
+
+    @media screen and (max-width: 500px){
       font-size: 1.5em;
     }
     //margin-bottom: 48px;
@@ -129,9 +141,9 @@ const NewsHeader = styled.section`
     //border: 1px solid rgba(255, 255, 255, 0.18);
 
     @media screen and (max-width: 1400px){
-      font-size: 1em;
+      font-size: 1.5em;
     }
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 500px){
       font-size: 1em;
     }
   }
@@ -178,12 +190,12 @@ const NewsBlock = styled.div`
     justify-content: center;
     margin: auto;
     text-align: center;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.4);
     box-shadow: 0 8px 32px 0 rgba(3, 3, 3, 0.37);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    //border: 1px solid rgba(0, 0, 0, 0.18);
     transition: all 0.3s ease-in-out;
     color: white;
 
@@ -231,14 +243,3 @@ const NewsBlock = styled.div`
   }
 
 `
-
-const WavesImage = styled.div`
-  width: 100%;
-  height: 40vh;
-  background: ${({image})=>(`url(${image}) center center/cover no-repeat`)};
-  bottom: 0;
-  position: absolute;
-  z-index: -1000;
-  
-`
-

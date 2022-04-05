@@ -1,10 +1,8 @@
 import React from 'react'
 import Layout from "../components/Layout";
 import ocean3 from "../images/ocean3.jpg";
-import {teamData} from "../data/TeamData";
 import styled from "styled-components";
 import {BsPlusCircleFill} from "react-icons/bs";
-import {Link} from 'gatsby';
 import guide from '../documents/primary_field_guide.pdf'
 
 let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC";

@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from "../components/Layout";
-import ocean from "../images/ocean3.jpg";
 import styled from "styled-components";
 import {FaWrench} from "react-icons/all";
 
@@ -41,7 +40,7 @@ export default function Grants() {
 const GrantPage = styled.div`
     //position: absolute;
     width: 100%;
-    min-height: 96vh;
+    min-height: 95vh;
     ////min-height: 98vh;
     height: auto;
     display: flex;
@@ -50,7 +49,7 @@ const GrantPage = styled.div`
 `
 
 const UnderConstructionBox = styled.div`
-  background: rgba(208, 208, 208, 0.25);
+  background: rgba(0, 0, 0, 0.25);
   box-shadow: 0 8px 32px 0 rgba(59, 59, 59, 0.37);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

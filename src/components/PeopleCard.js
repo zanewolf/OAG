@@ -1,12 +1,8 @@
 import * as React from 'react'
-import * as style from "../styles/card.module.css";
-import nullProfilePic from '../images/Null2.png';
-import {PortalWithState} from 'react-portal'
 import styled from "styled-components";
 import {Link} from "gatsby";
-import {Button} from "./Button";
-import {FaBuilding,FaExternalLinkAlt,FaEllipsisH, FaTimes} from 'react-icons/fa'
-import {IoEllipsisHorizontalCircleSharp} from 'react-icons/io5'
+import {FaExternalLinkAlt,FaEllipsisH, FaTimes} from 'react-icons/fa'
+// import {IoEllipsisHorizontalCircleSharp} from 'react-icons/io5'
 import {HiOutlineMail} from 'react-icons/hi'
 import Avatar from "boring-avatars";
 import Modal from 'react-modal'

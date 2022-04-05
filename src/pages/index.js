@@ -4,11 +4,9 @@ import Hero from "../components/Hero";
 import ocean3 from '../images/ocean3.jpg';
 import {useState,useEffect} from "react";
 import {Link} from 'gatsby'
-
 import ocean3_gradient from '../images/ocean3_gradient.jpg';
 import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 import oceanfloor from '../images/ocean_floor.jpg';
-import ocean4 from '../images/ocean4.jpg'
 import Team from "./team";
 import styled from "styled-components";
 

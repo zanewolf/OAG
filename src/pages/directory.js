@@ -8,8 +8,6 @@ import '../styles/directory.module.css'
 import {BsPlusCircleFill} from 'react-icons/bs'
 
 
-let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC"
-
 
 export default function Directory({data}){
 
@@ -30,49 +28,11 @@ export default function Directory({data}){
         <Layout pageTitle="Directory">
             <DirectoryPage>
                 <DirectoryMenu>
-                    {/*<SwitchGrid>*/}
-                    {/*    <DirLink*/}
-                    {/*        className={dirFilter ==='people'? 'dir-toggle-check': 'dir-toggle-uncheck'}*/}
-                    {/*        // onClick = {()=>setDirFilter('people')}*/}
-                    {/*        onClick = {()=>updateDir('people')}*/}
-                    {/*    >*/}
-                    {/*        People*/}
-                    {/*    </DirLink>*/}
-                    {/*    <DirLink*/}
-                    {/*        className={dirFilter ==='programs'? 'dir-toggle-check': 'dir-toggle-uncheck'}*/}
-                    {/*        // onClick = {()=>setDirFilter('programs')}*/}
-                    {/*        onClick = {()=>updateDir('programs')}*/}
-                    {/*    >*/}
-                    {/*        Programs*/}
-                    {/*    </DirLink>*/}
-                    {/*    <DirLink*/}
-                    {/*        className={dirFilter ==='opps'? 'dir-toggle-check': 'dir-toggle-uncheck'}*/}
-                    {/*        // onClick = {()=>setDirFilter('opps')}*/}
-                    {/*        onClick = {()=>updateDir('opps')}*/}
-                    {/*    >*/}
-                    {/*        Opportunities*/}
-                    {/*    </DirLink>*/}
-                    {/*    <SwitchDropDown className="dropdown" >*/}
-                    {/*        <form>*/}
-                    {/*            <MySelect*/}
-                    {/*                className="target"*/}
-                    {/*                onChange={(e)=>updateDir(e.target.value)}*/}
-                    {/*                defaultValue={{label: 'People', value: 'people'}}*/}
-                    {/*            >*/}
-                    {/*                /!*<option value="selected" selected="selected">Please choose...</option>*!/*/}
-                    {/*                <option value="people" value="people">People</option>*/}
-                    {/*                <option value="programs" value="programs">Programs</option>*/}
-                    {/*                <option value="opps" value="opps">Opportunities</option>*/}
-                    {/*            </MySelect>*/}
-                    {/*        </form>*/}
-                    {/*    </SwitchDropDown>*/}
-                    {/*</SwitchGrid>*/}
                     <AddButton to={'/join'}>
 
                         {<BsPlusCircleFill/>}
                     </AddButton>
                     <SearchContainer className="search-wrapper" >
-                        {/*<FullSize>*/}
                             <label htmlFor="search-form">
                                 <SearchInput
                                     type="search"
@@ -83,37 +43,9 @@ export default function Directory({data}){
                                     value={q}
                                     onChange={(e) => setQ(e.target.value)}
                                 />
-                                {/*<SearchButton*/}
-                                {/*    className="search submit-button"*/}
-                                {/*    type="button"*/}
-                                {/*    type="submit"*/}
-                                {/*    value=""*/}
-                                {/*/>*/}
                             </label>
-                        {/*</FullSize>*/}
-                        {/*<AnimatedBar>*/}
-                        {/*    <div className="searchBox">*/}
-                        {/*        <input className="searchInput" type="text" name="" placeholder="Search"/>*/}
-                        {/*            <button className="searchButton" href="#">*/}
-                        {/*                <i className="material-icons">*/}
-                        {/*                    search*/}
-                        {/*                </i>*/}
-                        {/*            </button>*/}
-                        {/*    </div>*/}
-                        {/*</AnimatedBar>*/}
-
                     </SearchContainer>
-                    {/*<FilterMenu>*/}
 
-                    {/*    /!*<JoinButton>*!/*/}
-                    {/*    /!*    <Button primary onClick={(e)=>{*!/*/}
-                    {/*    /!*        e.preventDefault();*!/*/}
-                    {/*    /!*        window.open(airTableForm);*!/*/}
-                    {/*    /!*    }}>*!/*/}
-                    {/*    /!*        Join Now*!/*/}
-                    {/*    /!*    </Button>*!/*/}
-                    {/*    /!*</JoinButton>*!/*/}
-                    {/*</FilterMenu>*/}
                 </DirectoryMenu>
                 <DirectorySection>
                         <PeopleDirectory data={dirData} />
@@ -180,7 +112,7 @@ const DirectoryPage = styled.div`
   background-attachment: fixed;
 
 
-  @media screen and (max-width: 940px) {
+  @media screen and (max-width: 1045px) {
       padding-top: var(--phone-nav-bar-height);
       //padding-top: 2vh;
     //margin-top: 13vh;
@@ -211,182 +143,182 @@ const DirectoryMenu = styled.div`
   }
   
     `
-const SwitchGrid = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-content: center;
-  width: 90vw;
-
-  @media screen and (max-width: 1024px) {
-    //margin-top: var(--phone-nav-bar-height);
-    font-size: 2em;
-    width: auto;
-    align-content: center;
-    //justify-content: start;
-    //let: 0;
-    //justify-content: space-evenly;
-    //padding-top: 2vh;
-    //margin-top: 13vh;
-    //padding-top: 2vh;
-  }
-  
-`
-const DirLink = styled.a`
-  text-align: center;
-  margin: auto 0.5vw;
-  //z-index: 1000;
-  cursor: pointer;
-  font-size: 2em;
-  //padding: 0 2vw;
-  padding-bottom: 1vh;
-
-  //&:before{
-  //  content: '\\00B7';
-  //  padding-right: 5px;
-  //}
-
-  &.dir-toggle-check {
-    color: #262626;
-    font-weight: 700;
-  }
-
-  &.dir-toggle-uncheck {
-    color: #383838;
-    font-weight: 500;
-
-  }
-
-  &:hover {
-    transition: 0.5s;
-    font-weight: 700;
-  }
-
-  //@media screen and (max-width: 540px) {
-  //  font-size: 1em;
-  //}
-
-  @media screen and (max-width: 1300px) {
-    font-size: 1.5em;
-    padding: 0 1vw;
-  }
-
-  @media screen and (max-width: 1024px) {
-    display:none;
-  }
-
-  //&.sideMenu {
-  //  margin: 4vw;
-  //  font-size: 3em;
-  //}
-
-`
-
-// const FullSize = styled.div`
-//   @media screen and (max-width: 940px){
+// const SwitchGrid = styled.div`
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: space-evenly;
+//   align-content: center;
+//   width: 90vw;
+//
+//   @media screen and (max-width: 1024px) {
+//     //margin-top: var(--phone-nav-bar-height);
+//     font-size: 2em;
+//     width: auto;
+//     align-content: center;
+//     //justify-content: start;
+//     //let: 0;
+//     //justify-content: space-evenly;
+//     //padding-top: 2vh;
+//     //margin-top: 13vh;
+//     //padding-top: 2vh;
+//   }
+//
+// `
+// const DirLink = styled.a`
+//   text-align: center;
+//   margin: auto 0.5vw;
+//   //z-index: 1000;
+//   cursor: pointer;
+//   font-size: 2em;
+//   //padding: 0 2vw;
+//   padding-bottom: 1vh;
+//
+//   //&:before{
+//   //  content: '\\00B7';
+//   //  padding-right: 5px;
+//   //}
+//
+//   &.dir-toggle-check {
+//     color: #262626;
+//     font-weight: 700;
+//   }
+//
+//   &.dir-toggle-uncheck {
+//     color: #383838;
+//     font-weight: 500;
+//
+//   }
+//
+//   &:hover {
+//     transition: 0.5s;
+//     font-weight: 700;
+//   }
+//
+//   //@media screen and (max-width: 540px) {
+//   //  font-size: 1em;
+//   //}
+//
+//   @media screen and (max-width: 1300px) {
+//     font-size: 1.5em;
+//     padding: 0 1vw;
+//   }
+//
+//   @media screen and (max-width: 1024px) {
 //     display:none;
 //   }
+//
+//   //&.sideMenu {
+//   //  margin: 4vw;
+//   //  font-size: 3em;
+//   //}
+//
 // `
-// const AnimatedBar = styled.div`
 //
-//   display: none;
-//   &.searchBox {
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform:  translate(-50%,50%);
-//     background: #2f3640;
-//     height: 40px;
-//     border-radius: 40px;
-//     padding: 10px;
+// // const FullSize = styled.div`
+// //   @media screen and (max-width: 940px){
+// //     display:none;
+// //   }
+// // `
+// // const AnimatedBar = styled.div`
+// //
+// //   display: none;
+// //   &.searchBox {
+// //     position: absolute;
+// //     top: 50%;
+// //     left: 50%;
+// //     transform:  translate(-50%,50%);
+// //     background: #2f3640;
+// //     height: 40px;
+// //     border-radius: 40px;
+// //     padding: 10px;
+// //
+// //   }
+// //
+// //   &.searchBox:hover > .searchInput {
+// //     width: 240px;
+// //     padding: 0 6px;
+// //   }
+// //
+// //   &.searchBox:hover > .searchButton {
+// //     background: white;
+// //     color : #2f3640;
+// //   }
+// //
+// //   &.searchButton {
+// //     color: white;
+// //     float: right;
+// //     width: 40px;
+// //     height: 40px;
+// //     border-radius: 50%;
+// //     background: #2f3640;
+// //     display: flex;
+// //     justify-content: center;
+// //     align-items: center;
+// //     transition: 0.4s;
+// //   }
+// //
+// //   &.searchInput {
+// //     border:none;
+// //     background: none;
+// //     outline:none;
+// //     float:left;
+// //     padding: 0;
+// //     color: white;
+// //     font-size: 16px;
+// //     transition: 0.4s;
+// //     line-height: 40px;
+// //     width: 0px;
+// //
+// //   }
+// //   &.searchBox:hover > .searchInput {
+// //     width: 150px;
+// //     padding: 0 6px;
+// //   }
+// //
+// //   @media screen and (max-width: 940px) {
+// //     display: flex;
+// //
+// //   }
+// // `
+// const SwitchDropDown = styled.div`
+//   display:none;
 //
+//   &:active{
+//     border-color: red;
 //   }
+//   @media screen and (max-width: 1024px) {
+//     display:flex;
+//     padding-bottom: 1vh;
 //
-//   &.searchBox:hover > .searchInput {
-//     width: 240px;
-//     padding: 0 6px;
-//   }
-//
-//   &.searchBox:hover > .searchButton {
-//     background: white;
-//     color : #2f3640;
-//   }
-//
-//   &.searchButton {
-//     color: white;
-//     float: right;
-//     width: 40px;
-//     height: 40px;
-//     border-radius: 50%;
-//     background: #2f3640;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     transition: 0.4s;
-//   }
-//
-//   &.searchInput {
-//     border:none;
-//     background: none;
-//     outline:none;
-//     float:left;
-//     padding: 0;
-//     color: white;
-//     font-size: 16px;
-//     transition: 0.4s;
-//     line-height: 40px;
-//     width: 0px;
-//
-//   }
-//   &.searchBox:hover > .searchInput {
-//     width: 150px;
-//     padding: 0 6px;
-//   }
-//
-//   @media screen and (max-width: 940px) {
-//     display: flex;
 //
 //   }
 // `
-const SwitchDropDown = styled.div`
-  display:none;
-  
-  &:active{
-    border-color: red;
-  }
-  @media screen and (max-width: 1024px) {
-    display:flex;
-    padding-bottom: 1vh;
-
-    
-  }
-`
-const MySelect = styled.select`
-  
-  &::selection{
-    
-  }
-  @media screen and (max-width: 1024px) {
-    padding: 0.5vw;
-    padding-left: 1vw;
-    width: 30vw;
-    border: 1px solid #f5f5f5;
-    border-radius: 15pt;
-    color: gray;
-    background-repeat: no-repeat;
-    background-position: left center;
-    height: 5vh;
-    font-size: 0.5em;
-    //margin-top: 1vh;
-    //left: 0;
-    //width: auto;
-    //height: 5vh;
-    //border-radius: 15pt;
-    //padding-left: 1vw;
-    //font-size: 1em;
-
-  }
-`
+// const MySelect = styled.select`
+//
+//   &::selection{
+//
+//   }
+//   @media screen and (max-width: 1024px) {
+//     padding: 0.5vw;
+//     padding-left: 1vw;
+//     width: 30vw;
+//     border: 1px solid #f5f5f5;
+//     border-radius: 15pt;
+//     color: gray;
+//     background-repeat: no-repeat;
+//     background-position: left center;
+//     height: 5vh;
+//     font-size: 0.5em;
+//     //margin-top: 1vh;
+//     //left: 0;
+//     //width: auto;
+//     //height: 5vh;
+//     //border-radius: 15pt;
+//     //padding-left: 1vw;
+//     //font-size: 1em;
+//
+//   }
+// `
 const AddButton = styled(Link)`
   color: #383838;
   cursor: pointer;
@@ -453,26 +385,26 @@ const SearchInput = styled.input`
 
 `
 
-const SearchButton = styled.input`
-  background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png");
-  line-height: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  width: 35px;
-  background-position: 5px;
-  background-repeat: no-repeat;
-  background-size: 20px;
-  background-color: transparent;
-  margin-left:-2vh;
-  border:none;
-`
-// const FilterMenu = styled.div`
-//  //padding: 2vh;
-//  // height: 7vh;
-//  // width: 80vw;
-//  // margin: auto;
-//  // justify-content: center;
-//`
+// const SearchButton = styled.input`
+//   background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png");
+//   line-height: inherit;
+//   text-decoration: none;
+//   cursor: pointer;
+//   width: 35px;
+//   background-position: 5px;
+//   background-repeat: no-repeat;
+//   background-size: 20px;
+//   background-color: transparent;
+//   margin-left:-2vh;
+//   border:none;
+// `
+// // const FilterMenu = styled.div`
+// //  //padding: 2vh;
+// //  // height: 7vh;
+// //  // width: 80vw;
+// //  // margin: auto;
+// //  // justify-content: center;
+// //`
 const DirectorySection = styled.div`
   //padding-top: 10vh;
   //align-content: center;

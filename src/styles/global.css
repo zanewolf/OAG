@@ -111,7 +111,7 @@ footer{
 .footer-links-right{
     /*font-size:1.5em;*/
     /*margin-right: 1vw;*/
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
     display: flex;
     flex-flow: row nowrap;
     width: 10vw;
@@ -142,9 +142,10 @@ footer{
     }
 
     .footer-links-right{
-        font-size: 1.25em;
+        /*font-size: 1.25em;*/
         /*padding-right: 2vw;*/
         width: 25vw;
+        padding-right: 5vw;
     }
 
 

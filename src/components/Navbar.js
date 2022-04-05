@@ -62,45 +62,9 @@ export default function Navbar() {
                             </Button>
                         </NavBurger>
                     </MenuWrapper>
-
-                    {/*<div className={sideMenu===true? "sideBar": ""}>*/}
-                    {/*    <MenuLinks>*/}
-                    {/*        {menuData.map((item, index)=>(*/}
-                    {/*            <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>*/}
-                    {/*        ))}*/}
-                    {/*    </MenuLinks>*/}
-                    {/*</div>*/}
-                    {/*<button onClick={toggleSideMenu} className={"burger-bars"} id ="burgar-btns"><FaBars/></button>*/}
                 </NavWrapper>
 
         )
-        // </div>
-    // } else {
-    //     return (
-    //         <div>
-    //             <NavWrapper>
-    //                 {/*<Link className={"website-title"} to={"/"}>{title}</Link>*/}
-    //                 <NavTitleSmall className={"website-title-small"} to={"/"}>OAG</NavTitleSmall>
-    //                     <JoinButton>
-    //                         <Button primary onClick={(e)=>{
-    //                             e.preventDefault();
-    //                             window.open(airTableForm);
-    //                         }}>
-    //                             Join Now
-    //                         </Button>
-    //                     </JoinButton>
-    //                 <button onClick={toggleSideMenu} className={"burger-bars"}><FaTimes/></button>
-    //             </NavWrapper>
-    //             <SideMenu toggleSideMenu={toggleSideMenu}>
-    //                 <MenuLinks>
-    //                     {menuData.map((item, index)=>(
-    //                         <NavLink to={item.link} key={index} activeStyle={activeStyle}>{item.title}</NavLink>
-    //                     ))}
-    //                 </MenuLinks>
-    //             </SideMenu>
-    //         </div>
-    //     )
-    // }
 }
 
 const NavWrapper= styled.nav`
@@ -110,7 +74,7 @@ const NavWrapper= styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 10;
   width: 100%;
   height: auto;
   padding:0.5rem 0.8rem;
@@ -118,7 +82,7 @@ const NavWrapper= styled.nav`
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );
   
-  @media screen and (max-width: 940px){
+  @media screen and (max-width: 1045px){
     height: var(--phone-nav-bar-height);
   }
 `
@@ -185,7 +149,7 @@ const MenuLinks = styled.div`
   display: flex;
   position: relative;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1045px) {
     display: none;
   }
 
@@ -244,9 +208,10 @@ const NavLink = styled(Link)`
 const NavBurger = styled.div`
   display: none;
   color: #fff;
+  font-size:2em;
   
   
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1045px){
     display: flex;
     margin: auto 2vw;
     

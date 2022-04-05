@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
 import PeopleCard from "./PeopleCard";
-import Modal from 'react-modal'
 
 const fieldColors={
     'Policy/Economics': '#351431',

@@ -1,7 +1,5 @@
 import React from 'react'
-import Layout from "../components/Layout";
 import {teamData} from "../data/TeamData";
-import ocean3 from '../images/ocean3.jpg';
 
 import styled from "styled-components";
 
@@ -11,8 +9,6 @@ export default function Team(){
     console.log(teamData)
 
     return (
-        // <Layout pageTitle={"Team"}>
-
             <TeamPage>
                 <TeamPageHeader>
                     Meet the Team
@@ -34,53 +30,9 @@ export default function Team(){
                 </TeamMembers>
             </TeamPage>
 
-
-
-
-
-        // </Layout>
-
     )
 }
-// const Team =(fullpageProps)=> (
-//         <Layout pageTitle="Team">
-//             <ReactFullpage
-//                 navigation
-//                 // scrollBar={true}
-//                 // fitToSectionDelay={500}
-//                 scrollOverflow={true}
-//                 // normalScrollElements={"#eventsSection"}
-//                 // autoScrolling={false}
-//                 bigSectionDestination={"top"}
-//                 {...fullpageProps}
-//                 render={({ state, fullpageApi }) => {
-//                     console.log("render prop change", state); // eslint-disable-line no-console
-//
-//                     if (state.callback === "onLeave") {
-//                         if (state.direction === "down") {
-//                             console.log("going down..." + state.origin.index);
-//                         }
-//                     }
-//                     return (
-//                         <div id="fullpage-wrapper">
-//                             <div className="section section1" data-menuanchor={"Home"}>
-//                                 <Hero
-//                                     title={"Connecting Oceans, Connecting People"}
-//                                     size={"100vh"}
-//                                     image={ocean3}
-//                                     darkened
-//                                     id={"hero1"}
-//
-//                                 />
-//                             </div>
-//                         </div>
-//                     );
-//                 }}
-//             />
-//         </Layout>
-//     )
-//
-// export default Team
+
 
 const TeamPage = styled.div`
   //margin-top: var(--screen-nav-bar-height);
@@ -150,14 +102,6 @@ const TeamMember = styled.div`
     align-items: center;
     //margin-bottom: 3vh;
   }
-
-  //.teamBlock:nth-child(2n){
-  //  flex-direction:row-reverse;
-  //  background-color: #acacac;
-  //}
-  
-
-
   
 `
 
