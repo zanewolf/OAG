@@ -87,28 +87,6 @@ export default function Datamap({data}){
     },[q,selected])
 
 
-    const resetButton = document.getElementsByClassName('.clear-selected-button')
-
-    console.log(resetButton)
-
-    // resetButton.addEventListener('click', ()=>setSelected([...options]))
-
-    // const resetOptions = (event)=>{
-    //     console.log('resetting')
-    //     setSelected([...options])
-    // }
-    //
-    // React.useEffect(() => {
-    //     console.log('effect triggered')
-    //     window.addEventListener('.clear-selected-button', resetOptions);
-    //
-    //     // cleanup this component
-    //     return () => {
-    //         window.removeEventListener('.clear-selected-button', resetOptions);
-    //     };
-    // }, []);
-    //     })
-
     return (
         <Layout pageTitle={"Datamap"}>
             <MapContent>
