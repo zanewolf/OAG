@@ -2,7 +2,7 @@ import * as React from 'react';
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import ocean3 from '../images/ocean3.jpg';
-import {useState,useEffect} from "react";
+import {useEffect} from "react";
 import {Link} from 'gatsby'
 import ocean3_gradient from '../images/ocean3_gradient.jpg';
 import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
@@ -12,8 +12,6 @@ import styled from "styled-components";
 import {useWindowSize} from '../components/useWindowSize'
 
 let section2Image;
-
-
 
 export default function IndexPage() {
 
@@ -85,154 +83,14 @@ export default function IndexPage() {
     // }
 };
 
-// export default IndexPage;
-
-// const IndexPage = (fullpageProps) => (
-//     <Layout>
-//         <ReactFullpage
-//             {...fullpageOptions}
-//             render={({ state, fullpageApi }) => {
-//
-//                 return (
-//                     <div id="fullpage-wrapper">
-//                         <div className="section section1">
-//                             <h3>Section 1</h3>
-//                             <button onClick={() => {fullpageApi.moveSectionDown()}}>
-//                                 Move down
-//                             </button>
-//                         </div>
-//                         <div className="section section2">
-//                             <h3>Section 1</h3>
-//                             <button onClick={() => {fullpageApi.moveSectionUp()}}>
-//                                 Move Up
-//                             </button>
-//                         </div>
-//                         {/*<div id="fullpage-wrapper">*/}
-//                         {/*<div className="section section1" data-menuanchor={"Home"}>*/}
-//                         {/*    <Hero*/}
-//                         {/*        title={"Connecting Oceans, Connecting People"}*/}
-//                         {/*        size={"100vh"}*/}
-//                         {/*        image={ocean3}*/}
-//                         {/*        darkened*/}
-//                         {/*        id={"hero1"}*/}
-//
-//                         {/*    />*/}
-//                         {/*</div>*/}
-//                         {/*<div className="section" data-menuanchor={"Mission"}>*/}
-//                         {/*    <MissionSection>*/}
-//                         {/*        <SectionHeader> We're all in this together</SectionHeader>*/}
-//                         {/*        <MissionDesc>*/}
-//                         {/*            <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>*/}
-//                         {/*            <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>*/}
-//                         {/*        </MissionDesc>*/}
-//                         {/*    </MissionSection>*/}
-//                         {/*</div>*/}
-//                     {/*</div>*/}
-//
-//                     </div>
-//                 )
-//             }}
-//         />
-//     </Layout>
-// )
-//
-//
-// export default IndexPage;
-
-// const IndexPage = ({fullpageProps}) => (
-//
-//     <Layout pageTitle="Home">
-//         <ReactFullpage
-//             navigation
-//             scrollOverflow={true}
-//             navigationTooltips={anchors}
-//             bigSectionDestination={"top"}
-//             {...fullpageProps}
-//             render={({ state }) => {
-//                 console.log("render prop change", state); // eslint-disable-line no-console
-//
-//                 // if (state.callback === "onLeave") {
-//                 //     if (state.direction === "down") {
-//                 //         console.log("going down..." + state.origin.index);
-//                 //     }
-//                 // }
-//                 return (
-//                     <div id="fullpage-wrapper">
-//                         <div className="section section1" data-menuanchor={"Home"}>
-//                             <Hero
-//                                 title={"Connecting Oceans, Connecting People"}
-//                                 size={"100vh"}
-//                                 image={ocean3}
-//                                 darkened
-//                                 id={"hero1"}
-//
-//                             />
-//                         </div>
-//                         <div className="section" data-menuanchor={"Mission"}>
-//                             <MissionSection>
-//                                 <SectionHeader> We're all in this together</SectionHeader>
-//                                 <MissionDesc>
-//                                     <p>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.</p>
-//                                     <p>By joining OAG, you'll be contributing to and receiving support from a broad network of scientists, policy makers, environmentalists, communicators, and general ocean-enthusiasts. This network only works because of the people that join and participate. </p>
-//                                 </MissionDesc>
-//                             </MissionSection>
-//                         </div>
-//                     </div>
-//                 );
-//             }}
-//         />
-//     </Layout>
-// );
-//
-// export default IndexPage
-// export default function IndexPage({data}){
-//
-//
-//     return (
-//         <Layout pageTitle="Home Page">
-//             {/*<section ref={scrollRef}>*/}
-//                 <Hero
-//                     title={"Connecting Oceans, Connecting People"}
-//                     size={"100vh"}
-//                     image={ocean3}
-//                     darkened
-//                     id={"hero1"}
-//
-//                 >
-//                     {/*<div className={"hero-btns"}>*/}
-//                     {/*    <Button fontBig big primary> Join Now</Button>*/}
-//                     {/*</div>*/}
-//                 </Hero>
-//                 <MissionSection>
-//                     <SectionHeader> We're all in this together</SectionHeader>
-//                     <MissionDesc>Our mission is to bring together people, span programs, and highlight resources within the oceanic sciences community. Beyond simply compiling a list of people, places, and grants, we also orchestrate cross-department as seminars and workshops.
-//                     </MissionDesc>
-//                 {/*<Hero*/}
-//                 {/*    title={"Bringing People Together"}*/}
-//                 {/*    size={"90vh"}*/}
-//                 {/*    id={"hero2"}*/}
-//                 {/*>*/}
-//                 {/*    /!*<div className={"hero-btns"}>*!/*/}
-//                 {/*    /!*    <Button fontBig big primary> Join Now</Button>*!/*/}
-//                 {/*    /!*</div>*!/*/}
-//                 {/*</Hero>*/}
-//                 </MissionSection>
-//             {/*</section>*/}
-//         </Layout>
-//     )
-// }
 
 const MissionSection=styled.div`
-  //margin-top: 6vh;
   height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
-  //align-content: center;
-  //padding: 2em 2em;
   margin: auto;
-  //background: linear-gradient(to bottom, rgb(0, 36, 73), rgba(0, 0, 0, 1));
   color: #fff;
 
   @media screen and (max-width: 768px) {
@@ -284,35 +142,16 @@ const JoinButton = styled(Link)`
   min-width: 10vw;
   width: auto;
   padding: 1vh;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.4);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  //border-radius: 20px;
-  //border: 3px solid rgba(255,255,255,1);
 
   :hover {
-    //-webkit-transform: translateZ(0);
-    //transform: translateZ(0);
-    //-webkit-transition-duration: 0.3s;
-    //transition-duration: 0.3s;
-    //-webkit-transition-property: transform;
-    //transition-property: transform;
-    //-webkit-transition-timing-function: ease-out;
-    //transition-timing-function: ease-out;
     -webkit-transform: scale(1.05) translateZ(0);
     transform: scale(1.05) translateZ(0);
     color: blue;
   }
 `
-
-// const EventsSection = styled.div`
-//   background: black;
-//   color: #fff;
-//   height: auto;
-//   min-height: 100vh;
-//   padding-bottom: 5vh;
-//   padding-top: var(--phone-nav-bar-height)
-// `

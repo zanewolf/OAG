@@ -1,15 +1,13 @@
 import * as React from 'react';
-import {useState,useEffect, useReducer} from "react";
+import {useState,useEffect} from "react";
 import Layout from "../components/Layout";
-import { Link,graphql } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import PeopleDirectory from "../components/peopleDirectory";
 import '../styles/directory.module.css'
-import {BsPlusCircleFill} from 'react-icons/bs'
 import {useWindowSize} from "../components/useWindowSize";
 import {AiOutlinePlus} from "react-icons/ai";
 import {MultiSelect} from "react-multi-select-component";
-import Select from 'react-select'
 
 
 let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC";
@@ -49,13 +47,14 @@ export default function Directory({data}){
 
     let size = useWindowSize()
 
-    let filteredData={}
-    let filteredData2={}
-    let primaryFields={}
-
-    selected.forEach((d,i)=> {return primaryFields[d.label]=i})
 
     useEffect(()=>{
+        let filteredData={}
+        let filteredData2={}
+        let primaryFields={}
+
+        selected.forEach((d,i)=> {return primaryFields[d.label]=i})
+
 
         filteredData['nodes']= data.people.nodes.filter((node)=>{
             return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase());
@@ -66,7 +65,7 @@ export default function Directory({data}){
         })
 
         setDirData(filteredData2)
-    },[q,selected])
+    },[q,selected,data])
 
     return (
         <Layout pageTitle="Directory">

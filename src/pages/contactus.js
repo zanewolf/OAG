@@ -5,11 +5,11 @@ import ocean from '../images/ocean3.jpg'
 import '../styles/contactform.module.css'
 
 export default function Contactus() {
-    const [form, setForm] = React.useState(false);
-
-    const handleSubmit = () => {
-
-    }
+    // const [form, setForm] = React.useState(false);
+    //
+    // const handleSubmit = () => {
+    //
+    // }
 
     return (
         <Layout>
@@ -44,7 +44,7 @@ export default function Contactus() {
                                 </textarea>
                             {/*</InputBox>*/}
                         {/*<div >*/}
-                            <SubmitButton  id={"contact-form-button"} type="submit" value="SEND" type='submit' >
+                            <SubmitButton  id={"contact-form-button"} type="submit" value="SEND" >
                                 Submit
                             </SubmitButton>
                         {/*</div>*/}
@@ -135,100 +135,100 @@ const ContactForm = styled.div`
 
 `
 
-const InputBox = styled.div`
-  width: 100%;
-  max-width: 100%;
-  float: left;
-  margin: 1rem 0;
-  position: relative;
-  border-radius: 4px;
+// const InputBox = styled.div`
+//   width: 100%;
+//   max-width: 100%;
+//   float: left;
+//   margin: 1rem 0;
+//   position: relative;
+//   border-radius: 4px;
+//
+//   :focus {
+//     border: 2pt white;
+//   }
+//
+//   label {
+//     color: #404040;
+//     padding: 1.3rem 30px 1rem 30px;
+//     position: absolute;
+//     top: 10px;
+//     left: 0;
+//     -webkit-transition: all 0.25s ease;
+//     transition: all 0.25s ease;
+//     pointer-events: none;
+//   }
+//
+//   input,
+//   textarea {
+//     padding: 30px;
+//     border: 0;
+//     width: 100%;
+//     font-size: 1rem;
+//     background-color: #ffffff;
+//     color: #000000;
+//     border-radius: 4px;
+//   }
+//
+//   input:focus,
+//   textarea:focus {
+//     outline: 0;
+//   }
+//
+//   input:focus ~ span,
+//   textarea:focus ~ span {
+//     width: 100%;
+//     -webkit-transition: all 0.075s ease;
+//     transition: all 0.075s ease;
+//   }
+//
+//   textarea {
+//     width: 100%;
+//     min-height: 15em;
+//   }
+//
+//   input[type=checkbox] + label {
+//     color: #ccc;
+//     font-style: italic;
+//   }
+//
+//   input[type=checkbox]:checked + label {
+//     color: #f00;
+//     font-style: normal;
+//   }
+//
+//   input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+//     font-size: 0.75em;
+//     color: #999;
+//     top: -5px;
+//     -webkit-transition: all 0.225s ease;
+//     transition: all 0.225s ease;
+//
+//     @media only screen and (max-width: 768px) {
+//       top: 0pt;
+//     }
+//   }
+//
+//   @media only screen and (max-width: 768px) {
+//     input {
+//       padding: 10pt;
+//       min-height: 5em;
+//     }
+//
+//     label {
+//       top: 10pt;
+//       left: 10pt;
+//       padding: 0;
+//     }
+//     textarea {
+//       min-height: 10em;
+//     }
+//
+//   }
+//
+//   @media only screen and (max-width: 950px) {
+//     width: 95%;
+//   }
 
-  :focus {
-    border: 2pt white;
-  }
-
-  label {
-    color: #404040;
-    padding: 1.3rem 30px 1rem 30px;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    -webkit-transition: all 0.25s ease;
-    transition: all 0.25s ease;
-    pointer-events: none;
-  }
-
-  input,
-  textarea {
-    padding: 30px;
-    border: 0;
-    width: 100%;
-    font-size: 1rem;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 4px;
-  }
-
-  input:focus,
-  textarea:focus {
-    outline: 0;
-  }
-
-  input:focus ~ span,
-  textarea:focus ~ span {
-    width: 100%;
-    -webkit-transition: all 0.075s ease;
-    transition: all 0.075s ease;
-  }
-
-  textarea {
-    width: 100%;
-    min-height: 15em;
-  }
-
-  input[type=checkbox] + label {
-    color: #ccc;
-    font-style: italic;
-  }
-
-  input[type=checkbox]:checked + label {
-    color: #f00;
-    font-style: normal;
-  }
-
-  input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
-    font-size: 0.75em;
-    color: #999;
-    top: -5px;
-    -webkit-transition: all 0.225s ease;
-    transition: all 0.225s ease;
-
-    @media only screen and (max-width: 768px) {
-      top: 0pt;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {    
-    input {
-      padding: 10pt;
-      min-height: 5em;
-    }
-    
-    label {
-      top: 10pt;
-      left: 10pt;
-      padding: 0;
-    }
-    textarea {
-      min-height: 10em;
-    }
-    
-  }
-
-  @media only screen and (max-width: 950px) {
-    width: 95%;
-  }
-`
 
 const SubmitButton = styled.button`
   font-size: 1.5em;

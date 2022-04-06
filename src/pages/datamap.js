@@ -2,9 +2,7 @@ import * as React from 'react';
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-// import CruiseMap from "../components/CruiseMap";
 import loadable from '@loadable/component'
-import Select from 'react-select'
 import {useEffect, useState} from "react";
 import {MultiSelect} from 'react-multi-select-component';
 import {useWindowSize} from "../components/useWindowSize";
@@ -13,7 +11,6 @@ import {AiOutlinePlus} from 'react-icons/ai'
 
 const CruiseMap = loadable(()=>import('../components/CruiseMap'))
 
-let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC";
 let airtableDataForm = "https://airtable.com/shrlU4ivGTFhQn6vb"
 
 // async function getLatLong (location) {
@@ -70,13 +67,14 @@ export default function Datamap({data}){
     let size = useWindowSize()
 
 
-    let filteredData={}
-    let filteredData2={}
-    let primaryFields={}
 
-    selected.forEach((d,i)=> {return primaryFields[d.label]=i})
 
     useEffect(()=>{
+        let filteredData={}
+        let filteredData2={}
+        let primaryFields={}
+        selected.forEach((d,i)=> {return primaryFields[d.label]=i})
+
 
         filteredData['nodes']= data.cruises.nodes.filter((node)=>{
             return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase());
@@ -87,7 +85,7 @@ export default function Datamap({data}){
         })
 
         setMapData(filteredData2)
-    },[q,selected])
+    },[q,selected,data])
 
 
     return (

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
-import {MapContainer, TileLayer, Marker, Popup, LayerGroup} from 'react-leaflet'
+import React from 'react'
+import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
-import {FaCheckSquare, FaTimes,FaExternalLinkAlt} from "react-icons/all";
+import {FaExternalLinkAlt} from "react-icons/all";
 import {HiOutlineMail} from 'react-icons/hi'
 import L from 'leaflet';
 import styled from "styled-components";
@@ -42,14 +42,9 @@ let fieldColor;
 if (typeof window !== 'undefined') {
     DefaultIcon = L.icon({
         iconUrl: oIcon,
-        // iconSize:[20,20]
-        // shadowUrl: iconShadow
     });
     L.Marker.prototype.options.icon = DefaultIcon;
 
-
-    // L.popup({autoPan:false})
-    //     .setLatLng([0, 0])
 }
 
 function GetIcon(primaryField){
@@ -140,10 +135,10 @@ export default function CruiseMap ({data}) {
                                 <h3>Data Collected: <span>{node.data.Data_Medium}</span></h3>
                                 <h3>Research Focus: {node.data.Research_Focus}</h3>
 
-                                <h3>Data available: {node.data.Data_Available == 'Public'?
-                                    <a href={node.data.Data_Link} target={"_blank"} >Public Link <FaExternalLinkAlt/></a>
+                                <h3>Data available: {node.data.Data_Available === 'Public'?
+                                    <a href={node.data.Data_Link} target={"_blank"} rel={'noreferrer'} >Public Link <FaExternalLinkAlt/></a>
                                     :
-                                    node.data.Data_Available == 'Upon Request' ?
+                                    node.data.Data_Available === 'Upon Request' ?
                                         <EmailButton onClick={()=>copy(node.data.Data_Email)}>Email Me <HiOutlineMail/></EmailButton>
                                         :
                                         'Not Yet'
@@ -187,7 +182,6 @@ export default function CruiseMap ({data}) {
 const MapPage = styled.div`
 height: 100%;
 `
-
 const EmailButton = styled.button`
   background-color: rgba(0, 0, 0, 0);
   //width: 5vw;
