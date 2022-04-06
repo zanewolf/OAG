@@ -4,7 +4,7 @@ import '../styles/hero.module.css';
 
 // import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 
-export default function Hero({title, position, size, image,darkened, color, children}){
+export default function Hero({title, position, size, image,darkened, color, children, position2}){
     // let heroImage = image? image : "../images/ocean.png"
 
 
@@ -13,7 +13,7 @@ export default function Hero({title, position, size, image,darkened, color, chil
     return(
         // <div className={"hero-container"}>
         <HeroContainer size={size}>
-            <HeroImage image={image} size={size} color={color}/>
+            <HeroImage image={image} size={size} color={color} position2={position2}/>
             <HeroContent  position={position}>
                 <HeroH1>
                     {title}
@@ -90,7 +90,7 @@ const HeroContent = styled.div`
 
 const HeroImage = styled.div`
   //background: url(${({image})=>(image ? image : null)}) center center/cover no-repeat;
-  background: ${({image,color})=>(image ? `url(${image}) center center/cover no-repeat` : `${color}`)};
+  background: ${({image,color,position2})=>(image ? `url(${image}) ${position2} center/cover no-repeat` : `${color}`)};
   position: absolute;
   top: 0;
   left: 0;

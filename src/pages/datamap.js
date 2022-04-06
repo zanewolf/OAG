@@ -7,10 +7,14 @@ import loadable from '@loadable/component'
 import Select from 'react-select'
 import {useEffect, useState} from "react";
 import {MultiSelect} from 'react-multi-select-component';
+import {useWindowSize} from "../components/useWindowSize";
 
+import {AiOutlinePlus} from 'react-icons/ai'
 
 const CruiseMap = loadable(()=>import('../components/CruiseMap'))
 
+let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC";
+let airtableDataForm = "https://airtable.com/shrlU4ivGTFhQn6vb"
 
 // async function getLatLong (location) {
 //
@@ -29,7 +33,8 @@ const CruiseMap = loadable(()=>import('../components/CruiseMap'))
 //
 // }
 
-let options=  [{
+let options=  [
+    {
     "value": "Biological Sciences",
     "label": "Biological Sciences",
     "color": "blue",
@@ -51,17 +56,18 @@ let options=  [{
     }, {
     "value": "Cross-Cutting Fields",
     "label": "Cross-Cutting Fields"
-}]
+    }
+]
 
 
 
 export default function Datamap({data}){
 
-    // console.log(data.cruises)
-
     const [mapData, setMapData] = useState(data.cruises)
     const [q, setQ] = useState("");
     const [selected, setSelected] = useState(options);
+
+    let size = useWindowSize()
 
 
     let filteredData={}
@@ -73,17 +79,14 @@ export default function Datamap({data}){
     useEffect(()=>{
 
         filteredData['nodes']= data.cruises.nodes.filter((node)=>{
-            // console.log(node)
             return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase());
         })
 
         filteredData2['nodes'] = filteredData.nodes.filter((node)=>{
             return node.data.Primary_Field in primaryFields
-            // in )
         })
 
         setMapData(filteredData2)
-
     },[q,selected])
 
 
@@ -100,6 +103,11 @@ export default function Datamap({data}){
                             labelledBy={"Select"}
                         />
                     </SelectMenu>
+                    <JoinButton as={'a'} onClick={(e)=>{
+                        e.preventDefault()
+                        window.open(airtableDataForm);}}>
+                        {size.width > 900 ? <><AiOutlinePlus className={'add-button'}/> Data</>:<AiOutlinePlus/>}
+                    </JoinButton>
                     <SearchContainer className="search-wrapper" >
                         <label htmlFor="search-form">
                             <SearchInput
@@ -107,7 +115,7 @@ export default function Datamap({data}){
                                 name="search-form"
                                 id="search-form"
                                 // className="search-input"
-                                placeholder="Search by anything"
+                                placeholder="Search"
                                 value={q}
                                 onChange={(e) => setQ(e.target.value)}
                             />
@@ -147,6 +155,7 @@ export const query = graphql`
 }
 `
 
+//styles
 const MapContent = styled.div`
   margin-top: var(--screen-nav-bar-height);
   height: auto;
@@ -163,7 +172,6 @@ const MapContent = styled.div`
   
   
 `
-
 const CruiseMenu = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -184,7 +192,6 @@ const CruiseMenu = styled.div`
 
 
 `
-
 const SearchContainer = styled.div`
   display: block;
   margin: auto;
@@ -237,4 +244,37 @@ const SelectMenu=styled.div`
 
   }
 `
-// const DataType=styled.div``
+const JoinButton = styled.button`
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+  margin: auto 1vw auto 1vw;
+  text-align: center;
+  background: none;
+  min-width: 10vw;
+  width: auto;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: inline-block;
+  justify-content: center;
+  align-content: center;
+  padding: 5px;
+  //border: 1px solid rgba(255, 255, 255, 0.18);
+  
+  .add-button{
+    padding-top: 5px;
+  }
+
+  :hover {
+    -webkit-transform: scale(1.05) translateZ(0);
+    transform: scale(1.05) translateZ(0);
+    //color: blue;
+    }
+
+  @media screen and (max-width: 1045px){
+    font-size: 1.75em;  
+    min-width: 7vw;
+    padding: none;
+  }
+  
+`

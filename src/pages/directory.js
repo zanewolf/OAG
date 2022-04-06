@@ -6,7 +6,38 @@ import styled from "styled-components";
 import PeopleDirectory from "../components/peopleDirectory";
 import '../styles/directory.module.css'
 import {BsPlusCircleFill} from 'react-icons/bs'
+import {useWindowSize} from "../components/useWindowSize";
+import {AiOutlinePlus} from "react-icons/ai";
+import {MultiSelect} from "react-multi-select-component";
+import Select from 'react-select'
 
+
+let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC";
+let options=  [
+    {
+        "value": "Biological Sciences",
+        "label": "Biological Sciences",
+        "color": "blue",
+    }, {
+        "value": "Environmental Sciences",
+        "label": "Environmental Sciences"
+    }, {
+        "value": "Engineering",
+        "label": "Engineering"
+    }, {
+        "value": "Policy/Economics",
+        "label": "Policy/Economics"
+    }, {
+        "value": "Communications",
+        "label": "Communications"
+    }, {
+        "value": "Humanities",
+        "label": "Humanities"
+    }, {
+        "value": "Cross-Cutting Fields",
+        "label": "Cross-Cutting Fields"
+    }
+]
 
 
 export default function Directory({data}){
@@ -14,24 +45,51 @@ export default function Directory({data}){
     const [dirData, setDirData] = useState( data['people'])
     const [q, setQ] = useState("");
 
+    const [selected, setSelected] = useState(options);
+
+    let size = useWindowSize()
+
     let filteredData={}
+    let filteredData2={}
+    let primaryFields={}
+
+    selected.forEach((d,i)=> {return primaryFields[d.label]=i})
 
     useEffect(()=>{
-        filteredData['nodes']= data['people'].nodes.filter((node)=>{
-            return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase())
+
+        filteredData['nodes']= data.people.nodes.filter((node)=>{
+            return Object.values(node.data).join(' ').toLowerCase().includes(q.toLowerCase());
         })
 
-        setDirData(filteredData)
-    },[q])
+        filteredData2['nodes'] = filteredData.nodes.filter((node)=>{
+            return node.data.Primary_Field in primaryFields
+        })
+
+        setDirData(filteredData2)
+    },[q,selected])
 
     return (
         <Layout pageTitle="Directory">
             <DirectoryPage>
                 <DirectoryMenu>
-                    <AddButton to={'/join'}>
-
-                        {<BsPlusCircleFill/>}
-                    </AddButton>
+                    <SelectMenu>
+                        <MultiSelect
+                            options={options}
+                            value={selected}
+                            onChange={setSelected}
+                            disableSearch={true}
+                            labelledBy={"Select"}
+                        />
+                    </SelectMenu>
+                    <JoinButton as={'a'} onClick={(e)=>{
+                        e.preventDefault()
+                        window.open(airTableForm);}}>
+                        {size.width > 900 ? <><AiOutlinePlus className={'add-button'}/> Profile</>:<AiOutlinePlus/>}
+                    </JoinButton>
+                    {/*<AddButton to={'/join'}>*/}
+                    {/*    Add Profile*/}
+                    {/*    /!*{<BsPlusCircleFill/>}*!/*/}
+                    {/*</AddButton>*/}
                     <SearchContainer className="search-wrapper" >
                             <label htmlFor="search-form">
                                 <SearchInput
@@ -94,6 +152,23 @@ export const query = graphql`
         }
     }
 }
+`
+
+// styles
+const SelectMenu=styled.div`
+  width: 40vw;
+  z-index: 1000000;
+  margin: auto;
+  //text-align: left;
+  &.dropdown-content {
+    text-align: left;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 40vw;
+
+
+  }
 `
 const DirectoryPage = styled.div`
   padding-top: var(--screen-nav-bar-height);
@@ -319,31 +394,65 @@ const DirectoryMenu = styled.div`
 //
 //   }
 // `
-const AddButton = styled(Link)`
-  color: #383838;
+const JoinButton = styled.button`
+  font-size: 1.5em;
   cursor: pointer;
-  font-size: 3em;
-  align-content: center;
-  display: flex;
-  margin: auto;
-  //padding-right: 3vw;
-  //padding-top: 0.5vh;
-  width: 10vw;
+  color: white;
+  margin: auto 1vw auto 1vw;
+  text-align: center;
+  background: none;
+  min-width: 10vw;
+  width: auto;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: inline-block;
   justify-content: center;
-  padding-bottom: 0.5vw;
+  align-content: center;
+  padding: 5px;
+  //border: 1px solid rgba(255, 255, 255, 0.18);
 
-  &:hover {
-    transition: 0.25s;
-    //font-size: 3.25em;
-    color: #53A7B0;
-
+  .add-button{
+    padding-top: 5px;
   }
 
-  @media screen and (max-width: 1024px) {
-    font-size: 2em;
-    //margin: auto;
+  :hover {
+    -webkit-transform: scale(1.05) translateZ(0);
+    transform: scale(1.05) translateZ(0);
+    //color: blue;
   }
+
+  @media screen and (max-width: 1045px){
+    font-size: 1.75em;
+    min-width: 7vw;
+    padding: none;
+  }
+
 `
+// const AddButton = styled(Link)`
+//   color: #383838;
+//   cursor: pointer;
+//   font-size: 3em;
+//   align-content: center;
+//   display: flex;
+//   margin: auto;
+//   //padding-right: 3vw;
+//   //padding-top: 0.5vh;
+//   width: 10vw;
+//   justify-content: center;
+//   padding-bottom: 0.5vw;
+//
+//   &:hover {
+//     transition: 0.25s;
+//     //font-size: 3.25em;
+//     color: #53A7B0;
+//
+//   }
+//
+//   @media screen and (max-width: 1024px) {
+//     font-size: 2em;
+//     //margin: auto;
+//   }
+
 const SearchContainer = styled.div`
   position: relative;
   //padding-top: 1vh;
@@ -351,7 +460,7 @@ const SearchContainer = styled.div`
   justify-content: center;
   align-content: center;
   border: 0;
-  width: 80vw;
+  width: 60vw;
   height: auto;
   //padding-bottom: 1vh;
 
@@ -441,7 +550,7 @@ const DirectorySection = styled.div`
 //     //flex-basis: auto;
 //   }
 // `
-// const JoinButton=styled.div`
+// const AddButton=styled.div`
 //   display: flex;
 //   align-items: center;
 //   align-content: center;

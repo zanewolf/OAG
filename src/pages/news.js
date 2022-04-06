@@ -60,10 +60,14 @@ const NewsPage = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-content: center;
-    // background: url(${({image})=>(image ? image : null)});
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),url(${({image})=>(image ? image : null)});
+    background: ${({image})=>(image ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url(${image}) center center/cover no-repeat` : 'white')};
+    //background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),url(${({image})=>(image ? image : null)});
+
+  @media screen and (max-width: 1045px){
+    //height:90vh;
+  }
 
 `
 
@@ -72,7 +76,7 @@ const NewsContent = styled.div`
   //height: auto;
   //min-height: 80vh;
   height: auto;
-  margin-top: var(--screen-nav-bar-height);
+  //margin-top: var(--screen-nav-bar-height);
 
   @media screen and (max-width: 1045px){
     margin-top: var(--phone-nav-bar-height);
@@ -81,7 +85,7 @@ const NewsContent = styled.div`
 `
 
 const NewsHeader = styled.section`
-    margin-top: -0.4vh;
+    margin-top: -4.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,7 +159,7 @@ const NewsSection = styled.section`
   flex-flow: row wrap;
   justify-content: space-evenly;
   margin: 4vh 4vh;
-  //gap: 1vw;
+  gap: 2vw;
   //margin-top: 3vh;
   //margin-left: 10vw;
   //margin-right:10vw;

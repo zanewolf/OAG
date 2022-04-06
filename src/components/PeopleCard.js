@@ -92,9 +92,7 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                     <h4>Secondary Field(s)</h4>
                     <h5>{secondaryFields}</h5>
                 </UserRole>
-
                 <CardFooter className = {"card-footer"} bandColor={fieldColor}>
-
                     <UserWebsite title = "Personal Website" onClick={()=> openWebsite(website)} >
                         {<FaExternalLinkAlt/>}
                     </UserWebsite>
@@ -106,14 +104,10 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                     <EmailButton title = "Open Profile"
                         onClick = {()=>setModalState(true)}
                         >
-
                             {<FaEllipsisH/>}
                     </EmailButton>
                 </CardFooter>
-
                 {children}
-
-
             </UserCard>
             <Modal
                 isOpen={modalState}
@@ -131,7 +125,6 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                 <PersonBlock>
                     <LeftBlock>
                         {image === null?
-                            // <UserAvatar bandColor={roleColor}>
                                 <Avatar
                                     size={'50%'}
                                     name={name}
@@ -145,35 +138,19 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                         <h3>{employer}</h3>
                     </LeftBlock>
                     <RightBlock>
-                        {/*<TeamMemberInfo>*/}
-
                         <ModalAbout>
                             <h2>About</h2>
                             <AboutP> {about}</AboutP>
                         </ModalAbout>
-
                         <KeywordsSection>
                             <h4> Research Keywords</h4>
                             <TagSection tags={researchKeywords}></TagSection>
                                 <h4> Personal Keywords</h4>
                                 <TagSection tags={personalKeywords}></TagSection>
                         </KeywordsSection>
-
-                        {/*</TeamMemberInfo>*/}
                     </RightBlock>
-
-
-                    {/*<TeamPicture src={personData.Image === null ? nullProfilePic : personData.Image} alt={personData.Name}/>*/}
-                    {/*</TeamPicture>*/}
-
-
                 </PersonBlock>
-
-
-
             </Modal>
-
-
         </>
     )
 }
