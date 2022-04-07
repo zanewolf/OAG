@@ -8,7 +8,7 @@ import '../styles/directory.module.css'
 import {useWindowSize} from "../components/useWindowSize";
 import {AiOutlinePlus} from "react-icons/ai";
 import {MultiSelect} from "react-multi-select-component";
-
+import { GatsbyImage } from "gatsby-plugin-image";
 
 let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC";
 let options=  [
@@ -32,13 +32,15 @@ let options=  [
         "value": "Humanities",
         "label": "Humanities"
     }, {
-        "value": "Cross-Cutting Fields",
+        "value": "Cross-Cutting",
         "label": "Cross-Cutting Fields"
     }
 ]
 
 
 export default function Directory({data}){
+
+    // console.log(data)
 
     const [dirData, setDirData] = useState( data['people'])
     const [q, setQ] = useState("");
@@ -53,7 +55,7 @@ export default function Directory({data}){
         let filteredData2={}
         let primaryFields={}
 
-        selected.forEach((d,i)=> {return primaryFields[d.label]=i})
+        selected.forEach((d,i)=> {return primaryFields[d.value]=i})
 
 
         filteredData['nodes']= data.people.nodes.filter((node)=>{
@@ -83,12 +85,8 @@ export default function Directory({data}){
                     <JoinButton as={'a'} onClick={(e)=>{
                         e.preventDefault()
                         window.open(airTableForm);}}>
-                        {size.width > 900 ? <><AiOutlinePlus className={'add-button'}/> Profile</>:<AiOutlinePlus/>}
+                        {size.width > 1200 ? <><AiOutlinePlus className={'add-button'}/> Profile</>:<AiOutlinePlus/>}
                     </JoinButton>
-                    {/*<AddButton to={'/join'}>*/}
-                    {/*    Add Profile*/}
-                    {/*    /!*{<BsPlusCircleFill/>}*!/*/}
-                    {/*</AddButton>*/}
                     <SearchContainer className="search-wrapper" >
                             <label htmlFor="search-form">
                                 <SearchInput
@@ -112,15 +110,15 @@ export default function Directory({data}){
                          className="transition duration-300 ease-in-out delay-150">
                         <path
                             d="M 0,600 C 0,600 0,150 0,150 C 58.495202861018626,154.33108891355283 116.99040572203725,158.6621778271057 169,173 C 221.00959427796275,187.3378221728943 266.53357997286963,211.6823776051301 314,203 C 361.46642002713037,194.3176223948699 410.8752743864842,152.60831175237394 464,126 C 517.1247256135158,99.39168824762608 573.9653224811938,87.88437538537427 626,104 C 678.0346775188062,120.11562461462573 725.2634356887407,163.85418670612898 783,174 C 840.7365643112593,184.14581329387102 908.9809347638427,160.69887779010978 961,138 C 1013.0190652361573,115.30112220989022 1048.8128252558886,93.35030213343198 1103,98 C 1157.1871747441114,102.64969786656802 1229.7677642126032,133.89991367616227 1289,147 C 1348.2322357873968,160.10008632383773 1394.1161178936984,155.05004316191886 1440,150 C 1440,150 1440,600 1440,600 Z"
-                            stroke="none" stroke-width="0" fill="#01778c66"
+                            stroke="none" strokeWidth="0" fill="#01778c66"
                             className="transition-all duration-300 ease-in-out delay-150 path-0"></path>
                         <path
                             d="M 0,600 C 0,600 0,300 0,300 C 50.08597854236034,303.83746454556666 100.17195708472067,307.6749290911333 146,310 C 191.82804291527933,312.3250709088667 233.3981502034776,313.13774818103343 293,308 C 352.6018497965224,302.86225181896657 430.2354421013688,291.774078184733 488,276 C 545.7645578986312,260.225921815267 583.660081391047,239.7659390800345 637,260 C 690.339918608953,280.2340609199655 759.1242323344433,341.1621654951288 810,349 C 860.8757676655567,356.8378345048712 893.8429892711799,311.58539893945 936,295 C 978.1570107288201,278.41460106055 1029.5038105808362,290.4962387470712 1091,292 C 1152.4961894191638,293.5037612529288 1224.1417684054754,284.42964607226537 1284,284 C 1343.8582315945246,283.57035392773463 1391.9291157972623,291.78517696386734 1440,300 C 1440,300 1440,600 1440,600 Z"
-                            stroke="none" stroke-width="0" fill="#01778c88"
+                            stroke="none" strokeWidth="0" fill="#01778c88"
                             className="transition-all duration-300 ease-in-out delay-150 path-1"></path>
                         <path
                             d="M 0,600 C 0,600 0,450 0,450 C 65.49192255518561,460.7724256998397 130.98384511037122,471.5448513996794 188,468 C 245.01615488962878,464.4551486003206 293.5565421137008,446.5930201011222 341,451 C 388.4434578862992,455.4069798988778 434.78998643482544,482.08306819583174 490,488 C 545.2100135651746,493.91693180416826 609.2835121469973,479.0747071155506 654,463 C 698.7164878530027,446.9252928844494 724.0759649771858,429.61810334196576 773,418 C 821.9240350228142,406.38189665803424 894.4126279442594,400.4528795165865 962,421 C 1029.5873720557406,441.5471204834135 1092.2735232457765,488.5703785916883 1142,487 C 1191.7264767542235,485.4296214083117 1228.493279072635,435.2656061166605 1276,421 C 1323.506720927365,406.7343938833395 1381.7533604636824,428.36719694166976 1440,450 C 1440,450 1440,600 1440,600 Z"
-                            stroke="none" stroke-width="0" fill="#01778cff"
+                            stroke="none" strokeWidth="0" fill="#01778cff"
                             className="transition-all duration-300 ease-in-out delay-150 path-2"></path>
                     </svg>
                 </div>
@@ -137,9 +135,16 @@ export const query = graphql`
               Name
               Research_Keywords
               Personal_Keywords
-              Image
               Email
               Affiliations
+              Image_File {
+                url
+                thumbnails {
+                  large {
+                    url
+                  }
+                }
+              }
               Title
               Website
               Primary_Field
@@ -165,8 +170,10 @@ const SelectMenu=styled.div`
 
   @media screen and (max-width: 1024px) {
     width: 40vw;
-
-
+    
+    .dropdown-content{
+      width: 70vw;
+    }
   }
 `
 const DirectoryPage = styled.div`
@@ -217,182 +224,6 @@ const DirectoryMenu = styled.div`
   }
   
     `
-// const SwitchGrid = styled.div`
-//   display: flex;
-//   flex-flow: row wrap;
-//   justify-content: space-evenly;
-//   align-content: center;
-//   width: 90vw;
-//
-//   @media screen and (max-width: 1024px) {
-//     //margin-top: var(--phone-nav-bar-height);
-//     font-size: 2em;
-//     width: auto;
-//     align-content: center;
-//     //justify-content: start;
-//     //let: 0;
-//     //justify-content: space-evenly;
-//     //padding-top: 2vh;
-//     //margin-top: 13vh;
-//     //padding-top: 2vh;
-//   }
-//
-// `
-// const DirLink = styled.a`
-//   text-align: center;
-//   margin: auto 0.5vw;
-//   //z-index: 1000;
-//   cursor: pointer;
-//   font-size: 2em;
-//   //padding: 0 2vw;
-//   padding-bottom: 1vh;
-//
-//   //&:before{
-//   //  content: '\\00B7';
-//   //  padding-right: 5px;
-//   //}
-//
-//   &.dir-toggle-check {
-//     color: #262626;
-//     font-weight: 700;
-//   }
-//
-//   &.dir-toggle-uncheck {
-//     color: #383838;
-//     font-weight: 500;
-//
-//   }
-//
-//   &:hover {
-//     transition: 0.5s;
-//     font-weight: 700;
-//   }
-//
-//   //@media screen and (max-width: 540px) {
-//   //  font-size: 1em;
-//   //}
-//
-//   @media screen and (max-width: 1300px) {
-//     font-size: 1.5em;
-//     padding: 0 1vw;
-//   }
-//
-//   @media screen and (max-width: 1024px) {
-//     display:none;
-//   }
-//
-//   //&.sideMenu {
-//   //  margin: 4vw;
-//   //  font-size: 3em;
-//   //}
-//
-// `
-//
-// // const FullSize = styled.div`
-// //   @media screen and (max-width: 940px){
-// //     display:none;
-// //   }
-// // `
-// // const AnimatedBar = styled.div`
-// //
-// //   display: none;
-// //   &.searchBox {
-// //     position: absolute;
-// //     top: 50%;
-// //     left: 50%;
-// //     transform:  translate(-50%,50%);
-// //     background: #2f3640;
-// //     height: 40px;
-// //     border-radius: 40px;
-// //     padding: 10px;
-// //
-// //   }
-// //
-// //   &.searchBox:hover > .searchInput {
-// //     width: 240px;
-// //     padding: 0 6px;
-// //   }
-// //
-// //   &.searchBox:hover > .searchButton {
-// //     background: white;
-// //     color : #2f3640;
-// //   }
-// //
-// //   &.searchButton {
-// //     color: white;
-// //     float: right;
-// //     width: 40px;
-// //     height: 40px;
-// //     border-radius: 50%;
-// //     background: #2f3640;
-// //     display: flex;
-// //     justify-content: center;
-// //     align-items: center;
-// //     transition: 0.4s;
-// //   }
-// //
-// //   &.searchInput {
-// //     border:none;
-// //     background: none;
-// //     outline:none;
-// //     float:left;
-// //     padding: 0;
-// //     color: white;
-// //     font-size: 16px;
-// //     transition: 0.4s;
-// //     line-height: 40px;
-// //     width: 0px;
-// //
-// //   }
-// //   &.searchBox:hover > .searchInput {
-// //     width: 150px;
-// //     padding: 0 6px;
-// //   }
-// //
-// //   @media screen and (max-width: 940px) {
-// //     display: flex;
-// //
-// //   }
-// // `
-// const SwitchDropDown = styled.div`
-//   display:none;
-//
-//   &:active{
-//     border-color: red;
-//   }
-//   @media screen and (max-width: 1024px) {
-//     display:flex;
-//     padding-bottom: 1vh;
-//
-//
-//   }
-// `
-// const MySelect = styled.select`
-//
-//   &::selection{
-//
-//   }
-//   @media screen and (max-width: 1024px) {
-//     padding: 0.5vw;
-//     padding-left: 1vw;
-//     width: 30vw;
-//     border: 1px solid #f5f5f5;
-//     border-radius: 15pt;
-//     color: gray;
-//     background-repeat: no-repeat;
-//     background-position: left center;
-//     height: 5vh;
-//     font-size: 0.5em;
-//     //margin-top: 1vh;
-//     //left: 0;
-//     //width: auto;
-//     //height: 5vh;
-//     //border-radius: 15pt;
-//     //padding-left: 1vw;
-//     //font-size: 1em;
-//
-//   }
-// `
 const JoinButton = styled.button`
   font-size: 1.5em;
   cursor: pointer;
@@ -422,36 +253,10 @@ const JoinButton = styled.button`
 
   @media screen and (max-width: 1045px){
     font-size: 1.75em;
-    min-width: 7vw;
-    padding: none;
+    padding: 0;
   }
 
 `
-// const AddButton = styled(Link)`
-//   color: #383838;
-//   cursor: pointer;
-//   font-size: 3em;
-//   align-content: center;
-//   display: flex;
-//   margin: auto;
-//   //padding-right: 3vw;
-//   //padding-top: 0.5vh;
-//   width: 10vw;
-//   justify-content: center;
-//   padding-bottom: 0.5vw;
-//
-//   &:hover {
-//     transition: 0.25s;
-//     //font-size: 3.25em;
-//     color: #53A7B0;
-//
-//   }
-//
-//   @media screen and (max-width: 1024px) {
-//     font-size: 2em;
-//     //margin: auto;
-//   }
-
 const SearchContainer = styled.div`
   position: relative;
   //padding-top: 1vh;
@@ -493,32 +298,13 @@ const SearchInput = styled.input`
 
 `
 
-// const SearchButton = styled.input`
-//   background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png");
-//   line-height: inherit;
-//   text-decoration: none;
-//   cursor: pointer;
-//   width: 35px;
-//   background-position: 5px;
-//   background-repeat: no-repeat;
-//   background-size: 20px;
-//   background-color: transparent;
-//   margin-left:-2vh;
-//   border:none;
-// `
-// // const FilterMenu = styled.div`
-// //  //padding: 2vh;
-// //  // height: 7vh;
-// //  // width: 80vw;
-// //  // margin: auto;
-// //  // justify-content: center;
-// //`
 const DirectorySection = styled.div`
   //padding-top: 10vh;
-  //align-content: center;
-  //justify-content: center;
+  align-content: center;
+  justify-content: center;
   height: auto;
-  min-height: 80vh;
+  min-height: 100vh;
+  margin: 3vh 5vw 0vh 5vw;
   //margin-top: var(--screen-nav-bar-height);
 
   @media screen and (max-width: 1024px){

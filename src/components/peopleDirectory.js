@@ -14,7 +14,12 @@ const fieldColors={
 }
 let fieldColor;
 
+
 export default function PeopleDirectory({data}){
+
+
+
+
 
     return (
         <DirectoryGrid>
@@ -26,7 +31,7 @@ export default function PeopleDirectory({data}){
                                 name={node.data.Name}
                                 title={node.data.Title}
                                 employer={node.data.Affiliations}
-                                image={node.data.Image}
+                                image={node.data.Image_File}
                                 readMore={node.data.slug}
                                 website={node.data.Website}
                                 id={node.id}
@@ -50,20 +55,23 @@ export default function PeopleDirectory({data}){
 const DirectoryGrid = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  gap: 3vh;
+  //gap: 3vw;
   //align-items: auto;
   //align-content: center;
-  .item{
-    flex-basis: 10vw | auto;
-  } 
+  //.item{
+  //  flex-basis: 10vw | auto;
+  //} 
   
   @media screen and (max-width: 900px){
     flex-flow: row wrap;
     justify-content: center;
     align-content: center;
   }
-  
-  .item {
-    //flex-basis: auto;
-  }
+  //
+  //.item {
+  //  flex-basis: auto;
+  //}
 `

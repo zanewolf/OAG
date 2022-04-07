@@ -60,13 +60,13 @@ exports.createPages = async ({graphql, actions}) => {
     }
   `)
 
-  data.articles.nodes.forEach(node => {
-    actions.createPage({
-      path: '/events/'+ node.frontmatter.slug,
-      component: path.resolve('./src/templates/events-details.js'),
-      context: { slug: node.frontmatter.slug }
-    })
-  })
+  // data.articles.nodes.forEach(node => {
+  //   actions.createPage({
+  //     path: '/events/'+ node.frontmatter.slug,
+  //     component: path.resolve('./src/templates/events-details.js'),
+  //     context: { slug: node.frontmatter.slug }
+  //   })
+  // })
   //
   // data.people.nodes.forEach(node => {
   //   actions.createPage({

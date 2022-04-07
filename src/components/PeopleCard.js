@@ -1,12 +1,12 @@
 import * as React from 'react'
 import styled from "styled-components";
 import {Link} from "gatsby";
-import {FaExternalLinkAlt,FaEllipsisH, FaTimes} from 'react-icons/fa'
-// import {IoEllipsisHorizontalCircleSharp} from 'react-icons/io5'
+import {FaExternalLinkAlt, FaTimes} from 'react-icons/fa'
 import {HiOutlineMail} from 'react-icons/hi'
 import Avatar from "boring-avatars";
 import Modal from 'react-modal'
 import TagSection from "./TagSection";
+import nullProfile from '../images/Null2.png'
 
 let paletteColors=['#351431','#823c3a','#f5a578',
     '#002d50', '#01778c', '#52b69a']
@@ -39,7 +39,7 @@ const customStyles = {
 export default function PeopleCard({name, title,employer, primaryField,image, about,email, website, children, personalKeywords, researchKeywords, fieldColor,secondaryFields}) {
 
     const [modalState, setModalState] = React.useState(false)
-    console.log(primaryField)
+    // console.log(image)
 
     const copy =  (email) => {
         console.log(email)
@@ -54,7 +54,12 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
             alert('No website provided. Sorry!')
     }
 
-    let avatarColors=[paletteColors[Math.floor(Math.random() * paletteColors.length)],paletteColors[Math.floor(Math.random() * paletteColors.length)]]
+
+    let colors = paletteColors.filter(d=>d!==fieldColor)
+    // console.log(colors)
+
+
+    let avatarColors=[colors[Math.floor(Math.random() * colors.length)],colors[Math.floor(Math.random() * colors.length)]]
 
 
     return (
@@ -66,32 +71,51 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                     {image === null?
                         <UserAvatar bandColor={fieldColor}>
                             <Avatar
-                                size={'12vh'}
+                                size={'11vh'}
                                 name={name}
                                 variant="beam"
                                 colors={avatarColors}
                             />
                         </UserAvatar> :
-                        <UserImage src={image} alt={'Profile picture of ' + name} bandColor={fieldColor} maxWidth={'15vh'} maxHeight={'15vh'}/>
+                        <UserImage src={image[0].url}
+                                   alt={'Profile picture of ' + name}
+                                   bandColor={fieldColor}
+                                   maxWidth={'15vw'}
+                                   maxHeight={'15vh'}
+                                   onError={({ currentTarget }) => {
+                                       currentTarget.onerror = null; // prevents looping
+                                       currentTarget.src= {nullProfile};
+                                   }}/>
                     }
                     <UserName>{name}</UserName>
                 </UserHeader>
                 {/*<UserImage src={imageSrc} alt={'Profile picture of ' + name} bandColor={roleColor} />*/}
 
-                <UserRole bandColor={fieldColor}>
-                    {title}
-                </UserRole>
-                <UserRole>
-                    {employer}
-                </UserRole>
-                <UserRole>
-                    <h4>Primary Field</h4>
-                    <h5>{primaryField}</h5>
-                </UserRole>
-                <UserRole>
-                    <h4>Secondary Field(s)</h4>
-                    <h5>{secondaryFields}</h5>
-                </UserRole>
+
+                <UserInfo>
+                    <UserEmployment>
+                        <UserEmployer bandColor={fieldColor}>
+                            {employer && employer.split(',')[0]}
+                        </UserEmployer>
+                        <UserRole bandColor={fieldColor}>
+                            {title && title}
+                        </UserRole>
+                    </UserEmployment>
+                    <UserFields>
+                        <h4>{primaryField}</h4>
+                        <hr style={{color: fieldColor}}/>
+                        <ul>
+                            {secondaryFields.split(',').map((d,i)=>{
+                                return(
+                                    <li key={i}>
+                                        <h6>{d}</h6>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </UserFields>
+                </UserInfo>
+
                 <CardFooter className = {"card-footer"} bandColor={fieldColor}>
                     <UserWebsite title = "Personal Website" onClick={()=> openWebsite(website)} >
                         {<FaExternalLinkAlt/>}
@@ -104,7 +128,7 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                     <EmailButton title = "Open Profile"
                         onClick = {()=>setModalState(true)}
                         >
-                            {<FaEllipsisH/>}
+                            Bio
                     </EmailButton>
                 </CardFooter>
                 {children}
@@ -131,7 +155,7 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                                     variant="beam"
                                     colors={["#d9ed92","#b5e48c","#99d98c","#76c893","#52b69a","#34a0a4","#168aad","#1a759f","#1e6091","#184e77"]}
                                 />:
-                            <TeamPicture className = {'modalImage'} src={image} alt={'Profile picture of ' + name} bandColor={fieldColor} />
+                            <TeamPicture className = {'modalImage'} src={image[0].url} alt={'Profile picture of ' + name} bandColor={fieldColor} />
                         }
                         <TeamName>{name}</TeamName>
                         <TeamTitle>{title}</TeamTitle>
@@ -155,6 +179,40 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
     )
 }
 
+// card styling
+const UserCard = styled.div`
+  //width: 20vw;
+  box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+  //margin: 10px 0;
+  width: 250px;
+  //padding: 20px;
+  //background-color: blue;
+  height: 400px;
+  font-weight: 700;
+  border-radius: 15pt;
+  position: relative;
+  //background-color: #222831;
+  //color: white;
+  //border
+  background-image: linear-gradient(180deg, ${props => props.bandColor || "#a70bea"} 20%, white 20%);
+  // border-top-width: 5px;
+   border-top-color: ${props => props.bandColor || "#a70bea"};
+
+  @media screen and (max-width: 900px){
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    width: 80vw;
+    height: 40vh;
+  }
+
+  @media screen and (max-width: 400px){
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+  }
+  
+`
 const UserHeader = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -165,33 +223,39 @@ const UserHeader = styled.div`
 `
 const UserAvatar = styled.div`
    // border: 4px solid ${props => props.bandColor || "#a70bea"};
-  border: 3px solid black;
+  border: 3px solid white;
   margin: auto;
   margin-top: 10pt;
   max-width: 12vh;
   max-height: 12vh;
-  width: auto;
-  height: auto;
+  //width: auto;
+  //height: auto;
+  overflow: hidden;
   //height: 15vh;
   //height: 12vh;
-  object-fit: fit;
+  //object-fit: fill;
   //display: flex;
   //justify-content: center;
   border-radius: 50%;
   //padding: 7px;
 `
-const UserAbout = styled.p` 
-  padding-top: 1vh;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-     //white-space: nowrap;
-    // overflow: hidden;
-    // text-overflow: ellipsis;
-    // max-width: 100ch;
-    font-size: 0.75em;
-    font-weight: lighter;
+const UserImage = styled.img`
+  //border-radius: 50%;
+  //border-radius: 50%;
+  //border: 5px solid #272133;
+  margin-top: 10pt;
+  border:3px solid white;
+  max-width: 12vh;
+  width: auto;
+  height: 12vh;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  //border: 2px solid #03BFCB;
+  border-radius: 50%;
+  //padding: 7px;
   
 `
 const MyHr = styled.hr`
@@ -199,6 +263,13 @@ const MyHr = styled.hr`
   max-height: 100vh;
   margin: 0;
   border: solid #ffffff;
+`
+const UserInfo = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-content: center;
+  height: 40%;
 `
 const UserWebsite = styled.a`
   //font-size: 0.75em;
@@ -237,50 +308,6 @@ const UserWebsite = styled.a`
     visibility: visible;
   }
     
-  &:hover{
-    font-weight: bolder;
-    transition: 0.5s;
-    //color: purple;
-    -webkit-transform: scale(1.3) translateZ(0);
-    transform: scale(1.3) translateZ(0);
-  }
-`
-const ReadMoreLink = styled(Link)`
-  //font-size: 0.75em;
-  margin: auto;
-  font-size: 2em;
-  border: none;
-  color: white;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-
-  &:before {
-    //content: attr(title);
-    visibility: hidden;
-    opacity: 0;
-    width: 140px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px 0;
-    transition: opacity 1s ease-in-out;
-
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 110%;
-  }
-  &:hover:before {
-    opacity: 1;
-    visibility: visible;
-  }
-
   &:hover{
     font-weight: bolder;
     transition: 0.5s;
@@ -343,12 +370,7 @@ const CardFooter = styled.div`
   width: 100%;
   height: 15%;
   //font-size: 2em;
-  align-content: center;
   background-color: ${props => props.bandColor || "#575757"};
-  //background-color: #575757;
-  //padding: 0.75rem 1.25rem;
-  //background-color: rgba(0, 0, 0, 0.5);
-  //border-top: 2px solid rgba(0, 0, 0, 0.125);
   box-sizing: border-box;
   display: flex;
   justify-content: space-evenly;
@@ -358,7 +380,7 @@ const CardFooter = styled.div`
   
 `
 const UserName = styled.h1`
- display: flex;
+  display: flex;
   justify-content: center;
   margin: auto;
   font-size: 1.5rem;
@@ -366,80 +388,53 @@ const UserName = styled.h1`
   padding: 5px;
   //word-break: break-all;
   overflow-wrap: break-word;
+  text-align: center;
   hyphens: manual;
 `
-const UserRole = styled.h2`
+
+const UserEmployment = styled.div`
+  display:flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  justify-content: center;
+`
+const UserRole = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  font-size: 0.75rem;
-  font-weight: lighter;
+  text-align: center;
   margin: auto;
+  font-size: 0.85em;
+  font-weight: lighter;
 `
-const UserImage = styled.img`
-  //border-radius: 50%;
-  //border-radius: 50%;
-  //border: 5px solid #272133;
-  margin-top: 10pt;
-  border:3px solid black;
-  //  border: 4px solid ${props => props.bandColor || "#a70bea"};
-
-  // box-shadow: 0 10px 20px ${props => props.bandColor || "#a70bea"};
-  //filter: drop-shadow(10px 5px 2px #4444dd);
-  //background-color: #8f8f90;
-  //width: auto;
-  max-width: 12vh;
-  width: auto;
-  height: 12vh;
-  object-fit: contain;
-  //margin: 0 auto;
-  //display: block;
-  /*max-height: 10em;*/
-  /*min-height: 10em;*/
-  ///*min-height: 8em;*/
-  //object-fit: fill;
+const UserEmployer = styled.div`
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  //border: 2px solid #03BFCB;
-  border-radius: 50%;
-  //padding: 7px;
-  
+  text-align: center;
+  margin: auto;
+  font-size: 1em;
+  font-weight: lighter;
 `
-const UserCard = styled.div`
-  //width: 20vw;
-  box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-  //margin: 10px 0;
-  width: 300px;
-  //padding: 20px;
-  //background-color: blue;
-  height: 450px;
-  font-weight: 700;
-  border-radius: 15pt;
-  position: relative;
-  //background-color: #222831;
-  //color: white;
-  //border
-  background-image: linear-gradient(180deg, ${props => props.bandColor || "#a70bea"} 20%, white 20%);
-  // border-top-width: 5px;
-   border-top-color: ${props => props.bandColor || "#a70bea"};
-
-  @media screen and (max-width: 900px){
-    flex-flow: column wrap;
-    justify-content: center;
-    align-content: center;
-    width: 80vw;
-    height: 90vh;
-  }
-
-  @media screen and (max-width: 400px){
-    flex-flow: column wrap;
-    justify-content: center;
-    align-content: center;
-  }
+const UserFields = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: end;
+  align-self: flex-end;
+  text-align: center;
+  margin: auto;
   
+  h4{
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.5);
+  }
+  h6{
+    font-size: 0.85em;
+  }
 `
+
+
+// modal styling
 const PersonBlock = styled.div`
   //margin-top: var(--screen-nav-bar-height);
   //height: auto;
@@ -480,7 +475,6 @@ const LeftBlock = styled.div`
   justify-content: space-between;
   width: 40%;
 `
-
 const RightBlock = styled.div`
   //min-height: 50vh;
   width: 60%;
@@ -516,7 +510,6 @@ const TeamPicture = styled.img`
     
   }
 `
-
 const TeamMemberInfo = styled.div`
   display: flex;
   flex-flow: column nowrap;

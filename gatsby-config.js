@@ -15,6 +15,7 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-remark-images",
     "gatsby-plugin-mdx",
+    "gatsby-plugin-image",
     "gatsby-plugin-netlify",
     {
       resolve: "gatsby-source-filesystem",

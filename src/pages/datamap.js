@@ -51,7 +51,7 @@ let options=  [
     "value": "Humanities",
     "label": "Humanities"
     }, {
-    "value": "Cross-Cutting Fields",
+    "value": "Cross-Cutting",
     "label": "Cross-Cutting Fields"
     }
 ]
@@ -73,7 +73,7 @@ export default function Datamap({data}){
         let filteredData={}
         let filteredData2={}
         let primaryFields={}
-        selected.forEach((d,i)=> {return primaryFields[d.label]=i})
+        selected.forEach((d,i)=> {return primaryFields[d.value]=i})
 
 
         filteredData['nodes']= data.cruises.nodes.filter((node)=>{
