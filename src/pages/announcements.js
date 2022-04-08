@@ -68,6 +68,8 @@ const UnderConstructionBox = styled.div`
   justify-content: center;
   align-content: center;
   margin: auto;
+
+  text-align: center;
   
   p{
     color: white;
@@ -92,6 +94,8 @@ const UnderConstruction = styled.h1`
 
   @media only screen and (max-width: 550px) {
     font-size: 2em;
+
+    //text-align: center;
   }
   
 `

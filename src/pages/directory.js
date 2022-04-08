@@ -106,7 +106,7 @@ export default function Directory({data}){
                         <PeopleDirectory data={dirData} />
                 </DirectorySection>
                 <div style={{marginBottom: '-10px'}}>
-                    <svg width="100vw" height="auto" id="svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg"
+                    <svg width="100vw" id="svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg"
                          className="transition duration-300 ease-in-out delay-150">
                         <path
                             d="M 0,600 C 0,600 0,150 0,150 C 58.495202861018626,154.33108891355283 116.99040572203725,158.6621778271057 169,173 C 221.00959427796275,187.3378221728943 266.53357997286963,211.6823776051301 314,203 C 361.46642002713037,194.3176223948699 410.8752743864842,152.60831175237394 464,126 C 517.1247256135158,99.39168824762608 573.9653224811938,87.88437538537427 626,104 C 678.0346775188062,120.11562461462573 725.2634356887407,163.85418670612898 783,174 C 840.7365643112593,184.14581329387102 908.9809347638427,160.69887779010978 961,138 C 1013.0190652361573,115.30112220989022 1048.8128252558886,93.35030213343198 1103,98 C 1157.1871747441114,102.64969786656802 1229.7677642126032,133.89991367616227 1289,147 C 1348.2322357873968,160.10008632383773 1394.1161178936984,155.05004316191886 1440,150 C 1440,150 1440,600 1440,600 Z"
@@ -161,7 +161,6 @@ export const query = graphql`
 // styles
 const SelectMenu=styled.div`
   width: 40vw;
-  z-index: 1000000;
   margin: auto;
   //text-align: left;
   &.dropdown-content {
@@ -304,11 +303,11 @@ const DirectorySection = styled.div`
   justify-content: center;
   height: auto;
   min-height: 100vh;
-  margin: 3vh 5vw 0vh 5vw;
+  margin: 3vh 7vw 0vh 7vw;
   //margin-top: var(--screen-nav-bar-height);
 
-  @media screen and (max-width: 1024px){
-    //padding-top: 15vh;
+  @media screen and (max-width: 900px){
+    margin: 3vh;
   }
 
   

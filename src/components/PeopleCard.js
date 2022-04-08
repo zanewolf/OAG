@@ -125,11 +125,11 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                         {<HiOutlineMail/>}
                     </EmailButton>
                     <MyHr />
-                    <EmailButton title = "Open Profile"
+                    <BioButton title = "Open Profile"
                         onClick = {()=>setModalState(true)}
                         >
                             Bio
-                    </EmailButton>
+                    </BioButton>
                 </CardFooter>
                 {children}
             </UserCard>
@@ -198,18 +198,18 @@ const UserCard = styled.div`
   // border-top-width: 5px;
    border-top-color: ${props => props.bandColor || "#a70bea"};
 
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 400px){
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
     width: 80vw;
     height: 40vh;
-  }
-
-  @media screen and (max-width: 400px){
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
+  }
+
+  @media screen and (max-width: 400px){
   }
   
 `
@@ -274,6 +274,7 @@ const UserInfo = styled.div`
 const UserWebsite = styled.a`
   //font-size: 0.75em;
   margin: auto;
+  padding-top: 4px;
   //border-right: 2px solid #828282
   font-size: 1.5em;
   border: none;
@@ -322,15 +323,16 @@ const EmailButton = styled.button`
   font-size: 2em;
   border: none;
   margin: auto;
+  padding-top: 4px;
   color: white;
   //border-right: 2px solid #828282
   display: inline-block;
   vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+  //-webkit-transform: perspective(1px) translateZ(0);
+  //transform: perspective(1px) translateZ(0);
+  //box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  //-webkit-transition-duration: 0.3s;
+  //transition-duration: 0.3s;
 
   &:before {
     //content: attr(title);
@@ -359,8 +361,56 @@ const EmailButton = styled.button`
     font-weight: bolder;
     transition: 0.5s;
     //color: purple;
-    -webkit-transform: scale(1.3) translateZ(0);
-    transform: scale(1.3) translateZ(0);
+    -webkit-transform: scale(1.1) translateZ(0);
+    transform: scale(1.1) translateZ(0);
+  }
+`
+const BioButton = styled.button`
+  background-color: rgba(0,0,0,0);
+  //width: 5vw;
+  font-size: 2em;
+  border: none;
+  margin: auto;
+  //padding-top: 5px;
+  color: white;
+  //border-right: 2px solid #828282
+  display: inline-block;
+  vertical-align: middle;
+  //-webkit-transform: perspective(1px) translateZ(0);
+  //transform: perspective(1px) translateZ(0);
+  //box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  //-webkit-transition-duration: 0.3s;
+  //transition-duration: 0.3s;
+
+  &:before {
+    //content: attr(title);
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: opacity 1s ease-in-out;
+
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+    
+  }
+  &:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover{
+    font-weight: bolder;
+    transition: 0.5s;
+    //color: purple;
+    -webkit-transform: scale(1.1) translateZ(0);
+    transform: scale(1.1) translateZ(0);
   }
 `
 const CardFooter = styled.div`
@@ -368,7 +418,7 @@ const CardFooter = styled.div`
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 15%;
+  height: 10%;
   //font-size: 2em;
   background-color: ${props => props.bandColor || "#575757"};
   box-sizing: border-box;
@@ -391,7 +441,6 @@ const UserName = styled.h1`
   text-align: center;
   hyphens: manual;
 `
-
 const UserEmployment = styled.div`
   display:flex;
   flex-flow: column nowrap;

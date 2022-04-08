@@ -110,6 +110,7 @@ export default function CruiseMap ({data}) {
                     width: '100%',
                     float: 'bottom',
                     margin: 'auto',
+                    zIndex: '0',
                     position: 'relative'}}>
                 <TileLayer
                     attribution='Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
@@ -126,14 +127,16 @@ export default function CruiseMap ({data}) {
                         >
                             {/*<ResponsivePopup/>*/}
                             <StyledPopup bandColor = {fieldColor} size={size}>
-                                <h1>{node.data.Research_Subject}</h1>
-                                <h2>{node.data.Year}</h2>
-                                {/*<h3> {node.data.position}</h3>*/}
-                                {/*<h4>{node.data.Other_Locations}</h4>*/}
-                                <h2>{node.data.People_Involved}</h2>
+                                <HeaderInfo>
+                                    <h1>{node.data.Research_Subject}</h1>
+                                    <h2>{node.data.Year}</h2>
+                                    {/*<h3> {node.data.position}</h3>*/}
+                                    {/*<h4>{node.data.Other_Locations}</h4>*/}
+                                    <h2>{node.data.People_Involved}</h2>
+                                </HeaderInfo>
                                 <hr/>
                                 <h3>Data Collected: <span>{node.data.Data_Medium}</span></h3>
-                                <h3>Research Focus: {node.data.Research_Focus}</h3>
+                                <h3>Research Focus: <span>{node.data.Research_Focus}</span></h3>
 
                                 <h3>Data available: {node.data.Data_Available === 'Public'?
                                     <a href={node.data.Data_Link} target={"_blank"} rel={'noreferrer'} >Public Link <FaExternalLinkAlt/></a>
@@ -247,10 +250,9 @@ const StyledPopup = styled(Popup)`
   display:flex;
   flex-flow: column nowrap;
   gap: 10px;
+
   
-  h1, h2, h3, h4 {
-    margin: 10px;
-  }
+  span{font-weight: lighter}
   
   .leaflet-popup leaflet-popup-content-wrapper{
     width: 30vw;
@@ -265,4 +267,10 @@ const StyledPopup = styled(Popup)`
 
   }
   
+`
+
+const HeaderInfo = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
 `

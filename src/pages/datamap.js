@@ -229,7 +229,6 @@ const SearchInput = styled.input`
 `
 const SelectMenu=styled.div`
   width: 40vw;
-  z-index: 1000000;
   margin: auto;
   //text-align: left;
   &.dropdown-content {
