@@ -32,7 +32,7 @@ const customStyles = {
         bottom: 'auto',
         transform: 'translate(-50%, -50%)',
         marginTop: `var( --screen-nav-bar-height)`,
-        height: '85vh',
+        height: '80vh',
         borderRadius: '15px',
         maxWidth: '95vw',
         minWidth: '70vw',
@@ -785,7 +785,37 @@ const ModalButton = styled.button`
   border: none;
   font-size: 3em;
   color: #fff;
-  background-color: ${props => props.bandColor || "#000000"}
+  background-color: ${props => props.bandColor || "#000000"};
+
+  &:before {
+    //content: attr(title);
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: opacity 1s ease-in-out;
+
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+  }
+  &:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+  &:hover{
+    font-weight: bolder;
+    transition: 0.5s;
+    //color: purple;
+    -webkit-transform: scale(1.1) translateZ(0);
+    transform: scale(1.1) translateZ(0);
+  }
   
 
 `
