@@ -44,7 +44,7 @@ export default function Contactus() {
                                 </textarea>
                             {/*</InputBox>*/}
                         {/*<div >*/}
-                            <SubmitButton  id={"contact-form-button"} type="submit" value="SEND" >
+                            <SubmitButton  aria-label={"Contact Form Submit Button"} id={"contact-form-button"} type="submit" value="SEND" >
                                 Submit
                             </SubmitButton>
                         {/*</div>*/}

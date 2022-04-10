@@ -49,10 +49,15 @@ const Layout = ({ pageTitle, pageContent,children }) => {
                         </Link>
                     </div>
                     <div className={"footer-links-right"}>
-                        <EmailButton title = "Click to copy email" onClick={()=>copy()} >
+                        <EmailButton title = "Click to copy email"
+                                     aria-label={"Email OAHU Button"}
+                                     onClick={()=>copy()} >
                             {<HiOutlineMail/>}
                         </EmailButton>
-                        <EmailButton url={"https://twitter.com/ocean_affinity"} style={{color: "white"}}>
+                        <EmailButton
+                            aria-label={"OAHU Twitter Button"}
+                            url={"https://twitter.com/ocean_affinity"}
+                            style={{color: "white"}}>
                             {<FaTwitter/>}
                         </EmailButton>
 

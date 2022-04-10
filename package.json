@@ -49,6 +49,7 @@
     "gatsby-transformer-sharp": "^3.10.0",
     "hover.css": "^2.3.2",
     "intersection-observer": "^0.12.0",
+    "lazyload": "^2.0.0-rc.2",
     "leaflet": "^1.7.1",
     "leaflet-responsive-popup": "^0.6.4",
     "lodash": "^4.17.21",

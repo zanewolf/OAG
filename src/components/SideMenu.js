@@ -19,7 +19,7 @@ export default function SideMenu({toggleSideMenu, title}){
                     <Link to={item.link} key={index} activeStyle={activeStyle}>{item.title}</Link>
                 ))}
             </div>
-            <button onClick={toggleSideMenu} className={"burger-bars"}><FaBars/></button>
+            <button onClick={toggleSideMenu} className={"burger-bars"} aria-label={"Navigation Burger Button"} ><FaBars/></button>
         </nav>
     )
 

@@ -15,7 +15,8 @@ export default function SearchBar({data}) {
                 placeholder="Search directory"
                 name="s"
             />
-            <button type="submit">Search</button>
+            <button
+                aria-label={"Search Button"} type="submit">Search</button>
         </form>
     )
 }

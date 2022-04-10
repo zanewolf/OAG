@@ -19,7 +19,8 @@ export default function JoinPage() {
                                Affiliate
                            </h3>
                         </BoxTitle>
-                        <JoinButton as={'a'} onClick={(e)=>{
+                        <JoinButton as={'a'} aria-label={"Join Button"}
+                                    onClick={(e)=>{
                             e.preventDefault()
                             window.open(airTableForm);}}>
                             <BsPlusCircleFill/>
@@ -31,7 +32,8 @@ export default function JoinPage() {
                                 Data
                             </h3>
                         </BoxTitle>
-                        <JoinButton as={'a'} onClick={(e)=>{
+                        <JoinButton as={'a'}
+                                    aria-label={"Join Button"} onClick={(e)=>{
                             e.preventDefault()
                             window.open(airtableDataForm);}}>
                             <BsPlusCircleFill/>
@@ -42,7 +44,7 @@ export default function JoinPage() {
                     <p>
                         Welcome! As you fill out these forms, we ask that you think about how you and your work aligns with broad areas of work, which we call "primary fields": Environmental Sciences, Biological Sciences, Engineering, Humanities, Policy/Economics, Communications, and Cross-Cutting Fields. You might feel your specific disciplines, or sub-fields, intersect two or more primary fields, or that you fit into none of them. That's totally okay (and awesome)! Select the primary field you think is best. If you'd like to see some examples or edge-cases, check out our awesome guide.
                     </p>
-                    <DocButton href={guide} target={"_blank"}>
+                    <DocButton href={guide} aria-label={"Open Primary Fields PDF Button"}  target={"_blank"}>
                         Primary Field Guide
                     </DocButton>
                 </JoinAbout>

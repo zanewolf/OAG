@@ -6,7 +6,11 @@ export default function HelmetComponent({title, content}) {
 
     return (
         <div className="application">
-            <Helmet>
+            <Helmet
+                htmlAttributes={{
+                lang: 'en',
+            }}
+            >
                 <meta charSet="utf-8" />
                 <title>{title}</title>
                 <meta name="description"

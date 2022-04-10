@@ -57,7 +57,7 @@ export default function Navbar() {
                             ))}
                         </MenuLinks>
                         <NavBurger>
-                            <NavButton navburger fontBig onClick={toggleSideMenu}>
+                            <NavButton navburger fontBig onClick={toggleSideMenu} aria-label={"Navigation Menu Button"} >
                                 {sideMenu === true? <FaTimes/>: <FaBars/>}
                                 {/*<NavBars/>*/}
                             </NavButton>
