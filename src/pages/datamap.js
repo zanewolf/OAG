@@ -189,6 +189,7 @@ const CruiseMenu = styled.div`
     padding-left: 2vw;
     padding-right: 2vw;
     width: 100vw;
+    height: 7vh;
   }
 
 
@@ -201,8 +202,6 @@ const SearchContainer = styled.div`
 
   @media screen and (max-width: 1024px) {
     width: 40vw;
-
-
   }
 
 
@@ -224,8 +223,7 @@ const SearchInput = styled.input`
 
   @media screen and (max-width: 1024px) {
     font-size: 1em;
-
-
+    height: 5vh;
   }
 
 

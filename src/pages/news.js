@@ -67,6 +67,7 @@ const NewsPage = styled.div`
 
   @media screen and (max-width: 1045px){
     //height:90vh;
+    
   }
 
 `
@@ -240,14 +241,6 @@ const NewsBlock = styled.div`
     //transition-timing-function: ease-out;
     -webkit-transform: scale(1.05) translateZ(0);
     transform: scale(1.05) translateZ(0);
-
-    span {
-      color: blue;
-    }
-
-
-    //box-shadow: 36px 36px 71px #00c2ff,
-    //  -36px -36px 71px #ffffff;
   }
 
 `

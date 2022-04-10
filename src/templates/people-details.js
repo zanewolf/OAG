@@ -50,7 +50,6 @@ export const query = graphql`
           Name
           Research_Keywords
           Personal_Keywords
-          Image
           Email
           Affiliations
           Title

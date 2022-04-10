@@ -259,11 +259,7 @@ const StyledPopup = styled(Popup)`
   }
   
   .leaflet-popup-content{
-    width: 30vw !important;
-
-    @media screen and (max-width: 900px){
-     width: 80vw !important;
-    }
+    width: 90% !important;
 
   }
   
