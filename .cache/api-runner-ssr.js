@@ -7,6 +7,10 @@ var plugins = [{
       plugin: require('C:/Users/zwolf/Documents/OAG/oag_website2/ocean_affinity_group/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
       options: {"plugins":[],"displayName":true,"fileName":true,"minify":true,"namespace":"","transpileTemplateLiterals":true,"topLevelImportPaths":[],"pure":false},
     },{
+      name: 'gatsby-plugin-react-helmet',
+      plugin: require('C:/Users/zwolf/Documents/OAG/oag_website2/ocean_affinity_group/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
       name: 'gatsby-plugin-mdx',
       plugin: require('C:/Users/zwolf/Documents/OAG/oag_website2/ocean_affinity_group/node_modules/gatsby-plugin-mdx/gatsby-ssr'),
       options: {"plugins":[],"extensions":[".mdx"],"defaultLayouts":{},"gatsbyRemarkPlugins":[],"lessBabel":false,"remarkPlugins":[],"rehypePlugins":[],"mediaTypes":["text/markdown","text/x-markdown"],"root":"C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group"},

@@ -89,7 +89,10 @@ export default function Datamap({data}){
 
 
     return (
-        <Layout pageTitle={"Datamap"}>
+        <Layout
+            pageTitle={"Datamap"}
+            pageContent={"Our global map showcasing data collected by the OAHU community."}
+        >
             <MapContent>
                 <CruiseMenu>
                     <SelectMenu>
@@ -101,7 +104,10 @@ export default function Datamap({data}){
                             labelledBy={"Select"}
                         />
                     </SelectMenu>
-                    <JoinButton as={'a'} onClick={(e)=>{
+                    <JoinButton
+                        as={'a'}
+                        aria-label={"Join Buttn"}
+                        onClick={(e)=>{
                         e.preventDefault()
                         window.open(airtableDataForm);}}>
                         {size.width > 900 ? <><AiOutlinePlus className={'add-button'}/> Data</>:<AiOutlinePlus/>}

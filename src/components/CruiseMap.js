@@ -142,7 +142,9 @@ export default function CruiseMap ({data}) {
                                     <a href={node.data.Data_Link} target={"_blank"} rel={'noreferrer'} >Public Link <FaExternalLinkAlt/></a>
                                     :
                                     node.data.Data_Available === 'Upon Request' ?
-                                        <EmailButton onClick={()=>copy(node.data.Data_Email)}>Email Me <HiOutlineMail/></EmailButton>
+                                        <EmailButton
+                                            aria-label={"Copy Email Button"}
+                                            onClick={()=>copy(node.data.Data_Email)}>Email Me <HiOutlineMail/></EmailButton>
                                         :
                                         'Not Yet'
                                 }

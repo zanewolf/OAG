@@ -27,12 +27,14 @@ export default function Navbar() {
         site {
           siteMetadata {
             title
+           
           }
         }
       }
     `)
 
     const { title } = data.site.siteMetadata
+
 
 
     // if (sideMenu === false){

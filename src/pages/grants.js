@@ -5,7 +5,10 @@ import {FaWrench} from "react-icons/all";
 
 export default function Grants() {
     return (
-        <Layout>
+        <Layout
+            pageTitle={"Grants"}
+            pageContent={"Under development: A collection of resources about grants (different types, the application process, and expectations)."}
+        >
             <GrantPage>
                 <Background className="background">
                     <span></span>

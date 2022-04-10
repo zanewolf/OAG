@@ -5,10 +5,12 @@ import {graphql, Link, useStaticQuery} from "gatsby";
 import {FaTwitter} from "react-icons/all";
 import {HiOutlineMail} from 'react-icons/hi'
 import styled from "styled-components";
+import HelmetComponent from "./Helmet";
+import {Helmet} from "react-helmet";
 
 
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ pageTitle, pageContent,children }) => {
 
 
 
@@ -32,28 +34,21 @@ const Layout = ({ pageTitle, children }) => {
 
     return (
         <div className={"layout"}>
+            <HelmetComponent
+                title={pageTitle}
+                content={pageContent}
+            />
             <Navbar/>
             <div className={"content"}>
                 {children}
             </div>
-            {/*<div className={"portal"}>*/}
-            {/*</div>*/}
-            {/*<hr/>*/}
             <footer>
-
-                {/*<div className={"footer-wrapper"} style={{color: "white"}}>*/}
                     <div className={"footer-links-left"}>
-                        {/*<Link to={"/contactus"} style={{color: "white"}}>*/}
-                        {/*    Contact Us*/}
-                        {/*</Link>*/}
                         <Link to={"/join"} style={{color: "white"}}>
                             Join
                         </Link>
                     </div>
                     <div className={"footer-links-right"}>
-                        {/*<a href={"www.google.com"} style={{color: "white"}}>*/}
-                        {/*    {<FaInstagram/>}*/}
-                        {/*</a>*/}
                         <EmailButton title = "Click to copy email" onClick={()=>copy()} >
                             {<HiOutlineMail/>}
                         </EmailButton>
@@ -62,7 +57,6 @@ const Layout = ({ pageTitle, children }) => {
                         </EmailButton>
 
                     </div>
-                {/*</div>*/}
             </footer>
         </div>
     )

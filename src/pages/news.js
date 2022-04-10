@@ -7,7 +7,10 @@ import ocean3 from '../images/ocean3.jpg';
 export default function News({data}) {
 
     return (
-        <Layout>
+        <Layout
+            pageTitle={"Ocean News"}
+            pageContent={"A collection of ocean-related news sources."}
+        >
             <NewsPage image={ocean3} >
                 <NewsContent>
                     <NewsHeader className="masthead" role="img" aria-label="Image Description">

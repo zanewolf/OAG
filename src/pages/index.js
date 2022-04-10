@@ -10,6 +10,7 @@ import oceanfloor from '../images/ocean_floor.jpg';
 import Team from "../components/team";
 import styled from "styled-components";
 import {useWindowSize} from '../components/useWindowSize'
+import HelmetComponent from "../components/Helmet";
 
 let section2Image;
 
@@ -24,7 +25,10 @@ export default function IndexPage() {
     },[size])
 
         return (
-            <Layout>
+            <Layout
+                pageTitle={"OAHU Homepage"}
+                pageContent={"Ocean Affinity @ Harvard University aims to bring together people in the community whose work touches on the ocean, to foster interdisciplinary collaborations, and to catalyze ideas into projects through grant support."}
+            >
                 <div>
                     <Hero
                         title={"Ocean Affinity @ Harvard University"}
@@ -33,7 +37,7 @@ export default function IndexPage() {
                         id={"hero1"}
                         position={'center'}
                         position2={'center'}>
-                        <JoinButton to={'/join'}>
+                        <JoinButton to={'/join'} aria-label={'Join Button'}>
                                 Join
                         </JoinButton>
                     </Hero>

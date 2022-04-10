@@ -126,15 +126,23 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                 </UserInfo>
 
                 <CardFooter className = {"card-footer"} bandColor={fieldColor}>
-                    <UserWebsite title = "Personal Website" onClick={()=> openWebsite(website)} >
+                    <UserWebsite
+                        title = "Personal Website"
+                        aria-label={name + "Website Button"}
+                        onClick={()=> openWebsite(website)} >
                         {<FaExternalLinkAlt/>}
                     </UserWebsite>
                     <MyHr />
-                    <EmailButton title = "Click to copy email" onClick={()=>copy(email)} >
+                    <EmailButton
+                        title = "Click to copy email"
+                        aria-label={name + "Email Button"}
+                        onClick={()=>copy(email)} >
                         {<HiOutlineMail/>}
                     </EmailButton>
                     <MyHr />
-                    <BioButton title = "Open Profile"
+                    <BioButton
+                        title = "Open Profile"
+                        aria-label={name + "Profile Modal Button"}
                         onClick = {()=>setModalState(true)}
                         >
                             Bio
@@ -155,6 +163,7 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
             >
                 <ButtonDiv>
                     <button
+                        aria-label={name + "Profile Modal Close Button"}
                         onClick={()=>setModalState(false)}
                     >
                         <FaTimes/>
@@ -208,10 +217,18 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                             </UserFieldsModal>
                         </UserInfoModal>
                         <ContactButtons className = {"card-footer"} bandColor={fieldColor}>
-                            <ModalButton bandColor={fieldColor} title = "Personal Website" onClick={()=> openWebsite(website)} >
+                            <ModalButton
+                                bandColor={fieldColor}
+                                title = "Personal Website"
+                                aria-label={name + "Modal Website Button"}
+                                onClick={()=> openWebsite(website)} >
                                 {<FaExternalLinkAlt/>}
                             </ModalButton>
-                            <ModalButton bandColor={fieldColor} title = "Click to copy email" onClick={()=>copy(email)} >
+                            <ModalButton
+                                bandColor={fieldColor}
+                                title = "Click to copy email"
+                                aria-label={name + "Modal Email Button"}
+                                onClick={()=>copy(email)} >
                                 {<HiOutlineMail/>}
                             </ModalButton>
                         </ContactButtons>

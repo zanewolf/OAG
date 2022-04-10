@@ -4,7 +4,10 @@ import styled from "styled-components";
 
 export default function Annoucements() {
     return (
-        <Layout>
+        <Layout
+            pageTitle={"OAHU Announcements"}
+            pageContent={"Under development: News for the OAHU community, such as OAHU workshops or events, grant notices, or announcements from affiliates to affiliates."}
+        >
             <GrantPage>
                 <Background className="background">
                     <span></span>

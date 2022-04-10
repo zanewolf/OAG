@@ -70,7 +70,10 @@ export default function Directory({data}){
     },[q,selected,data])
 
     return (
-        <Layout pageTitle="Directory">
+        <Layout
+            pageTitle={"Directory"}
+            pageContent={"Our directory shows OAHU affiliates, their areas of expertise, and other information about their research and personal interests."}
+        >
             <DirectoryPage>
                 <DirectoryMenu>
                     <SelectMenu>
@@ -82,7 +85,10 @@ export default function Directory({data}){
                             labelledBy={"Select"}
                         />
                     </SelectMenu>
-                    <JoinButton as={'a'} onClick={(e)=>{
+                    <JoinButton
+                        as={'a'}
+                        aria-label={"Join Button"}
+                        onClick={(e)=>{
                         e.preventDefault()
                         window.open(airTableForm);}}>
                         {size.width > 1200 ? <><AiOutlinePlus className={'add-button'}/> Profile</>:<AiOutlinePlus/>}
