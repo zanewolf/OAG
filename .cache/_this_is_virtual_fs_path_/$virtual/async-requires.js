@@ -15,9 +15,6 @@ exports.components = {
   "component---src-pages-index-js": () => import("./../../../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
   "component---src-pages-join-js": () => import("./../../../src/pages/join.js" /* webpackChunkName: "component---src-pages-join-js" */),
   "component---src-pages-news-js": () => import("./../../../src/pages/news.js" /* webpackChunkName: "component---src-pages-news-js" */),
-  "component---src-pages-projects-index-js": () => import("./../../../src/pages/projects/index.js" /* webpackChunkName: "component---src-pages-projects-index-js" */),
-  "component---src-pages-search-bar-js": () => import("./../../../src/pages/SearchBar.js" /* webpackChunkName: "component---src-pages-search-bar-js" */),
-  "component---src-pages-team-js": () => import("./../../../src/pages/team.js" /* webpackChunkName: "component---src-pages-team-js" */),
-  "component---src-pages-test-js": () => import("./../../../src/pages/Test.js" /* webpackChunkName: "component---src-pages-test-js" */)
+  "component---src-pages-projects-index-js": () => import("./../../../src/pages/projects/index.js" /* webpackChunkName: "component---src-pages-projects-index-js" */)
 }
 

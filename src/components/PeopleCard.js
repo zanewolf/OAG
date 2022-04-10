@@ -7,6 +7,9 @@ import Avatar from "boring-avatars";
 import Modal from 'react-modal'
 import TagSection from "./TagSection";
 import nullProfile from '../images/Null2.png'
+import '../styles/directory.module.css'
+import {Accordion, AccordionDetails, AccordionSummary} from "@material-ui/core";
+import {ExpandMore} from "@material-ui/icons";
 
 let paletteColors=['#351431','#823c3a','#f5a578',
     '#002d50', '#01778c', '#52b69a']
@@ -19,6 +22,7 @@ const fieldColors={
     'Engineering': paletteColors[5]
 
 }
+let fieldColorProfile;
 
 const customStyles = {
     content: {
@@ -26,20 +30,29 @@ const customStyles = {
         left: '50%',
         right: 'auto',
         bottom: 'auto',
-        // marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        backgroundColor: '#01778c',
         marginTop: `var( --screen-nav-bar-height)`,
-        height: 'auto',
+        height: '85vh',
+        borderRadius: '15px',
+        maxWidth: '95vw',
+        minWidth: '70vw',
+        width: 'auto'
         // overflow: 'scroll'
     },
+    overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.75)'
+    }
 };
 
 
-export default function PeopleCard({name, title,employer, primaryField,image, about,email, website, children, personalKeywords, researchKeywords, fieldColor,secondaryFields}) {
+export default function PeopleCard({name, title,employer, primaryField,image, about,email, activeFieldSites,website, children, personalKeywords, researchKeywords, fieldColor,secondaryFields}) {
 
     const [modalState, setModalState] = React.useState(false)
-    // console.log(image)
 
     const copy =  (email) => {
         console.log(email)
@@ -54,13 +67,9 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
             alert('No website provided. Sorry!')
     }
 
-
     let colors = paletteColors.filter(d=>d!==fieldColor)
-    // console.log(colors)
 
-
-    let avatarColors=[colors[Math.floor(Math.random() * colors.length)],colors[Math.floor(Math.random() * colors.length)]]
-
+    // let avatarColors=[colors[Math.floor(Math.random() * colors.length)],colors[Math.floor(Math.random() * colors.length)]]
 
     return (
         <>
@@ -74,7 +83,7 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                                 size={'11vh'}
                                 name={name}
                                 variant="beam"
-                                colors={avatarColors}
+                                colors={colors}
                             />
                         </UserAvatar> :
                         <UserImage src={image[0].url}
@@ -135,43 +144,124 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
             </UserCard>
             <Modal
                 isOpen={modalState}
+                // onHide={handleClose}
                 onRequestClose={()=>setModalState(false)}
                 style={customStyles}
-                contentLabel="Example Modal"
+                contentLabel="Profile Modal"
                 ariaHideApp={false}
                 preventScroll={false}
+                backdropClassName={'modal-backdrop'}
+                overlayClassName="Overlay"
             >
-                <button
-                    onClick={()=>setModalState(false)}
-                >
-                    <FaTimes/>
-                </button>
+                <ButtonDiv>
+                    <button
+                        onClick={()=>setModalState(false)}
+                    >
+                        <FaTimes/>
+                    </button>
+                </ButtonDiv>
                 <PersonBlock>
                     <LeftBlock>
-                        {image === null?
-                                <Avatar
-                                    size={'50%'}
-                                    name={name}
-                                    variant="beam"
-                                    colors={["#d9ed92","#b5e48c","#99d98c","#76c893","#52b69a","#34a0a4","#168aad","#1a759f","#1e6091","#184e77"]}
-                                />:
-                            <TeamPicture className = {'modalImage'} src={image[0].url} alt={'Profile picture of ' + name} bandColor={fieldColor} />
-                        }
-                        <TeamName>{name}</TeamName>
-                        <TeamTitle>{title}</TeamTitle>
-                        <h3>{employer}</h3>
+                        <UserHeaderModal bandColor={fieldColor}>
+                            {image === null?
+                                <UserAvatarModal bandColor={fieldColor}>
+                                    <Avatar
+                                        size={'20vh'}
+                                        name={name}
+                                        variant="beam"
+                                        colors={colors}
+                                    />
+                                </UserAvatarModal> :
+                                <UserImageModal src={image[0].url}
+                                           alt={'Profile picture of ' + name}
+                                           bandColor={fieldColor}
+                                           maxWidth={'30vw'}
+                                           maxHeight={'30vh'}
+                                           onError={({ currentTarget }) => {
+                                               currentTarget.onerror = null; // prevents looping
+                                               currentTarget.src= {nullProfile};
+                                           }}/>
+                            }
+                        </UserHeaderModal>
+                        <UserInfoModal>
+                            <UserNameModal>{name}</UserNameModal>
+                            <UserEmploymentModal>
+                                <UserEmployerModal bandColor={fieldColor}>
+                                    {employer && employer.split(',')[0]}
+                                </UserEmployerModal>
+                                <UserRoleModal bandColor={fieldColor}>
+                                    {title && title}
+                                </UserRoleModal>
+                            </UserEmploymentModal>
+                            <UserFieldsModal>
+                                <h4>{primaryField}</h4>
+                                <hr style={{color: fieldColor}}/>
+                                <ul>
+                                    {secondaryFields.split(',').map((d,i)=>{
+                                        return(
+                                            <li key={i}>
+                                                <h6>{d}</h6>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </UserFieldsModal>
+                        </UserInfoModal>
+                        <ContactButtons className = {"card-footer"} bandColor={fieldColor}>
+                            <ModalButton bandColor={fieldColor} title = "Personal Website" onClick={()=> openWebsite(website)} >
+                                {<FaExternalLinkAlt/>}
+                            </ModalButton>
+                            <ModalButton bandColor={fieldColor} title = "Click to copy email" onClick={()=>copy(email)} >
+                                {<HiOutlineMail/>}
+                            </ModalButton>
+                        </ContactButtons>
                     </LeftBlock>
                     <RightBlock>
                         <ModalAbout>
                             <h2>About</h2>
                             <AboutP> {about}</AboutP>
                         </ModalAbout>
-                        <KeywordsSection>
-                            <h4> Research Keywords</h4>
-                            <TagSection tags={researchKeywords}></TagSection>
-                                <h4> Personal Keywords</h4>
-                                <TagSection tags={personalKeywords}></TagSection>
-                        </KeywordsSection>
+                        <ModalAccordions>
+                            {employer && employer.includes(',') && <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMore/>}>
+                                    All AFFILIATIONS
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <TagSection tags={employer} color={fieldColor}></TagSection>
+                                </AccordionDetails>
+                            </Accordion>
+                            }
+                            {activeFieldSites && <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMore/>}>
+                                    ACTIVE FIELD SITES
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <TagSection tags={activeFieldSites} color={fieldColor}></TagSection>
+                                </AccordionDetails>
+                            </Accordion>
+                            }
+                            {researchKeywords && <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMore/>}>
+                                    RESEARCH KEYWORDS
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <TagSection tags={researchKeywords} color={fieldColor}></TagSection>
+                                </AccordionDetails>
+                            </Accordion>
+                            }
+                            {personalKeywords && <Accordion>
+
+                                <AccordionSummary expandIcon={<ExpandMore/>}>
+                                    PERSONAL KEYWORDS
+                                </AccordionSummary>
+
+                                <AccordionDetails>
+                                    <TagSection tags={personalKeywords} color={fieldColor}></TagSection>
+                                </AccordionDetails>
+
+                            </Accordion>
+                            }
+                        </ModalAccordions>
                     </RightBlock>
                 </PersonBlock>
             </Modal>
@@ -217,32 +307,18 @@ const UserHeader = styled.div`
   display: flex;
   flex-flow: column nowrap;
   margin-top: 1vh;
-  //background-color: black;
-  //border-radius: 15pt 15pt 0pt 0pt;
   
 `
 const UserAvatar = styled.div`
-   // border: 4px solid ${props => props.bandColor || "#a70bea"};
   border: 3px solid white;
   margin: auto;
   margin-top: 10pt;
   max-width: 12vh;
   max-height: 12vh;
-  //width: auto;
-  //height: auto;
   overflow: hidden;
-  //height: 15vh;
-  //height: 12vh;
-  //object-fit: fill;
-  //display: flex;
-  //justify-content: center;
   border-radius: 50%;
-  //padding: 7px;
 `
 const UserImage = styled.img`
-  //border-radius: 50%;
-  //border-radius: 50%;
-  //border: 5px solid #272133;
   margin-top: 10pt;
   border:3px solid white;
   max-width: 12vh;
@@ -427,6 +503,11 @@ const CardFooter = styled.div`
   border-radius: 0 0 15pt 15pt;
   color: white;
   border-top: solid 0px #fff;
+
+
+  @media screen and (max-width: 500px) {
+    height: 12%;
+  }
   
 `
 const UserName = styled.h1`
@@ -485,32 +566,31 @@ const UserFields = styled.div`
 
 // modal styling
 const PersonBlock = styled.div`
-  //margin-top: var(--screen-nav-bar-height);
-  //height: auto;
-  //width: 70vw;
-  //background-color: aquamarine;
-
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  //align-content: center;
   max-width: 90vw;
   min-width: 60vw;
+  min-height: 60vh;
   height: auto;
   margin: auto;
   border-radius: 5pt;
-
-  //margin-bottom: 7vh;
   padding: 2vh;
 
-  //row-gap: 1vw;
-  //background: rgba(31, 31, 31, 0.7);
-
-  @media screen and (max-width: 886px) {
-    flex-flow: column wrap;
-    width: 90vw;
-    align-content: center;
+  @media screen and (max-width: 1200px) {
+    flex-flow: column nowrap;
+    max-width: 90vw;
+    width: auto;
     align-items: center;
+    align-content: center;
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-flow: column nowrap;
+    max-width: 100vw;
+    width: auto;
+    align-items: center;
+    align-content: center;
   }
 
   //.teamBlock:nth-child(2n){
@@ -518,71 +598,215 @@ const PersonBlock = styled.div`
   //  background-color: #acacac;
   // 
 `
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: right;
+  
+  button{
+    background: none;
+    border: none;
+    font-size: 2em;
+
+    &:before {
+      //content: attr(title);
+      visibility: hidden;
+      opacity: 0;
+      width: 140px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px 0;
+      transition: opacity 1s ease-in-out;
+
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 110%;
+
+    }
+    &:hover:before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &:hover{
+      font-weight: bolder;
+      transition: 0.5s;
+      //color: purple;
+      -webkit-transform: scale(1.1) translateZ(0);
+      transform: scale(1.1) translateZ(0);
+    }
+  }
+`
 const LeftBlock = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   width: 40%;
+  margin-right: 3vh;
+  max-height: 65vh;
+
+  @media screen and (max-width: 1200px) {
+    flex-flow: column nowrap;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+    width: auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-flow: column nowrap;
+    max-width: 90vw;
+    min-height: 75vh;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    maring-bottom: 5vh;
+  }
+`
+const UserHeaderModal = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  
+  
+`
+const UserAvatarModal = styled.div`
+  border: 8px solid ${props => props.bandColor || "#ba0f0f"};;
+  margin: auto;
+  //margin-top: 10pt;
+  max-width: 40vh;
+  max-height: 40vh;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50%;
+`
+const UserImageModal = styled.img`
+  //margin-top: 10pt;
+  border: 8px solid ${props => props.bandColor || "#ffffff"};;
+  max-width: 30vh;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  //border: 2px solid #03BFCB;
+  border-radius: 50%;
+`
+const UserNameModal = styled.h1`
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-size: 2em;
+  text-transform: uppercase;
+  //word-break: break-all;
+  overflow-wrap: break-word;
+  text-align: center;
+  hyphens: manual;
+`
+const UserInfoModal = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-content: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  margin: auto;
+  height: 90%;
+
+  @media screen and (max-width: 500px) {
+    justify-content: space-evenly;
+    height: auto;
+  }
+
+`
+const UserEmploymentModal = styled.div`
+  display:flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  padding: 5px;
+`
+const UserRoleModal = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  font-size: 1em;
+  font-weight: lighter;
+  padding: 5px;
+`
+const UserEmployerModal = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  font-size: 1.2em;
+  font-weight: normal;
+  padding: 5px;
+`
+const UserFieldsModal = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: end;
+  align-self: flex-end;
+  text-align: center;
+  margin: auto;
+  
+  h4{
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.5);
+    font-size: 1.3em;
+  }
+  h6{
+    font-size: 1em;
+  }
+`
+const ContactButtons = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  margin-bottom: 3vh;
+`
+const ModalButton = styled.button`
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  padding: 9px 5px 5px 5px;
+  border: none;
+  font-size: 3em;
+  color: #fff;
+  background-color: ${props => props.bandColor || "#000000"}
+  
+
 `
 const RightBlock = styled.div`
   //min-height: 50vh;
   width: 60%;
-  height: auto;
   //min-height: 20vw;
   display: flex;
   flex-flow: column nowrap;
-  color: white;
   justify-content: space-between;
   align-content: flex-start;
 
-`
-const TeamPicture = styled.img`
-  object-fit: contain;
-  //display: flex;
-  //align-content: flex-start;
-  //position: relative;
-  //border-radius: 5pt 0 0 5pt;
-  max-width: 30vw;
-  max-height: 30vh;
-  //margin-left: 0;
-  //max-width: 3
-  // 0vw;
-  //max-width: 40vw;
-  //margin-right: 1vw;
-  //margin-left: 1vw;
-
-  @media screen and (max-width: 900px){
-    height: 40vh;
-    //align-content: center;
-
-    //border-radius: 5pt;
-    
-  }
-`
-const TeamMemberInfo = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  //width: 30vw;
-  align-content: center;
-  justify-content: center;
-  color: white;
-  margin: auto auto;
-  //text-justify: center;
-
-  @media screen and (max-width: 900px){
-    width: 80vw;
+  @media screen and (max-width: 1200px) {
     flex-flow: column wrap;
-
-    text-align: center;
+    width: auto;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
   }
-`
-const TeamName = styled.h2`
-  font-size: 3em;
-  margin-bottom: 1vw;
-`
-const TeamTitle = styled.h3`
-  font-size: 2em;
-  margin-bottom: 1vw;
+
 `
 const ModalAbout = styled.div`
   display: flex;
@@ -590,18 +814,16 @@ const ModalAbout = styled.div`
 `
 const AboutP = styled.p`
   overflow: hidden;
-  //display: -webkit-box;
-  //-webkit-line-clamp: 20;
-  //-webkit-box-orient: vertical;
-  //white-space: nowrap;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // max-width: 100ch;
-  //font-size: 0.75em;
-  //font-weight: lighter;
+  margin-bottom: 2vh;
 `
-const KeywordsSection = styled.div`
+const ModalAccordions = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  align-content: flex-end;
+  margin-top: auto;
+  bottom: 0;
+  
+  @media screen and (max-width: 1200px) {
+    margin-top: 3vh;
+    width: 100%;
+  }
 `

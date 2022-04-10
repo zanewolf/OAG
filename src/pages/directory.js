@@ -150,6 +150,7 @@ export const query = graphql`
               Primary_Field
               Secondary_Fields
               About
+              Active_Field_Sites
               slug     
           }
           id
@@ -237,7 +238,7 @@ const JoinButton = styled.button`
   display: inline-block;
   justify-content: center;
   align-content: center;
-  padding: 5px;
+  padding: 7px 5px 5px 5px;
   //border: 1px solid rgba(255, 255, 255, 0.18);
 
   .add-button{
@@ -252,7 +253,8 @@ const JoinButton = styled.button`
 
   @media screen and (max-width: 1045px){
     font-size: 1.75em;
-    padding: 0;
+
+    padding: 5px 5px 0px 5px;
   }
 
 `

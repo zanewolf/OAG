@@ -17,9 +17,6 @@ exports.components = {
   "component---src-pages-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\index.js")),
   "component---src-pages-join-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\join.js")),
   "component---src-pages-news-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\news.js")),
-  "component---src-pages-projects-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\projects\\index.js")),
-  "component---src-pages-search-bar-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\SearchBar.js")),
-  "component---src-pages-team-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\team.js")),
-  "component---src-pages-test-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\Test.js"))
+  "component---src-pages-projects-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\projects\\index.js"))
 }
 

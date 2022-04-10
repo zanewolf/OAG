@@ -3,7 +3,6 @@ import {Link, graphql, useStaticQuery} from 'gatsby';
 import {FaBars, FaTimes} from 'react-icons/fa'
 import {menuData} from '../data/MenuData'
 import styled from "styled-components";
-import {Button} from "./Button";
 
 // import * as styles from '../styles/global.css'
 
@@ -56,10 +55,10 @@ export default function Navbar() {
                             ))}
                         </MenuLinks>
                         <NavBurger>
-                            <Button navburger fontBig onClick={toggleSideMenu}>
+                            <NavButton navburger fontBig onClick={toggleSideMenu}>
                                 {sideMenu === true? <FaTimes/>: <FaBars/>}
                                 {/*<NavBars/>*/}
-                            </Button>
+                            </NavButton>
                         </NavBurger>
                     </MenuWrapper>
                 </NavWrapper>
@@ -217,5 +216,20 @@ const NavBurger = styled.div`
     
   }
 `
-
+const NavButton = styled.div`
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &:hover{
+    transition: all 0.3s ease-out;
+    transform: scale(1.05) translateZ(0);
+  }
+`
 

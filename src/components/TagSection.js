@@ -1,27 +1,27 @@
 import React from 'react';
 import styled from "styled-components";
 
-export default function TagSection({tags}) {
+import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
+
+let paletteColors=['#351431','#823c3a',
+    '#002d50', '#01778c','#818588']
+export default function TagSection({tags, color}) {
+
+    console.log(color, paletteColors.includes(color))
+    let fontColor = paletteColors.includes(color) ? '#fff' : '#000'
 
     if (tags) {
 
         tags = tags.split(',');
 
-        console.log(tags ? 'yes' : 'no')
-
         let tagItems = tags.map((tag, i) => {
             return (
-                <span className={"tagItem"} key={i}>{tag}</span>
+                <span className={"tagItem"} key={i}>{tag} </span>
             )
-            // return (
-            //     <li>
-            //         {tag}
-            //     </li>
-            // )
         })
 
         return (
-            <KeywordSection >
+            <KeywordSection bandColor={color} fontColor={fontColor}>
                 {tagItems}
             </KeywordSection>
         )
@@ -39,7 +39,8 @@ const KeywordSection=styled.div`
 
 
   & span {
-    background: #7c08cd;
+    color: ${props => props.fontColor};
+    background-color: ${props => props.bandColor || "#ffffff"};
     padding: 2pt 10pt;
     border-radius: 10pt;
     font-size: 0.75em;

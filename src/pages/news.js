@@ -62,7 +62,7 @@ const NewsPage = styled.div`
     align-content: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background: ${({image})=>(image ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url(${image}) center center/cover no-repeat` : 'white')};
+     background: ${({image})=>(image ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url(${image}) center center/cover no-repeat` : 'white')};
     //background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),url(${({image})=>(image ? image : null)});
 
   @media screen and (max-width: 1045px){
@@ -72,7 +72,7 @@ const NewsPage = styled.div`
 `
 
 const NewsContent = styled.div`
-  //margin-top: var(--screen-nav-bar-height);
+  margin-top: var(--screen-nav-bar-height);
   //height: auto;
   //min-height: 80vh;
   height: auto;
@@ -85,7 +85,7 @@ const NewsContent = styled.div`
 `
 
 const NewsHeader = styled.section`
-    margin-top: -4.5vh;
+    margin-top: -4.6vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,8 +102,12 @@ const NewsHeader = styled.section`
     //border-radius: 20px;
     //border: 1px solid rgba(255, 255, 255, 0.18);
 
-  @media screen and (max-width: 1400px){
-    margin-top: 0vh;
+  @media screen and (max-width: 1700px){
+    margin-top: -0.5vh;
+  }
+
+  @media screen and (max-width: 1045px){
+    margin-top: -0vh;
   }
   
   h1 {

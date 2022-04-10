@@ -173,9 +173,12 @@ const MapContent = styled.div`
 const CruiseMenu = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-content: center;
+  margin: auto;
   width: 100vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
   border-bottom: 3px solid grey;
   height: 7vh;
   //min-height: 7vh;

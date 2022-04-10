@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Hero from "../components/Hero";
-import {Button} from "../components/Button";
+// import {Button} from "../components/Button";
 import Layout from "../components/Layout";
 import ocean from '../images/ocean.jpg';
 
@@ -59,7 +59,7 @@ const EventPage = () => {
 
             >
                 <div className={"hero-btns"}>
-                    <Button fontBig big primary> Join Now</Button>
+                    {/*<Button fontBig big primary> Join Now</Button>*/}
                 </div>
             </Hero>
         </Layout>

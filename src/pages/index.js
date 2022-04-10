@@ -7,7 +7,7 @@ import {Link} from 'gatsby'
 import ocean3_gradient from '../images/ocean3_gradient.jpg';
 import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 import oceanfloor from '../images/ocean_floor.jpg';
-import Team from "./team";
+import Team from "../components/team";
 import styled from "styled-components";
 import {useWindowSize} from '../components/useWindowSize'
 

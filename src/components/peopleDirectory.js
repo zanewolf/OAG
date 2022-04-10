@@ -37,6 +37,7 @@ export default function PeopleDirectory({data}){
                                 id={node.id}
                                 email={node.data.Email}
                                 about={node.data.About}
+                                activeFieldSites={node.data.Active_Field_Sites}
                                 primaryField={node.data.Primary_Field}
                                 researchKeywords = {node.data.Research_Keywords}
                                 personalKeywords = {node.data.Personal_Keywords}
