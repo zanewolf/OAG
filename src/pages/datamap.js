@@ -254,7 +254,7 @@ const SearchInput = styled.input`
   }
 
   @media (orientation: landscape) and (max-width: 1045px) {
-    font-size: 0.55em;
+    font-size: 0.75em;
     height: 5vh;
     min-height: 20px;
   }
@@ -273,10 +273,11 @@ const SelectMenu=styled.div`
     width: 40vw;
   }
 
-  @media (orientation: landscape) {
+  @media (orientation: landscape) and (max-height: 400px){
     
     .dropdown-container .dropdown-heading{
-      max-height: 5vh;
+      height: 5vh;
+      min-height: 20px;
     }
     .dropdown-content{
       position: absolute;

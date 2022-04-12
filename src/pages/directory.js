@@ -177,8 +177,23 @@ const SelectMenu=styled.div`
   @media screen and (max-width: 1024px) {
     width: 40vw;
     
-    .dropdown-content{
+    &.dropdown-content{
       width: 70vw;
+      z-index: 2000;
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 1045px) {
+
+    
+    .rmsc .dropdown-heading {
+      height: 5vh;
+      min-height: 20px;
+    }
+
+    &.dropdown-content{
+      position: relative;
+      z-index: 1000;
     }
   }
 `
@@ -217,8 +232,6 @@ const DirectoryMenu = styled.div`
   padding-right: 3vw;
   border-bottom: 3px solid grey;
   height: 7vh;
-  position: sticky;
-  z-index: 100;
 
   @media screen and (max-width: 1045px) {
 
@@ -235,32 +248,9 @@ const DirectoryMenu = styled.div`
 
   @media (orientation: landscape) and (max-width: 1045px) {
     font-size: 0.55em;
-    height: 10vh;
+    height: 7vh;
+    min-height: 40px;
   }
-
-  //display: flex;
-  //flex-flow: row nowrap;
-  //justify-content: space-between;
-  //align-content: center;
-  //width: 90vw;
-  //border-bottom: 3px solid grey;
-  //padding-top: 2vh;
-  //padding-left: 2vw;
-  //padding-right: 2vw;
-  ////align-content: center;
-  ////justify-content: center;
-  //height: 7vh;
-  ////min-height: 7vh;
-  ////margin-top: var(--screen-nav-bar-height);
-  //
-  //@media screen and (max-width: 1024px){
-  //
-  //  padding-left: 2vw;
-  //  padding-right: 2vw;
-  //  width: 100vw;
-  //  height: 10vh;
-  //  min-height: 85px;
-  //}
   
     `
 const JoinButton = styled.button`
@@ -333,6 +323,12 @@ const SearchInput = styled.input`
     font-size: 1em;
     height: 5vh;
     min-height: 42px;
+  }
+
+  @media (orientation: landscape) and (max-width: 1045px) {
+    font-size: 0.75em;
+    height: 5vh;
+    min-height: 20px;
   }
 
 

@@ -36,7 +36,8 @@ const customStyles = {
         borderRadius: '15px',
         // maxWidth: '95vw',
         // minWidth: '70vw',
-        width: 'auto'
+        width: 'auto',
+        zIndex: '10000'
         // overflow: 'scroll'
     },
     overlay: {
@@ -45,7 +46,8 @@ const customStyles = {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.75)'
+        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+
     }
 };
 
@@ -157,7 +159,7 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                 style={customStyles}
                 contentLabel="Profile Modal"
                 ariaHideApp={false}
-                preventScroll={false}
+                preventScroll={true}
                 backdropClassName={'modal-backdrop'}
                 overlayClassName="Overlay"
             >
@@ -349,6 +351,11 @@ const UserImage = styled.img`
   //border: 2px solid #03BFCB;
   border-radius: 50%;
   //padding: 7px;
+  
+  @media (orientation: landscape) and (max-height: 400px){
+    height: 20vh;
+    max-width: 20vh;
+  }
   
 `
 const MyHr = styled.hr`
