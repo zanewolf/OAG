@@ -18,6 +18,8 @@ export default function IndexPage() {
 
     const size=useWindowSize();
 
+
+
     useEffect(()=>{
         section2Image = size.width > 1650 ? ocean3_gradient2 : ocean3_gradient
         return (section2Image)

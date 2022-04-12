@@ -56,25 +56,23 @@ export default function PeopleDirectory({data}){
 }
 
 const DirectoryGrid = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-content: space-evenly;
-  gap: 3vh;
-  //gap: 3vw;
-  //align-items: auto;
-  //align-content: center;
-  //.item{
-  //  flex-basis: 10vw | auto;
-  //} 
+  
+  width: 100vw;
+  margin: auto;
+
+  
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    gap: 3vh;
+    
+  }
   
   @media screen and (max-width: 900px){
     flex-flow: row wrap;
     justify-content: center;
     align-content: center;
   }
-  //
-  //.item {
-  //  flex-basis: auto;
-  //}
 `

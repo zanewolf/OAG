@@ -12,7 +12,7 @@ import {Helmet} from "react-helmet";
 
 const Layout = ({ pageTitle, pageContent,children }) => {
 
-
+    window.scrollTo(0,0);
 
 
     const data = useStaticQuery(graphql`

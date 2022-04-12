@@ -307,16 +307,17 @@ const SearchInput = styled.input`
 
 const DirectorySection = styled.div`
   //padding-top: 10vh;
-  align-content: center;
-  justify-content: center;
-  height: auto;
-  min-height: 100vh;
-  margin: 3vh 7vw 0vh 7vw;
+  //align-content: center;
+  //justify-content: center;
+  //height: auto;
+  //min-height: 100vh;
+  //width: 100vw;
+  //margin: 3vh 7vw 0vh 7vw;
   //margin-top: var(--screen-nav-bar-height);
 
-  @media screen and (max-width: 900px){
-    margin: 3vh;
-  }
+  //@media screen and (max-width: 900px){
+  //  margin: 3vh;
+  //}
 
   
     `

@@ -34,8 +34,8 @@ const customStyles = {
         marginTop: `var( --screen-nav-bar-height)`,
         height: '80vh',
         borderRadius: '15px',
-        maxWidth: '95vw',
-        minWidth: '70vw',
+        // maxWidth: '95vw',
+        // minWidth: '70vw',
         width: 'auto'
         // overflow: 'scroll'
     },
@@ -600,6 +600,7 @@ const PersonBlock = styled.div`
     width: auto;
     align-items: center;
     align-content: center;
+    gap: 5vh;
   }
 
   @media screen and (max-width: 500px) {
@@ -792,7 +793,6 @@ const ContactButtons = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  margin-bottom: 3vh;
 `
 const ModalButton = styled.button`
   width: 10vh;
@@ -858,10 +858,13 @@ const RightBlock = styled.div`
 const ModalAbout = styled.div`
   display: flex;
   flex-flow: column nowrap;
+
 `
 const AboutP = styled.p`
   overflow: hidden;
   margin-bottom: 2vh;
+  
+
 `
 const ModalAccordions = styled.div`
   display: flex;

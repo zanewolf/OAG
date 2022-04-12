@@ -75,8 +75,9 @@ const NavWrapper= styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
-  width: 100%;
+  z-index: 10000;
+  width: 100vw;
+  //overflow-x: hidden;
   height: auto;
   padding:0.5rem 0.8rem;
   background: rgba(0,0,0,0.3);
