@@ -312,7 +312,7 @@ const DirectorySection = styled.div`
   //height: auto;
   //min-height: 100vh;
   //width: 100vw;
-  //margin: 3vh 7vw 0vh 7vw;
+  margin: 3vh 7vw 0vh 7vw;
   //margin-top: var(--screen-nav-bar-height);
 
   //@media screen and (max-width: 900px){

@@ -23,7 +23,7 @@ export default function PeopleDirectory({data}){
 
     return (
         <DirectoryGrid>
-            <ul>
+            <DirectoryList>
                 {data && data.nodes.map((node) =>{
                     fieldColor = node.data.Primary_Field in fieldColors ? fieldColors[node.data.Primary_Field] : '#818588'
                         return (
@@ -50,7 +50,7 @@ export default function PeopleDirectory({data}){
                         )
                     }
                 )}
-            </ul>
+            </DirectoryList>
         </DirectoryGrid>
     )
 }
@@ -60,19 +60,19 @@ const DirectoryGrid = styled.div`
   width: 100vw;
   margin: auto;
 
-  
-  ul {
+`
+const DirectoryList = styled.ul`
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-content: space-evenly;
     gap: 3vh;
-    
-  }
-  
+
   @media screen and (max-width: 900px){
     flex-flow: row wrap;
     justify-content: center;
     align-content: center;
   }
+
 `
+
