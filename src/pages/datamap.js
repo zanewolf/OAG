@@ -93,6 +93,7 @@ export default function Datamap({data}){
             pageTitle={"Datamap"}
             pageContent={"Our global map showcasing data collected by the OAHU community."}
         >
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <MapContent>
                 <CruiseMenu>
                     <SelectMenu>
@@ -172,6 +173,11 @@ const MapContent = styled.div`
   @media screen and (max-width: 1045px) {
 
     margin-top: var(--phone-nav-bar-height);
+    min-height: 84vh;
+  }
+
+  @media (orientation: landscape) {
+    z-index: -1000;
   }
   
   
@@ -187,6 +193,8 @@ const CruiseMenu = styled.div`
   padding-right: 3vw;
   border-bottom: 3px solid grey;
   height: 7vh;
+  position: sticky;
+  z-index: 1000;
   //min-height: 7vh;
   //margin-top: var(--screen-nav-bar-height);
 
@@ -196,6 +204,11 @@ const CruiseMenu = styled.div`
     padding-right: 2vw;
     width: 100vw;
     height: 7vh;
+  }
+
+  @media (orientation: landscape) and (max-width: 1045px) {
+    font-size: 0.55em;
+    height: 10vh;
   }
 
 
@@ -227,6 +240,7 @@ const SearchInput = styled.input`
     display: none;
   }
 
+
   @media screen and (max-width: 1024px) {
     font-size: 1em;
     height: 5vh;
@@ -237,15 +251,26 @@ const SearchInput = styled.input`
 const SelectMenu=styled.div`
   width: 40vw;
   margin: auto;
+  z-index: 1000;
   //text-align: left;
-  &.dropdown-content {
+  .dropdown-content {
     text-align: left;
   }
 
   @media screen and (max-width: 1024px) {
     width: 40vw;
+  }
 
-
+  @media (orientation: landscape) {
+    
+    .dropdown-container .dropdown-heading{
+      max-height: 5vh;
+    }
+    .dropdown-content{
+      position: absolute;
+      z-index: 999999;
+    }
+    
   }
 `
 const JoinButton = styled.button`
@@ -279,6 +304,10 @@ const JoinButton = styled.button`
     font-size: 1.75em;  
     min-width: 7vw;
     padding: none;
+  }
+
+  @media (orientation: landscape) {
+    //margin-bottom: 1vh;
   }
   
 `

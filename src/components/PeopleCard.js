@@ -128,14 +128,14 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                 <CardFooter className = {"card-footer"} bandColor={fieldColor}>
                     <UserWebsite
                         title = "Personal Website"
-                        aria-label={name + "Website Button"}
+                        aria-label={name + " Website Link"}
                         onClick={()=> openWebsite(website)} >
                         {<FaExternalLinkAlt/>}
                     </UserWebsite>
                     <MyHr />
                     <EmailButton
                         title = "Click to copy email"
-                        aria-label={name + "Email Button"}
+                        aria-label={name + " Email Button"}
                         onClick={()=>copy(email)} >
                         {<HiOutlineMail/>}
                     </EmailButton>
@@ -220,14 +220,14 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                             <ModalButton
                                 bandColor={fieldColor}
                                 title = "Personal Website"
-                                aria-label={name + "Modal Website Button"}
+                                aria-label={name + " Modal Website Link"}
                                 onClick={()=> openWebsite(website)} >
                                 {<FaExternalLinkAlt/>}
                             </ModalButton>
                             <ModalButton
                                 bandColor={fieldColor}
                                 title = "Click to copy email"
-                                aria-label={name + "Modal Email Button"}
+                                aria-label={name + " Modal Email Button"}
                                 onClick={()=>copy(email)} >
                                 {<HiOutlineMail/>}
                             </ModalButton>

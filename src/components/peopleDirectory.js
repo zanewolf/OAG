@@ -23,32 +23,34 @@ export default function PeopleDirectory({data}){
 
     return (
         <DirectoryGrid>
-            {data && data.nodes.map((node) =>{
-                fieldColor = node.data.Primary_Field in fieldColors ? fieldColors[node.data.Primary_Field] : '#818588'
-                    return (
-                        <li className={"card"} key={node.id}>
-                            <PeopleCard
-                                name={node.data.Name}
-                                title={node.data.Title}
-                                employer={node.data.Affiliations}
-                                image={node.data.Image_File}
-                                readMore={node.data.slug}
-                                website={node.data.Website}
-                                id={node.id}
-                                email={node.data.Email}
-                                about={node.data.About}
-                                activeFieldSites={node.data.Active_Field_Sites}
-                                primaryField={node.data.Primary_Field}
-                                researchKeywords = {node.data.Research_Keywords}
-                                personalKeywords = {node.data.Personal_Keywords}
-                                fieldColor = {fieldColor}
-                                secondaryFields = {node.data.Secondary_Fields}
-                            >
-                            </PeopleCard>
-                        </li>
-                    )
-                }
-            )}
+            <ul>
+                {data && data.nodes.map((node) =>{
+                    fieldColor = node.data.Primary_Field in fieldColors ? fieldColors[node.data.Primary_Field] : '#818588'
+                        return (
+                            <li className={"card"} key={node.id}>
+                                <PeopleCard
+                                    name={node.data.Name}
+                                    title={node.data.Title}
+                                    employer={node.data.Affiliations}
+                                    image={node.data.Image_File}
+                                    readMore={node.data.slug}
+                                    website={node.data.Website}
+                                    id={node.id}
+                                    email={node.data.Email}
+                                    about={node.data.About}
+                                    activeFieldSites={node.data.Active_Field_Sites}
+                                    primaryField={node.data.Primary_Field}
+                                    researchKeywords = {node.data.Research_Keywords}
+                                    personalKeywords = {node.data.Personal_Keywords}
+                                    fieldColor = {fieldColor}
+                                    secondaryFields = {node.data.Secondary_Fields}
+                                >
+                                </PeopleCard>
+                            </li>
+                        )
+                    }
+                )}
+            </ul>
         </DirectoryGrid>
     )
 }

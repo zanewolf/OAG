@@ -93,6 +93,8 @@ export default function CruiseMap ({data}) {
     let displayData = prepData(data)
     var size = useWindowSize()
 
+    console.log(size.width)
+
     return (
         <MapPage>
                 <MapContainer
@@ -102,16 +104,17 @@ export default function CruiseMap ({data}) {
                 maxBoundsViscosity={1}
                 // maxBounds={[[-90, -180],[90, 180]]}
                 zoom={2}
-                minZoom={2}
+                minZoom={1}
+                tilesize={size.width > 1045? 512: 256}
                 maxZoom={16}
                 scrollWheelZoom={true}
                 style={{
-                    height: `82vh`,
+                    height: size.width > 1045 ? `82vh`: '79vh',
                     width: '100%',
                     float: 'bottom',
-                    margin: 'auto',
-                    zIndex: '0',
-                    position: 'relative'}}>
+                    margin: size.width > 1045 ? `auto`: 'auto auto auto auto',
+                    position: 'sticky'
+                }}>
                 <TileLayer
                     attribution='Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
                     url='https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
@@ -186,6 +189,10 @@ export default function CruiseMap ({data}) {
 
 const MapPage = styled.div`
 height: 100%;
+  z-index: -1000;
+  @media (orientation: landscape) {
+    z-index: -1000;
+  }
 `
 const EmailButton = styled.button`
   background-color: rgba(0, 0, 0, 0);

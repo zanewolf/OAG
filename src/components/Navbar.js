@@ -86,6 +86,13 @@ const NavWrapper= styled.nav`
   @media screen and (max-width: 1045px){
     height: var(--phone-nav-bar-height);
   }
+
+  @media (orientation:landscape){
+    height: var(--screen-nav-bar-height);
+    padding: 1vh;
+  }
+
+
 `
 const NavTitle=styled(Link)`
   display: flex;
@@ -117,13 +124,22 @@ const NavTitleSmall = styled(Link)`
     display: block;
 
   }
-
-  @media screen and (max-width: 540px){
-    display: block;
-    font-size: 3em;
-
-
+  
+  @media (orientation: landscape) and (max-width: 915px) and (max-height: 412px){
+    font-size: 1em;
   }
+
+  //@media screen and (max-width: 540px){
+  //  display: block;
+  //  font-size: 3em;
+  //
+  //
+  //}
+
+  //@media (orientation:landscape) and (max-width: 940px){
+  //  display: block;
+  //  font-size: 1em;
+  //}
 
   //@media screen and (max-width: 360px){
   //  display: block;
@@ -171,6 +187,12 @@ const MenuLinks = styled.div`
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+
+
+    @media (orientation: landscape) {
+      margin-top: 5vh;
+    }
+
     
   }
 
@@ -200,6 +222,14 @@ const NavLink = styled(Link)`
     @media screen and (max-width: 420px) {
       font-size: 1.5em
     }
+
+
+    @media (orientation: landscape) {
+      font-size: 1.25em;
+      margin: 1vh;
+    }
+    
+    
   }
 
 `
@@ -216,6 +246,10 @@ const NavBurger = styled.div`
     display: flex;
     margin: auto 2vw;
     
+  }
+
+  @media (orientation: landscape){
+    font-size: 1em;
   }
 `
 const NavButton = styled.div`

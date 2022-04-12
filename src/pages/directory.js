@@ -87,7 +87,7 @@ export default function Directory({data}){
                     </SelectMenu>
                     <JoinButton
                         as={'a'}
-                        aria-label={"Join Button"}
+                        aria-label={"Open Airtable Join Form"}
                         onClick={(e)=>{
                         e.preventDefault()
                         window.open(airTableForm);}}>
