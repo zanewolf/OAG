@@ -209,25 +209,58 @@ const DirectoryPage = styled.div`
 const DirectoryMenu = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-content: center;
-  width: 90vw;
+  margin: auto;
+  width: 100vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
   border-bottom: 3px solid grey;
-  padding-top: 2vh;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  //align-content: center;
-  //justify-content: center;
-  height: 10vh;
-  //min-height: 7vh;
-  //margin-top: var(--screen-nav-bar-height);
+  height: 7vh;
+  position: sticky;
+  z-index: 100;
 
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1045px) {
 
     padding-left: 2vw;
     padding-right: 2vw;
     width: 100vw;
+    height: 10vh;
+    min-height: 85px;
   }
+
+  @media screen and (max-width: 500px){
+    min-height: 50px;
+  }
+
+  @media (orientation: landscape) and (max-width: 1045px) {
+    font-size: 0.55em;
+    height: 10vh;
+  }
+
+  //display: flex;
+  //flex-flow: row nowrap;
+  //justify-content: space-between;
+  //align-content: center;
+  //width: 90vw;
+  //border-bottom: 3px solid grey;
+  //padding-top: 2vh;
+  //padding-left: 2vw;
+  //padding-right: 2vw;
+  ////align-content: center;
+  ////justify-content: center;
+  //height: 7vh;
+  ////min-height: 7vh;
+  ////margin-top: var(--screen-nav-bar-height);
+  //
+  //@media screen and (max-width: 1024px){
+  //
+  //  padding-left: 2vw;
+  //  padding-right: 2vw;
+  //  width: 100vw;
+  //  height: 10vh;
+  //  min-height: 85px;
+  //}
   
     `
 const JoinButton = styled.button`
@@ -265,42 +298,69 @@ const JoinButton = styled.button`
 
 `
 const SearchContainer = styled.div`
-  position: relative;
-  //padding-top: 1vh;
+  display: block;
   margin: auto;
-  justify-content: center;
   align-content: center;
-  border: 0;
-  width: 60vw;
-  height: auto;
+  width: 50vw;
+  //position: relative;
+  ////padding-top: 1vh;
+  //margin: auto;
+  //justify-content: center;
+  //align-content: center;
+  //border: 0;
+  //width: 60vw;
   //padding-bottom: 1vh;
 
 
 `
 const SearchInput = styled.input`
-  padding: 0.5vw;
-  padding-left: 1vw;
   width: 100%;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #636363;
   border-radius: 15pt;
   font-size: 1.5em;
   color: gray;
   background-repeat: no-repeat;
   background-position: left center;
   height: 5vh;
-  ::-webkit-search-cancel-button{
+  padding-left: 2vw;
+
+  ::-webkit-search-cancel-button {
     display: none;
   }
 
-  @media screen and (max-width: 1024px){
-    //display:none;
-    //min-width: 200px;
-    font-size: 1em;
-    padding-left: 2vw;
-    //margin-top: 1vw;
-    //margin: auto;
 
+  @media screen and (max-width: 1024px) {
+    font-size: 1em;
+    height: 5vh;
+    min-height: 42px;
   }
+
+
+  //padding: 0.5vw;
+  //padding-left: 1vw;
+  //width: 100%;
+  //border: 1px solid #f5f5f5;
+  //border-radius: 15pt;
+  //font-size: 1.5em;
+  //color: gray;
+  //background-repeat: no-repeat;
+  //background-position: left center;
+  //height: 5vh;
+  //::-webkit-search-cancel-button{
+  //  display: none;
+  //}
+
+  //@media screen and (max-width: 1024px){
+  //  //display:none;
+  //  //min-width: 200px;
+  //  font-size: 1em;
+  //  padding-left: 2vw;
+  //  height: 5vh;
+  //  min-height: 40px;
+  //  //margin-top: 1vw;
+  //  //margin: auto;
+  //
+  //}
   
 
 `

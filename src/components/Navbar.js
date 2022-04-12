@@ -75,7 +75,7 @@ const NavWrapper= styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 999999;
   width: 100vw;
   //overflow-x: hidden;
   height: auto;
@@ -86,10 +86,13 @@ const NavWrapper= styled.nav`
   
   @media screen and (max-width: 1045px){
     height: var(--phone-nav-bar-height);
+    min-height: 60px;
   }
+  
 
   @media (orientation:landscape){
     height: var(--screen-nav-bar-height);
+    min-height: 28px;
     padding: 1vh;
   }
 
@@ -166,6 +169,7 @@ const MenuWrapper = styled.div`
 const MenuLinks = styled.div`
   display: flex;
   position: relative;
+  z-index: 999999;
 
   @media screen and (max-width: 1045px) {
     display: none;

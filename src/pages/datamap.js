@@ -163,7 +163,7 @@ export const query = graphql`
 //styles
 const MapContent = styled.div`
   margin-top: var(--screen-nav-bar-height);
-  height: auto;
+  height: 100%;
   min-height: 89vh;
   //display: flex;
   //flex-flow: column nowrap;
@@ -203,12 +203,18 @@ const CruiseMenu = styled.div`
     padding-left: 2vw;
     padding-right: 2vw;
     width: 100vw;
-    height: 7vh;
+    height: 10vh;
+    min-height: 85px;
+  }
+  
+  @media screen and (max-width: 500px){
+    min-height: 50px;
   }
 
   @media (orientation: landscape) and (max-width: 1045px) {
     font-size: 0.55em;
     height: 10vh;
+    min-height: 40px;
   }
 
 
@@ -244,8 +250,14 @@ const SearchInput = styled.input`
   @media screen and (max-width: 1024px) {
     font-size: 1em;
     height: 5vh;
+    min-height: 42px;
   }
 
+  @media (orientation: landscape) and (max-width: 1045px) {
+    font-size: 0.55em;
+    height: 5vh;
+    min-height: 20px;
+  }
 
 `
 const SelectMenu=styled.div`
