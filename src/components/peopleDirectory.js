@@ -18,6 +18,7 @@ let fieldColor;
 export default function PeopleDirectory({data}){
 
 
+    console.log(data)
 
 
 
@@ -32,7 +33,7 @@ export default function PeopleDirectory({data}){
                                     name={node.data.Name}
                                     title={node.data.Title}
                                     employer={node.data.Affiliations}
-                                    image={node.data.Image_File}
+                                    image={node.data.ImageAttachment}
                                     readMore={node.data.slug}
                                     website={node.data.Website}
                                     id={node.id}

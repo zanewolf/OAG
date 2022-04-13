@@ -62,9 +62,7 @@ module.exports = {
           {
             baseId: process.env.GATSBY_AIRTABLE_TABLE_ID,
             tableName: `People`,
-            separateNodeType: false, // boolean, default is false, see the documentation on naming conflicts for more information
-            separateMapType: false // boolean, default is false, see the documentation on using markdown and attachments for more information
-            // tableLinks: [`Locations`]
+            mapping: { ImageAttachment: `fileNode` }// tableLinks: [`Locations`]
           },
           // },
           {

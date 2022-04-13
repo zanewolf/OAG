@@ -203,8 +203,8 @@ const CruiseMenu = styled.div`
     padding-left: 2vw;
     padding-right: 2vw;
     width: 100vw;
-    height: 10vh;
-    min-height: 85px;
+    height: 7vh;
+    min-height: 40px;
   }
   
   @media screen and (max-width: 500px){
@@ -213,7 +213,7 @@ const CruiseMenu = styled.div`
 
   @media (orientation: landscape) and (max-width: 1045px) {
     font-size: 0.55em;
-    height: 10vh;
+    height: 7vh;
     min-height: 40px;
   }
 

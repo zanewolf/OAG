@@ -8,7 +8,6 @@ import '../styles/directory.module.css'
 import {useWindowSize} from "../components/useWindowSize";
 import {AiOutlinePlus} from "react-icons/ai";
 import {MultiSelect} from "react-multi-select-component";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 let airTableForm = "https://airtable.com/shrZtj5uOH8Ncc9zC";
 let options=  [
@@ -143,11 +142,10 @@ export const query = graphql`
               Personal_Keywords
               Email
               Affiliations
-              Image_File {
-                url
-                thumbnails {
-                  large {
-                    url
+              ImageAttachment {
+                localFiles {
+                  childImageSharp {
+                    gatsbyImageData(width: 250)
                   }
                 }
               }
@@ -216,6 +214,7 @@ const DirectoryPage = styled.div`
 
   @media screen and (max-width: 1045px) {
       padding-top: var(--phone-nav-bar-height);
+      
       //padding-top: 2vh;
     //margin-top: 13vh;
     //padding-top: 2vh;

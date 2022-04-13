@@ -11,6 +11,8 @@ import '../styles/directory.module.css'
 import {Accordion, AccordionDetails, AccordionSummary} from "@material-ui/core";
 import {ExpandMore} from "@material-ui/icons";
 
+import { GatsbyImage } from "gatsby-plugin-image";
+
 let paletteColors=['#351431','#823c3a','#f5a578',
     '#002d50', '#01778c', '#52b69a']
 const fieldColors={
@@ -88,7 +90,8 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                                 colors={colors}
                             />
                         </UserAvatar> :
-                        <UserImage src={image[0].url}
+                        // <GatsbyImage image={image.localFiles[0].childImageSharp.gatsbyImageData} />
+                        <UserImage image={image.localFiles[0].childImageSharp.gatsbyImageData}
                                    alt={'Profile picture of ' + name}
                                    bandColor={fieldColor}
                                    maxWidth={'15vw'}
@@ -182,8 +185,8 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                                         variant="beam"
                                         colors={colors}
                                     />
-                                </UserAvatarModal> :
-                                <UserImageModal src={image[0].url}
+                                </UserAvatarModal>:
+                                <UserImageModal image={image.localFiles[0].childImageSharp.gatsbyImageData}
                                            alt={'Profile picture of ' + name}
                                            bandColor={fieldColor}
                                            maxWidth={'30vw'}
@@ -337,7 +340,7 @@ const UserAvatar = styled.div`
   overflow: hidden;
   border-radius: 50%;
 `
-const UserImage = styled.img`
+const UserImage = styled(GatsbyImage)`
   margin-top: 10pt;
   border:3px solid white;
   max-width: 12vh;
@@ -709,7 +712,7 @@ const UserAvatarModal = styled.div`
   overflow: hidden;
   border-radius: 50%;
 `
-const UserImageModal = styled.img`
+const UserImageModal = styled(GatsbyImage)`
   //margin-top: 10pt;
   border: 8px solid ${props => props.bandColor || "#ffffff"};;
   max-width: 30vh;

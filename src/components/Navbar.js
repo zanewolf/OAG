@@ -86,7 +86,7 @@ const NavWrapper= styled.nav`
   
   @media screen and (max-width: 1045px){
     height: var(--phone-nav-bar-height);
-    min-height: 60px;
+    min-height: 80px;
   }
   
 
@@ -127,6 +127,10 @@ const NavTitleSmall = styled(Link)`
   @media screen and (max-width: 940px){
     display: block;
 
+  }
+  
+  @media screen and (max-height: 785px){
+    font-size: 3em;
   }
   
   @media (orientation: landscape) and (max-width: 915px) and (max-height: 412px){
