@@ -38,7 +38,7 @@ const customStyles = {
         borderRadius: '15px',
         // maxWidth: '95vw',
         // minWidth: '70vw',
-        width: 'auto',
+        width: '90vw',
         zIndex: '10000'
         // overflow: 'scroll'
     },
@@ -93,9 +93,6 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                         // <GatsbyImage image={image.localFiles[0].childImageSharp.gatsbyImageData} />
                         <UserImage image={image.localFiles[0].childImageSharp.gatsbyImageData}
                                    alt={'Profile picture of ' + name}
-                                   bandColor={fieldColor}
-                                   maxWidth={'15vw'}
-                                   maxHeight={'15vh'}
                                    onError={({ currentTarget }) => {
                                        currentTarget.onerror = null; // prevents looping
                                        currentTarget.src= {nullProfile};
@@ -131,14 +128,16 @@ export default function PeopleCard({name, title,employer, primaryField,image, ab
                 </UserInfo>
 
                 <CardFooter className = {"card-footer"} bandColor={fieldColor}>
-                    <UserWebsite
+                    <EmailButton
+                        size={"smaller"}
                         title = "Personal Website"
                         aria-label={name + " Website Link"}
                         onClick={()=> openWebsite(website)} >
                         {<FaExternalLinkAlt/>}
-                    </UserWebsite>
+                    </EmailButton>
                     <MyHr />
                     <EmailButton
+                        size={"small"}
                         title = "Click to copy email"
                         aria-label={name + " Email Button"}
                         onClick={()=>copy(email)} >
@@ -315,7 +314,7 @@ const UserCard = styled.div`
     justify-content: center;
     align-content: center;
     width: 80vw;
-    height: 40vh;
+    height: 50vh;
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
@@ -410,8 +409,7 @@ const UserWebsite = styled.a`
   &:hover:before {
     opacity: 1;
     visibility: visible;
-  }
-    
+  }    
   &:hover{
     font-weight: bolder;
     transition: 0.5s;
@@ -423,7 +421,7 @@ const UserWebsite = styled.a`
 const EmailButton = styled.button`
   background-color: rgba(0,0,0,0);
   //width: 5vw;
-  font-size: 2em;
+  font-size: ${props=>props.size ==='smaller' ? '1.5em' : '2em'};
   border: none;
   margin: auto;
   padding-top: 4px;
@@ -598,7 +596,7 @@ const PersonBlock = styled.div`
   justify-content: space-between;
   max-width: 90vw;
   min-width: 60vw;
-  min-height: 60vh;
+  min-height: 70vh;
   height: auto;
   margin: auto;
   border-radius: 5pt;
@@ -615,7 +613,8 @@ const PersonBlock = styled.div`
 
   @media screen and (max-width: 500px) {
     flex-flow: column nowrap;
-    max-width: 100vw;
+    min-height: 50vh;
+    max-width: 95vw;
     width: auto;
     align-items: center;
     align-content: center;
@@ -690,7 +689,7 @@ const LeftBlock = styled.div`
     height: auto;
     align-items: center;
     align-content: center;
-    maring-bottom: 5vh;
+    margin-bottom: 5vh;
   }
 `
 const UserHeaderModal = styled.div`
@@ -873,6 +872,10 @@ const ModalAbout = styled.div`
 const AboutP = styled.p`
   overflow: hidden;
   margin-bottom: 2vh;
+  
+  @media screen and (max-width: 900px){
+    font-size: 0.85em;
+  }
   
 
 `

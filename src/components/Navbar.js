@@ -89,9 +89,12 @@ const NavWrapper= styled.nav`
     min-height: 80px;
   }
   
+  @media screen and (max-width: 400px){
+    min-height: 70px;
+  }
+  
 
   @media (orientation:landscape){
-    height: var(--screen-nav-bar-height);
     min-height: 28px;
     padding: 1vh;
   }

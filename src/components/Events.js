@@ -13,13 +13,6 @@ export default function Events() {
                   frontmatter {
                     title
                     slug
-                    thumb {
-                        childImageSharp {
-                          gatsbyImageData(
-                            quality: 90
-                            )
-                        }
-                      }
                     date(formatString: "DD MMMM YYYY")
                   }
                   id
@@ -42,7 +35,7 @@ export default function Events() {
                     {events.map(event => (
                         <Link to={"/events/" + event.frontmatter.slug} key={event.id}>
                             <div>
-                                <GatsbyImage image={getImage(event.frontmatter.thumb)} alt={"image"}/>
+                                {/*<GatsbyImage image={getImage(event.frontmatter.thumb)} alt={"image"}/>*/}
                                 <h3>{ event.frontmatter.title }</h3>
                                 <p>{ event.frontmatter.date }</p>
                             </div>

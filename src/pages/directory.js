@@ -213,7 +213,7 @@ const DirectoryPage = styled.div`
 
 
   @media screen and (max-width: 1045px) {
-      padding-top: var(--phone-nav-bar-height);
+    padding-top: clamp(80px,var(--phone-nav-bar-height),115px);
       
       //padding-top: 2vh;
     //margin-top: 13vh;
@@ -225,7 +225,6 @@ const DirectoryMenu = styled.div`
   flex-flow: row nowrap;
   justify-content: center;
   align-content: center;
-  margin: auto;
   width: 100vw;
   padding-left: 3vw;
   padding-right: 3vw;

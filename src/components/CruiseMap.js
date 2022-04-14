@@ -103,6 +103,7 @@ export default function CruiseMap ({data}) {
                 continuousWorld={false}
                 maxBoundsViscosity={1}
                 // maxBounds={[[-90, -180],[90, 180]]}
+                    tap={false}
                 zoom={2}
                 minZoom={1}
                 tilesize={size.width > 1045? 512: 256}
