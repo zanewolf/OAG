@@ -39,9 +39,10 @@ const fieldColors={
 }
 let fieldColor;
 
+
 if (typeof window !== 'undefined') {
     DefaultIcon = L.icon({
-        iconUrl: oIcon,
+        iconUrl: oIcon
     });
     L.Marker.prototype.options.icon = DefaultIcon;
 
@@ -66,6 +67,7 @@ function prepData(data){
             node.data.Longitude = +node.data.Longitude
             node.data.position=[node.data.Latitude,node.data.Longitude]
         } else{
+
             // node.data.position =[0,0]
 
             // node.data.position = getLatLong(node.data.Main_Location)
@@ -113,8 +115,9 @@ export default function CruiseMap ({data}) {
                     height: size.width > 1045 ? `82vh`: '79vh',
                     width: '100%',
                     float: 'bottom',
+                    zIndex: '0',
                     margin: size.width > 1045 ? `auto`: 'auto auto auto auto',
-                    position: 'sticky'
+                    // position: 'sticky'
                 }}>
                 <TileLayer
                     attribution='Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
@@ -189,11 +192,7 @@ export default function CruiseMap ({data}) {
 }
 
 const MapPage = styled.div`
-height: 100%;
-  z-index: -1000;
-  @media (orientation: landscape) {
-    z-index: -1000;
-  }
+  height: 100%;
 `
 const EmailButton = styled.button`
   background-color: rgba(0, 0, 0, 0);
@@ -227,7 +226,7 @@ const EmailButton = styled.button`
     transition: opacity 1s ease-in-out;
 
     position: absolute;
-    z-index: 1;
+    //z-index: 1;
     left: 0;
     top: 110%;
 

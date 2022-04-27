@@ -61,7 +61,7 @@ export default function JoinPage() {
 }
 
 const DocButton = styled.a`
-  font-size: 1.5em;
+  font-size: var(--size-24);
   color: white;
   margin: auto;
   margin-top: 5vw;
@@ -90,7 +90,7 @@ const DocButton = styled.a`
     //transition-timing-function: ease-out;
     -webkit-transform: scale(1.05) translateZ(0);
     transform: scale(1.05) translateZ(0);
-    color: blue;
+    //color: blue;
   }
 `
 
@@ -127,7 +127,7 @@ const JoinAbout = styled.div`
   justify-content: center;
   align-content: center;
   //text-align: center;
-  font-size: 1.15em;
+  font-size: var(--size-18);
   letter-spacing: 1px;
   line-height: 1.5em;
   width: 100vw;
@@ -207,7 +207,7 @@ const JoinBox=styled.div`
 const BoxTitle = styled.div`
   padding-top: 5vh;
   text-align: center;
-  font-size: 2em;
+  font-size: var(--size-32);
   text-transform: uppercase;
   margin: auto;
 
@@ -246,7 +246,7 @@ const JoinButton = styled.button`
     }
 
   @media screen and (max-width: 1200px){
-    font-size: 3em;  
+    font-size: var(--size-48); 
   }
   
 `

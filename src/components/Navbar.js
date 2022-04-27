@@ -90,7 +90,7 @@ const NavWrapper= styled.nav`
   }
   
   @media screen and (max-width: 400px){
-    min-height: 70px;
+    min-height: 80px;
   }
   
 
@@ -120,7 +120,7 @@ const NavTitle=styled(Link)`
 `
 const NavTitleSmall = styled(Link)`
   display: none;
-  font-size: 4em;
+  font-size: var(--size-64);
   font-weight: 700;
   color: white;
   cursor: pointer;
@@ -129,15 +129,16 @@ const NavTitleSmall = styled(Link)`
   
   @media screen and (max-width: 940px){
     display: block;
+    font-size: var(--size-56);
 
   }
   
   @media screen and (max-height: 785px){
-    font-size: 3em;
+    font-size: var(--size-56);
   }
   
   @media (orientation: landscape) and (max-width: 915px) and (max-height: 412px){
-    font-size: 1em;
+    font-size: var(--size-28);
   }
 
   //@media screen and (max-width: 540px){
@@ -188,7 +189,7 @@ const MenuLinks = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 2em;
+    font-size: var(--size-32);
     margin-top: var(--phone-nav-bar-height);
     width: 100vw;
     height: 100vh;
@@ -216,7 +217,7 @@ const NavLink = styled(Link)`
   z-index: 1000;
   cursor: pointer;
   font-weight: 500;
-  font-size: 1.25em;
+  font-size: var(--size-20);
 
   &:hover {
     transition: 0.5s;
@@ -225,19 +226,19 @@ const NavLink = styled(Link)`
   
   &.sideMenu{
     margin: 4vw;
-    font-size: 2em;
+    font-size: var(--size-32);
 
     @media screen and (max-width: 940px) {
-      font-size: 2em
+      font-size: var(--size-32);
     }
 
     @media screen and (max-width: 420px) {
-      font-size: 1.5em
+      font-size: var(--size-24);
     }
 
 
     @media (orientation: landscape) {
-      font-size: 1.25em;
+      font-size: var(--size-20);
       margin: 1vh;
     }
     
@@ -251,7 +252,7 @@ const NavLink = styled(Link)`
 const NavBurger = styled.div`
   display: none;
   color: #fff;
-  font-size:2em;
+  font-size:var(--size-32);
   
   
   @media screen and (max-width: 1045px){
@@ -260,8 +261,13 @@ const NavBurger = styled.div`
     
   }
 
-  @media (orientation: landscape){
-    font-size: 1em;
+  @media screen and (max-width: 900px){
+    font-size: var(--size-24);
+
+  }
+
+  @media (orientation: landscape) and (max-height: 500px){
+    font-size: var(--size-16);
   }
 `
 const NavButton = styled.div`

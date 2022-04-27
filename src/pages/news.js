@@ -3,14 +3,16 @@ import Layout from "../components/Layout";
 import styled from 'styled-components'
 import {graphql} from "gatsby";
 import ocean3 from '../images/ocean3.jpg';
+import Announcements from "../components/announcements"
 
 export default function News({data}) {
 
     return (
         <Layout
-            pageTitle={"Ocean News"}
-            pageContent={"A collection of ocean-related news sources."}
+            pageTitle={"OAHU News"}
+            pageContent={"Get the latest news and updates from OAHU and from our community, and find links to other news sources."}
         >
+            <Announcements/>
             <NewsPage image={ocean3} >
                 <NewsContent>
                     <NewsHeader className="masthead" role="img" aria-label="Image Description">
@@ -76,20 +78,21 @@ const NewsPage = styled.div`
 `
 
 const NewsContent = styled.div`
-  margin-top: var(--screen-nav-bar-height);
+  //margin-top: var(--screen-nav-bar-height);
   //height: auto;
   //min-height: 80vh;
   height: auto;
+  min-height: 95vh;
   //margin-top: var(--screen-nav-bar-height);
 
-  @media screen and (max-width: 1045px){
-    margin-top: var(--phone-nav-bar-height);
-  }
+  //@media screen and (max-width: 1045px){
+  //  margin-top: var(--phone-nav-bar-height);
+  //}
   
 `
 
 const NewsHeader = styled.section`
-    margin-top: -4.6vh;
+    //margin-top: -4.6vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +110,7 @@ const NewsHeader = styled.section`
     //border: 1px solid rgba(255, 255, 255, 0.18);
 
   @media screen and (max-width: 1700px){
-    margin-top: -0.5vh;
+    //margin-top: -0.5vh;
   }
 
   @media screen and (max-width: 1045px){
@@ -118,20 +121,20 @@ const NewsHeader = styled.section`
     font-style: normal;
     font-weight: 700;
     color: #fff;
-    font-size: 4em;
+    font-size: var(--size-64);
     letter-spacing: 0.03em;
     line-height: 1;
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
 
     @media screen and (max-width: 1400px){
-      font-size: 3em;
+      font-size: var(--size-48);
     }
     @media screen and (max-width: 1045px){
-      font-size: 2em;
+      font-size: var(--size-32);
     }
 
     @media screen and (max-width: 500px){
-      font-size: 1.5em;
+      font-size: var(--size-24);
     }
     //margin-bottom: 48px;
   }
@@ -140,7 +143,7 @@ const NewsHeader = styled.section`
     padding: 2vh;
     margin-top: 2vh;
     font-style: normal;
-    font-size: 1.5em;
+    font-size: var(--size-24);
     font-weight: 400;
     width: 80vw;
     color: #fff;
@@ -153,10 +156,10 @@ const NewsHeader = styled.section`
     //border: 1px solid rgba(255, 255, 255, 0.18);
 
     @media screen and (max-width: 1400px){
-      font-size: 1.5em;
+      font-size: var(--size-24);
     }
     @media screen and (max-width: 500px){
-      font-size: 1em;
+      font-size: var(--size-16);
     }
   }
 
@@ -223,7 +226,7 @@ const NewsBlock = styled.div`
       align-content: center;
       text-align: center;
       line-height: 1em;
-      font-size: 1.5em;
+      font-size: var(--size-24);
       font-weight: 400;
 
 

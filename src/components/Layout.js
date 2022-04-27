@@ -68,7 +68,7 @@ export default Layout
 const EmailButton = styled.button`
   background-color: rgba(0,0,0,0);
   //width: 5vw;
-  font-size: 1.5em;
+  font-size: var(--size-24);
   border: none;
   margin: auto;
   color: white;
@@ -112,8 +112,4 @@ const EmailButton = styled.button`
     transform: scale(1.3) translateZ(0);
   }
 
-  @media screen and (max-width: 900px) {
-    font-size: 1.5em;
-    //margin: 1vh;
-  }
 `

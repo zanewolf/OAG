@@ -6,8 +6,6 @@ import styled from "styled-components";
 
 export default function Team(){
 
-    console.log(teamData)
-
     return (
             <TeamPage>
                 <TeamPageHeader>
@@ -54,13 +52,13 @@ const TeamPage = styled.div`
 `
 
 const TeamPageHeader = styled.h1`
-  font-size: 3em;
+  font-size: var(--size-48);
   color: white;
   margin: auto;
   padding: 3vw;
 
   @media screen and (max-width: 420px) {
-    font-size: 2.5em;
+    font-size: var(--size-40);
   }
   
 `
@@ -136,7 +134,7 @@ const TeamMemberInfo = styled.div`
 `
 
 const TeamName = styled.h2`
-  font-size: 2em;
+  font-size: var(--size-32);
   padding: 1vw;
   margin: auto;
   text-align: center;
@@ -144,6 +142,6 @@ const TeamName = styled.h2`
 `
 
 const TeamTitle = styled.h3`
-  font-size: 1em;
+  font-size: var(--size-16);
   margin-bottom: 1vw;
 `

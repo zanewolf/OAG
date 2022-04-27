@@ -110,7 +110,7 @@ const SectionHeader=styled.h2`
   display: flex;
   justify-content: center;
   align-content: center;
-  font-size: 3em;
+  font-size: var(--size-50);
   font-weight: bold;
   max-width: 30vw;
 
@@ -139,7 +139,7 @@ const MissionDesc=styled.div`
 `
 
 const JoinButton = styled(Link)`
-  font-size: 2em;
+  font-size: var(--size-32);
   color: white;
   margin: auto;
   margin-top: 5vw;

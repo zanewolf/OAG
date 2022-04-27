@@ -213,7 +213,7 @@ const DirectoryPage = styled.div`
 
 
   @media screen and (max-width: 1045px) {
-    padding-top: clamp(80px,var(--phone-nav-bar-height),115px);
+    padding-top: clamp(90px,var(--phone-nav-bar-height),115px);
       
       //padding-top: 2vh;
     //margin-top: 13vh;
@@ -245,14 +245,14 @@ const DirectoryMenu = styled.div`
   }
 
   @media (orientation: landscape) and (max-width: 1045px) {
-    font-size: 0.55em;
+    font-size: var(--size-8);
     height: 7vh;
     min-height: 40px;
   }
   
     `
 const JoinButton = styled.button`
-  font-size: 1.5em;
+  font-size: var(--size-24);
   cursor: pointer;
   color: white;
   margin: auto 1vw auto 1vw;
@@ -279,7 +279,7 @@ const JoinButton = styled.button`
   }
 
   @media screen and (max-width: 1045px){
-    font-size: 1.75em;
+    font-size: var(--size-28);
 
     padding: 5px 5px 0px 5px;
   }
@@ -305,7 +305,7 @@ const SearchInput = styled.input`
   width: 100%;
   border: 1px solid #636363;
   border-radius: 15pt;
-  font-size: 1.5em;
+  font-size: var(--size-24);
   color: gray;
   background-repeat: no-repeat;
   background-position: left center;
@@ -318,13 +318,13 @@ const SearchInput = styled.input`
 
 
   @media screen and (max-width: 1024px) {
-    font-size: 1em;
+    font-size: var(--size-16);
     height: 5vh;
     min-height: 42px;
   }
 
   @media (orientation: landscape) and (max-width: 1045px) {
-    font-size: 0.75em;
+    font-size: var(--size-12);
     height: 5vh;
     min-height: 20px;
   }
@@ -358,7 +358,6 @@ const SearchInput = styled.input`
   
 
 `
-
 const DirectorySection = styled.div`
   //padding-top: 10vh;
   //align-content: center;

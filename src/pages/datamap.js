@@ -13,22 +13,7 @@ const CruiseMap = loadable(()=>import('../components/CruiseMap'))
 
 let airtableDataForm = "https://airtable.com/shrlU4ivGTFhQn6vb"
 
-// async function getLatLong (location) {
-//
-//     // console.log(location)
-//
-//     let coords = opencage
-//         .geocode({key:process.env.GATSBY_OPENCAGE_API_KEY, q: location})
-//         .then(response=>{
-//             // console.log([response.results[0].geometry.lat,response.results[0].geometry.lng])
-//             return ([response.results[0].geometry.lat,response.results[0].geometry.lng])
-//         })
-//
-//     console.log('getlatlong', coords)
-//
-//     return coords
-//
-// }
+
 
 let options=  [
     {
@@ -100,6 +85,7 @@ export default function Datamap({data}){
                         <MultiSelect
                             options={options}
                             value={selected}
+                            className={'dropdownMultiSelect'}
                             onChange={setSelected}
                             disableSearch={true}
                             labelledBy={"Select"}
@@ -172,12 +158,30 @@ const MapContent = styled.div`
 
   @media screen and (max-width: 1045px) {
 
-    margin-top: var(--phone-nav-bar-height);
-    min-height: 84vh;
+    //margin-top: var(--phone-nav-bar-height);
+    //min-height: 84vh;
+    //@media screen and (max-width: 1045px) {
+    padding-top: clamp(90px,var(--phone-nav-bar-height),115px);
+    margin-top:0;
+
+      //padding-top: 2vh;
+      //margin-top: 13vh;
+      //padding-top: 2vh;
+    
   }
 
+
+  @media (orientation:landscape) and (max-height: 400px)  {
+  padding-top: clamp(20px,var(--phone-nav-bar-height),115px);
+    margin-top: 0;
+
+  //padding-top: 2vh;
+  //margin-top: 13vh;
+  //padding-top: 2vh;
+}
+
   @media (orientation: landscape) {
-    z-index: -1000;
+    //z-index: -1000;
   }
   
   
@@ -194,7 +198,7 @@ const CruiseMenu = styled.div`
   border-bottom: 3px solid grey;
   height: 7vh;
   position: sticky;
-  z-index: 1000;
+  z-index: 100;
   //min-height: 7vh;
   //margin-top: var(--screen-nav-bar-height);
 
@@ -212,7 +216,7 @@ const CruiseMenu = styled.div`
   }
 
   @media (orientation: landscape) and (max-width: 1045px) {
-    font-size: 0.55em;
+    font-size: var(--size-8);
     height: 7vh;
     min-height: 40px;
   }
@@ -235,7 +239,7 @@ const SearchInput = styled.input`
   width: 100%;
   border: 1px solid #636363;
   border-radius: 15pt;
-  font-size: 1.5em;
+  font-size: var(--size-24);
   color: gray;
   background-repeat: no-repeat;
   background-position: left center;
@@ -248,13 +252,13 @@ const SearchInput = styled.input`
 
 
   @media screen and (max-width: 1024px) {
-    font-size: 1em;
+    font-size: var(--size-16);
     height: 5vh;
     min-height: 42px;
   }
 
   @media (orientation: landscape) and (max-width: 1045px) {
-    font-size: 0.75em;
+    font-size: var(--size-12);
     height: 5vh;
     min-height: 20px;
   }
@@ -263,11 +267,8 @@ const SearchInput = styled.input`
 const SelectMenu=styled.div`
   width: 40vw;
   margin: auto;
-  z-index: 1000;
-  //text-align: left;
-  .dropdown-content {
-    text-align: left;
-  }
+
+
 
   @media screen and (max-width: 1024px) {
     width: 40vw;
@@ -279,15 +280,12 @@ const SelectMenu=styled.div`
       height: 5vh;
       min-height: 20px;
     }
-    .dropdown-content{
-      position: absolute;
-      z-index: 999999;
-    }
+
     
   }
 `
 const JoinButton = styled.button`
-  font-size: 1.5em;
+  font-size: var(--size-24);
   cursor: pointer;
   color: white;
   margin: auto 1vw auto 1vw;
@@ -314,9 +312,9 @@ const JoinButton = styled.button`
     }
 
   @media screen and (max-width: 1045px){
-    font-size: 1.75em;  
+    font-size: var(--size-28); 
     min-width: 7vw;
-    padding: none;
+    padding: 0;
   }
 
   @media (orientation: landscape) {

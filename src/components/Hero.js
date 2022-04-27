@@ -112,7 +112,7 @@ const HeroH1 = styled.h1`
   //background-color: #0a6699;
   display: flex;
   flex-direction: row;
-  font-size:3em;
+  font-size:var(--size-48);
   margin: auto 2vw;
   text-align: center;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);

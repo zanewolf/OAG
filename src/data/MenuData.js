@@ -20,8 +20,8 @@ export const menuData=[
         link: '/grants/'
     },
     {
-        title: "Announcements",
-        link: '/announcements/'
+        title: "For Undergrads",
+        link: '/undergrads/'
     }
 ]
 

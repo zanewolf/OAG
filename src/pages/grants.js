@@ -81,10 +81,10 @@ const UnderConstruction = styled.h1`
     margin: auto;
     color: white;
     font-weight: 500;
-    font-size: 3em;
+    font-size: var(--size-50);
 
   @media only screen and (max-width: 550px) {
-    font-size: 2em;
+    font-size: var(--size-32);
   }
   
 `
@@ -114,7 +114,7 @@ const Background = styled.div`
     backface-visibility: hidden;
     position: absolute;
     animation: move;
-    animation-duration: 45;
+    animation-duration: 45ms;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }

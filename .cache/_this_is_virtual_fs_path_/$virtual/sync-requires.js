@@ -6,7 +6,6 @@ const preferDefault = m => (m && m.default) || m
 exports.components = {
   "component---cache-dev-404-page-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\.cache\\dev-404-page.js")),
   "component---src-pages-404-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\404.js")),
-  "component---src-pages-announcements-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\announcements.js")),
   "component---src-pages-blog-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\blog\\index.js")),
   "component---src-pages-blog-mdx-slug-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\blog\\{mdx.slug}.js")),
   "component---src-pages-contactus-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\contactus.js")),
@@ -17,6 +16,7 @@ exports.components = {
   "component---src-pages-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\index.js")),
   "component---src-pages-join-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\join.js")),
   "component---src-pages-news-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\news.js")),
-  "component---src-pages-projects-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\projects\\index.js"))
+  "component---src-pages-projects-index-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\projects\\index.js")),
+  "component---src-pages-undergrads-js": preferDefault(require("C:\\Users\\zwolf\\Documents\\OAG\\oag_website2\\ocean_affinity_group\\src\\pages\\undergrads.js"))
 }
 

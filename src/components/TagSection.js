@@ -43,7 +43,7 @@ const KeywordSection=styled.div`
     background-color: ${props => props.bandColor || "#ffffff"};
     padding: 2pt 10pt;
     border-radius: 10pt;
-    font-size: 0.75em;
+    font-size: var(--size-12);
     margin: 2pt;
   }
 

@@ -378,7 +378,7 @@ const UserWebsite = styled.a`
   margin: auto;
   padding-top: 4px;
   //border-right: 2px solid #828282
-  font-size: 1.5em;
+  font-size: var(--size-24);
   border: none;
   font-weight: normal;
   display: inline-block;
@@ -421,7 +421,7 @@ const UserWebsite = styled.a`
 const EmailButton = styled.button`
   background-color: rgba(0,0,0,0);
   //width: 5vw;
-  font-size: ${props=>props.size ==='smaller' ? '1.5em' : '2em'};
+  font-size: ${props=>props.size ==='smaller' ? 'var(--size-24);' : 'var(--size-32);'};
   border: none;
   margin: auto;
   padding-top: 4px;
@@ -469,7 +469,7 @@ const EmailButton = styled.button`
 const BioButton = styled.button`
   background-color: rgba(0,0,0,0);
   //width: 5vw;
-  font-size: 2em;
+  font-size: var(--size-32);
   border: none;
   margin: auto;
   //padding-top: 5px;
@@ -539,7 +539,7 @@ const UserName = styled.h1`
   display: flex;
   justify-content: center;
   margin: auto;
-  font-size: 1.5rem;
+  font-size: var(--size-24);
   text-transform: uppercase;
   padding: 5px;
   //word-break: break-all;
@@ -559,7 +559,7 @@ const UserRole = styled.div`
   justify-content: center;
   text-align: center;
   margin: auto;
-  font-size: 0.85em;
+  font-size: var(--size-14);
   font-weight: lighter;
 `
 const UserEmployer = styled.div`
@@ -568,8 +568,8 @@ const UserEmployer = styled.div`
   justify-content: center;
   text-align: center;
   margin: auto;
-  font-size: 1em;
-  font-weight: lighter;
+  font-size: var(--size-18);
+  font-weight: normal;
 `
 const UserFields = styled.div`
   display: flex;
@@ -584,7 +584,7 @@ const UserFields = styled.div`
     color: rgba(0,0,0,0.5);
   }
   h6{
-    font-size: 0.85em;
+    font-size: var(--size-14);
   }
 `
 
@@ -632,7 +632,7 @@ const ButtonDiv = styled.div`
   button{
     background: none;
     border: none;
-    font-size: 2em;
+    font-size: var(--size-32);
 
     &:before {
       //content: attr(title);
@@ -729,7 +729,7 @@ const UserNameModal = styled.h1`
   display: flex;
   justify-content: center;
   margin: auto;
-  font-size: 2em;
+  font-size: var(--size-32);
   text-transform: uppercase;
   //word-break: break-all;
   overflow-wrap: break-word;
@@ -766,7 +766,7 @@ const UserRoleModal = styled.div`
   justify-content: center;
   text-align: center;
   margin: auto;
-  font-size: 1em;
+  font-size: var(--size-16);
   font-weight: lighter;
   padding: 5px;
 `
@@ -776,7 +776,7 @@ const UserEmployerModal = styled.div`
   justify-content: center;
   text-align: center;
   margin: auto;
-  font-size: 1.2em;
+  font-size: var(--size-20);
   font-weight: normal;
   padding: 5px;
 `
@@ -791,10 +791,10 @@ const UserFieldsModal = styled.div`
   h4{
     text-transform: uppercase;
     color: rgba(0,0,0,0.5);
-    font-size: 1.3em;
+    font-size: var(--size-20);
   }
   h6{
-    font-size: 1em;
+    font-size: var(--size-16);
   }
 `
 const ContactButtons = styled.div`
@@ -809,7 +809,7 @@ const ModalButton = styled.button`
   border-radius: 50%;
   padding: 9px 5px 5px 5px;
   border: none;
-  font-size: 3em;
+  font-size: var(--size-48);
   color: #fff;
   background-color: ${props => props.bandColor || "#000000"};
 
@@ -874,7 +874,7 @@ const AboutP = styled.p`
   margin-bottom: 2vh;
   
   @media screen and (max-width: 900px){
-    font-size: 0.85em;
+    font-size: var(--size-14);
   }
   
 

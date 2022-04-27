@@ -11,7 +11,7 @@
 }
 
 .modal_container {
-    z-index: 60;
+    /*z-index: 60;*/
     display: flex;
     background-color: white;
     right: 0;
