@@ -92,7 +92,7 @@ const NewsContent = styled.div`
 `
 
 const NewsHeader = styled.section`
-    //margin-top: -4.6vh;
+    //margin-top: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,6 +118,7 @@ const NewsHeader = styled.section`
   }
   
   h1 {
+    margin-top: 10vh;
     font-style: normal;
     font-weight: 700;
     color: #fff;

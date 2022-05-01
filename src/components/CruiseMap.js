@@ -15,6 +15,7 @@ import oIcon from '../images/marker_map_icon_other.png';
 import { ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import {useWindowSize} from "./useWindowSize";
+import MarkerClusterGroup from 'react-leaflet-markercluster'
 
 
 let DefaultIcon = null;
@@ -52,7 +53,9 @@ function GetIcon(primaryField){
     let thisIcon = primaryField in iconDict ? iconDict[primaryField] : oIcon
     // console.log(thisIcon)
     return L.icon({
+        iconSize: [40,40],
         iconUrl: thisIcon,
+        iconAnchor: [10,40]
         // iconSize: [48]
     })
 }
@@ -123,69 +126,71 @@ export default function CruiseMap ({data}) {
                     attribution='Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
                     url='https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
                 />
+                    <MarkerClusterGroup>
 
-                {displayData.nodes.map((node, i) => {
-                    fieldColor = node.data.Primary_Field in fieldColors ? fieldColors[node.data.Primary_Field] : '#818588'
-                    return (
-                        <Marker
-                            position={node.data.position}
-                            key={node.id}
-                            icon={GetIcon(node.data.Primary_Field)}
-                        >
-                            {/*<ResponsivePopup/>*/}
-                            <StyledPopup bandColor = {fieldColor} size={size}>
-                                <HeaderInfo>
-                                    <h1>{node.data.Research_Subject}</h1>
-                                    <h2>{node.data.Year}</h2>
-                                    {/*<h3> {node.data.position}</h3>*/}
-                                    {/*<h4>{node.data.Other_Locations}</h4>*/}
-                                    <h2>{node.data.People_Involved}</h2>
-                                </HeaderInfo>
-                                <hr/>
-                                <h3>Data Collected: <span>{node.data.Data_Medium}</span></h3>
-                                <h3>Research Focus: <span>{node.data.Research_Focus}</span></h3>
+                        {displayData.nodes.map((node, i) => {
+                            fieldColor = node.data.Primary_Field in fieldColors ? fieldColors[node.data.Primary_Field] : '#818588'
+                            return (
+                                <Marker
+                                    position={node.data.position}
+                                    key={node.id}
+                                    icon={GetIcon(node.data.Primary_Field)}
+                                >
+                                    {/*<ResponsivePopup/>*/}
+                                    <StyledPopup bandColor = {fieldColor} size={size}>
+                                        <HeaderInfo>
+                                            <h1>{node.data.Research_Subject}</h1>
+                                            <h2>{node.data.Year}</h2>
+                                            {/*<h3> {node.data.position}</h3>*/}
+                                            {/*<h4>{node.data.Other_Locations}</h4>*/}
+                                            <h2>{node.data.People_Involved}</h2>
+                                        </HeaderInfo>
+                                        <hr/>
+                                        <h3>Data Collected: <span>{node.data.Data_Medium}</span></h3>
+                                        <h3>Research Focus: <span>{node.data.Research_Focus}</span></h3>
 
-                                <h3>Data available: {node.data.Data_Available === 'Public'?
-                                    <a href={node.data.Data_Link} target={"_blank"} rel={'noreferrer'} >Public Link <FaExternalLinkAlt/></a>
-                                    :
-                                    node.data.Data_Available === 'Upon Request' ?
-                                        <EmailButton
-                                            aria-label={"Copy Email Button"}
-                                            onClick={()=>copy(node.data.Data_Email)}>Email Me <HiOutlineMail/></EmailButton>
-                                        :
-                                        'Not Yet'
-                                }
-                                </h3>
+                                        <h3>Data available: {node.data.Data_Available === 'Public'?
+                                            <a href={node.data.Data_Link} target={"_blank"} rel={'noreferrer'} >Public Link <FaExternalLinkAlt/></a>
+                                            :
+                                            node.data.Data_Available === 'Upon Request' ?
+                                                <EmailButton
+                                                    aria-label={"Copy Email Button"}
+                                                    onClick={()=>copy(node.data.Data_Email)}>Email Me <HiOutlineMail/></EmailButton>
+                                                :
+                                                'Not Yet'
+                                        }
+                                        </h3>
 
-                                <hr/>
-                                {node.data.Other_Locations && <Accordion>
+                                        <hr/>
+                                        {node.data.Other_Locations && <Accordion>
 
-                                    <AccordionSummary expandIcon={<ExpandMore/>}>
-                                        OTHER LOCATIONS
-                                    </AccordionSummary>
+                                            <AccordionSummary expandIcon={<ExpandMore/>}>
+                                                OTHER LOCATIONS
+                                            </AccordionSummary>
 
-                                    <AccordionDetails>
-                                        {node.data.Other_Locations}
-                                    </AccordionDetails>
+                                            <AccordionDetails>
+                                                {node.data.Other_Locations}
+                                            </AccordionDetails>
 
-                                </Accordion>
-                                }
-                                {node.data.About && <Accordion>
+                                        </Accordion>
+                                        }
+                                        {node.data.About && <Accordion>
 
-                                    <AccordionSummary expandIcon={<ExpandMore/>}>
-                                        ABOUT
-                                    </AccordionSummary>
+                                            <AccordionSummary expandIcon={<ExpandMore/>}>
+                                                ABOUT
+                                            </AccordionSummary>
 
-                                    <AccordionDetails>
-                                        {node.data.About}
-                                    </AccordionDetails>
+                                            <AccordionDetails>
+                                                {node.data.About}
+                                            </AccordionDetails>
 
-                                </Accordion>
-                                }
-                            </StyledPopup>
-                        </Marker>
-                    )
-                })}
+                                        </Accordion>
+                                        }
+                                    </StyledPopup>
+                                </Marker>
+                            )
+                        })}
+                    </MarkerClusterGroup>
             </MapContainer>
         </MapPage>
     )

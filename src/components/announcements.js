@@ -39,7 +39,7 @@ export default function Announcements() {
 const GrantPage = styled.div`
     //position: absolute;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     ////min-height: 98vh;
     height: auto;
     display: flex;

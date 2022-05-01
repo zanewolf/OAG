@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../styles/hero.module.css';
+import BackgroundImage from 'gatsby-background-image'
 
 // import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 
-export default function Hero({title, position, size, image,darkened, color, children, position2}){
+export default function Hero({title,position, size, image,darkened, color, children, position2}){
     // let heroImage = image? image : "../images/ocean.png"
 
 
@@ -13,19 +14,18 @@ export default function Hero({title, position, size, image,darkened, color, chil
     return(
         // <div className={"hero-container"}>
         <HeroContainer size={size}>
-            <HeroImage image={image} size={size} color={color} position2={position2}/>
-            <HeroContent  position={position}>
-                <HeroH1>
-                    {title}
-                </HeroH1>
-                <HeroBody position={position}>
-                    {children}
-                </HeroBody>
-            </HeroContent>
+            <HeroImage fluid={image} size={size} backgroundColor={color} position2={position2}>
+                <HeroContent  position={position}>
+                    {/*<HeroH1>*/}
+                    {/*    {title}*/}
+                    {/*</HeroH1>*/}
+                    <HeroBody position={position}>
+                        {children}
+                    </HeroBody>
+                </HeroContent>
+            </HeroImage>
         </HeroContainer>
-        //     <h1>{title}</h1>
-        //     {children}
-        // </div>
+
     )
 
 }
@@ -53,6 +53,7 @@ export default function Hero({title, position, size, image,darkened, color, chil
 const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-content:center;
   height: ${({size})=>(size)};
   position: relative;
 
@@ -62,6 +63,8 @@ const HeroContainer = styled.div`
 
   @media screen and (max-width: 1100px) {
     min-height: 100vh;
+    height: auto;
+    overflow: visible;
   }
 `
 //
@@ -78,7 +81,6 @@ const HeroContent = styled.div`
   margin-left: auto;  
   flex-direction: column;
   color: white;
-  //z-index: 500;
   
   @media screen and (max-width: 980px){
     margin-top: var(--phone-nav-bar-height);
@@ -88,42 +90,36 @@ const HeroContent = styled.div`
   }
 `
 
-const HeroImage = styled.div`
+const HeroImage = styled(BackgroundImage)`
   //background: url(${({image})=>(image ? image : null)}) center center/cover no-repeat;
-  background: ${({image,color,position2})=>(image ? `url(${image}) ${position2} center/cover no-repeat` : `${color}`)};
-  position: absolute;
+  // background: ${({image,color,position2})=>(image ? `url(${image}) ${position2} center/cover no-repeat` : `${color}`)};
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: -50;
   height: ${({size}) => (size)};
+  background-position: ${({position2}) => (position2)};
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (max-width: 1100px) {
+      //overflow: visible
+    height: auto;
+    background-position: ${({position2}) => (position2)};
+  }
   //background: ;
       // Adjust image positioning (if image covers area with defined height) and add font-family for polyfill
 
 
   @media screen and (max-width: 1100px) {
     min-height: 100vh;
+    z-index: 10;
     //height: auto;
     //background-size: fill;
   }
 `
 
-const HeroH1 = styled.h1`
-  //background-color: #0a6699;
-  display: flex;
-  flex-direction: row;
-  font-size:var(--size-48);
-  margin: auto 2vw;
-  text-align: center;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-  
-  @media screen and (max-width: 1100px ){
-    //height: auto;
-    //margin: auto;
-    flex-direction: column;
-    justify-content: center;
-}
-`
+
 const HeroBody=styled.div`
   display: flex;
   justify-content: ${({position}) => (position)};
