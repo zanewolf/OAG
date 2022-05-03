@@ -16,6 +16,7 @@ import { ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import {useWindowSize} from "./useWindowSize";
 import MarkerClusterGroup from 'react-leaflet-markercluster'
+import getLatLon from "./Geocoder";
 
 
 let DefaultIcon = null;
@@ -70,6 +71,14 @@ function prepData(data){
             node.data.Longitude = +node.data.Longitude
             node.data.position=[node.data.Latitude,node.data.Longitude]
         } else{
+
+            // getLatLon(node.data.Main_Location)
+            getLatLon(node.data.Main_Location)
+                .then(result=>{
+                    let lat = +result.data.items[0].position.lat
+                    let lng = +result.data.items[0].position.lng
+                    node.data.position =[lat,lng]
+                })
 
             // node.data.position =[0,0]
 
