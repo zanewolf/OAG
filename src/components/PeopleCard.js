@@ -717,6 +717,7 @@ const UserImageModal = styled(GatsbyImage)`
   max-width: 30vh;
   width: auto;
   height: auto;
+  max-height: 30vh;
   object-fit: cover;
   display: flex;
   justify-content: center;

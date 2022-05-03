@@ -38,7 +38,7 @@ export default function UndergradPage() {
                         Information for Undergraduate Students
                     </ContentHeader>
                     <ContentParagraph>
-                        Undergraduate students are vital members of our research community. Classes like Deep Sea Biology (OEB 119) and Marine Biology (OEB ) show that the appetite for opportunities in marine sciences is high. We want to ensure that undergraduates are able to connect with scholars in these fields and start conducting meaningful research.
+                        Undergraduate students are vital members of our research community. Classes like Deep Sea Biology (OEB 119) and Marine Biology (OEB 60) show that the appetite for opportunities in marine sciences is high. We want to ensure that undergraduates are able to connect with scholars in these fields and start conducting meaningful research.
                     </ContentParagraph>
                     <ContentParagraph>
                         To help undergraduates understand marine science research and begin acquiring research skills, we will begin offering a workshop at the beginning of each semester, starting Fall 2022. In this workshop, we will address common questions and concerns regarding research, and outline several ways to find and join labs that pique your interest.
