@@ -57,6 +57,7 @@
     "leaflet": "^1.7.1",
     "leaflet-responsive-popup": "^0.6.4",
     "lodash": "^4.17.21",
+    "node-fetch": "^2.6.7",
     "opencage-api-client": "^1.0.0",
     "react": "^17.0.1",
     "react-bootstrap": "^2.0.3",
