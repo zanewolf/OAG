@@ -72,12 +72,17 @@ function prepData(data){
             node.data.position=[node.data.Latitude,node.data.Longitude]
         } else{
 
-            // getLatLon(node.data.Main_Location)
+            // console.log(getLatLon(node.data.Main_Location))
             getLatLon(node.data.Main_Location)
                 .then(result=>{
+                    console.log(result)
                     let lat = +result.data.items[0].position.lat
                     let lng = +result.data.items[0].position.lng
                     node.data.position =[lat,lng]
+                })
+                .catch((error)=>{
+                    console.log('cruisemap error: ',error)
+                    node.data.position=[0,0]
                 })
 
             // node.data.position =[0,0]
@@ -98,16 +103,12 @@ export default function CruiseMap ({data}) {
 
 
     const copy =  (email) => {
-        console.log(email)
         navigator.clipboard.writeText(email);
         alert('Email address copied');
     }
 
-
     let displayData = prepData(data)
     var size = useWindowSize()
-
-    console.log(size.width)
 
     return (
         <MapPage>

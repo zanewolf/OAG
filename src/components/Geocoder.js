@@ -8,9 +8,13 @@ export default function getLatLon(address){
 
     if(address){
         let address_clean = address.replace(/[^\w\s\']|_/g, "")
-            .replace(/\s+/g, " ");
+            .replace(/\s+/g, "+");
 
-            return axios.get(baseHereGeoCodeUrl + address_clean+"&apiKey="+ process.env.GATSBY_HERE_API_KEY);
+            return axios.get(baseHereGeoCodeUrl + address_clean+"&apiKey="+ process.env.GATSBY_HERE_API_KEY)
+                .then((response)=>{return response})
+                .catch((error)=>{
+                    console.log('getLatLon error: ', error)
+                });
     }
 
 }
