@@ -14,6 +14,7 @@ import fetch from "node-fetch";
 
 const handler = async function(event, context) {
 
+
     // Trigger a rebuild
     const postUrl = `https://api.netlify.com/api/v1/sites/${process.env.GATSBY_NETLIFY_SITE_ID}/builds`;
 

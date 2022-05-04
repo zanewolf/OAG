@@ -82,7 +82,7 @@ export default function IndexPage() {
     )
     //
     // const imageData = ocean3_gradient2.childImageSharp.fluid
-    console.log(ocean3)
+    // console.log(ocean3)
 
 
 
