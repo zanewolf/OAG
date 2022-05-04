@@ -1,16 +1,13 @@
 import * as React from 'react';
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
-// import ocean3 from '../images/ocean3.jpg';
 import {useEffect} from "react";
 import {Link,graphql, useStaticQuery} from 'gatsby'
-// import ocean3_gradient from '../images/ocean3_gradient.jpg';
-// import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
-// import oceanfloor from '../images/ocean_floor.jpg';
 import Team from "../components/team";
 import styled from "styled-components";
 import {useWindowSize} from '../components/useWindowSize'
-import HelmetComponent from "../components/Helmet";
+
+
 
 let section2Image;
 
@@ -29,45 +26,55 @@ export default function IndexPage() {
       query {
         ocean3: file(relativePath: { eq: "ocean3.jpg" }) {
           childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+                quality: 100
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
         ocean3_gradient: file(
           relativePath: { eq: "ocean3_gradient.jpg" }
         ) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 1800) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+                quality: 100
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
         ocean3_gradient2: file(
           relativePath: { eq: "ocean3_gradient_subwidth.jpg" }
         ) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 1800) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+                quality: 100
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
         oceanfloor: file(
           relativePath: { eq: "ocean_floor.jpg" }
         ) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 1800) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+                quality: 100
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+            )
           }
         }  
         blackbg: file(
           relativePath: { eq: "blackbg.jpg" }
         ) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 1800) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+                quality: 100
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+            )
           }
         }        
       }
@@ -75,7 +82,7 @@ export default function IndexPage() {
     )
     //
     // const imageData = ocean3_gradient2.childImageSharp.fluid
-    console.log(ocean3_gradient, ocean3_gradient2)
+    console.log(ocean3)
 
 
 
@@ -95,7 +102,7 @@ export default function IndexPage() {
                     <Hero
                         // title={"Ocean Affinity @ Harvard University"}
                         size={"100vh"}
-                        image={ocean3.childImageSharp.fluid}
+                        imageData={ocean3}
                         id={"hero1"}
                         position={'center'}
                         position2={'center'}
@@ -109,7 +116,7 @@ export default function IndexPage() {
                     </Hero>
                     <Hero
                         size={"100vh"}
-                        image={ ocean3_gradient2.childImageSharp.fluid}
+                        imageData={ ocean3_gradient2}
                         id={"hero2"}
                         position={'center'}
                         position2={'center'}
@@ -125,7 +132,7 @@ export default function IndexPage() {
 
                     <Hero
                         // image={blackbg.childImageSharp.fluid}
-                        image={oceanfloor.childImageSharp.fluid}
+                        imageData={oceanfloor}
                         size={"100vh"}
                         // color={"rgb(0,5,10)"}
                         id={"hero3"}
@@ -195,6 +202,10 @@ const SectionHeader=styled.h2`
   font-size: var(--size-50);
   font-weight: bold;
   max-width: 30vw;
+  
+  @media screen and (max-width: 1100px){
+    font-size: var(--size-40);
+  }
 
   @media screen and (max-width: 768px){
     text-align: center;

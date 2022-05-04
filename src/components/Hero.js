@@ -1,20 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../styles/hero.module.css';
+import {convertToBgImage} from "gbimage-bridge";
 import BackgroundImage from 'gatsby-background-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // import ocean3_gradient2 from '../images/ocean3_gradient_subwidth.jpg';
 
-export default function Hero({title,position, size, image,darkened, color, children, position2}){
+export default function Hero({title,position, size, imageData,darkened, color, children, position2}){
     // let heroImage = image? image : "../images/ocean.png"
 
 
-    //
-    // console.log(image)
+    const image = getImage(imageData)
+    const bgImage = convertToBgImage(image)
     return(
         // <div className={"hero-container"}>
         <HeroContainer size={size}>
-            <HeroImage fluid={image} size={size} backgroundColor={color} position2={position2}>
+            <HeroImage
+                Tag = 'section'
+                {...bgImage}
+                size={size}
+                alt={'Oceanic Background Image'}
+                position2={position2}
+            >
                 <HeroContent  position={position}>
                     {/*<HeroH1>*/}
                     {/*    {title}*/}
@@ -89,7 +97,34 @@ const HeroContent = styled.div`
     margin: auto;
   }
 `
-
+// const HeroImage = styled(GatsbyImage)`
+//   //background: url(${({image})=>(image ? image : null)}) center center/cover no-repeat;
+//   // background: ${({image,color,position2})=>(image ? `url(${image}) ${position2} center/cover no-repeat` : `${color}`)};
+//   position: relative;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: ${({size}) => (size)};
+//   background-position: ${({position2}) => (position2)};
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//
+//   @media screen and (max-width: 1100px) {
+//       //overflow: visible
+//     height: auto;
+//     background-position: ${({position2}) => (position2)};
+//   }
+//   //background: ;
+//       // Adjust image positioning (if image covers area with defined height) and add font-family for polyfill
+//
+//
+//   @media screen and (max-width: 1100px) {
+//     min-height: 100vh;
+//     z-index: 10;
+//     //height: auto;
+//     //background-size: fill;
+//   }
+// `
 const HeroImage = styled(BackgroundImage)`
   //background: url(${({image})=>(image ? image : null)}) center center/cover no-repeat;
   // background: ${({image,color,position2})=>(image ? `url(${image}) ${position2} center/cover no-repeat` : `${color}`)};
