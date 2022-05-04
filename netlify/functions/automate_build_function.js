@@ -20,8 +20,8 @@ const handler = async function(event, context) {
     const response = await fetch(postUrl, {
         method: "POST",
         headers: {
-            Authorization: `Bearer ${process.env.GATSBY_NETLIFY_OAUTH_ID}`,
-            "User-Agent": `${process.env.GATSBY_NETLIFY_UA_TOKEN}`
+            Authorization: `Bearer ${process.env.GATSBY_NETLIFY_UA_TOKEN}`,
+            "User-Agent": `${process.env.GATSBY_API_UA_STRING}`
         }
     });
 
