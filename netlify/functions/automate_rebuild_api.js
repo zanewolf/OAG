@@ -10,28 +10,28 @@
 // // SPDX-License-Identifier: Jam
 //
 //
-// import fetch from "node-fetch";
-//
-// const handler = async function(event, context) {
-//
-//
-//     // Trigger a rebuild
-//     const postUrl = `https://api.netlify.com/api/v1/sites/${process.env.GATSBY_NETLIFY_SITE_ID}/builds`;
-//
-//     const response = await fetch(postUrl, {
-//         method: "POST",
-//         headers: {
-//             Authorization: `Bearer ${process.env.GATSBY_NETLIFY_UA_TOKEN}`,
-//             "User-Agent": `${process.env.GATSBY_API_UA_STRING}`
-//         }
-//     });
-//
-//     const result = await response.json();
-//     console.log("Result: ", result);
-//
-//     return {
-//         statusCode: 200,
-//     };
-// };
-//
-// module.exports.handler = handler;
+import fetch from "node-fetch";
+
+const handler = async function(event, context) {
+
+
+    // Trigger a rebuild
+    const postUrl = `https://api.netlify.com/api/v1/sites/${process.env.GATSBY_NETLIFY_SITE_ID}/builds`;
+
+    const response = await fetch(postUrl, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${process.env.GATSBY_NETLIFY_UA_TOKEN}`,
+            "User-Agent": `${process.env.GATSBY_API_UA_STRING}`
+        }
+    });
+
+    const result = await response.json();
+    console.log("Result: ", result);
+
+    return {
+        statusCode: 200,
+    };
+};
+
+module.exports.handler = handler;
