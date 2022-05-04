@@ -72,20 +72,23 @@ function prepData(data){
             node.data.position=[node.data.Latitude,node.data.Longitude]
         } else{
 
-            // console.log(getLatLon(node.data.Main_Location))
-            getLatLon(node.data.Main_Location)
-                .then(result=>{
-                    console.log(result)
-                    let lat = +result.data.items[0].position.lat
-                    let lng = +result.data.items[0].position.lng
-                    node.data.position =[lat,lng]
-                })
-                .catch((error)=>{
-                    console.log('cruisemap error: ',error)
-                    node.data.position=[0,0]
-                })
+            // // console.log(getLatLon(node.data.Main_Location))
+            // try {
+            //     getLatLon(node.data.Main_Location)
+            //         .then(result => {
+            //             console.log(result)
+            //             let lat = +result.data.items[0].position.lat
+            //             let lng = +result.data.items[0].position.lng
+            //             node.data.position = [lat, lng]
+            //         })
+            // } catch(error){
+            //     console.log('cruisemap error: ',error)
+            //     node.data.position=[0,0]
+            //     node.data.Research_Subject=node.data.Research_Subject+" - Location Error"
+            //     }
 
-            // node.data.position =[0,0]
+            node.data.position =[0,0]
+            node.data.Research_Subject=node.data.Research_Subject+" - Location Error"
 
             // node.data.position = getLatLong(node.data.Main_Location)
             //     .then(coords => {console.log(coords); return coords})
