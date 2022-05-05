@@ -9,6 +9,6 @@
     # As scheduled functions are new, there is the possibility these options
     # will change.
     # See: https://github.com/netlify/labs/tree/main/features/scheduled-functions/documentation
-    schedule = "@daily"
+    schedule = "@hourly"
 
 ## Rest of TOML
