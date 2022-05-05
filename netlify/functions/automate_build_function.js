@@ -2,13 +2,15 @@
 const { schedule } = require('@netlify/functions')
 const fetch = require('node-fetch');
 
-const REBUILD_URL = process.env.GATSBY_NETLIFY_BUILD_HOOK;
+
 
 // absolute vs relative urls?
 // build hook?
 
 const handler = async function(event, context) {
     console.log("Received event:", event)
+
+    const REBUILD_URL = process.env.GATSBY_NETLIFY_BUILD_HOOK+'?trigger_branch=main&trigger_title=triggered+by+This+Awesome+Service';
 
     try{
         let response = await fetch(REBUILD_URL, { method: 'POST'});
