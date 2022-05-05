@@ -1,14 +1,14 @@
 
 ## Rest of TOML
 
-# [functions]
-#   node_bundler = "esbuild"
-#
-# #   [functions."automate_rebuild_api"]
-#     # Other options are @hourly, @daily, @monthly, @yearly
-#     # As scheduled functions are new, there is the possibility these options
-#     # will change.
-#     # See: https://github.com/netlify/labs/tree/main/features/scheduled-functions/documentation
-#     schedule = "@hourly"
+[functions]
+  node_bundler = "esbuild"
 
-## Rest of TOML
+#   [functions."automate_rebuild_api"]
+    # Other options are @hourly, @daily, @monthly, @yearly
+    # As scheduled functions are new, there is the possibility these options
+    # will change.
+    # See: https://github.com/netlify/labs/tree/main/features/scheduled-functions/documentation
+    schedule = "@hourly"
+
+# Rest of TOML
