@@ -25,7 +25,7 @@ const handler = async function(event, context) {
             Authorization: `Bearer ${process.env.NETLIFY_API_ID}`,
             "User-Agent": `${process.env.API_UA_STRING}`
         }
-    })
+    });
 
     const result = await response.json();
     console.log("Result: ", result);
