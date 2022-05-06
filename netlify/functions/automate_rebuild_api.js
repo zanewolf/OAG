@@ -16,14 +16,14 @@ const handler = async function(event, context) {
 
 
     // Trigger a rebuild
-    const postUrl = `https://api.netlify.com/api/v1/sites/${process.env.GATSBY_NETLIFY_SITE_ID}/builds`;
+    const postUrl = `https://api.netlify.com/api/v1/sites/${process.env.SITE_ID}/builds`;
 
 
     const response = await fetch(postUrl, {
         method: "POST",
         headers: {
-            Authorization: `Bearer ${process.env.GATSBY_NETLIFY_UA_TOKEN2}`,
-            "User-Agent": `${process.env.GATSBY_API_UA_STRING}`
+            Authorization: `Bearer ${process.env.NETLIFY_API_ID}`,
+            "User-Agent": `${process.env.API_UA_STRING}`
         }
     })
 
