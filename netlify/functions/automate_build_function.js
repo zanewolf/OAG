@@ -1,4 +1,5 @@
 
+/*
 const { schedule } = require('@netlify/functions')
 const fetch = require('node-fetch');
 
@@ -21,4 +22,4 @@ const handler = async function(event, context) {
     };
 };
 
-module.exports.handler = schedule("@hourly", handler);
+module.exports.handler = schedule("@hourly", handler);*/
