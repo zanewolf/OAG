@@ -10,5 +10,5 @@
 #     # will change.
 #     # See: https://github.com/netlify/labs/tree/main/features/scheduled-functions/documentation
 #     schedule = "@hourly"
-#
-# # Rest of TOML
+
+# Rest of TOML
