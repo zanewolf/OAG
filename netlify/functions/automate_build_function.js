@@ -1,12 +1,12 @@
 
-/*
+
 const { schedule } = require('@netlify/functions')
 const fetch = require('node-fetch');
 
 const handler = async function(event, context) {
     console.log("Received event:", event)
 
-    const REBUILD_URL = process.env.NETLIFY_BUILD_HOOK;
+    const REBUILD_URL = `https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK}`;
 
     try{
         let response = await fetch(REBUILD_URL, { method: 'POST'});
@@ -22,4 +22,4 @@ const handler = async function(event, context) {
     };
 };
 
-module.exports.handler = schedule("@hourly", handler);*/
+module.exports.handler = schedule("@hourly", handler);
