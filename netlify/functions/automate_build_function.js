@@ -6,17 +6,15 @@ const fetch = require('node-fetch');
 const handler = async function(event, context) {
     console.log("Received event:", event)
 
-    const REBUILD_URL = `https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK}`;
+    const REBUILD_URL = `https://api.netlify.com/build_hooks/${process.env.NETLIFY_BUILD_HOOK}`;
 
-    try{
-        let response = await fetch(REBUILD_URL, { method: 'POST'});
-        if (!response.ok){
-            throw new Error(response.statusText);
-        }
-    } catch (err){
-        console.log('automated_build_function error: ', err)
-    }
-
+    let response = await fetch(REBUILD_URL, { method: 'POST'});
+    // if (!response.ok){
+    //     throw new Error(response.statusText);
+    // }
+    const result = await response.json();
+    console.log("automated build function result: ", result);
+//
     return {
         statusCode: 200,
     };
